@@ -24,14 +24,14 @@ Windows 系统的话，需要这个软件 [win32diskimager](https://sourceforge.
 在 raspbian 系统中的 boot 分区中新建一个空的文件并命名为 `ssh`。当系统启动的时候将会启动 ssh，然后就可以用 ssh 连接上去。
 目前下载的 raspbian 的系统都是基于 Debian 9 stretch 的，所以在 boot 分区下新建文件 `wpa_supplicant.conf` 内容如下：
 
-{% codeblock wpa_supplicant.conf lang:apacheConf %}
+``` conf
 ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
 network={
     ssid="YOUR_NETWORK_NAME"
     psk="YOUR_PASSWORD"
     key_mgmt=WPA-PSK
 }
-{% endcodeblock %}
+```
 
 系统启动后将会把这个文件移动到 `/etc/wpa_supplicant/` 文件夹下，然后自动连接 Wifi。
 
@@ -43,20 +43,20 @@ network={
 
 只需要将 `/etc/apt/sources.list` 和 `/etc/apt/sources.list.d/raspi.list` 中修改一下即可。
 
-{% codeblock /etc/apt/sources.list lang:bash %}
+``` bash
 deb https://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ stretch main contrib non-free rpi
 deb-src https://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ stretch main contrib non-free rpi
-{% endcodeblock %}
+```
 
-{% codeblock /etc/apt/sources.list.d/raspi.list lang:bash %}
+``` bash
 deb https://mirror.tuna.tsinghua.edu.cn/raspberrypi/ stretch main ui
 deb-src https://mirror.tuna.tsinghua.edu.cn/raspberrypi/ stretch main ui
-{% endcodeblock %}
+```
 
 ### 切换 DNS
 
 修改 `/etc/resolv.conf` 为以下内容：
 
-{% codeblock /etc/resolv.conf lang:apacheConf %}
+``` conf
 nameserver 9.9.9.9
-{% endcodeblock %}
+```
