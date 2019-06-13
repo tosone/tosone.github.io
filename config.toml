@@ -1,4 +1,4 @@
-baseURL = "http://localhost:1313/"
+baseURL = "https://tosone.cn"
 title = "Tosone's Blog"
 enableRobotsTXT = true
 enableEmoji = true
