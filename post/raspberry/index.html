@@ -71,7 +71,7 @@
 
 <meta itemprop="datePublished" content="2017-11-25T18:27:37&#43;00:00" />
 <meta itemprop="dateModified" content="2017-11-25T18:27:37&#43;00:00" />
-<meta itemprop="wordCount" content="574">
+<meta itemprop="wordCount" content="553">
 
 
 
@@ -333,16 +333,24 @@
 
 <p>在 raspbian 系统中的 boot 分区中新建一个空的文件并命名为 <code>ssh</code>。当系统启动的时候将会启动 ssh，然后就可以用 ssh 连接上去。
 目前下载的 raspbian 的系统都是基于 Debian 9 stretch 的，所以在 boot 分区下新建文件 <code>wpa_supplicant.conf</code> 内容如下：</p>
-
-<p>{% codeblock wpa_supplicant.conf lang:apacheConf %}
-ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-conf" data-lang="conf"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-conf" data-lang="conf">ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
 network={
-    ssid=&ldquo;YOUR_NETWORK_NAME&rdquo;
-    psk=&ldquo;YOUR_PASSWORD&rdquo;
+    ssid=&#34;YOUR_NETWORK_NAME&#34;
+    psk=&#34;YOUR_PASSWORD&#34;
     key_mgmt=WPA-PSK
-}
-{% endcodeblock %}</p>
-
+}</code></pre></td></tr></table>
+</div>
+</div>
 <p>系统启动后将会把这个文件移动到 <code>/etc/wpa_supplicant/</code> 文件夹下，然后自动连接 Wifi。</p>
 
 <h3 id="查找内网-raspberrypi">查找内网 RaspberryPi</h3>
@@ -352,24 +360,36 @@ network={
 <h3 id="切换源">切换源</h3>
 
 <p>只需要将 <code>/etc/apt/sources.list</code> 和 <code>/etc/apt/sources.list.d/raspi.list</code> 中修改一下即可。</p>
-
-<p>{% codeblock /etc/apt/sources.list lang:bash %}
-deb <a href="https://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/">https://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/</a> stretch main contrib non-free rpi
-deb-src <a href="https://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/">https://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/</a> stretch main contrib non-free rpi
-{% endcodeblock %}</p>
-
-<p>{% codeblock /etc/apt/sources.list.d/raspi.list lang:bash %}
-deb <a href="https://mirror.tuna.tsinghua.edu.cn/raspberrypi/">https://mirror.tuna.tsinghua.edu.cn/raspberrypi/</a> stretch main ui
-deb-src <a href="https://mirror.tuna.tsinghua.edu.cn/raspberrypi/">https://mirror.tuna.tsinghua.edu.cn/raspberrypi/</a> stretch main ui
-{% endcodeblock %}</p>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">deb https://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ stretch main contrib non-free rpi
+deb-src https://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ stretch main contrib non-free rpi</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">deb https://mirror.tuna.tsinghua.edu.cn/raspberrypi/ stretch main ui
+deb-src https://mirror.tuna.tsinghua.edu.cn/raspberrypi/ stretch main ui</code></pre></td></tr></table>
+</div>
+</div>
 <h3 id="切换-dns">切换 DNS</h3>
 
 <p>修改 <code>/etc/resolv.conf</code> 为以下内容：</p>
-
-<p>{% codeblock /etc/resolv.conf lang:apacheConf %}
-nameserver 9.9.9.9
-{% endcodeblock %}</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-conf" data-lang="conf"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-conf" data-lang="conf">nameserver 9.9.9.9</code></pre></td></tr></table>
+</div>
+</div>
     </div>
 
     
