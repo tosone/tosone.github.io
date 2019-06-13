@@ -1,0 +1,219 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="stylesheet" href="css/about.css">
+  <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdn.bootcss.com/lodash.js/4.17.11/lodash.min.js"></script>
+</head>
+
+<body>
+  <section>
+    <h1>Tosone <a href="resume.pdf" class="download">下载简历</a></h1>
+    <ul>
+      <li>
+        <p>男，汉族，1992 年 10 月生，现居北京</p>
+      </li>
+      <li>
+        <p>电话: 17010209162</p>
+      </li>
+      <li>
+        <p>邮箱: <a href="mailto:tosone@qq.comm">tosone@qq.com</a></p>
+      </li>
+      <li>
+        <p>GitHub: <a href="https://github.com/tosone" title="GitHub">Tosone</a></p>
+      </li>
+      <li>
+        <p>个人主页: <a href="https://tosone.cn" title="Blog">https://tosone.cn</a></p>
+      </li>
+      <li>
+        <p>毕业院校: 平顶山学院（统招本科）</p>
+      </li>
+    </ul>
+  </section>
+  <section>
+    <h2>技能知识</h2>
+    <ul>
+      <li>
+        <p>语言 (GitHub API): <span id="language">JavaScript, C++, Go, C</span>.</p>
+      </li>
+      <li>
+        <p>平台: Windows, Linux, Darwin.</p>
+      </li>
+      <li>
+        <p>开发工具: Git, Linux Bash, Julia.</p>
+      </li>
+      <li>
+        <p>数据库: MongoDB, SQLite, MySQL, Postgresql, Redis.</p>
+      </li>
+      <li>
+        <p class="skill">技能: React 的开发非常熟悉。对 NodeJs 和 NodeJs binding C++ 的混合编程非常熟悉。对 Golang 有深入的研究，对 Golang 和 C
+          的混合编程有深入研究，并且目前以此为主力语言，开发各种项目，包括桌面软件、嵌入式项目、Linux 命令行工具。用 Python 做过一些 SDK 类的开发，并对 Python
+          的多线程进程管理有过一些研究。对于 C/C++ 是很熟悉的，开发过一些个人项目和一些 LeetCode 训练题。</p>
+      </li>
+    </ul>
+  </section>
+  <section>
+    <h2>工作经历</h2>
+    <ul>
+      <li>
+        <p>
+          <coopname><a href="http://www.smartconn.cc" title="恒胜东阳科技" target="_blank">恒胜东阳科技</a> ( 2016.3 - 今 )
+          </coopname>
+          <description>
+            2016.3 - 2016.10 主要工作是基于 NodeJs 和 AngularJs 做的一个类似于 APP
+            商城的系统，主要功能是给一些嵌入式玩具设备提供一个功能扩展能力，涉及到 APP 版本控制，权限管理，登录安全，设备通信等等。
+          </description>
+          <description>
+            2016.10 - 2017.1 结合 Node-RED 做设备上对接 APP 商城的客户端，用于管理扩展客户端能力的应用，仍然基于 NodeJs。也包含 Python 脚本 SDK 类的部分开发，例如:
+            aliot, audio play 管理等。
+          </description>
+          <description>
+            2017.1 - 2017.5 主要做关于 python 类的基础组件的开发。首先是 aliot 主要用于设备和 aliyun 物联网套件之间的通讯服务。其次是 audio manager
+            主要用于设备音频的管理，将设备的音频分为前景音背景音，并且可以直接播放网络音频，边下载边播放。
+          </description>
+          <description>
+            2017.3 - 2017.10
+            智能故事机的互动故事的开发，主要负责互动故事的脚本解析引擎的开发设计。故事机通过脚本解析引擎来跟用户进行交互，极大地方便开发人员来通过一种方便的脚本语言来实现互动，提高了脚本的开发速度。预言 Golang
+            版本的脚本解析引擎。
+          </description>
+          <description>
+            2017.10 - 2018.10 二代智能故事机的开发，主要是以 Golang 和 C/C++ 为主，负责故事机开发的各个方面，包括：OTA，系统管理，磁盘管理，日志事件收集，反向
+            shell（提供给开发人员直接可以进入用户设备的工具），将之前的脚本解析引擎移从 NodeJs 植到 Golang 中来，实现了通过解码 mp3，并对原始音频转频率实现设备的 mp3 播放器，并且也实现了对整个项目的
+            Docker 化，快速的编译迭代版本并发布。
+          </description>
+          <description>
+            2018.10 - 2019.3 主要基于 electron、Golang 开发出一个给资源管理打包部门人员使用的打包工具，包含自动多种类型资源的处理上传等等，并且包含图书条形码识别功能。
+          </description>
+        </p>
+      </li>
+    </ul>
+  </section>
+  <section>
+    <h2>个人作品 (From <a href="https://github.com/tosone" target="_blank">GitHub</a>)</h2>
+    <ul>
+      <li>
+        <p>
+          <projectname><a href="https://github.com/tosone/minimp3.git" title="minimp3" target="_blank">minimp3</a>
+          </projectname>
+          <intro>利用 Golang 的 CGO 和 C 的混合编程实现的 MP3 的数据流式解码，并且可以让网络音频的实时下载解码播放变的非常容易。并且已经被收录到 <a
+              href="https://awesome-go.com/#audio-and-music" title="Awesome go">Awesome go</a> 的 Audio and Music
+            中。并且解码器是多线程安全的，已经有 99% 的测试覆盖。
+          </intro>
+        </p>
+      </li>
+
+      <li>
+        <p>
+          <projectname><a href="https://github.com/EffDataAly/GithubTraveler" title="GithubTraveler"
+              target="_blank">GithubTraveler</a>
+          </projectname>
+          <intro>利用 Golang 实现的 Github 的 user, followers, followings, repo, repo stars, repo watchers
+            等等的实时监控，并且包括实时的数据展示等。</intro>
+        </p>
+      </li>
+      <li>
+        <p>
+          <projectname><a href="https://github.com/tosone/panx" title="panx" target="_blank">panx</a>
+          </projectname>
+          <intro>基于 React React-router 的单页网盘程序，尚未完成正在开发中。</intro>
+        </p>
+      </li>
+      <li>
+        <p>
+          <projectname><a href="https://github.com/tosone/cmongo" title="cmongo" target="_blank">cmongo</a>
+          </projectname>
+          <intro>cmongo 是用 Golang 对 mongodb 的 C 的 client 的包装。</intro>
+        </p>
+      </li>
+      <li>
+        <p>
+          <projectname><a href="https://github.com/tosone/sudoku" title="sudoku" target="_blank">sudoku</a>
+          </projectname>
+          <intro>利用纯 C 语言实现的数独库的解题，并且利用 ncursers 来实现命令行上的图形化逐步解题的动画展示，效果图见项目下方动图。</intro>
+        </p>
+      </li>
+      <li>
+        <p>
+          <projectname><a href="https://github.com/miniav/goff" title="goff" target="_blank">goff</a>
+          </projectname>
+          <intro>为了方便 Golang 中对 FFmpeg 的调用做的一个 Golang 对 FFmpeg 的 binding 项目，仍然在开发中，已经做了其中 API 20% 迁移。</intro>
+        </p>
+      </li>
+      <li>
+        <p>
+          <projectname><a href="https://github.com/tosone/ghCrawler" title="ghCrawler" target="_blank">ghCrawler</a>
+          </projectname>
+          <intro>利用 C++ 和其他一些第三方开源仓库包括 libCURL, libnghttp2, sqlite3, openssl, libyaml, nlohmann/json, spdlog
+            等实现的
+            Github API 的访问和仓库信息的获取。</intro>
+        </p>
+      </li>
+
+
+      <!-- <li>
+        <p>
+          <projectname><a href="https://github.com/tosone/socket-cluster-c" title="socket-cluster-c"
+              target="_blank">socket-cluster-c</a>
+          </projectname>
+          <intro>用 C 实现的 socket cluster 的客户端，socket cluster 是基于 websocket 一个协议。</intro>
+        </p>
+      </li>
+      <li>
+        <p>
+          <projectname><a href="https://github.com/tosone/CryptoCommunication" title="Power"
+              target="_blank">CryptoCommunication</a></projectname>
+          <intro>采用 NodeJs 的 Crypto（RSA 和 ECDH）和WebSocket实现的安全通信，涉及 RSA、ECDH、DES。</intro>
+        </p>
+      </li>
+      <li>
+        <p>
+          <projectname><a href="https://github.com/tosone/canvasDemo" title="Canvas动画" target="_blank">SimpleCanvas</a>
+          </projectname>
+          <intro>在公司撸代码之余，采用模块化开发，简单的 Canvas 语法练习。</intro>
+        </p>
+      </li>
+      <li>
+        <p>
+          <projectname><a href="https://github.com/tosone/SQL-inject" title="SQL-inject" target="_blank">SQLInject</a>
+          </projectname>
+          <intro>专门为网络攻防实现的 PHP 网站实例。</intro>
+        </p>
+      </li>
+      <li>
+        <p>
+          <projectname><a href="https://github.com/tosone/Matrix" title="Matrix" target="_blank">Matrix</a>
+          </projectname>
+          <intro>一个复杂的 C++ 项目，用 C++ 处理行列式的各种计算。</intro>
+        </p>
+      </li> -->
+    </ul>
+  </section>
+
+  <section>
+    <h2>其它</h2>
+    <ul>
+      <li>
+        <p>爱好: 乒乓球，写博客，听歌，看电影。</p>
+      </li>
+      <li>
+        <p>特长: 写作、编程。</p>
+      </li>
+    </ul>
+  </section>
+  <section>
+    <h2>自我评价</h2>
+    <ul>
+      <li class="intro-self">乐于团队交流协作。</li>
+      <li class="intro-self">对于一些细微问题总是很执着。</li>
+      <li class="intro-self">对新鲜的事物以及技术保持很高极高的热情。</li>
+      <li class="intro-self">自学能力非常强。</li>
+    </ul>
+  </section>
+  <script src="js/about.js"></script>
+</body>
+
+</html>

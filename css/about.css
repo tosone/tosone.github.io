@@ -1,0 +1,101 @@
+html {
+  width: 100%;
+}
+
+body {
+  font: 16px 'Microsoft YaHei', 'Verdana Helvetica', arial, sans-serif;
+  color: #333;
+  background-color: #fff;
+  margin: 0;
+  width: 960px;
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+  color: #3C6BB3;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #4B75B7;
+}
+
+.download {
+  font-size: 15px;
+  color: #949494;
+}
+
+.download:hover {
+  text-decoration: underline;
+  color: #949494;
+}
+
+h1 {
+  font-size: 1.6em;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+h2 {
+  font-size: 1.2em;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+h1,
+h2 {
+  border-bottom: 1px solid #999;
+  font-weight: bold;
+  margin: 0;
+}
+
+ul {
+  list-style-type: circle;
+  margin-left: -0.4em;
+}
+
+li {
+  display: list-item;
+}
+
+coopname a,
+projectname a {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+description,
+intro {
+  margin-top: .8em;
+  display: block;
+  margin-left: 0em;
+}
+
+intro {
+  margin-left: 0em;
+}
+
+section {
+  position: relative;
+}
+
+@media (max-width: 1000px) {
+  body {
+    width: 100%;
+    padding: 10px 10px;
+    box-sizing: border-box;
+  }
+}
+
+.skill {
+  line-height: 1.8;
+}
+
+description {
+  line-height: 1.8;
+}
+
+.intro-self {
+  line-height: 1.8;
+}

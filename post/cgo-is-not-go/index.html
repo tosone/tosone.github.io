@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>cgo is not go - Tosone&#39;s Blog</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="Tosone" />
+  <meta name="description" content="Some people, when confronted with a problem, think &amp;ldquo;I know, I’ll use cgo.&amp;rdquo; Now they have two problems.
+" />
+
+  <meta name="keywords" content="Tosone, blog" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.6" />
+
+
+<link rel="canonical" href="https://tosone.cn/post/cgo-is-not-go/" />
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.ec807d8b802a40889537c26e014f733206312ea440d42e1f0dabed80918de1ac.css" integrity="sha256-7IB9i4AqQIiVN8JuAU9zMgYxLqRA1C4fDavtgJGN4aw=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+<meta property="og:title" content="cgo is not go" />
+<meta property="og:description" content="Some people, when confronted with a problem, think &ldquo;I know, I’ll use cgo.&rdquo; Now they have two problems." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://tosone.cn/post/cgo-is-not-go/" />
+<meta property="article:published_time" content="2018-03-10T21:14:28&#43;00:00"/>
+<meta property="article:modified_time" content="2018-03-10T21:14:28&#43;00:00"/>
+
+<meta itemprop="name" content="cgo is not go">
+<meta itemprop="description" content="Some people, when confronted with a problem, think &ldquo;I know, I’ll use cgo.&rdquo; Now they have two problems.">
+
+
+<meta itemprop="datePublished" content="2018-03-10T21:14:28&#43;00:00" />
+<meta itemprop="dateModified" content="2018-03-10T21:14:28&#43;00:00" />
+<meta itemprop="wordCount" content="1939">
+
+
+
+<meta itemprop="keywords" content="Golang,C,CGO," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="cgo is not go"/>
+<meta name="twitter:description" content="Some people, when confronted with a problem, think &ldquo;I know, I’ll use cgo.&rdquo; Now they have two problems."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Tosone</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://tosone.cn/">This is Home</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://tosone.cn/post/">Archives</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://tosone.cn/tags/">Tags</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://tosone.cn/categories/">Categories</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://tosone.cn/about.html">About</a>
+          
+        
+      </li>
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      Tosone
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://tosone.cn/">This is Home</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://tosone.cn/post/">Archives</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://tosone.cn/tags/">Tags</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://tosone.cn/categories/">Categories</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://tosone.cn/about.html">About</a>
+          
+
+        
+
+      </li>
+    
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">cgo is not go</h1>
+      
+      <div class="post-meta">
+        <time datetime="2018-03-10" class="post-time">
+          2018-03-10
+        </time>
+        
+        
+
+        
+        
+          <span id="busuanzi_container_page_pv">
+            | 阅读 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    
+    <div class="post-content">
+      <p>Some people, when confronted with a problem, think &ldquo;I know, I’ll use cgo.&rdquo; Now they have two problems.</p>
+
+<blockquote>
+<p>原文链接：<a href="https://dave.cheney.net/2016/01/18/cgo-is-not-go">https://dave.cheney.net/2016/01/18/cgo-is-not-go</a></p>
+</blockquote>
+
+<p>Recently the use of cgo came up on the Gophers’ slack channel and I voiced my concerns that using cgo, especially on a project that is intended to showcase Go inside an organisation was a bad idea. I’ve said this a number of times, and people are probably sick of hearing my spiel, so I figured that I’d write it down and be done with it.</p>
+
+<p>cgo is an amazing technology which allows Go programs to interoperate with C libraries. It’s a tremendously useful feature without which Go would not be in the position it is today. cgo is key to ability to run Go programs on Android and iOS.</p>
+
+<p>However, and to be clear these are my opinions, I am not speaking for anyone else, I think cgo is overused in Go projects. I believe that when faced with reimplementing a large piece of C code in Go, programmers choose instead to use cgo to wrap the library, believing that it is a more tractable problem. I believe this is a false economy.</p>
+
+<p>Obviously, there are some cases where cgo is unavoidable, most notably where you have to interoperate with a graphics driver or windowing system that is only available as a binary blob. But those cases where cgo’s use justifies its trade-offs are fewer and further between than many are prepared to admit.</p>
+
+<p>Here is an incomplete list of trade-offs you make, possibly without realising them, when you base your Go project on a cgo library.</p>
+
+<h3 id="slower-build-times">Slower build times</h3>
+
+<p>When you import &ldquo;C&rdquo; in your Go package, go build has to do a lot more work to build your code. Building your package is no longer simply passing a list of all the .go files in scope to a single invocation of go tool compile, instead:</p>
+
+<ul>
+<li>The cgo tool needs to be invoked to generate the C to Go and Go to C thunks and stubs.</li>
+<li>Your system C compiler has to be invoked for every C file in the package.</li>
+<li>The individual compilation units are combined together into a single .o file.</li>
+<li>The resulting .o file take a trip through the system linker for fix-ups against shared objects they reference.</li>
+</ul>
+
+<p>All this work happens every time you compile or test your package, which is constantly, if you’re actively working in that package. The Go tool parallelises some of this work where possible, but your packages’ compile time just grew to include a full rebuild of all that C code.</p>
+
+<p>It’s possible to work around this by pushing the cgo shims out into their own package, avoiding the compile time hit, but now you’ve had to restructure your application to work around a problem that you didn’t have before you started to use cgo.</p>
+
+<p>Oh, and you have to debug C compilation failures on the various platforms your package supports.</p>
+
+<h3 id="complicated-builds">Complicated builds</h3>
+
+<p>One of the goals of Go was to produce a language who’s build process was self describing; the source of your program contains enough information for a tool to build the project. This is not to say that using a Makefile to automate your build workflow is bad, but before cgo was introduced into a project, you may not have needed anything but the go tool to build and test. Afterwards, to set all the environment variables, keep track of shared objects and header files that may be installed in weird places, now you do.</p>
+
+<p>Keep in mind that Go supports platforms that don’t ship with make out of the box, so you’ll have to dedicate some time to coming up with a solution for your Windows users.</p>
+
+<p>Oh, and now your users have to have a C compiler installed, not just a Go compiler. They also have to install the C libraries your project depends on, so you’ll be taking on that support cost as well.</p>
+
+<h3 id="cross-compilation-goes-out-the-window">Cross compilation goes out the window</h3>
+
+<p>Go’s support for cross compilation is best in class. As of <a href="http://dave.cheney.net/2015/08/22/cross-compilation-with-go-1-5">Go 1.5 you can cross compile</a> from any supported platform to any other platform with the official installer available on the Go project website.</p>
+
+<p>By default cgo is disabled when cross compiling. Normally this isn’t a problem if your project is pure Go. When you mix in dependencies on C libraries, you either have to give up the option to cross compile your product, or you have to invest time in finding and maintaining cross compilation C toolchains for all your targets.</p>
+
+<p>Maybe if you work on a product that only communicates with clients over TCP sockets and you intend to run it in a SaaS model it’s reasonable to say that you don’t care about cross compilation. However, if you’re making a product which others will use, possibly integrated into their products, maybe it’s a monitoring solution, maybe it’s a client for your SaaS service, then you’ve locked them out of being able to easily cross compile.</p>
+
+<p>The number of platforms that Go supports continues to grow. Go 1.5 added support for 64 bit ARM and PowerPC. Go 1.6 adds support for 64 bit MIPS, and IBM’s s390 architecture is touted for Go 1.7. RISC-V is in the pipeline. If your product relies on a C library, not only do you have the all problems of cross compilation described above, you also have to make sure the C code you depend on works reliably on the new platforms Go is supporting — and you have to do that with the limited debuggability a C/Go hybrid affords you. Which brings me to my next point.</p>
+
+<h3 id="you-lose-access-to-all-your-tools">You lose access to all your tools</h3>
+
+<p>Go has great tools; we have the race detector, pprof for profiling code, coverage, fuzz testing, and source code analysis tools. None of those work across the cgo blood/brain barrier.</p>
+
+<p>Conversely excellent tools like valgrind don’t understand Go’s calling conventions or stack layout.  On that point, Ian Lance Taylor’s work to integrate clang’s memory sanitiser to debug dangling pointers on the C side will be of benefit for cgo users in Go 1.6.</p>
+
+<p>Combing Go code and C code results in the intersection of both worlds, not the union; the memory safety of C, and the debuggability of a Go program.</p>
+
+<h3 id="performance-will-always-be-an-issue">Performance will always be an issue</h3>
+
+<p>C code and Go code live in two different universes, cgo traverses the boundary between them. This transition is not free and depending on where it exists in your code, the cost could be inconsequential, or substantial.</p>
+
+<p>C doesn’t know anything about Go’s calling convention or growable stacks, so a call down to C code must record all the details of the goroutine stack, switch to the C stack, and run C code which has no knowledge of how it was invoked, or the larger Go runtime in charge of the program.</p>
+
+<p>To be fair, Go doesn’t know anything about C’s world either. This is why the rules for passing data between the two have become more onerous over time as the compiler becomes better at spotting stack data that is no longer considered live, and the garbage collector becomes better at doing the same for the heap.</p>
+
+<p>If there is a fault while in the C universe, the Go code has to recover enough state to at least print a stack trace and exit the program cleanly, rather than barfing up a core file.</p>
+
+<p>Managing this transition across call stacks, especially where signals, threads and callbacks are involved is non trivial, and again Ian Lance Taylor has done a huge amount of work in Go 1.6 to improve the interoperability of signal handling with C.</p>
+
+<p>The take away is that the transition between the C and Go world is non trivial, and it will never be free from overhead.</p>
+
+<h3 id="c-calls-the-shots-not-your-code">C calls the shots, not your code</h3>
+
+<p>It doesn’t matter which language you’re writing bindings or wrapping C code with; Python, Java with JNI, some language using libFFI, or Go via cgo; it’s C’s world, you’re just living in it.</p>
+
+<p>Go code and C code have to agree on how resources like address space, signal handlers, and thread TLS slots are to be shared — and when I say agree, I actually mean Go has to work around the C code’s assumption. C code that can assume it always runs on one thread, or blithely be unprepared to work in a multi threaded environment at all.</p>
+
+<p>You’re not writing a Go program that uses some logic from a C library, instead you’re writing a Go program that has to coexist with a belligerent piece of C code that is hard to replace, has the upper hand negotiations, and doesn’t care about your problems.</p>
+
+<h3 id="deployment-gets-more-complicated">Deployment gets more complicated</h3>
+
+<p>Any presentation on Go to a general audience will contain at least one slide with these words:</p>
+
+<blockquote>
+<p>Single, static binary</p>
+</blockquote>
+
+<p>This is Go’s ace in the hole that has lead it to become a poster child of the movement away from virtual machines and managed runtimes. Using cgo, you give that up.</p>
+
+<p>Depending on your environment, it’s probably possible to build your Go project into a deb or rpm, and assuming your other dependencies are also packaged, add them as an install dependency and push the problem off the operating system’s package manager. But that’s several significant changes to a build and deploy process that was previously as straight forward as go build &amp;&amp; scp.</p>
+
+<p><a href="http://dominik.honnef.co/posts/2015/06/statically_compiled_go_programs__always__even_with_cgo__using_musl/">It is possible to compile a Go program entirely statically</a>, but it is by no means simple and shows that the ramifications of including cgo in your project will ripple through your entire build and deploy life cycle.</p>
+
+<h3 id="choose-wisely">Choose wisely</h3>
+
+<p>To be clear, I am not saying that you should not use cgo. But before you make that Faustian bargain, please consider carefully the qualities of Go that you’ll be giving up in return.</p>
+
+<h3 id="related-posts">Related Posts:</h3>
+
+<ul>
+<li><a href="https://dave.cheney.net/2013/07/09/an-introduction-to-cross-compilation-with-go-1-1">An introduction to cross compilation with Go 1.1</a></li>
+<li><a href="https://dave.cheney.net/2015/08/22/cross-compilation-with-go-1-5">Cross compilation with Go 1.5</a></li>
+<li><a href="https://dave.cheney.net/2015/03/03/cross-compilation-just-got-a-whole-lot-better-in-go-1-5">Cross compilation just got a whole lot better in Go 1.5</a></li>
+<li><a href="https://dave.cheney.net/2012/09/08/an-introduction-to-cross-compilation-with-go">An introduction to cross compilation with Go</a></li>
+</ul>
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Tosone</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">2018-03-10</span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://tosone.cn/tags/golang/">Golang</a>
+          <a href="https://tosone.cn/tags/c/">C</a>
+          <a href="https://tosone.cn/tags/cgo/">CGO</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+        
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+    
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="icon-links">
+  
+  
+    <a href="mailto:i@tosone.cn" rel="me noopener" class="iconfont"
+      title="email" >
+      <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M664.781909 681.472759 0 97.881301C0 3.997201 71.046997 0 71.046997 0L474.477909 0 961.649408 0 1361.641813 0C1361.641813 0 1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759C771.345323 681.472759 764.482731 685.154773 753.594283 688.65053L753.594283 688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858L682.561621 688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759L664.781909 681.472759ZM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633 0 212.052267 0 212.052267L0 942.809523C0 942.809523 0 1024 83.726336 1024L682.532949 1024 753.579947 1024 1348.948139 1024C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523L1432.688811 212.052267C1432.688811 212.052267 893.138176 701.759633 817.019477 767.734955 777.248 802.205449 742.347691 811.03081 718.063616 811.603883L718.063616 811.603883Z"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://github.com/tosone" rel="me noopener" class="iconfont"
+      title="github"  target="_blank"
+      >
+      <svg class="icon" style="" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M512 12.672c-282.88 0-512 229.248-512 512 0 226.261333 146.688 418.133333 350.08 485.76 25.6 4.821333 34.986667-11.008 34.986667-24.618667 0-12.16-0.426667-44.373333-0.64-87.04-142.421333 30.890667-172.458667-68.693333-172.458667-68.693333C188.672 770.986667 155.008 755.2 155.008 755.2c-46.378667-31.744 3.584-31.104 3.584-31.104 51.413333 3.584 78.421333 52.736 78.421333 52.736 45.653333 78.293333 119.850667 55.68 149.12 42.581333 4.608-33.109333 17.792-55.68 32.426667-68.48-113.706667-12.8-233.216-56.832-233.216-253.013333 0-55.893333 19.84-101.546667 52.693333-137.386667-5.76-12.928-23.04-64.981333 4.48-135.509333 0 0 42.88-13.738667 140.8 52.48 40.96-11.392 84.48-17.024 128-17.28 43.52 0.256 87.04 5.888 128 17.28 97.28-66.218667 140.16-52.48 140.16-52.48 27.52 70.528 10.24 122.581333 5.12 135.509333 32.64 35.84 52.48 81.493333 52.48 137.386667 0 196.693333-119.68 240-233.6 252.586667 17.92 15.36 34.56 46.762667 34.56 94.72 0 68.522667-0.64 123.562667-0.64 140.202666 0 13.44 8.96 29.44 35.2 24.32C877.44 942.592 1024 750.592 1024 524.672c0-282.752-229.248-512-512-512"></path>
+</svg>
+
+    </a>
+  
+    <a href="http://weibo.com/gyguoyu" rel="me noopener" class="iconfont"
+      title="weibo"  target="_blank"
+      >
+      <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M385.714286 733.714286q12-19.428571 6.285714-39.428571t-25.714286-28.571429q-19.428571-8-41.714286-0.571429t-34.285714 26.285714q-12.571429 19.428571-7.428571 39.142857t24.571429 28.857143 42.571429 1.428571 35.714286-27.142857zm53.714286-69.142857q4.571429-7.428571 2-15.142857t-10-10.571429q-8-2.857143-16.285714 2.857143t-12.285714 10.571429q-9.714286 17.714286 7.428571 25.714286 8 2.857143 16.571429 2.857143t12.571429-10.571429zm99.428571 61.142857q-25.714286 58.285714-90.285714 85.714286t-128 6.857143q-61.142857-19.428571-84.285714-72.285714t3.714286-107.142857q26.857143-53.142857 86.571429-79.428571t120.285714-10.857143q63.428571 16.571429 90.571429 68.285714t1.428571 108.857143zm178.285714-91.428571q-5.142857-54.857143-50.857143-97.142857t-119.142857-62.285714-156.857143-12q-127.428571 13.142857-211.142857 80.857143t-75.714286 151.142857q5.142857 54.857143 50.857143 97.142857t119.142857 62.285714 156.857143 12q127.428571-13.142857 211.142857-80.857143t75.714286-151.142857zm176 2.285714q0 38.857143-21.142857 79.714286t-62.285714 78.285714-96.285714 67.142857-129.142857 47.428571-154.571429 17.714286-157.142857-19.142857-137.428571-53.142857-98-86.285714-37.142857-114q0-65.714286 39.714286-140t112.857143-147.428571q96.571429-96.571429 195.142857-134.857143t140.857143 4q37.142857 36.571429 11.428571 119.428571-2.285714 8-0.571429 11.428571t5.714286 4 8.285714 2.857143 7.714286-2l3.428571-1.142857q79.428571-33.714286 140.571429-33.714286t87.428571 34.857143q25.714286 36 0 101.714286-1.142857 7.428571-2.571429 11.428571t2.571429 7.142857 6.857143 4.285714 9.714286 3.428571q32.571429 10.285714 58.857143 26.857143t45.714286 46.571429 19.428571 66.571429zm-42.285714-356.571429q24 26.857143 31.142857 62t-3.714286 67.142857q-4.571429 13.142857-16.857143 19.428571t-25.428571 2.285714q-13.142857-4.571429-19.428571-16.857143t-2.285714-25.428571q11.428571-36-13.714286-63.428571t-61.142857-20q-13.714286 2.857143-25.714286-4.571429t-14.285714-21.142857q-2.857143-13.714286 4.571429-25.428571t21.142857-14.571429q34.285714-7.428571 68 3.142857t57.714286 37.428571zm103.428571-93.142857q49.714286 54.857143 64.285714 127.142857t-7.714286 138q-5.142857 15.428571-19.428571 22.857143t-29.714286 2.285714-22.857143-19.428571-2.857143-29.714286q16-46.857143 5.714286-98.285714t-45.714286-90.285714q-35.428571-39.428571-84.571429-54.571429t-98.857143-4.857143q-16 3.428571-29.714286-5.428571t-17.142857-24.857143 5.428571-29.428571 24.857143-16.857143q70.285714-14.857143 139.428571 6.571429t118.857143 76.857143z"></path>
+</svg>
+
+    </a>
+
+
+<a href="https://tosone.cn/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+   
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    
+      2016 -
+    2019
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        Tosone
+        
+      </span></span>
+
+  
+  
+    <span id="busuanzi_container">
+      访客数/访问量：<span id="busuanzi_value_site_uv"></span>/<span id="busuanzi_value_site_pv"></span>
+    </span>
+  
+
+  
+    <span>
+      豫ICP备16023221号
+    </span>
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
