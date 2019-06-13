@@ -86,4 +86,4 @@ defaultContentLanguage = "en"           # Default language to use
     g-github = "https://github.com/tosone"
     h-weibo = "http://weibo.com/gyguoyu"
   [params.counter.busuanzi]  # a Chinese visitor counter  # 不蒜子计数器
-    enable = true
+    enable = false
