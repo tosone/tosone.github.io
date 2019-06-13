@@ -71,7 +71,7 @@
 
 <meta itemprop="datePublished" content="2018-07-10T21:14:28&#43;00:00" />
 <meta itemprop="dateModified" content="2018-07-10T21:14:28&#43;00:00" />
-<meta itemprop="wordCount" content="848">
+<meta itemprop="wordCount" content="951">
 
 
 
@@ -334,28 +334,50 @@
 <p>需要注意的是在 <code>import &quot;C&quot;</code> 和 cgo 注释中间不能有空行。</p>
 
 <p>想要获取 C 中的变量只需要用到包名为 C 的 Go 内置的依赖。也就是说，如果你想调用 C 的函数 <code>printf()</code> 在 Go 的代码中，可以这样写 <code>C.printf()</code>。由于 cgo 还不支持可变参数（见<a href="https://github.com/golang/go/issues/975">issue 975</a>），我们需要将它包裹成另外我们自己的函数 <code>myprint()</code>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">cgoexample</span>
 
-<pre><code class="language-go">package cgoexample
+<span class="cm">/*
+</span><span class="cm">#include &lt;stdio.h&gt;
+</span><span class="cm">#include &lt;stdlib.h&gt;
+</span><span class="cm">
+</span><span class="cm">void myprint(char* s) {
+</span><span class="cm">    printf(&#34;%s\n&#34;, s);
+</span><span class="cm">}
+</span><span class="cm">*/</span>
+<span class="kn">import</span> <span class="s">&#34;C&#34;</span>
 
-/*
-#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
+<span class="kn">import</span> <span class="s">&#34;unsafe&#34;</span>
 
-void myprint(char* s) {
-    printf(&quot;%s\n&quot;, s);
-}
-*/
-import &quot;C&quot;
-
-import &quot;unsafe&quot;
-
-func Example() {
-    cs := C.CString(&quot;Hello from stdio\n&quot;)
-    C.myprint(cs)
-    C.free(unsafe.Pointer(cs))
-}
-</code></pre>
-
+<span class="kd">func</span> <span class="nf">Example</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">cs</span> <span class="o">:=</span> <span class="nx">C</span><span class="p">.</span><span class="nf">CString</span><span class="p">(</span><span class="s">&#34;Hello from stdio\n&#34;</span><span class="p">)</span>
+    <span class="nx">C</span><span class="p">.</span><span class="nf">myprint</span><span class="p">(</span><span class="nx">cs</span><span class="p">)</span>
+    <span class="nx">C</span><span class="p">.</span><span class="nf">free</span><span class="p">(</span><span class="nx">unsafe</span><span class="p">.</span><span class="nf">Pointer</span><span class="p">(</span><span class="nx">cs</span><span class="p">))</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
 <h3 id="在-c-中调用-go-方法">在 C 中调用 Go 方法</h3>
 
 <p>利用 cgo 在 C 中执行 Go 代码中定义的全局函数或者函数变量都是可行的。</p>
@@ -367,104 +389,198 @@ func Example() {
 <p>举例说明，有两个文件 foo.c 和 foo.go</p>
 
 <p>foo.go 的内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">gocallback</span>
 
-<pre><code class="language-go">package gocallback
+<span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
 
-import &quot;fmt&quot;
+<span class="cm">/*
+</span><span class="cm">#include &lt;stdio.h&gt;
+</span><span class="cm">extern void ACFunction();
+</span><span class="cm">*/</span>
+<span class="kn">import</span> <span class="s">&#34;C&#34;</span>
 
-/*
-#include &lt;stdio.h&gt;
-extern void ACFunction();
-*/
-import &quot;C&quot;
+<span class="c1">//export AGoFunction
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">AGoFunction</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;AGoFunction()&#34;</span><span class="p">)</span>
+<span class="p">}</span>
 
-//export AGoFunction
-func AGoFunction() {
-    fmt.Println(&quot;AGoFunction()&quot;)
-}
-
-func Example() {
-    C.ACFunction()
-}
-</code></pre>
-
+<span class="kd">func</span> <span class="nf">Example</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">C</span><span class="p">.</span><span class="nf">ACFunction</span><span class="p">()</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>foo.c 的内容：</p>
-
-<pre><code class="language-c">#include &quot;_cgo_export.h&quot;
-void ACFunction() {
-    printf(&quot;ACFunction()\n&quot;);
-    AGoFunction();
-} 
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="cp">#include</span> <span class="cpf">&#34;_cgo_export.h&#34;</span><span class="cp">
+</span><span class="cp"></span><span class="kt">void</span> <span class="nf">ACFunction</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;ACFunction()</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+    <span class="n">AGoFunction</span><span class="p">();</span>
+<span class="p">}</span> </code></pre></td></tr></table>
+</div>
+</div>
 <h4 id="函数变量">函数变量</h4>
 
 <p>下边的代码展示了一个 C 中执行 Go 代码中定义的回调函数。由于指针传递规则，Go 代码不能直接传递一个函数变量到 C 中。我们需要用间接的方式来实现。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">gocallback</span>
 
-<pre><code class="language-go">package gocallback
+<span class="kn">import</span> <span class="p">(</span>
+    <span class="s">&#34;fmt&#34;</span>
+    <span class="s">&#34;sync&#34;</span>
+<span class="p">)</span>
 
-import (
-    &quot;fmt&quot;
-    &quot;sync&quot;
-)
+<span class="cm">/*
+</span><span class="cm">extern void go_callback_int(int foo, int p1);
+</span><span class="cm">
+</span><span class="cm">// normally you will have to define function or variables
+</span><span class="cm">// in another separate C file to avoid the multiple definition
+</span><span class="cm">// errors, however, using &#34;static inline&#34; is a nice workaround
+</span><span class="cm">// for simple functions like this one.
+</span><span class="cm">static inline void CallMyFunction(int foo) {
+</span><span class="cm">    go_callback_int(foo, 5);
+</span><span class="cm">}
+</span><span class="cm">*/</span>
+<span class="kn">import</span> <span class="s">&#34;C&#34;</span>
 
-/*
-extern void go_callback_int(int foo, int p1);
+<span class="c1">//export go_callback_int
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">go_callback_int</span><span class="p">(</span><span class="nx">foo</span> <span class="nx">C</span><span class="p">.</span><span class="kt">int</span><span class="p">,</span> <span class="nx">p1</span> <span class="nx">C</span><span class="p">.</span><span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">fn</span> <span class="o">:=</span> <span class="nf">lookup</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nx">foo</span><span class="p">))</span>
+    <span class="nf">fn</span><span class="p">(</span><span class="nx">p1</span><span class="p">)</span>
+<span class="p">}</span>
 
-// normally you will have to define function or variables
-// in another separate C file to avoid the multiple definition
-// errors, however, using &quot;static inline&quot; is a nice workaround
-// for simple functions like this one.
-static inline void CallMyFunction(int foo) {
-    go_callback_int(foo, 5);
-}
-*/
-import &quot;C&quot;
+<span class="kd">func</span> <span class="nf">MyCallback</span><span class="p">(</span><span class="nx">x</span> <span class="nx">C</span><span class="p">.</span><span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;callback with&#34;</span><span class="p">,</span> <span class="nx">x</span><span class="p">)</span>
+<span class="p">}</span>
 
-//export go_callback_int
-func go_callback_int(foo C.int, p1 C.int) {
-    fn := lookup(int(foo))
-    fn(p1)
-}
+<span class="kd">func</span> <span class="nf">Example</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">i</span> <span class="o">:=</span> <span class="nf">register</span><span class="p">(</span><span class="nx">MyCallback</span><span class="p">)</span>
+    <span class="nx">C</span><span class="p">.</span><span class="nf">CallMyFunction</span><span class="p">(</span><span class="nx">C</span><span class="p">.</span><span class="nb">int</span><span class="p">(</span><span class="nx">i</span><span class="p">))</span>
+    <span class="nf">unregister</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
+<span class="p">}</span>
 
-func MyCallback(x C.int) {
-    fmt.Println(&quot;callback with&quot;, x)
-}
+<span class="kd">var</span> <span class="nx">mu</span> <span class="nx">sync</span><span class="p">.</span><span class="nx">Mutex</span>
+<span class="kd">var</span> <span class="nx">index</span> <span class="kt">int</span>
+<span class="kd">var</span> <span class="nx">fns</span> <span class="p">=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span><span class="kd">func</span><span class="p">(</span><span class="nx">C</span><span class="p">.</span><span class="kt">int</span><span class="p">))</span>
 
-func Example() {
-    i := register(MyCallback)
-    C.CallMyFunction(C.int(i))
-    unregister(i)
-}
+<span class="kd">func</span> <span class="nf">register</span><span class="p">(</span><span class="nx">fn</span> <span class="kd">func</span><span class="p">(</span><span class="nx">C</span><span class="p">.</span><span class="kt">int</span><span class="p">))</span> <span class="kt">int</span> <span class="p">{</span>
+    <span class="nx">mu</span><span class="p">.</span><span class="nf">Lock</span><span class="p">()</span>
+    <span class="k">defer</span> <span class="nx">mu</span><span class="p">.</span><span class="nf">Unlock</span><span class="p">()</span>
+    <span class="nx">index</span><span class="o">++</span>
+    <span class="k">for</span> <span class="nx">fns</span><span class="p">[</span><span class="nx">index</span><span class="p">]</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="nx">index</span><span class="o">++</span>
+    <span class="p">}</span>
+    <span class="nx">fns</span><span class="p">[</span><span class="nx">index</span><span class="p">]</span> <span class="p">=</span> <span class="nx">fn</span>
+    <span class="k">return</span> <span class="nx">index</span>
+<span class="p">}</span>
 
-var mu sync.Mutex
-var index int
-var fns = make(map[int]func(C.int))
+<span class="kd">func</span> <span class="nf">lookup</span><span class="p">(</span><span class="nx">i</span> <span class="kt">int</span><span class="p">)</span> <span class="kd">func</span><span class="p">(</span><span class="nx">C</span><span class="p">.</span><span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">mu</span><span class="p">.</span><span class="nf">Lock</span><span class="p">()</span>
+    <span class="k">defer</span> <span class="nx">mu</span><span class="p">.</span><span class="nf">Unlock</span><span class="p">()</span>
+    <span class="k">return</span> <span class="nx">fns</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span>
+<span class="p">}</span>
 
-func register(fn func(C.int)) int {
-    mu.Lock()
-    defer mu.Unlock()
-    index++
-    for fns[index] != nil {
-        index++
-    }
-    fns[index] = fn
-    return index
-}
-
-func lookup(i int) func(C.int) {
-    mu.Lock()
-    defer mu.Unlock()
-    return fns[i]
-}
-
-func unregister(i int) {
-    mu.Lock()
-    defer mu.Unlock()
-    delete(fns, i)
-}
-</code></pre>
-
+<span class="kd">func</span> <span class="nf">unregister</span><span class="p">(</span><span class="nx">i</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">mu</span><span class="p">.</span><span class="nf">Lock</span><span class="p">()</span>
+    <span class="k">defer</span> <span class="nx">mu</span><span class="p">.</span><span class="nf">Unlock</span><span class="p">()</span>
+    <span class="nb">delete</span><span class="p">(</span><span class="nx">fns</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>The following code shows an example of invoking a Go callback from C code. Because of the pointer passing rules Go code can not pass a function value directly to C. Instead it is necessary to use an indirection. This example uses a registry with a mutex, but there are many other ways to map from a value that can be passed to C to a Go function.</p>
     </div>
 

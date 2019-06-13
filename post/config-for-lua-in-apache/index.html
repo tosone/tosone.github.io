@@ -76,7 +76,7 @@ Apache 关于 Lua 我不知道是哪一个版本编译进去了的，但是最�
 
 <meta itemprop="datePublished" content="2017-01-02T18:32:08&#43;00:00" />
 <meta itemprop="dateModified" content="2017-01-02T18:32:08&#43;00:00" />
-<meta itemprop="wordCount" content="1077">
+<meta itemprop="wordCount" content="1277">
 
 
 
@@ -341,215 +341,421 @@ Apache 关于 Lua 我不知道是哪一个版本编译进去了的，但是最�
 <ul>
 <li>首先我们写一个 <code>.htaccess</code> 的文件，作用就是会把我们的 Lua 后缀修改为 php。内容如下：</li>
 </ul>
-
-<pre><code class="language-ini">RewriteEngine on
-RewriteCond %{REQUEST_FILENAME} info
-RewriteRule (.*).php $1.lua [NC]
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ini" data-lang="ini"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ini" data-lang="ini"><span class="na">RewriteEngine on</span>
+<span class="na">RewriteCond %{REQUEST_FILENAME} info</span>
+<span class="na">RewriteRule (.*).php $1.lua [NC]</span></code></pre></td></tr></table>
+</div>
+</div>
 <ul>
 <li>新建一个 <code>info.lua</code>，写入内容如下：</li>
 </ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-lua" data-lang="lua"><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span><span class="lnt">136
+</span><span class="lnt">137
+</span><span class="lnt">138
+</span><span class="lnt">139
+</span><span class="lnt">140
+</span><span class="lnt">141
+</span><span class="lnt">142
+</span><span class="lnt">143
+</span><span class="lnt">144
+</span><span class="lnt">145
+</span><span class="lnt">146
+</span><span class="lnt">147
+</span><span class="lnt">148
+</span><span class="lnt">149
+</span><span class="lnt">150
+</span><span class="lnt">151
+</span><span class="lnt">152
+</span><span class="lnt">153
+</span><span class="lnt">154
+</span><span class="lnt">155
+</span><span class="lnt">156
+</span><span class="lnt">157
+</span><span class="lnt">158
+</span><span class="lnt">159
+</span><span class="lnt">160
+</span><span class="lnt">161
+</span><span class="lnt">162
+</span><span class="lnt">163
+</span><span class="lnt">164
+</span><span class="lnt">165
+</span><span class="lnt">166
+</span><span class="lnt">167
+</span><span class="lnt">168
+</span><span class="lnt">169
+</span><span class="lnt">170
+</span><span class="lnt">171
+</span><span class="lnt">172
+</span><span class="lnt">173
+</span><span class="lnt">174
+</span><span class="lnt">175
+</span><span class="lnt">176
+</span><span class="lnt">177
+</span><span class="lnt">178
+</span><span class="lnt">179
+</span><span class="lnt">180
+</span><span class="lnt">181
+</span><span class="lnt">182
+</span><span class="lnt">183
+</span><span class="lnt">184
+</span><span class="lnt">185
+</span><span class="lnt">186
+</span><span class="lnt">187
+</span><span class="lnt">188
+</span><span class="lnt">189
+</span><span class="lnt">190
+</span><span class="lnt">191
+</span><span class="lnt">192
+</span><span class="lnt">193
+</span><span class="lnt">194
+</span><span class="lnt">195
+</span><span class="lnt">196
+</span><span class="lnt">197
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-lua" data-lang="lua"><span class="c1">-- Extend tostring to report function type (C or Lua)</span>
+<span class="kr">do</span>
+  <span class="kd">local</span> <span class="n">type</span><span class="p">,</span> <span class="n">tostr</span> <span class="o">=</span> <span class="n">type</span><span class="p">,</span> <span class="n">tostring</span>
+  <span class="kr">function</span> <span class="nf">tostring</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+    <span class="kd">local</span> <span class="n">type</span><span class="p">,</span> <span class="n">val</span> <span class="o">=</span> <span class="n">type</span><span class="p">(</span><span class="n">obj</span><span class="p">),</span> <span class="n">tostr</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+    <span class="kr">if</span> <span class="n">type</span> <span class="o">==</span> <span class="s2">&#34;function&#34;</span> <span class="kr">then</span>
+      <span class="n">type</span> <span class="o">=</span> <span class="n">pcall</span><span class="p">(</span><span class="n">coroutine.create</span><span class="p">,</span> <span class="n">obj</span><span class="p">)</span> <span class="ow">and</span> <span class="s2">&#34;Lua &#34;</span> <span class="ow">or</span> <span class="s2">&#34;C &#34;</span> <span class="c1">-- coroutines cannot start at a C function</span>
+      <span class="kr">return</span> <span class="n">type</span> <span class="o">..</span> <span class="n">val</span>
+    <span class="kr">else</span>
+      <span class="kr">return</span> <span class="n">val</span>
+    <span class="kr">end</span>
+  <span class="kr">end</span>
+<span class="kr">end</span>
 
-<pre><code class="language-lua">-- Extend tostring to report function type (C or Lua)
-do
-  local type, tostr = type, tostring
-  function tostring(obj)
-    local type, val = type(obj), tostr(obj)
-    if type == &quot;function&quot; then
-      type = pcall(coroutine.create, obj) and &quot;Lua &quot; or &quot;C &quot; -- coroutines cannot start at a C function
-      return type .. val
-    else
-      return val
-    end
-  end
-end
+<span class="kd">local</span> <span class="n">safe_replacements</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="p">[</span><span class="s2">&#34;&lt;&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&#34;&amp;lt;&#34;</span><span class="p">,</span>
+  <span class="p">[</span><span class="s2">&#34;&gt;&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&#34;&amp;gt;&#34;</span><span class="p">,</span>
+  <span class="p">[</span><span class="s2">&#34;&amp;&#34;</span><span class="p">]</span> <span class="o">=</span><span class="s2">&#34;&amp;amp;&#34;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">safestring</span><span class="p">(...)</span>
+  <span class="kr">return</span> <span class="n">tostring</span><span class="p">(...):</span><span class="n">gsub</span><span class="p">(</span><span class="s2">&#34;[&lt;&gt;&amp;]&#34;</span><span class="p">,</span> <span class="n">safe_replacements</span><span class="p">):</span><span class="n">gsub</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">,</span> <span class="s2">&#34;&lt;br/&gt;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)</span>
+<span class="kr">end</span>
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">emstring</span><span class="p">(...)</span>
+  <span class="kr">return</span> <span class="s2">&#34;&amp;quot;&lt;em&gt;&#34;</span><span class="o">..</span> <span class="n">safestring</span><span class="p">(...)</span> <span class="o">..</span><span class="s2">&#34;&lt;/em&gt;&amp;quot;&#34;</span>
+<span class="kr">end</span>
 
-local safe_replacements = {
-  [&quot;&lt;&quot;] = &quot;&amp;lt;&quot;,
-  [&quot;&gt;&quot;] = &quot;&amp;gt;&quot;,
-  [&quot;&amp;&quot;] =&quot;&amp;amp;&quot;,
-}
-local function safestring(...)
-  return tostring(...):gsub(&quot;[&lt;&gt;&amp;]&quot;, safe_replacements):gsub(&quot;\n&quot;, &quot;&lt;br/&gt;\n&quot;)
-end
-local function emstring(...)
-  return &quot;&amp;quot;&lt;em&gt;&quot;.. safestring(...) ..&quot;&lt;/em&gt;&amp;quot;&quot;
-end
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">print_info</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
+  <span class="n">print</span> <span class="s">[[
+</span><span class="s">&lt;!DOCTYPE html PUBLIC &#34;-//W3C//DTD XHTML 1.0 Strict//EN&#34;
+</span><span class="s">&#34;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&#34;&gt;
+</span><span class="s">&lt;html&gt;
+</span><span class="s">  &lt;head&gt;
+</span><span class="s">    &lt;title&gt;mod_lua info&lt;/title&gt;
+</span><span class="s">    &lt;style type=&#34;text/css&#34;&gt;
+</span><span class="s">      body {
+</span><span class="s">        background-color: #eef;
+</span><span class="s">	color: black;
+</span><span class="s">	font-family: sans-serif;
+</span><span class="s">      }
+</span><span class="s">      table {
+</span><span class="s">        border-collapse: collapse;
+</span><span class="s">	text-align: left;
+</span><span class="s">	margin-left: auto;
+</span><span class="s">	margin-right: auto;
+</span><span class="s">      }
+</span><span class="s">      table.head th {
+</span><span class="s">        vertical-align: middle;
+</span><span class="s">	background-color: #99c;
+</span><span class="s">      }
+</span><span class="s">      div.center {
+</span><span class="s">        text-align: center;
+</span><span class="s">      }
+</span><span class="s">      h1 {
+</span><span class="s">        margin: 0;
+</span><span class="s">	padding: 0.3em 0;
+</span><span class="s">      }
+</span><span class="s">      td, th {
+</span><span class="s">        border: 1px black solid;
+</span><span class="s">	vertical-align: baseline;
+</span><span class="s">	font-size: 75%;
+</span><span class="s">      }
+</span><span class="s">      th {
+</span><span class="s">        background-color: #ccf;
+</span><span class="s">      }
+</span><span class="s">      td {
+</span><span class="s">        background-color: #ccc;
+</span><span class="s">      }
+</span><span class="s">      ul {
+</span><span class="s">        list-style: square;
+</span><span class="s">	margin: 0;
+</span><span class="s">	padding-left: 2em;
+</span><span class="s">      }
+</span><span class="s">    &lt;/style&gt;
+</span><span class="s">  &lt;/head&gt;
+</span><span class="s">  &lt;body&gt;
+</span><span class="s">    &lt;div class=&#34;center&#34;&gt;
+</span><span class="s">      &lt;table class=&#34;head&#34; width=&#34;600&#34;&gt;
+</span><span class="s">        &lt;tr&gt; &lt;th&gt;&lt;h1&gt;mod_lua&lt;/h1&gt;&lt;/th&gt; &lt;/tr&gt;
+</span><span class="s">      &lt;/table&gt;
+</span><span class="s">]]</span>
+  <span class="kr">for</span> <span class="n">group</span><span class="p">,</span> <span class="n">settings</span> <span class="kr">in</span> <span class="n">pairs</span><span class="p">(</span><span class="n">info</span><span class="p">)</span> <span class="kr">do</span>
+    <span class="n">print</span><span class="p">(</span><span class="s1">&#39;&lt;h2&gt;&lt;a name=&#34;&#39;</span><span class="o">..</span> <span class="n">group</span><span class="p">:</span><span class="n">gsub</span><span class="p">(</span><span class="s2">&#34;[^a-zA-Z]&#34;</span><span class="p">,</span> <span class="s2">&#34;&#34;</span><span class="p">)</span> <span class="o">..</span><span class="s1">&#39;&#34;&gt;&#39;</span><span class="o">..</span> <span class="n">group</span> <span class="o">..</span> <span class="s2">&#34;&lt;/a&gt;&lt;/h2&gt;&#34;</span><span class="p">)</span>
+    <span class="n">print</span> <span class="s">[[
+</span><span class="s">      &lt;table width=&#34;600&#34;&gt;
+</span><span class="s">]]</span>
+    <span class="kr">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="kr">in</span> <span class="n">pairs</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span> <span class="kr">do</span>
+      <span class="n">print</span><span class="p">(</span><span class="s2">&#34;&lt;tr&gt; &lt;th&gt;&#34;</span><span class="o">..</span> <span class="n">key</span> <span class="o">..</span><span class="s2">&#34;&lt;/th&gt; &lt;td&gt;&#34;</span><span class="o">..</span> <span class="n">value</span> <span class="o">..</span><span class="s2">&#34;&lt;/td&gt; &lt;/tr&gt;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)</span>
+    <span class="kr">end</span>
+    <span class="n">print</span> <span class="s2">&#34;&lt;/table&gt;</span><span class="se">\n</span><span class="s2">&#34;</span>
+  <span class="kr">end</span>
+  <span class="n">print</span> <span class="s">[[
+</span><span class="s">    &lt;/div&gt;
+</span><span class="s">  &lt;/body&gt;
+</span><span class="s">&lt;/html&gt;
+</span><span class="s">]]</span>
+<span class="kr">end</span>
 
-local function print_info(info)
-  print [[
-&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot;
-&quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;
-&lt;html&gt;
-  &lt;head&gt;
-    &lt;title&gt;mod_lua info&lt;/title&gt;
-    &lt;style type=&quot;text/css&quot;&gt;
-      body {
-        background-color: #eef;
-	color: black;
-	font-family: sans-serif;
-      }
-      table {
-        border-collapse: collapse;
-	text-align: left;
-	margin-left: auto;
-	margin-right: auto;
-      }
-      table.head th {
-        vertical-align: middle;
-	background-color: #99c;
-      }
-      div.center {
-        text-align: center;
-      }
-      h1 {
-        margin: 0;
-	padding: 0.3em 0;
-      }
-      td, th {
-        border: 1px black solid;
-	vertical-align: baseline;
-	font-size: 75%;
-      }
-      th {
-        background-color: #ccf;
-      }
-      td {
-        background-color: #ccc;
-      }
-      ul {
-        list-style: square;
-	margin: 0;
-	padding-left: 2em;
-      }
-    &lt;/style&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-    &lt;div class=&quot;center&quot;&gt;
-      &lt;table class=&quot;head&quot; width=&quot;600&quot;&gt;
-        &lt;tr&gt; &lt;th&gt;&lt;h1&gt;mod_lua&lt;/h1&gt;&lt;/th&gt; &lt;/tr&gt;
-      &lt;/table&gt;
-]]
-  for group, settings in pairs(info) do
-    print('&lt;h2&gt;&lt;a name=&quot;'.. group:gsub(&quot;[^a-zA-Z]&quot;, &quot;&quot;) ..'&quot;&gt;'.. group .. &quot;&lt;/a&gt;&lt;/h2&gt;&quot;)
-    print [[
-      &lt;table width=&quot;600&quot;&gt;
-]]
-    for key, value in pairs(settings) do
-      print(&quot;&lt;tr&gt; &lt;th&gt;&quot;.. key ..&quot;&lt;/th&gt; &lt;td&gt;&quot;.. value ..&quot;&lt;/td&gt; &lt;/tr&gt;\n&quot;)
-    end
-    print &quot;&lt;/table&gt;\n&quot;
-  end
-  print [[
-    &lt;/div&gt;
-  &lt;/body&gt;
-&lt;/html&gt;
-]]
-end
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">compile_info</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
+  <span class="kd">local</span> <span class="n">info</span> <span class="o">=</span> <span class="p">{}</span>
+  <span class="kr">do</span> <span class="c1">-- Lua compile options</span>
+    <span class="kd">local</span> <span class="n">dump</span> <span class="o">=</span> <span class="n">string.dump</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span> <span class="kr">end</span><span class="p">)</span>
+    <span class="kd">local</span> <span class="n">gc_pause</span> <span class="o">=</span> <span class="n">collectgarbage</span><span class="p">(</span><span class="s2">&#34;setpause&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span> <span class="n">collectgarbage</span><span class="p">(</span><span class="s2">&#34;setpause&#34;</span><span class="p">,</span> <span class="n">gc_pause</span><span class="p">)</span>
+    <span class="kd">local</span> <span class="n">gc_stepmul</span> <span class="o">=</span> <span class="n">collectgarbage</span><span class="p">(</span><span class="s2">&#34;setstepmul&#34;</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span> <span class="n">collectgarbage</span><span class="p">(</span><span class="s2">&#34;setstepmul&#34;</span><span class="p">,</span> <span class="n">gc_stepmul</span><span class="p">)</span>
+    <span class="n">info</span><span class="p">[</span><span class="s2">&#34;Lua configuration&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="c1">-- Bytecode header is undocumented, see luaU_header in lundump.c</span>
+      <span class="n">Version</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&#34;%i.%i&#34;</span><span class="p">):</span><span class="n">format</span><span class="p">(</span><span class="n">math.floor</span><span class="p">(</span><span class="n">dump</span><span class="p">:</span><span class="n">byte</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">/</span> <span class="mi">16</span><span class="p">),</span> <span class="n">dump</span><span class="p">:</span><span class="n">byte</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">%</span> <span class="mi">16</span><span class="p">),</span>
+      <span class="n">Endianness</span> <span class="o">=</span> <span class="n">dump</span><span class="p">:</span><span class="n">byte</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="s2">&#34;little&#34;</span> <span class="ow">or</span> <span class="s2">&#34;big&#34;</span><span class="p">,</span>
+      <span class="n">int</span> <span class="o">=</span> <span class="n">dump</span><span class="p">:</span><span class="n">byte</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="o">*</span><span class="mi">8</span> <span class="o">..</span> <span class="s2">&#34; bit integer&#34;</span><span class="p">,</span>
+      <span class="n">size_t</span> <span class="o">=</span> <span class="n">dump</span><span class="p">:</span><span class="n">byte</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="o">*</span><span class="mi">8</span> <span class="o">..</span> <span class="s2">&#34; bit integer&#34;</span><span class="p">,</span>
+      <span class="p">[</span><span class="s2">&#34;VM instruction&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dump</span><span class="p">:</span><span class="n">byte</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">*</span><span class="mi">8</span> <span class="o">..</span> <span class="s2">&#34; bit integer&#34;</span><span class="p">,</span>
+      <span class="n">Number</span> <span class="o">=</span> <span class="n">dump</span><span class="p">:</span><span class="n">byte</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span><span class="o">*</span><span class="mi">8</span> <span class="o">..</span> <span class="s2">&#34; bit &#34;</span> <span class="o">..</span> <span class="p">(</span><span class="n">dump</span><span class="p">:</span><span class="n">byte</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="s2">&#34;integer&#34;</span> <span class="ow">or</span> <span class="s2">&#34;float&#34;</span><span class="p">),</span>
+      <span class="c1">-- package.config is undocumented, see luaopen_package in loadlib.c</span>
+      <span class="p">[</span><span class="s2">&#34;Path seperator&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="n">safestring</span><span class="p">(</span><span class="n">package.config</span><span class="p">:</span><span class="n">sub</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)),</span>
+      <span class="p">[</span><span class="s2">&#34;Lua package path&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="n">safestring</span><span class="p">(</span><span class="n">package.path</span><span class="p">:</span><span class="n">gsub</span><span class="p">(</span><span class="n">package.config</span><span class="p">:</span><span class="n">sub</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)),</span>
+      <span class="p">[</span><span class="s2">&#34;C package path&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="n">safestring</span><span class="p">(</span><span class="n">package.cpath</span><span class="p">:</span><span class="n">gsub</span><span class="p">(</span><span class="n">package.config</span><span class="p">:</span><span class="n">sub</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)),</span>
+      <span class="c1">-- Garbage collection values _are_ documented :)</span>
+      <span class="p">[</span><span class="s2">&#34;GC count&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&#34;%.0f bytes&#34;</span><span class="p">):</span><span class="n">format</span><span class="p">(</span><span class="n">collectgarbage</span><span class="s2">&#34;count&#34;</span> <span class="o">*</span> <span class="mi">1024</span><span class="p">),</span>
+      <span class="p">[</span><span class="s2">&#34;GC pause&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&#34;%.0f%%&#34;</span><span class="p">):</span><span class="n">format</span><span class="p">(</span><span class="n">gc_pause</span><span class="p">),</span>
+      <span class="p">[</span><span class="s2">&#34;GC step multiplier&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&#34;%.0f%%&#34;</span><span class="p">):</span><span class="n">format</span><span class="p">(</span><span class="n">gc_stepmul</span><span class="p">),</span>
+    <span class="p">}</span>
+  <span class="kr">end</span>
+  <span class="kr">do</span> <span class="c1">-- Globals</span>
+    <span class="kd">local</span> <span class="n">g</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="kr">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="kr">in</span> <span class="n">pairs</span><span class="p">(</span><span class="n">getfenv</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span> <span class="kr">do</span>
+      <span class="kd">local</span> <span class="n">typev</span> <span class="o">=</span> <span class="n">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+      <span class="kd">local</span> <span class="n">str</span>
+      <span class="kr">if</span> <span class="n">typev</span> <span class="o">==</span> <span class="s2">&#34;table&#34;</span> <span class="kr">then</span>
+        <span class="n">str</span> <span class="o">=</span> <span class="n">safestring</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="kr">if</span> <span class="n">value</span> <span class="o">~=</span> <span class="n">getfenv</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="kr">then</span> <span class="c1">-- don&#39;t recursively follow _G</span>
+          <span class="n">str</span> <span class="o">=</span> <span class="n">str</span> <span class="o">..</span> <span class="s2">&#34;&lt;ul&gt;&#34;</span>
+            <span class="kr">for</span> <span class="n">field</span><span class="p">,</span> <span class="n">v</span> <span class="kr">in</span> <span class="n">pairs</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="kr">do</span>
+              <span class="n">str</span> <span class="o">=</span> <span class="n">str</span> <span class="o">..</span> <span class="s2">&#34;&lt;li&gt;&#34;</span> <span class="o">..</span> <span class="n">safestring</span><span class="p">(</span><span class="n">field</span><span class="p">)</span> <span class="o">..</span> <span class="s2">&#34; (&#34;</span>
+              <span class="kr">if</span> <span class="n">type</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&#34;string&#34;</span> <span class="kr">then</span>
+                <span class="n">str</span> <span class="o">=</span> <span class="n">str</span> <span class="o">..</span> <span class="n">emstring</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+              <span class="kr">else</span>
+                <span class="n">str</span> <span class="o">=</span> <span class="n">str</span> <span class="o">..</span> <span class="n">safestring</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+              <span class="kr">end</span>
+              <span class="n">str</span> <span class="o">=</span> <span class="n">str</span> <span class="o">..</span> <span class="s2">&#34;)&lt;/li&gt;&#34;</span>
+            <span class="kr">end</span>
+          <span class="n">str</span> <span class="o">=</span> <span class="n">str</span> <span class="o">..</span> <span class="s2">&#34;&lt;/ul&gt;&#34;</span>
+        <span class="kr">end</span>
+      <span class="kr">elseif</span> <span class="n">typev</span> <span class="o">==</span> <span class="s2">&#34;string&#34;</span> <span class="kr">then</span>
+        <span class="n">str</span> <span class="o">=</span> <span class="n">emstring</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+      <span class="kr">else</span>
+        <span class="n">str</span> <span class="o">=</span> <span class="n">safestring</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+      <span class="kr">end</span>
+      <span class="n">g</span><span class="p">[</span><span class="n">safestring</span><span class="p">(</span><span class="n">key</span><span class="p">)]</span> <span class="o">=</span> <span class="n">str</span>
+    <span class="kr">end</span>
+    <span class="n">info.Globals</span> <span class="o">=</span> <span class="n">g</span>
+  <span class="kr">end</span>
+  <span class="kr">do</span> <span class="c1">-- Request object</span>
+    <span class="kd">local</span> <span class="n">rinfo</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="kr">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">field</span> <span class="kr">in</span> <span class="n">pairs</span><span class="p">{</span><span class="s2">&#34;puts&#34;</span><span class="p">,</span> <span class="s2">&#34;write&#34;</span><span class="p">,</span> <span class="s2">&#34;document_root&#34;</span><span class="p">,</span> <span class="s2">&#34;parseargs&#34;</span><span class="p">,</span> <span class="s2">&#34;parsebody&#34;</span><span class="p">,</span> <span class="s2">&#34;debug&#34;</span><span class="p">,</span> <span class="s2">&#34;info&#34;</span><span class="p">,</span> <span class="s2">&#34;notice&#34;</span><span class="p">,</span>
+    <span class="s2">&#34;warn&#34;</span><span class="p">,</span> <span class="s2">&#34;err&#34;</span><span class="p">,</span> <span class="s2">&#34;crit&#34;</span><span class="p">,</span> <span class="s2">&#34;alert&#34;</span><span class="p">,</span> <span class="s2">&#34;emerg&#34;</span><span class="p">,</span> <span class="s2">&#34;add_output_filter&#34;</span><span class="p">,</span> <span class="s2">&#34;assbackwards&#34;</span><span class="p">,</span> <span class="s2">&#34;status&#34;</span><span class="p">,</span> <span class="s2">&#34;protocol&#34;</span><span class="p">,</span> <span class="s2">&#34;range&#34;</span><span class="p">,</span>
+    <span class="s2">&#34;content_type&#34;</span><span class="p">,</span> <span class="s2">&#34;content_encoding&#34;</span><span class="p">,</span> <span class="s2">&#34;ap_auth_type&#34;</span><span class="p">,</span> <span class="s2">&#34;unparsed_uri&#34;</span><span class="p">,</span> <span class="s2">&#34;user&#34;</span><span class="p">,</span> <span class="s2">&#34;filename&#34;</span><span class="p">,</span> <span class="s2">&#34;canonical_filename&#34;</span><span class="p">,</span>
+    <span class="s2">&#34;path_info&#34;</span><span class="p">,</span> <span class="s2">&#34;args&#34;</span><span class="p">,</span> <span class="s2">&#34;hostname&#34;</span><span class="p">,</span> <span class="s2">&#34;uri&#34;</span><span class="p">,</span> <span class="s2">&#34;the_request&#34;</span><span class="p">,</span> <span class="s2">&#34;method&#34;</span><span class="p">,</span> <span class="s2">&#34;headers_in&#34;</span><span class="p">,</span> <span class="s2">&#34;headers_out&#34;</span><span class="p">}</span> <span class="kr">do</span>
+      <span class="kd">local</span> <span class="n">value</span> <span class="o">=</span> <span class="n">req</span><span class="p">[</span><span class="n">field</span><span class="p">]</span>
+      <span class="kr">if</span> <span class="n">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&#34;userdata&#34;</span> <span class="ow">and</span> <span class="n">apr_table</span> <span class="ow">and</span> <span class="n">apr_table.pairs</span> <span class="kr">then</span>
+        <span class="kd">local</span> <span class="n">list</span> <span class="o">=</span> <span class="s2">&#34;&lt;ul&gt;&#34;</span>
+        <span class="kr">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="kr">in</span> <span class="n">apr_table.pairs</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="kr">do</span>
+          <span class="n">list</span> <span class="o">=</span> <span class="n">list</span> <span class="o">..</span> <span class="s2">&#34;&lt;li&gt;&#34;</span> <span class="o">..</span> <span class="n">safestring</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="o">..</span> <span class="s2">&#34; (&#34;</span> <span class="o">..</span> <span class="n">emstring</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">..</span> <span class="s2">&#34;)&lt;/li&gt;&#34;</span>
+        <span class="kr">end</span>
+        <span class="n">rinfo</span><span class="p">[</span><span class="n">field</span><span class="p">]</span> <span class="o">=</span> <span class="n">tostring</span><span class="p">(</span><span class="n">req</span><span class="p">[</span><span class="n">field</span><span class="p">])</span> <span class="o">..</span> <span class="n">list</span> <span class="o">..</span> <span class="s2">&#34;&lt;/ul&gt;&#34;</span>
+      <span class="kr">elseif</span> <span class="n">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&#34;string&#34;</span> <span class="kr">then</span>
+        <span class="n">rinfo</span><span class="p">[</span><span class="n">field</span><span class="p">]</span> <span class="o">=</span> <span class="n">emstring</span><span class="p">(</span><span class="n">req</span><span class="p">[</span><span class="n">field</span><span class="p">])</span>
+      <span class="kr">else</span>
+        <span class="n">rinfo</span><span class="p">[</span><span class="n">field</span><span class="p">]</span> <span class="o">=</span> <span class="n">safestring</span><span class="p">(</span><span class="n">req</span><span class="p">[</span><span class="n">field</span><span class="p">])</span>
+      <span class="kr">end</span>
+    <span class="kr">end</span>
+    <span class="n">info.Request</span> <span class="o">=</span> <span class="n">rinfo</span>
+  <span class="kr">end</span>
+  <span class="kr">do</span> <span class="c1">-- Arguments (query string)</span>
+    <span class="kd">local</span> <span class="n">args</span> <span class="o">=</span> <span class="n">req</span><span class="p">:</span><span class="n">parseargs</span><span class="p">()</span>
+    <span class="kd">local</span> <span class="n">args_clean</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="kr">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="kr">in</span> <span class="n">pairs</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="kr">do</span>
+      <span class="n">args_clean</span><span class="p">[</span><span class="n">safestring</span><span class="p">(</span><span class="n">key</span><span class="p">)]</span> <span class="o">=</span> <span class="n">emstring</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="kr">end</span>
+    <span class="kr">if</span> <span class="n">next</span><span class="p">(</span><span class="n">args_clean</span><span class="p">)</span> <span class="kr">then</span>
+      <span class="n">info</span><span class="p">[</span><span class="s2">&#34;Query string&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="n">args_clean</span>
+    <span class="kr">end</span>
+  <span class="kr">end</span>
+  <span class="kr">return</span> <span class="n">info</span>
+<span class="kr">end</span>
 
-local function compile_info(req)
-  local info = {}
-  do -- Lua compile options
-    local dump = string.dump(function() end)
-    local gc_pause = collectgarbage(&quot;setpause&quot;, 1); collectgarbage(&quot;setpause&quot;, gc_pause)
-    local gc_stepmul = collectgarbage(&quot;setstepmul&quot;, 2); collectgarbage(&quot;setstepmul&quot;, gc_stepmul)
-    info[&quot;Lua configuration&quot;] = {
-      -- Bytecode header is undocumented, see luaU_header in lundump.c
-      Version = (&quot;%i.%i&quot;):format(math.floor(dump:byte(5) / 16), dump:byte(5) % 16),
-      Endianness = dump:byte(7) == 1 and &quot;little&quot; or &quot;big&quot;,
-      int = dump:byte(8)*8 .. &quot; bit integer&quot;,
-      size_t = dump:byte(9)*8 .. &quot; bit integer&quot;,
-      [&quot;VM instruction&quot;] = dump:byte(10)*8 .. &quot; bit integer&quot;,
-      Number = dump:byte(11)*8 .. &quot; bit &quot; .. (dump:byte(12) == 1 and &quot;integer&quot; or &quot;float&quot;),
-      -- package.config is undocumented, see luaopen_package in loadlib.c
-      [&quot;Path seperator&quot;] = safestring(package.config:sub(1,1)),
-      [&quot;Lua package path&quot;] = safestring(package.path:gsub(package.config:sub(3,3), &quot;\n&quot;)),
-      [&quot;C package path&quot;] = safestring(package.cpath:gsub(package.config:sub(3,3), &quot;\n&quot;)),
-      -- Garbage collection values _are_ documented :)
-      [&quot;GC count&quot;] = (&quot;%.0f bytes&quot;):format(collectgarbage&quot;count&quot; * 1024),
-      [&quot;GC pause&quot;] = (&quot;%.0f%%&quot;):format(gc_pause),
-      [&quot;GC step multiplier&quot;] = (&quot;%.0f%%&quot;):format(gc_stepmul),
-    }
-  end
-  do -- Globals
-    local g = {}
-    for key, value in pairs(getfenv(0)) do
-      local typev = type(value)
-      local str
-      if typev == &quot;table&quot; then
-        str = safestring(value)
-        if value ~= getfenv(0) then -- don't recursively follow _G
-          str = str .. &quot;&lt;ul&gt;&quot;
-            for field, v in pairs(value) do
-              str = str .. &quot;&lt;li&gt;&quot; .. safestring(field) .. &quot; (&quot;
-              if type(v) == &quot;string&quot; then
-                str = str .. emstring(v)
-              else
-                str = str .. safestring(v)
-              end
-              str = str .. &quot;)&lt;/li&gt;&quot;
-            end
-          str = str .. &quot;&lt;/ul&gt;&quot;
-        end
-      elseif typev == &quot;string&quot; then
-        str = emstring(value)
-      else
-        str = safestring(value)
-      end
-      g[safestring(key)] = str
-    end
-    info.Globals = g
-  end
-  do -- Request object
-    local rinfo = {}
-    for _, field in pairs{&quot;puts&quot;, &quot;write&quot;, &quot;document_root&quot;, &quot;parseargs&quot;, &quot;parsebody&quot;, &quot;debug&quot;, &quot;info&quot;, &quot;notice&quot;,
-    &quot;warn&quot;, &quot;err&quot;, &quot;crit&quot;, &quot;alert&quot;, &quot;emerg&quot;, &quot;add_output_filter&quot;, &quot;assbackwards&quot;, &quot;status&quot;, &quot;protocol&quot;, &quot;range&quot;,
-    &quot;content_type&quot;, &quot;content_encoding&quot;, &quot;ap_auth_type&quot;, &quot;unparsed_uri&quot;, &quot;user&quot;, &quot;filename&quot;, &quot;canonical_filename&quot;,
-    &quot;path_info&quot;, &quot;args&quot;, &quot;hostname&quot;, &quot;uri&quot;, &quot;the_request&quot;, &quot;method&quot;, &quot;headers_in&quot;, &quot;headers_out&quot;} do
-      local value = req[field]
-      if type(value) == &quot;userdata&quot; and apr_table and apr_table.pairs then
-        local list = &quot;&lt;ul&gt;&quot;
-        for key, value in apr_table.pairs(value) do
-          list = list .. &quot;&lt;li&gt;&quot; .. safestring(key) .. &quot; (&quot; .. emstring(value) .. &quot;)&lt;/li&gt;&quot;
-        end
-        rinfo[field] = tostring(req[field]) .. list .. &quot;&lt;/ul&gt;&quot;
-      elseif type(value) == &quot;string&quot; then
-        rinfo[field] = emstring(req[field])
-      else
-        rinfo[field] = safestring(req[field])
-      end
-    end
-    info.Request = rinfo
-  end
-  do -- Arguments (query string)
-    local args = req:parseargs()
-    local args_clean = {}
-    for key, value in pairs(args) do
-      args_clean[safestring(key)] = emstring(value)
-    end
-    if next(args_clean) then
-      info[&quot;Query string&quot;] = args_clean
-    end
-  end
-  return info
-end
+<span class="kr">function</span> <span class="nf">handle</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+  <span class="c1">-- setup the environment</span>
+  <span class="n">r.content_type</span> <span class="o">=</span> <span class="s2">&#34;text/html&#34;</span>
+  <span class="n">r.headers_out</span><span class="p">[</span><span class="s2">&#34;X-Powered-By&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&#34;mod_lua; &#34;</span> <span class="o">..</span> <span class="n">_VERSION</span>
+  <span class="n">print</span> <span class="o">=</span> <span class="kr">function</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="kr">return</span> <span class="n">r</span><span class="p">:</span><span class="n">write</span><span class="p">(</span><span class="n">tostring</span><span class="p">(</span><span class="n">s</span><span class="p">))</span> <span class="kr">end</span>
 
-function handle(r)
-  -- setup the environment
-  r.content_type = &quot;text/html&quot;
-  r.headers_out[&quot;X-Powered-By&quot;] = &quot;mod_lua; &quot; .. _VERSION
-  print = function(s) return r:write(tostring(s)) end
+  <span class="c1">-- run the main script</span>
+  <span class="kd">local</span> <span class="n">info</span> <span class="o">=</span> <span class="n">compile_info</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+  <span class="n">print_info</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
 
-  -- run the main script
-  local info = compile_info(r)
-  print_info(info)
-
-  -- finish
-  return apache2.OK
-end
-</code></pre>
-
+  <span class="c1">-- finish</span>
+  <span class="kr">return</span> <span class="n">apache2.OK</span>
+<span class="kr">end</span></code></pre></td></tr></table>
+</div>
+</div>
 <h3 id="访问demo">访问Demo</h3>
 
 <p>打开 <code>Apache</code>，访问 <a href="http://127.0.0.1/info.php">http://127.0.0.1/info.php</a> 就能看到</p>

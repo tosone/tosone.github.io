@@ -71,7 +71,7 @@
 
 <meta itemprop="datePublished" content="2017-02-24T21:45:11&#43;00:00" />
 <meta itemprop="dateModified" content="2017-02-24T21:45:11&#43;00:00" />
-<meta itemprop="wordCount" content="606">
+<meta itemprop="wordCount" content="648">
 
 
 
@@ -348,12 +348,18 @@
 <li>进入 nginx 的目录执行命令</li>
 </ul></li>
 </ul>
-
-<pre><code class="language-bash">./configure --add-module=../nginx-rtmp-module --with-http_ssl_module  --with-openssl=../openssl --with-zlib=../zlib
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">./configure --add-module<span class="o">=</span>../nginx-rtmp-module --with-http_ssl_module  --with-openssl<span class="o">=</span>../openssl --with-zlib<span class="o">=</span>../zlib
 make
-make install
-</code></pre>
-
+make install</code></pre></td></tr></table>
+</div>
+</div>
 <ul>
 <li>运行
 
@@ -362,48 +368,90 @@ make install
 <li>修改 <code>/usr/local/nginx/conf/nginx.conf</code> 文件内容:</li>
 </ul></li>
 </ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-apacheConf" data-lang="apacheConf"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-apacheConf" data-lang="apacheConf"><span class="nb">worker_processes</span>  <span class="m">1</span>;
+<span class="nb">events</span> {
+  <span class="nb">worker_connections</span>  <span class="m">1024</span>;
+<span class="err">}</span>
 
-<pre><code class="language-apacheConf">worker_processes  1;
-events {
-  worker_connections  1024;
-}
+<span class="nb">rtmp</span> {
+  <span class="nb">server</span> {
+    <span class="nb">listen</span> <span class="m">1935</span>;
+    <span class="nb">chunk_size</span> <span class="m">4096</span>;
+    <span class="nb">application</span> live {
+      <span class="nb">live</span> <span class="k">on</span>;
+      <span class="nb">record</span> <span class="k">off</span>;
+    <span class="err">}</span>
 
-rtmp {
-  server {
-    listen 1935;
-    chunk_size 4096;
-    application live {
-      live on;
-      record off;
-    }
-
-    application hls {
-      live on;
-      hls on;
-      hls_path hls_temp;
-      hls_fragment 8s;
-    }
-  }
-}
-http {
-  include       mime.types;
-  default_type  application/octet-stream;
-  sendfile        on;
-  keepalive_timeout  65;
-  server {
-    listen       80;
-    server_name  localhost;
-    location / {
-      root   html/Love/;
-      index  index.html index.htm;
-    }
-    error_page   500 502 503 504  /50x.html;
-    location = /50x.html {
-    root   html;
-  }
-}
-</code></pre>
-
+    <span class="nb">application</span> hls {
+      <span class="nb">live</span> <span class="k">on</span>;
+      <span class="nb">hls</span> <span class="k">on</span>;
+      <span class="nb">hls_path</span> hls_temp;
+      <span class="nb">hls_fragment</span> <span class="m">8</span>s;
+    <span class="err">}</span>
+  <span class="err">}</span>
+<span class="err">}</span>
+<span class="nb">http</span> {
+  <span class="nb">include</span>       mime.types;
+  <span class="nb">default_type</span>  application/octet-stream;
+  <span class="nb">sendfile</span>        <span class="k">on</span>;
+  <span class="nb">keepalive_timeout</span>  <span class="m">65</span>;
+  <span class="nb">server</span> {
+    <span class="nb">listen</span>       <span class="m">80</span>;
+    <span class="nb">server_name</span>  localhost;
+    <span class="nb">location</span> / {
+      <span class="nb">root</span>   html/Love/;
+      <span class="nb">index</span>  index.html index.htm;
+    <span class="err">}</span>
+    <span class="nb">error_page</span>   <span class="m">500</span> <span class="m">502</span> <span class="m">503</span> <span class="m">504</span>  <span class="sx">/50x.html</span>;
+    <span class="nb">location</span> = <span class="sx">/50x.html</span> {
+    <span class="nb">root</span>   html;
+  <span class="err">}</span>
+<span class="err">}</span></code></pre></td></tr></table>
+</div>
+</div>
 <h3 id="推流与观看">推流与观看</h3>
 
 <ul>

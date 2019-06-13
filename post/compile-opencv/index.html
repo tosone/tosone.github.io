@@ -71,7 +71,7 @@
 
 <meta itemprop="datePublished" content="2017-04-15T14:22:24&#43;00:00" />
 <meta itemprop="dateModified" content="2017-04-15T14:22:24&#43;00:00" />
-<meta itemprop="wordCount" content="221">
+<meta itemprop="wordCount" content="238">
 
 
 
@@ -321,50 +321,82 @@
 <h3 id="step-1">STEP 1</h3>
 
 <p>To install the dependencies required for OpenCV, just run the following command:</p>
-
-<pre><code class="language-bash">sudo apt-get -y install libopencv-dev build-essential cmake git libgtk2.0-dev libgtk-3-dev \
-                        pkg-config python-dev python-numpy libdc1394-22 libdc1394-22-dev \
-                        libjpeg-dev libpng-dev libpnglite-dev libpng++-dev libtiff5-dev \
-                        libavcodec-dev libavformat-dev libswscale-dev libxine2-dev \
-                        libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libv4l-dev \
-                        libtbb-dev libqt4-dev libfaac-dev libmp3lame-dev libopencore-amrnb-dev \
-                        libopencore-amrwb-dev libtheora-dev libvorbis-dev libxvidcore-dev x264 \
-                        v4l-utils unzip
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo apt-get -y install libopencv-dev build-essential cmake git libgtk2.0-dev libgtk-3-dev <span class="se">\
+</span><span class="se"></span>                        pkg-config python-dev python-numpy libdc1394-22 libdc1394-22-dev <span class="se">\
+</span><span class="se"></span>                        libjpeg-dev libpng-dev libpnglite-dev libpng++-dev libtiff5-dev <span class="se">\
+</span><span class="se"></span>                        libavcodec-dev libavformat-dev libswscale-dev libxine2-dev <span class="se">\
+</span><span class="se"></span>                        libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libv4l-dev <span class="se">\
+</span><span class="se"></span>                        libtbb-dev libqt4-dev libfaac-dev libmp3lame-dev libopencore-amrnb-dev <span class="se">\
+</span><span class="se"></span>                        libopencore-amrwb-dev libtheora-dev libvorbis-dev libxvidcore-dev x264 <span class="se">\
+</span><span class="se"></span>                        v4l-utils unzip</code></pre></td></tr></table>
+</div>
+</div>
 <h3 id="step-2">STEP 2</h3>
 
 <p>Download the latest version of <a href="https://github.com/opencv/opencv">OpenCV</a>. Or from <a href="https://share.weiyun.com/c01ee33744d180629d3ae779b75b8d43">here</a>.</p>
-
-<pre><code class="language-bash">wget https://github.com/opencv/opencv/archive/${version}.zip
-unzip ${version}.zip
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">wget https://github.com/opencv/opencv/archive/<span class="si">${</span><span class="nv">version</span><span class="si">}</span>.zip
+unzip <span class="si">${</span><span class="nv">version</span><span class="si">}</span>.zip</code></pre></td></tr></table>
+</div>
+</div>
 <h3 id="step-3">STEP 3</h3>
 
 <p>Sometimes compile opencv will get an error that cannot downlaod ippicv.</p>
-
-<pre><code class="language-bash">mkdir 3rdparty/ippicv/downloads/linux-808b791a6eac9ed78d32a7666804320e
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">mkdir 3rdparty/ippicv/downloads/linux-808b791a6eac9ed78d32a7666804320e</code></pre></td></tr></table>
+</div>
+</div>
 <p>Then copy the ippicv file in that directory.</p>
-
-<pre><code class="language-bash">mkdir build
-cd build
-cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local ..
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">mkdir build
+<span class="nb">cd</span> build
+cmake -D <span class="nv">CMAKE_BUILD_TYPE</span><span class="o">=</span>RELEASE -D <span class="nv">CMAKE_INSTALL_PREFIX</span><span class="o">=</span>/usr/local ..</code></pre></td></tr></table>
+</div>
+</div>
 <h3 id="step-4">STEP 4</h3>
 
 <p>Finishing compile.</p>
 
 <p>Now some final touches:</p>
-
-<pre><code class="language-bash">sudo /bin/bash -c 'echo &quot;/usr/local/lib&quot; &gt; /etc/ld.so.conf.d/opencv.conf'
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo /bin/bash -c <span class="s1">&#39;echo &#34;/usr/local/lib&#34; &gt; /etc/ld.so.conf.d/opencv.conf&#39;</span>
 sudo ldconfig
-sudo apt-get update
-</code></pre>
-
+sudo apt-get update</code></pre></td></tr></table>
+</div>
+</div>
 <p>After the complete process execute reboot your system.</p>
 
 <p>Now you have a working installation of OpenCV.</p>

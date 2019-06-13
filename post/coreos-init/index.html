@@ -75,7 +75,7 @@ Container Linux (formerly CoreOS Linux) is an open-source lightweight operating 
 
 <meta itemprop="datePublished" content="2019-04-26T10:38:24&#43;00:00" />
 <meta itemprop="dateModified" content="2019-04-26T10:38:24&#43;00:00" />
-<meta itemprop="wordCount" content="1080">
+<meta itemprop="wordCount" content="1112">
 
 
 
@@ -327,15 +327,24 @@ Container Linux (formerly CoreOS Linux) is an open-source lightweight operating 
 </blockquote>
 
 <p>各个虚拟主机平台上基本都有 CoreOS 系统，但是 Aliyun 上的 ECS 就是有问题的，在用 <code>docker build</code> 的时候总出问题，在 Docker 的仓库中有这些<a href="https://github.com/coreos/bugs/issues/2340">讨论</a>，最终的解决方法就是：</p>
-
-<pre><code class="language-bash"># fix wrong driver
-echo '{ &quot;storage-driver&quot;: &quot;devicemapper&quot; }' | sudo tee /etc/docker/daemon.json
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># fix wrong driver</span>
+<span class="nb">echo</span> <span class="s1">&#39;{ &#34;storage-driver&#34;: &#34;devicemapper&#34; }&#39;</span> <span class="p">|</span> sudo tee /etc/docker/daemon.json
 sudo systemctl restart docker.service
 
-# fix aliyun buggy selinux
-sudo sed -i 's/SELINUXTYPE=mcs/SELINUXTYPE=targeted/' /etc/selinux/config
-</code></pre>
-
+<span class="c1"># fix aliyun buggy selinux</span>
+sudo sed -i <span class="s1">&#39;s/SELINUXTYPE=mcs/SELINUXTYPE=targeted/&#39;</span> /etc/selinux/config</code></pre></td></tr></table>
+</div>
+</div>
 <h3 id="升级通道">升级通道</h3>
 
 <p>定义了 CoreOS 每次升级的目标版本号。官方提供了三个升级通道，分别为 Alpha、Beta 和 Stable，简单来说就是每个大版本升级的内测、公测和正式发行版。只不过 CoreOS 目前是采用一个不断增加的数字来表示各个版本号，数字越大则相对版本越高。</p>
@@ -367,19 +376,31 @@ sudo sed -i 's/SELINUXTYPE=mcs/SELINUXTYPE=targeted/' /etc/selinux/config
 </ul>
 
 <p>升级通道和升级策略都可以在系统启动时的 cloud-config 中的 coreos.update 中配置，例如：</p>
-
-<pre><code class="language-yml">coreos:
-  update:
-    reboot-strategy: best-effort
-    group: alpha
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yml" data-lang="yml">coreos<span class="p">:</span><span class="w">
+</span><span class="w">  </span>update<span class="p">:</span><span class="w">
+</span><span class="w">    </span>reboot-strategy<span class="p">:</span><span class="w"> </span>best-effort<span class="w">
+</span><span class="w">    </span>group<span class="p">:</span><span class="w"> </span>alpha</code></pre></td></tr></table>
+</div>
+</div>
 <p>对于已经启动的集群，可以在 <code>/etc/coreos/update.conf</code> 配置文件中修改，其内容格式如下：</p>
-
-<pre><code class="language-conf">GROUP=alpha
-REBOOT_STRATEGY=best-effort
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-conf" data-lang="conf"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-conf" data-lang="conf">GROUP=alpha
+REBOOT_STRATEGY=best-effort</code></pre></td></tr></table>
+</div>
+</div>
 <p>修改完成后需要重启一下 update-engine 服务：<code>systemctl restart update-engine</code>。</p>
 
 <p>用户手动执行升级一般是没有必要滴。当然如果你非要这么做，也非常简单，命令是 <code>update_engine_client -update</code>。如果只是想查看一下有没有新版本，可以换个参数 <code>update_engine_client -check_for_update</code>。</p>
@@ -390,15 +411,24 @@ REBOOT_STRATEGY=best-effort
 赋予 <code>sudo</code> 权限，<code>visudo -f /etc/sudoers.d/user1</code> 添加这样一行： <code>tosone ALL=(ALL) NOPASSWD: ALL</code>。</p>
 
 <p>验证：</p>
-
-<pre><code class="language-bash"># su tosone
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># su tosone</span>
 $ cat /etc/sudoers.d/tosone
 cat: /etc/sudoers.d/tosone: Permission denied
 
 $ sudo cat /etc/sudoers.d/tosone
-tosone ALL=(ALL) NOPASSWD: ALL
-</code></pre>
-
+tosone <span class="nv">ALL</span><span class="o">=(</span>ALL<span class="o">)</span> NOPASSWD: ALL</code></pre></td></tr></table>
+</div>
+</div>
 <h3 id="toolbox">toolbox</h3>
 
 <p>toolbox is a small script that launches a container to let you bring in your favorite debugging or admin tools.
@@ -406,39 +436,71 @@ There are currently two scripts that live within this repository:
 <br/>
 - toolbox: designed for Container Linux, uses rkt and systemd-nspawn
 - rhcos-toolbox: designed for Red Hat CoreOS, uses podman</p>
-
-<pre><code class="language-bash">$ /usr/bin/toolbox
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ /usr/bin/toolbox
 Spawning container core-fedora-latest on /var/lib/toolbox/core-fedora-latest.
-Press ^] three times within 1s to kill container.
-[root@localhost ~]# dnf -y install tcpdump
+Press ^<span class="o">]</span> three <span class="nb">times</span> within 1s to <span class="nb">kill</span> container.
+<span class="o">[</span>root@localhost ~<span class="o">]</span><span class="c1"># dnf -y install tcpdump</span>
 ...
-[root@localhost ~]# tcpdump -i ens3
-tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
-listening on ens3, link-type EN10MB (Ethernet), capture size 65535 bytes
-</code></pre>
-
+<span class="o">[</span>root@localhost ~<span class="o">]</span><span class="c1"># tcpdump -i ens3</span>
+tcpdump: verbose output suppressed, use -v or -vv <span class="k">for</span> full protocol decode
+listening on ens3, link-type EN10MB <span class="o">(</span>Ethernet<span class="o">)</span>, capture size <span class="m">65535</span> bytes</code></pre></td></tr></table>
+</div>
+</div>
 <p>Automatically enter toolbox on login. Set an <code>/etc/passwd</code> entry for one of the users to <code>/usr/bin/toolbox</code>:</p>
-
-<pre><code class="language-sh">useradd bob -m -s /usr/bin/toolbox -U -G sudo,docker,rkt
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">useradd bob -m -s /usr/bin/toolbox -U -G sudo,docker,rkt</code></pre></td></tr></table>
+</div>
+</div>
 <p>Now when SSHing into the system as that user, toolbox will automatically be started:</p>
-
-<pre><code>$ ssh bob@hostname.example.com
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">$ ssh bob@hostname.example.com
 Container Linux by CoreOS alpha (1284.0.0)
 ...
 Spawning container bob-fedora-latest on /var/lib/toolbox/bob-fedora-latest.
 Press ^] three times within 1s to kill container.
 [root@localhost ~]# dnf -y install emacs-nox
 ...
-[root@localhost ~]# emacs /media/root/etc/systemd/system/docker.service
-</code></pre>
-
+[root@localhost ~]# emacs /media/root/etc/systemd/system/docker.service</pre></td></tr></table>
+</div>
+</div>
 <h3 id="install-docker-compose">Install docker-compose</h3>
-
-<pre><code class="language-bash">mkdir -p /opt/bin
-curl -L &quot;https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)&quot; -o /opt/bin/docker-compose
-</code></pre>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">mkdir -p /opt/bin
+curl -L <span class="s2">&#34;https://github.com/docker/compose/releases/download/1.24.0/docker-compose-</span><span class="k">$(</span>uname -s<span class="k">)</span><span class="s2">-</span><span class="k">$(</span>uname -m<span class="k">)</span><span class="s2">&#34;</span> -o /opt/bin/docker-compose</code></pre></td></tr></table>
+</div>
+</div>
     </div>
 
     

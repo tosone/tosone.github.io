@@ -71,7 +71,7 @@
 
 <meta itemprop="datePublished" content="2018-03-11T20:14:28&#43;00:00" />
 <meta itemprop="dateModified" content="2018-03-11T20:14:28&#43;00:00" />
-<meta itemprop="wordCount" content="3299">
+<meta itemprop="wordCount" content="3265">
 
 
 
@@ -387,27 +387,45 @@
 <h3 id="关联类型">关联类型</h3>
 
 <p>trait 里可以包含关联类型，以 Rust 的 Iterator 这个 trait 为例：</p>
-
-<pre><code class="language-rust">pub trait Iterator {
-  type Item;
-  fn next(&amp;mut self) -&gt; Option&lt;Self::Item&gt;;
-}
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-rust" data-lang="rust"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-rust" data-lang="rust"><span class="k">pub</span><span class="w"> </span><span class="k">trait</span><span class="w"> </span><span class="nb">Iterator</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">  </span><span class="k">type</span> <span class="nc">Item</span><span class="p">;</span><span class="w">
+</span><span class="w">  </span><span class="k">fn</span> <span class="nf">next</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="bp">self</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nb">Option</span><span class="o">&lt;</span><span class="n">Self</span>::<span class="n">Item</span><span class="o">&gt;</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="p">}</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>也就是说，在实现 Iterator 时，必须同时指定一个 Item 类型。在调用 <code>next()</code> 方法时，如果还有更多元素，会得到一个 Some（用户定义的元素类型）。如果元素迭代完毕，会返回 None。</p>
 
 <p>关联类型可以引用其他 trait。</p>
 
 <p>例如，在 Rust 里，for 循环可以用于遍历任何一个实现了 IntoIterator 的对象。</p>
-
-<pre><code class="language-rust">pub trait IntoIterator {
-  /// 被遍历元素的类型
-  type Item;
-  type IntoIter: Iterator&lt;Item=Self::Item&gt;;
-  fn into_iter(self) -&gt; Self::IntoIter;
-}
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-rust" data-lang="rust"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-rust" data-lang="rust"><span class="k">pub</span><span class="w"> </span><span class="k">trait</span><span class="w"> </span><span class="nb">IntoIterator</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">  </span><span class="sd">/// 被遍历元素的类型
+</span><span class="sd"></span><span class="w">  </span><span class="k">type</span> <span class="nc">Item</span><span class="p">;</span><span class="w">
+</span><span class="w">  </span><span class="k">type</span> <span class="nc">IntoIter</span>: <span class="nb">Iterator</span><span class="o">&lt;</span><span class="n">Item</span><span class="o">=</span><span class="n">Self</span>::<span class="n">Item</span><span class="o">&gt;</span><span class="p">;</span><span class="w">
+</span><span class="w">  </span><span class="k">fn</span> <span class="nf">into_iter</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">Self</span>::<span class="n">IntoIter</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="p">}</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>在实现这个 trait 时，必须同时提供 Item 类型和 IntoIter 类型，IntoIter 必须实现 Iterator，用于维护迭代器状态。</p>
 
 <p>通过这种方式就可以建立起类型网络，类型之间相互引用。</p>
@@ -433,13 +451,21 @@
 
 <p>内部函数通常都是静态的。也就是说，它们无法被外部文件调用。测试程序需要使用 <code>#include</code> 指令把源文件包含进来，或者使用 <code>#ifdefs</code> 在测试过程中移除这些静态函数。需要编写 Makefile 文件将测试程序链接到其中的部分依赖库或部分代码。
 需要使用测试框架，并把测试用例注册到框架上，还要学会如何使用这些框架。而在 Rust 里，可以在任何地方写这样的代码：</p>
-
-<pre><code class="language-rust">#[test]
-fn test_that_foo_works() {
-  assert!(foo() == expected_result);
-}
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-rust" data-lang="rust"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-rust" data-lang="rust"><span class="cp">#[test]</span><span class="w">
+</span><span class="w"></span><span class="k">fn</span> <span class="nf">test_that_foo_works</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">  </span><span class="n">assert</span><span class="o">!</span><span class="p">(</span><span class="n">foo</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">expected_result</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="p">}</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>然后运行 cargo test 运行单元测试。这些代码只会被链接到测试文件中，不需要手动编译任何东西，不需要编写 Makefile 文件或抽取内部函数用于测试。</p>
 
 <p>对我来说，这个功能简直就是杀手锏。</p>
@@ -447,17 +473,29 @@ fn test_that_foo_works() {
 <h3 id="包含测试的文档">包含测试的文档</h3>
 
 <p>在 Rust 中，可以将使用 Markdown 语法编写的注释生成文档。注释里的测试代码会被作为测试用例执行。也就是说，你可以在解释如何使用一个函数的同时对它进行单元测试：</p>
-
-<pre><code class="language-rust">/// Multiples the specified number by two
-///
-/// ```
-/// assert_eq!(multiply_by_two(5), 10);
-/// ```
-fn multiply_by_two(x: i32) -&gt; i32 {
-  x * 2
-}
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-rust" data-lang="rust"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-rust" data-lang="rust"><span class="sd">/// Multiples the specified number by two
+</span><span class="sd">///
+</span><span class="sd">/// ```
+</span><span class="sd">/// assert_eq!(multiply_by_two(5), 10);
+</span><span class="sd">/// ```
+</span><span class="sd"></span><span class="k">fn</span> <span class="nf">multiply_by_two</span><span class="p">(</span><span class="n">x</span>: <span class="kt">i32</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">i32</span> <span class="p">{</span><span class="w">
+</span><span class="w">  </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="w">
+</span><span class="w"></span><span class="p">}</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>注释中的示例代码被作为测试用例执行，以确保文档与实际代码保持同步。</p>
 
 <h3 id="卫生宏-hygienic-macro">卫生宏（Hygienic Macro）</h3>
@@ -480,54 +518,103 @@ fn multiply_by_two(x: i32) -&gt; i32 {
 <p>在对一个枚举类型进行 switch 操作时，如果没有处理所有的值，gcc 编译器就会给出警告。</p>
 
 <p>Rust 提供了模式匹配，可以在 match 表达式里处理枚举类型，并从单个函数返回多个值。</p>
-
-<pre><code class="language-rust">impl f64 {
-  pub fn sin_cos(self) -&gt; (f64, f64);
-}
-
-let angle: f64 = 42.0;
-let (sin_angle, cos_angle) = angle.sin_cos();
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-rust" data-lang="rust"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-rust" data-lang="rust"><span class="k">impl</span><span class="w"> </span><span class="kt">f64</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">  </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">sin_cos</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="p">(</span><span class="kt">f64</span><span class="p">,</span><span class="w"> </span><span class="kt">f64</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="p">}</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="kd">let</span><span class="w"> </span><span class="n">angle</span>: <span class="kt">f64</span> <span class="o">=</span><span class="w"> </span><span class="mf">42.0</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="kd">let</span><span class="w"> </span><span class="p">(</span><span class="n">sin_angle</span><span class="p">,</span><span class="w"> </span><span class="n">cos_angle</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">angle</span><span class="p">.</span><span class="n">sin_cos</span><span class="p">();</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>match 表达式也可以用在字符串上。是的，字符串。</p>
-
-<pre><code class="language-rust">let color = &quot;green&quot;;
-
-match color {
-  &quot;red&quot;  =&gt; println!(&quot;it's red&quot;),
-  &quot;green&quot; =&gt; println!(&quot;it's green&quot;),
-  _    =&gt; println!(&quot;it's something else&quot;),
-}
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-rust" data-lang="rust"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-rust" data-lang="rust"><span class="kd">let</span><span class="w"> </span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;green&#34;</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">match</span><span class="w"> </span><span class="n">color</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">  </span><span class="s">&#34;red&#34;</span><span class="w">  </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&#34;it&#39;s red&#34;</span><span class="p">),</span><span class="w">
+</span><span class="w">  </span><span class="s">&#34;green&#34;</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&#34;it&#39;s green&#34;</span><span class="p">),</span><span class="w">
+</span><span class="w">  </span><span class="n">_</span><span class="w">    </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&#34;it&#39;s something else&#34;</span><span class="p">),</span><span class="w">
+</span><span class="w"></span><span class="p">}</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>你是不是很难猜出下面这个函数是干什么用的？</p>
-
-<pre><code class="language-rust">my_func(true, false, false)
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-rust" data-lang="rust"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-rust" data-lang="rust"><span class="n">my_func</span><span class="p">(</span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">)</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>但如果在函数的参数上使用模式匹配，那么事情就会变得不一样：</p>
-
-<pre><code class="language-rust">pub struct Fubarize(pub bool);
-pub struct Frobnify(pub bool);
-pub struct Bazificate(pub bool);
-
-fn my_func(Fubarize(fub): Fubarize,
-      Frobnify(frob): Frobnify,
-      Bazificate(baz): Bazificate) {
-  if fub {
-    ...;
-  }
-
-  if frob &amp;&amp; baz {
-    ...;
-  }
-}
-
-...
-
-my_func(Fubarize(true), Frobnify(false), Bazificate(true));
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-rust" data-lang="rust"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-rust" data-lang="rust"><span class="k">pub</span><span class="w"> </span><span class="k">struct</span> <span class="nc">Fubarize</span><span class="p">(</span><span class="k">pub</span><span class="w"> </span><span class="kt">bool</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="k">pub</span><span class="w"> </span><span class="k">struct</span> <span class="nc">Frobnify</span><span class="p">(</span><span class="k">pub</span><span class="w"> </span><span class="kt">bool</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="k">pub</span><span class="w"> </span><span class="k">struct</span> <span class="nc">Bazificate</span><span class="p">(</span><span class="k">pub</span><span class="w"> </span><span class="kt">bool</span><span class="p">);</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">fn</span> <span class="nf">my_func</span><span class="p">(</span><span class="n">Fubarize</span><span class="p">(</span><span class="n">fub</span><span class="p">)</span>: <span class="nc">Fubarize</span><span class="p">,</span><span class="w">
+</span><span class="w">      </span><span class="n">Frobnify</span><span class="p">(</span><span class="n">frob</span><span class="p">)</span>: <span class="nc">Frobnify</span><span class="p">,</span><span class="w">
+</span><span class="w">      </span><span class="n">Bazificate</span><span class="p">(</span><span class="n">baz</span><span class="p">)</span>: <span class="nc">Bazificate</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="n">fub</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">    </span><span class="p">...;</span><span class="w">
+</span><span class="w">  </span><span class="p">}</span><span class="w">
+</span><span class="w">
+</span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="n">frob</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">baz</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">    </span><span class="p">...;</span><span class="w">
+</span><span class="w">  </span><span class="p">}</span><span class="w">
+</span><span class="w"></span><span class="p">}</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="p">...</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="n">my_func</span><span class="p">(</span><span class="n">Fubarize</span><span class="p">(</span><span class="kc">true</span><span class="p">),</span><span class="w"> </span><span class="n">Frobnify</span><span class="p">(</span><span class="kc">false</span><span class="p">),</span><span class="w"> </span><span class="n">Bazificate</span><span class="p">(</span><span class="kc">true</span><span class="p">));</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div>
 <h3 id="标准的错误处理">标准的错误处理</h3>
 
 <p>在 Rust 里，不再只是简单地返回一个布尔值表示出错与否，也不再简单粗暴地忽略错误，也不再通过非本地跳转来处理异常。</p>

@@ -71,7 +71,7 @@
 
 <meta itemprop="datePublished" content="2017-04-17T21:38:24&#43;00:00" />
 <meta itemprop="dateModified" content="2017-04-17T21:38:24&#43;00:00" />
-<meta itemprop="wordCount" content="313">
+<meta itemprop="wordCount" content="323">
 
 
 
@@ -342,13 +342,20 @@
 </ul>
 
 <h3 id="创建用户">创建用户</h3>
-
-<pre><code class="language-bash">adduser tosone
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">adduser tosone
 apt install sudo
 gpasswd -a tosone sudo
-visudo
-</code></pre>
-
+visudo</code></pre></td></tr></table>
+</div>
+</div>
 <p>在 <code># User privilege specification</code> 这里行下边添加一行 <code>tosone ALL=(ALL:ALL) ALL</code>。tosone 这个用户将使用密码来拥有所有 root 拥有的权限。</p>
 
 <h3 id="复制公钥">复制公钥</h3>
@@ -356,14 +363,24 @@ visudo
 <p><code>ssh-key-copy tosone@ip</code> 将自己的 pubkey 复制到远程的主机上，然后后续不再需要密码登录主机了。</p>
 
 <h3 id="安装常用软件">安装常用软件</h3>
-
-<pre><code class="language-bash">apt-get install redis-server mosquitto python-pip vim zsh git supervisor curl
-sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash
-echo &quot;export NVM_DIR=\&quot;\$HOME/.nvm\&quot;&quot; &gt;&gt; ~/.zshrc
-echo &quot;[ -s \&quot;\$NVM_DIR/nvm.sh\&quot; ] &amp;&amp; . \&quot;\$NVM_DIR/nvm.sh\&quot;&quot; &gt;&gt; ~/.zshrc
-source ~/.zshrc
-</code></pre>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">apt-get install redis-server mosquitto python-pip vim zsh git supervisor curl
+sh -c <span class="s2">&#34;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh<span class="k">)</span><span class="s2">&#34;</span>
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh <span class="p">|</span> bash
+<span class="nb">echo</span> <span class="s2">&#34;export NVM_DIR=\&#34;\$HOME/.nvm\&#34;&#34;</span> &gt;&gt; ~/.zshrc
+<span class="nb">echo</span> <span class="s2">&#34;[ -s \&#34;\$NVM_DIR/nvm.sh\&#34; ] &amp;&amp; . \&#34;\$NVM_DIR/nvm.sh\&#34;&#34;</span> &gt;&gt; ~/.zshrc
+<span class="nb">source</span> ~/.zshrc</code></pre></td></tr></table>
+</div>
+</div>
     </div>
 
     

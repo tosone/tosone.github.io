@@ -71,7 +71,7 @@
 
 <meta itemprop="datePublished" content="2017-04-11T20:26:54&#43;00:00" />
 <meta itemprop="dateModified" content="2017-04-11T20:26:54&#43;00:00" />
-<meta itemprop="wordCount" content="117">
+<meta itemprop="wordCount" content="132">
 
 
 
@@ -318,26 +318,49 @@
     <div class="post-content">
       <p>We needed a version number to find whether the binary was from yesterday or today’s source. Then we decided that for all our golang applications we should have a way to find out the version number, so that we can always query and find out which version it is, there by which source is running.</p>
 
-<pre><code class="language-go">package main
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
 
-import &quot;fmt&quot;
+<span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
 
-var (
-    BuildStamp = &quot;Nothing Provided.&quot;
-    GitHash   = &quot;Nothing Provided.&quot;
-)
+<span class="kd">var</span> <span class="p">(</span>
+    <span class="nx">BuildStamp</span> <span class="p">=</span> <span class="s">&#34;Nothing Provided.&#34;</span>
+    <span class="nx">GitHash</span>   <span class="p">=</span> <span class="s">&#34;Nothing Provided.&#34;</span>
+<span class="p">)</span>
 
-func main() {
-    fmt.Printf(&quot;Git Commit Hash: %s\n&quot;, GitHash)
-    fmt.Printf(&quot;UTC Build Time: %s\n&quot;, BuildStamp)
-}
-</code></pre>
-
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;Git Commit Hash: %s\n&#34;</span><span class="p">,</span> <span class="nx">GitHash</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;UTC Build Time: %s\n&#34;</span><span class="p">,</span> <span class="nx">BuildStamp</span><span class="p">)</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>现在只需要，这样 build 这个文件：</p>
-
-<pre><code class="language-bash">go build -ldflags &quot;-X main.GitHash=`git rev-parse HEAD` \
-                   -X main.BuildStamp=`date -u '+%Y-%m-%d_%I:%M:%S%p'`&quot; main.go
-</code></pre>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">go build -ldflags <span class="s2">&#34;-X main.GitHash=`git rev-parse HEAD` \
+</span><span class="s2">                   -X main.BuildStamp=`date -u &#39;+%Y-%m-%d_%I:%M:%S%p&#39;`&#34;</span> main.go</code></pre></td></tr></table>
+</div>
+</div>
     </div>
 
     

@@ -71,7 +71,7 @@
 
 <meta itemprop="datePublished" content="2017-05-07T10:59:43&#43;00:00" />
 <meta itemprop="dateModified" content="2017-05-07T10:59:43&#43;00:00" />
-<meta itemprop="wordCount" content="328">
+<meta itemprop="wordCount" content="438">
 
 
 
@@ -319,144 +319,285 @@
       <p>Docker 安装以及常用数据库安装。</p>
 
 <h3 id="安装-docker">安装 Docker</h3>
-
-<pre><code class="language-bash">curl -sSL https://get.docker.com/ | sh
-wget -qO- https://get.docker.com/ | sh
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">curl -sSL https://get.docker.com/ <span class="p">|</span> sh
+wget -qO- https://get.docker.com/ <span class="p">|</span> sh</code></pre></td></tr></table>
+</div>
+</div>
 <h3 id="安装-docker-compose">安装 Docker Compose</h3>
-
-<pre><code class="language-bash">curl -L https://github.com/docker/compose/releases/download/1.13.0/docker-compose-`uname -s`-`uname -m` &gt; /usr/bin/docker-compose
-chmod +x /usr/bin/docker-compose
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">curl -L https://github.com/docker/compose/releases/download/1.13.0/docker-compose-<span class="sb">`</span>uname -s<span class="sb">`</span>-<span class="sb">`</span>uname -m<span class="sb">`</span> &gt; /usr/bin/docker-compose
+chmod +x /usr/bin/docker-compose</code></pre></td></tr></table>
+</div>
+</div>
 <h3 id="安装-mongodb">安装 MongoDB</h3>
-
-<pre><code class="language-bash">FROM mongo:latest
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">FROM mongo:latest
 ENV MONGO_INITDB_ROOT_USERNAME mongodb_name
 ENV MONGO_INITDB_ROOT_PASSWORD mongodb_passwd
 COPY mongod.conf /etc/
-EXPOSE 27017
-CMD [&quot;mongod&quot;, &quot;-f&quot;, &quot;/etc/mongod.conf&quot;]
-</code></pre>
-
-<pre><code class="language-bash">processManagement:
-    fork: true
+EXPOSE <span class="m">27017</span>
+CMD <span class="o">[</span><span class="s2">&#34;mongod&#34;</span>, <span class="s2">&#34;-f&#34;</span>, <span class="s2">&#34;/etc/mongod.conf&#34;</span><span class="o">]</span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">processManagement:
+    fork: <span class="nb">true</span>
 net:
-    bindIp: &quot;0.0.0.0&quot;
-    port: 27017
-    maxIncomingConnections: 1000
+    bindIp: <span class="s2">&#34;0.0.0.0&#34;</span>
+    port: <span class="m">27017</span>
+    maxIncomingConnections: <span class="m">1000</span>
     http:
-        enabled: false
-        JSONPEnabled: false
-        RESTInterfaceEnabled: false
+        enabled: <span class="nb">false</span>
+        JSONPEnabled: <span class="nb">false</span>
+        RESTInterfaceEnabled: <span class="nb">false</span>
 storage:
-    dbPath: &quot;/data/db&quot;
-    directoryPerDB: true
+    dbPath: <span class="s2">&#34;/data/db&#34;</span>
+    directoryPerDB: <span class="nb">true</span>
     journal:
-        enabled: true
+        enabled: <span class="nb">true</span>
 systemLog:
-    destination: &quot;file&quot;
-    path: &quot;/var/log/mongodb/mongod.log&quot;
-    logAppend: true
+    destination: <span class="s2">&#34;file&#34;</span>
+    path: <span class="s2">&#34;/var/log/mongodb/mongod.log&#34;</span>
+    logAppend: <span class="nb">true</span>
 security:
-    authorization: &quot;enabled&quot;
-</code></pre>
-
-<pre><code class="language-bash">docker build -t mongo-tosone .
-docker run --name mongo -v /data/mongodb/data:/data/db --hostname=&quot;mongodb&quot; -p 27017:27017 -d mongo-tosone --smallfiles
-</code></pre>
-
+    authorization: <span class="s2">&#34;enabled&#34;</span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">docker build -t mongo-tosone .
+docker run --name mongo -v /data/mongodb/data:/data/db --hostname<span class="o">=</span><span class="s2">&#34;mongodb&#34;</span> -p <span class="m">27017</span>:27017 -d mongo-tosone --smallfiles</code></pre></td></tr></table>
+</div>
+</div>
 <h3 id="安装-mysql">安装 Mysql</h3>
-
-<pre><code class="language-bash">FROM mysql:latest
-ENV MYSQL_ROOT_PASSWORD 8541539655
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">FROM mysql:latest
+ENV MYSQL_ROOT_PASSWORD <span class="m">8541539655</span>
 ENV MYSQL_USER tosone
-ENV MYSQL_PASSWORD 8541539655
-CMD [&quot;mysqld&quot;]
-</code></pre>
-
-<pre><code class="language-bash">docker build -t mysql-tosone .
-docker run --name mysql -v /data/mysql:/var/lib/mysql --hostname=&quot;mysql&quot; -p 3306:3306 -d mysql-tosone
-</code></pre>
-
+ENV MYSQL_PASSWORD <span class="m">8541539655</span>
+CMD <span class="o">[</span><span class="s2">&#34;mysqld&#34;</span><span class="o">]</span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">docker build -t mysql-tosone .
+docker run --name mysql -v /data/mysql:/var/lib/mysql --hostname<span class="o">=</span><span class="s2">&#34;mysql&#34;</span> -p <span class="m">3306</span>:3306 -d mysql-tosone</code></pre></td></tr></table>
+</div>
+</div>
 <h3 id="安装-redis">安装 Redis</h3>
-
-<pre><code class="language-bash">FROM redis:latest
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">FROM redis:latest
 COPY redis.conf /etc/redis/redis.conf
-CMD [ &quot;redis-server&quot;, &quot;/etc/redis/redis.conf&quot; ]
-</code></pre>
-
-<pre><code class="language-bash">################################## INCLUDES ###################################
-################################## NETWORK #####################################
-bind 0.0.0.0
+CMD <span class="o">[</span> <span class="s2">&#34;redis-server&#34;</span>, <span class="s2">&#34;/etc/redis/redis.conf&#34;</span> <span class="o">]</span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">################################## INCLUDES ###################################</span>
+<span class="c1">################################## NETWORK #####################################</span>
+<span class="nb">bind</span> <span class="m">0</span>.0.0.0
 protected-mode yes
-port 6379
-tcp-backlog 511
-timeout 0
-tcp-keepalive 300
-################################# GENERAL #####################################
+port <span class="m">6379</span>
+tcp-backlog <span class="m">511</span>
+timeout <span class="m">0</span>
+tcp-keepalive <span class="m">300</span>
+<span class="c1">################################# GENERAL #####################################</span>
 daemonize no
 supervised no
 pidfile /var/run/redis_6379.pid
 loglevel notice
-logfile &quot;&quot;
-databases 16
-################################ SNAPSHOTTING  ###############################
-save 900 1
-save 300 10
-save 60 10000
+logfile <span class="s2">&#34;&#34;</span>
+databases <span class="m">16</span>
+<span class="c1">################################ SNAPSHOTTING  ###############################</span>
+save <span class="m">900</span> <span class="m">1</span>
+save <span class="m">300</span> <span class="m">10</span>
+save <span class="m">60</span> <span class="m">10000</span>
 stop-writes-on-bgsave-error yes
 rdbcompression yes
 rdbchecksum yes
 dbfilename dump.rdb
 dir ./
-################################# REPLICATION #################################
+<span class="c1">################################# REPLICATION #################################</span>
 slave-read-only yes
 repl-diskless-sync no
-repl-diskless-sync-delay 5
+repl-diskless-sync-delay <span class="m">5</span>
 repl-disable-tcp-nodelay no
-slave-priority 100
-################################## SECURITY ###################################
-requirepass 8541539655
-################################### LIMITS ####################################
-############################## APPEND ONLY MODE ###############################
+slave-priority <span class="m">100</span>
+<span class="c1">################################## SECURITY ###################################</span>
+requirepass <span class="m">8541539655</span>
+<span class="c1">################################### LIMITS ####################################</span>
+<span class="c1">############################## APPEND ONLY MODE ###############################</span>
 appendonly no
-appendfilename &quot;appendonly.aof&quot;
+appendfilename <span class="s2">&#34;appendonly.aof&#34;</span>
 appendfsync everysec
 no-appendfsync-on-rewrite no
-auto-aof-rewrite-percentage 100
+auto-aof-rewrite-percentage <span class="m">100</span>
 auto-aof-rewrite-min-size 64mb
 aof-load-truncated yes
-################################ LUA SCRIPTING  ###############################
-lua-time-limit 5000
-################################ REDIS CLUSTER  ##############################
-################################## SLOW LOG ###################################
-slowlog-log-slower-than 10000
-slowlog-max-len 128
-################################ LATENCY MONITOR ##############################
-latency-monitor-threshold 0
-############################# EVENT NOTIFICATION ##############################
-notify-keyspace-events &quot;&quot;
-############################### ADVANCED CONFIG ###############################
-hash-max-ziplist-entries 512
-hash-max-ziplist-value 64
+<span class="c1">################################ LUA SCRIPTING  ###############################</span>
+lua-time-limit <span class="m">5000</span>
+<span class="c1">################################ REDIS CLUSTER  ##############################</span>
+<span class="c1">################################## SLOW LOG ###################################</span>
+slowlog-log-slower-than <span class="m">10000</span>
+slowlog-max-len <span class="m">128</span>
+<span class="c1">################################ LATENCY MONITOR ##############################</span>
+latency-monitor-threshold <span class="m">0</span>
+<span class="c1">############################# EVENT NOTIFICATION ##############################</span>
+notify-keyspace-events <span class="s2">&#34;&#34;</span>
+<span class="c1">############################### ADVANCED CONFIG ###############################</span>
+hash-max-ziplist-entries <span class="m">512</span>
+hash-max-ziplist-value <span class="m">64</span>
 list-max-ziplist-size -2
-list-compress-depth 0
-set-max-intset-entries 512
-zset-max-ziplist-entries 128
-zset-max-ziplist-value 64
-hll-sparse-max-bytes 3000
+list-compress-depth <span class="m">0</span>
+set-max-intset-entries <span class="m">512</span>
+zset-max-ziplist-entries <span class="m">128</span>
+zset-max-ziplist-value <span class="m">64</span>
+hll-sparse-max-bytes <span class="m">3000</span>
 activerehashing yes
-client-output-buffer-limit normal 0 0 0
-client-output-buffer-limit slave 256mb 64mb 60
-client-output-buffer-limit pubsub 32mb 8mb 60
-hz 10
-aof-rewrite-incremental-fsync yes
-</code></pre>
-
-<pre><code class="language-bash">docker build -t redis-tosone .
-</code></pre>
+client-output-buffer-limit normal <span class="m">0</span> <span class="m">0</span> <span class="m">0</span>
+client-output-buffer-limit slave 256mb 64mb <span class="m">60</span>
+client-output-buffer-limit pubsub 32mb 8mb <span class="m">60</span>
+hz <span class="m">10</span>
+aof-rewrite-incremental-fsync yes</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">docker build -t redis-tosone .</code></pre></td></tr></table>
+</div>
+</div>
     </div>
 
     

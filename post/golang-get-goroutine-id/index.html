@@ -71,7 +71,7 @@
 
 <meta itemprop="datePublished" content="2018-03-09T21:14:28&#43;00:00" />
 <meta itemprop="dateModified" content="2018-03-09T21:14:28&#43;00:00" />
-<meta itemprop="wordCount" content="2201">
+<meta itemprop="wordCount" content="2293">
 
 
 
@@ -337,60 +337,111 @@
 </ul>
 
 <p>在开始介绍各种方法前，先看一下定义在 <code>src/runtime/runtime2.go</code> 中保存 goroutine 状态的g结构：</p>
-
-<pre><code class="language-go">type g struct {
-    // Stack parameters.
-    // stack describes the actual stack memory: [stack.lo, stack.hi).
-    // stackguard0 is the stack pointer compared in the Go stack growth prologue.
-    // It is stack.lo+StackGuard normally, but can be StackPreempt to trigger a preemption.
-    // stackguard1 is the stack pointer compared in the C stack growth prologue.
-    // It is stack.lo+StackGuard on g0 and gsignal stacks.
-    // It is ~0 on other goroutine stacks, to trigger a call to morestackc (and crash).
-    stack       stack   // offset known to runtime/cgo
-    stackguard0 uintptr // offset known to liblink
-    stackguard1 uintptr // offset known to liblink
-
-    _panic         *_panic // innermost panic - offset known to liblink
-    _defer         *_defer // innermost defer
-    m              *m      // current m; offset known to arm liblink
-    sched          gobuf
-    syscallsp      uintptr        // if status==Gsyscall, syscallsp = sched.sp to use during gc
-    syscallpc      uintptr        // if status==Gsyscall, syscallpc = sched.pc to use during gc
-    stktopsp       uintptr        // expected sp at top of stack, to check in traceback
-    param          unsafe.Pointer // passed parameter on wakeup
-    atomicstatus   uint32
-    stackLock      uint32 // sigprof/scang lock; TODO: fold in to atomicstatus
-    goid           int64 // goroutine id
-    ...
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">g</span> <span class="kd">struct</span> <span class="p">{</span>
+    <span class="c1">// Stack parameters.
+</span><span class="c1"></span>    <span class="c1">// stack describes the actual stack memory: [stack.lo, stack.hi).
+</span><span class="c1"></span>    <span class="c1">// stackguard0 is the stack pointer compared in the Go stack growth prologue.
+</span><span class="c1"></span>    <span class="c1">// It is stack.lo+StackGuard normally, but can be StackPreempt to trigger a preemption.
+</span><span class="c1"></span>    <span class="c1">// stackguard1 is the stack pointer compared in the C stack growth prologue.
+</span><span class="c1"></span>    <span class="c1">// It is stack.lo+StackGuard on g0 and gsignal stacks.
+</span><span class="c1"></span>    <span class="c1">// It is ~0 on other goroutine stacks, to trigger a call to morestackc (and crash).
+</span><span class="c1"></span>    <span class="nx">stack</span>       <span class="nx">stack</span>   <span class="c1">// offset known to runtime/cgo
+</span><span class="c1"></span>    <span class="nx">stackguard0</span> <span class="kt">uintptr</span> <span class="c1">// offset known to liblink
+</span><span class="c1"></span>    <span class="nx">stackguard1</span> <span class="kt">uintptr</span> <span class="c1">// offset known to liblink
+</span><span class="c1"></span>
+    <span class="nx">_panic</span>         <span class="o">*</span><span class="nx">_panic</span> <span class="c1">// innermost panic - offset known to liblink
+</span><span class="c1"></span>    <span class="nx">_defer</span>         <span class="o">*</span><span class="nx">_defer</span> <span class="c1">// innermost defer
+</span><span class="c1"></span>    <span class="nx">m</span>              <span class="o">*</span><span class="nx">m</span>      <span class="c1">// current m; offset known to arm liblink
+</span><span class="c1"></span>    <span class="nx">sched</span>          <span class="nx">gobuf</span>
+    <span class="nx">syscallsp</span>      <span class="kt">uintptr</span>        <span class="c1">// if status==Gsyscall, syscallsp = sched.sp to use during gc
+</span><span class="c1"></span>    <span class="nx">syscallpc</span>      <span class="kt">uintptr</span>        <span class="c1">// if status==Gsyscall, syscallpc = sched.pc to use during gc
+</span><span class="c1"></span>    <span class="nx">stktopsp</span>       <span class="kt">uintptr</span>        <span class="c1">// expected sp at top of stack, to check in traceback
+</span><span class="c1"></span>    <span class="nx">param</span>          <span class="nx">unsafe</span><span class="p">.</span><span class="nx">Pointer</span> <span class="c1">// passed parameter on wakeup
+</span><span class="c1"></span>    <span class="nx">atomicstatus</span>   <span class="kt">uint32</span>
+    <span class="nx">stackLock</span>      <span class="kt">uint32</span> <span class="c1">// sigprof/scang lock; TODO: fold in to atomicstatus
+</span><span class="c1"></span>    <span class="nx">goid</span>           <span class="kt">int64</span> <span class="c1">// goroutine id
+</span><span class="c1"></span>    <span class="o">...</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>其中 goid int64 字段即为当前 goroutine 的 id。</p>
 
 <h3 id="1-通过-stack-信息获取-goroutine-id">1. 通过 stack 信息获取 goroutine id</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
 
-<pre><code class="language-go">package main
+<span class="kn">import</span> <span class="p">(</span>
+    <span class="s">&#34;bytes&#34;</span>
+    <span class="s">&#34;fmt&#34;</span>
+    <span class="s">&#34;runtime&#34;</span>
+    <span class="s">&#34;strconv&#34;</span>
+<span class="p">)</span>
 
-import (
-    &quot;bytes&quot;
-    &quot;fmt&quot;
-    &quot;runtime&quot;
-    &quot;strconv&quot;
-)
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nf">GetGID</span><span class="p">())</span>
+<span class="p">}</span>
 
-func main() {
-    fmt.Println(GetGID())
-}
-
-func GetGID() uint64 {
-    b := make([]byte, 64)
-    b = b[:runtime.Stack(b, false)]
-    b = bytes.TrimPrefix(b, []byte(&quot;goroutine &quot;))
-    b = b[:bytes.IndexByte(b, ' ')]
-    n, _ := strconv.ParseUint(string(b), 10, 64)
-    return n
-}
-</code></pre>
-
+<span class="kd">func</span> <span class="nf">GetGID</span><span class="p">()</span> <span class="kt">uint64</span> <span class="p">{</span>
+    <span class="nx">b</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">byte</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>
+    <span class="nx">b</span> <span class="p">=</span> <span class="nx">b</span><span class="p">[:</span><span class="nx">runtime</span><span class="p">.</span><span class="nf">Stack</span><span class="p">(</span><span class="nx">b</span><span class="p">,</span> <span class="kc">false</span><span class="p">)]</span>
+    <span class="nx">b</span> <span class="p">=</span> <span class="nx">bytes</span><span class="p">.</span><span class="nf">TrimPrefix</span><span class="p">(</span><span class="nx">b</span><span class="p">,</span> <span class="p">[]</span><span class="nb">byte</span><span class="p">(</span><span class="s">&#34;goroutine &#34;</span><span class="p">))</span>
+    <span class="nx">b</span> <span class="p">=</span> <span class="nx">b</span><span class="p">[:</span><span class="nx">bytes</span><span class="p">.</span><span class="nf">IndexByte</span><span class="p">(</span><span class="nx">b</span><span class="p">,</span> <span class="sc">&#39; &#39;</span><span class="p">)]</span>
+    <span class="nx">n</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">strconv</span><span class="p">.</span><span class="nf">ParseUint</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">b</span><span class="p">),</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nx">n</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>原理非常简单，将 stack 中的文本信息 &ldquo;goroutine 1234&rdquo; 匹配出来。但是这种方式有两个问题：</p>
 
 <p>stack 信息的格式随版本更新可能变化，甚至不再提供 goroutine id，可靠性差。
@@ -401,13 +452,20 @@ func GetGID() uint64 {
 <h3 id="2-通过修改源代码获取goroutine-id">2. 通过修改源代码获取goroutine id</h3>
 
 <p>既然方法 1 效率较低，且不可靠，那么我们可以尝试直接修改源代码 <code>src/runtime/runtime2.go</code> 中添加 Goid 函数，将 goid 暴露给应用层：</p>
-
-<pre><code class="language-go">func Goid() int64 {
-    _g_ := getg()
-    return _g_.goid
-}
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">Goid</span><span class="p">()</span> <span class="kt">int64</span> <span class="p">{</span>
+    <span class="nx">_g_</span> <span class="o">:=</span> <span class="nf">getg</span><span class="p">()</span>
+    <span class="k">return</span> <span class="nx">_g_</span><span class="p">.</span><span class="nx">goid</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>这个方式能解决法 1 的两个问题，但是会导致你的程序只能在修改了源代码的机器上才能编译，没有移植性，并且每次 go 版本升级以后，都需要重新修改源代码，维护成本较高。</p>
 
 <h3 id="3-通过-cgo-获取-goroutine-id">3. 通过 CGo 获取 goroutine id</h3>
@@ -415,21 +473,35 @@ func GetGID() uint64 {
 <p>那么有没有性能好，同时不影响移植性，且维护成本低的方法呢？那就是来自 Dave Cheney 的 CGo 方式：</p>
 
 <p>文件 id.c：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="err">#</span><span class="nx">include</span> <span class="s">&#34;runtime.h&#34;</span>
 
-<pre><code class="language-go">#include &quot;runtime.h&quot;
-
-int64 ·Id(void) {
-    return g-&gt;goid;
-}
-</code></pre>
-
+<span class="kt">int64</span> <span class="err">·</span><span class="nf">Id</span><span class="p">(</span><span class="nx">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">g</span><span class="o">-</span><span class="p">&gt;</span><span class="nx">goid</span><span class="p">;</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>文件 id.go:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">id</span>
 
-<pre><code class="language-go">package id
-
-func Id() int64
-</code></pre>
-
+<span class="kd">func</span> <span class="nf">Id</span><span class="p">()</span> <span class="kt">int64</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>完整代码参见 <a href="https://github.com/davecheney/junk/blob/master/id/id.c">junk/id</a>.</p>
 
 <p>这种方法的问题在于你需要开启 CGo, CGo 存在一些缺点，具体可以参见这个大牛的 <a href="https://dave.cheney.net/2016/01/18/cgo-is-not-go">cgo is not Go</a>. 我相信在你绝大部分的工程项目中，你是不希望开启CGo的。</p>
@@ -447,44 +519,82 @@ func Id() int64
 <p>虽然方法4从原理和实际应用上表现都不错，但是毕竟作者弃坑了。回到我们要解决的问题上：我们并不是真的一定要获取到 goroutine id，我们只是想获取到 goroutine 的唯一标识。那么，从这个角度看的话，我们只需要解决 goroutine 标识唯一性的问题即可。</p>
 
 <p>显然，上面作者也想清楚了这个问题。他新开了一个库 <a href="https://github.com/huandu/go-tls">go-tls</a>, 这个库实现了 goroutine local storage，其中获取 goroutine id 的方式是：用方法4的汇编获取 goroutine 的地址，然后自己管理和分配 goroutine id。由于它获取到的并不是真正的 goroutine id，因此我将之称为伪 goroutine id。其实现的核心代码如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">var</span> <span class="p">(</span>
+    <span class="nx">tlsDataMap</span>  <span class="p">=</span> <span class="kd">map</span><span class="p">[</span><span class="nx">unsafe</span><span class="p">.</span><span class="nx">Pointer</span><span class="p">]</span><span class="o">*</span><span class="nx">tlsData</span><span class="p">{}</span>
+    <span class="nx">tlsMu</span>       <span class="nx">sync</span><span class="p">.</span><span class="nx">Mutex</span>
+    <span class="nx">tlsUniqueID</span> <span class="kt">int64</span>
+<span class="p">)</span>
+<span class="o">...</span>
 
-<pre><code class="language-go">var (
-    tlsDataMap  = map[unsafe.Pointer]*tlsData{}
-    tlsMu       sync.Mutex
-    tlsUniqueID int64
-)
-...
-
-func fetchDataMap(readonly bool) *tlsData {
-    gp := g.G() // 1. 获取g结构地址
-    if gp == nil {
-        return nil
-    }
-    // Try to find saved data.
-    needHack := false
-    tlsMu.Lock()
-    dm := tlsDataMap[gp]
-    if dm == nil &amp;&amp; !readonly {
-        needHack = true
-        dm = &amp;tlsData{
-            id:   atomic.AddInt64(&amp;tlsUniqueID, 1), // 2. 分配伪goroutine id
-            data: dataMap{},
-        }
-        tlsDataMap[gp] = dm
-    }
-    tlsMu.Unlock()
-    // Current goroutine is not hacked. Hack it.
-    if needHack {
-        if !hack(gp) {
-            tlsMu.Lock()
-            delete(tlsDataMap, gp)
-            tlsMu.Unlock()
-        }
-    }
-    return dm
-}
-</code></pre>
-
+<span class="kd">func</span> <span class="nf">fetchDataMap</span><span class="p">(</span><span class="nx">readonly</span> <span class="kt">bool</span><span class="p">)</span> <span class="o">*</span><span class="nx">tlsData</span> <span class="p">{</span>
+    <span class="nx">gp</span> <span class="o">:=</span> <span class="nx">g</span><span class="p">.</span><span class="nf">G</span><span class="p">()</span> <span class="c1">// 1. 获取g结构地址
+</span><span class="c1"></span>    <span class="k">if</span> <span class="nx">gp</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">nil</span>
+    <span class="p">}</span>
+    <span class="c1">// Try to find saved data.
+</span><span class="c1"></span>    <span class="nx">needHack</span> <span class="o">:=</span> <span class="kc">false</span>
+    <span class="nx">tlsMu</span><span class="p">.</span><span class="nf">Lock</span><span class="p">()</span>
+    <span class="nx">dm</span> <span class="o">:=</span> <span class="nx">tlsDataMap</span><span class="p">[</span><span class="nx">gp</span><span class="p">]</span>
+    <span class="k">if</span> <span class="nx">dm</span> <span class="o">==</span> <span class="kc">nil</span> <span class="o">&amp;&amp;</span> <span class="p">!</span><span class="nx">readonly</span> <span class="p">{</span>
+        <span class="nx">needHack</span> <span class="p">=</span> <span class="kc">true</span>
+        <span class="nx">dm</span> <span class="p">=</span> <span class="o">&amp;</span><span class="nx">tlsData</span><span class="p">{</span>
+            <span class="nx">id</span><span class="p">:</span>   <span class="nx">atomic</span><span class="p">.</span><span class="nf">AddInt64</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">tlsUniqueID</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="c1">// 2. 分配伪goroutine id
+</span><span class="c1"></span>            <span class="nx">data</span><span class="p">:</span> <span class="nx">dataMap</span><span class="p">{},</span>
+        <span class="p">}</span>
+        <span class="nx">tlsDataMap</span><span class="p">[</span><span class="nx">gp</span><span class="p">]</span> <span class="p">=</span> <span class="nx">dm</span>
+    <span class="p">}</span>
+    <span class="nx">tlsMu</span><span class="p">.</span><span class="nf">Unlock</span><span class="p">()</span>
+    <span class="c1">// Current goroutine is not hacked. Hack it.
+</span><span class="c1"></span>    <span class="k">if</span> <span class="nx">needHack</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">!</span><span class="nf">hack</span><span class="p">(</span><span class="nx">gp</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">tlsMu</span><span class="p">.</span><span class="nf">Lock</span><span class="p">()</span>
+            <span class="nb">delete</span><span class="p">(</span><span class="nx">tlsDataMap</span><span class="p">,</span> <span class="nx">gp</span><span class="p">)</span>
+            <span class="nx">tlsMu</span><span class="p">.</span><span class="nf">Unlock</span><span class="p">()</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">dm</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
 <ul>
 <li>获取 g 结构地址。</li>
 <li>分配伪 goroutine id.</li>
