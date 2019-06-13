@@ -6,10 +6,37 @@
     <description>Recent content in CGO on Tosone&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 10 Mar 2018 21:14:28 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 05 Nov 2018 20:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://tosone.cn/tags/cgo/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Golang 中如何用 CGO 与 C 之间做一个缓存 buffer</title>
+      <link>https://tosone.cn/post/golang-cgo-buffer/</link>
+      <pubDate>Mon, 05 Nov 2018 20:00:00 +0000</pubDate>
+      
+      <guid>https://tosone.cn/post/golang-cgo-buffer/</guid>
+      <description>&lt;p&gt;Golang 和 C 之间如何传递二进制数据呢？&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>CGO 注意事项</title>
+      <link>https://tosone.cn/post/cgo-attation/</link>
+      <pubDate>Wed, 12 Sep 2018 10:14:28 +0000</pubDate>
+      
+      <guid>https://tosone.cn/post/cgo-attation/</guid>
+      <description>&lt;p&gt;Golang 和 C 之间相互调用存在一些局限性。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>CGO 入门</title>
+      <link>https://tosone.cn/post/cgo/</link>
+      <pubDate>Tue, 10 Jul 2018 21:14:28 +0000</pubDate>
+      
+      <guid>https://tosone.cn/post/cgo/</guid>
+      <description>&lt;p&gt;Golang 和 C 之间相互调用入门。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>cgo is not go</title>

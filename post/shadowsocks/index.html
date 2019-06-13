@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>优雅的翻墙 - Tosone&#39;s Blog</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="Tosone" />
+  <meta name="description" content="Long long ago, 在一个叫 v2ex 的地方，有一位叫做 clowwindy 的用户。他为了避免网络流量分类技术和 ssh tunnel 的低效，自己写了一个用于加密流量的协议，并自用了一年多. 后来，由于这个协议非常高效，而且使用json 作为配置文件，配置起来非常方便，所以迅速赢得了很多用户，并在 v2ex 上有了一个专属的节点。shadowsocks 迅速被移植到各种平台、各种语言，用户也急剧上升，并且有了专门经营 shadowsocks 服务的商家。
+" />
+
+  <meta name="keywords" content="Tosone, blog" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.6" />
+
+
+<link rel="canonical" href="https://tosone.cn/post/shadowsocks/" />
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.ec807d8b802a40889537c26e014f733206312ea440d42e1f0dabed80918de1ac.css" integrity="sha256-7IB9i4AqQIiVN8JuAU9zMgYxLqRA1C4fDavtgJGN4aw=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+<meta property="og:title" content="优雅的翻墙" />
+<meta property="og:description" content="Long long ago, 在一个叫 v2ex 的地方，有一位叫做 clowwindy 的用户。他为了避免网络流量分类技术和 ssh tunnel 的低效，自己写了一个用于加密流量的协议，并自用了一年多. 后来，由于这个协议非常高效，而且使用json 作为配置文件，配置起来非常方便，所以迅速赢得了很多用户，并在 v2ex 上有了一个专属的节点。shadowsocks 迅速被移植到各种平台、各种语言，用户也急剧上升，并且有了专门经营 shadowsocks 服务的商家。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://tosone.cn/post/shadowsocks/" />
+<meta property="article:published_time" content="2017-02-24T15:14:28&#43;00:00"/>
+<meta property="article:modified_time" content="2017-02-24T15:14:28&#43;00:00"/>
+
+<meta itemprop="name" content="优雅的翻墙">
+<meta itemprop="description" content="Long long ago, 在一个叫 v2ex 的地方，有一位叫做 clowwindy 的用户。他为了避免网络流量分类技术和 ssh tunnel 的低效，自己写了一个用于加密流量的协议，并自用了一年多. 后来，由于这个协议非常高效，而且使用json 作为配置文件，配置起来非常方便，所以迅速赢得了很多用户，并在 v2ex 上有了一个专属的节点。shadowsocks 迅速被移植到各种平台、各种语言，用户也急剧上升，并且有了专门经营 shadowsocks 服务的商家。">
+
+
+<meta itemprop="datePublished" content="2017-02-24T15:14:28&#43;00:00" />
+<meta itemprop="dateModified" content="2017-02-24T15:14:28&#43;00:00" />
+<meta itemprop="wordCount" content="4319">
+
+
+
+<meta itemprop="keywords" content="Shadowsocks," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="优雅的翻墙"/>
+<meta name="twitter:description" content="Long long ago, 在一个叫 v2ex 的地方，有一位叫做 clowwindy 的用户。他为了避免网络流量分类技术和 ssh tunnel 的低效，自己写了一个用于加密流量的协议，并自用了一年多. 后来，由于这个协议非常高效，而且使用json 作为配置文件，配置起来非常方便，所以迅速赢得了很多用户，并在 v2ex 上有了一个专属的节点。shadowsocks 迅速被移植到各种平台、各种语言，用户也急剧上升，并且有了专门经营 shadowsocks 服务的商家。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Tosone</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://tosone.cn/">This is Home</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://tosone.cn/post/">Archives</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://tosone.cn/tags/">Tags</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://tosone.cn/categories/">Categories</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://tosone.cn/about.html">About</a>
+          
+        
+      </li>
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      Tosone
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://tosone.cn/">This is Home</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://tosone.cn/post/">Archives</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://tosone.cn/tags/">Tags</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://tosone.cn/categories/">Categories</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://tosone.cn/about.html">About</a>
+          
+
+        
+
+      </li>
+    
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">优雅的翻墙</h1>
+      
+      <div class="post-meta">
+        <time datetime="2017-02-24" class="post-time">
+          2017-02-24
+        </time>
+        
+        
+
+        
+        
+          <span id="busuanzi_container_page_pv">
+            | 阅读 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    
+    <div class="post-content">
+      <p>Long long ago, 在一个叫 v2ex 的地方，有一位叫做 clowwindy 的用户。他为了避免网络流量分类技术和 ssh tunnel 的低效，自己写了一个用于加密流量的协议，并自用了一年多. 后来，由于这个协议非常高效，而且使用json 作为配置文件，配置起来非常方便，所以迅速赢得了很多用户，并在 v2ex 上有了一个专属的节点。shadowsocks 迅速被移植到各种平台、各种语言，用户也急剧上升，并且有了专门经营 shadowsocks 服务的商家。</p>
+
+<h3 id="关于翻墙">关于翻墙</h3>
+
+<hr />
+
+<blockquote>
+<p>不会翻墙的程序员是没有走在正确的康庄大道上，不会翻墙的民众就不是明事理的民众，翻墙是你的必备技能。</p>
+</blockquote>
+
+<h3 id="翻墙历史">翻墙历史</h3>
+
+<p>翻墙的话，方法有很多，直接到百度上搜一下关键词 <code>vpn</code> 也是可以搜到很多相关信息。很多乱七八糟的那些网站里边的东西也都是可以用的。但是有一点，那些网站里边的东西可能并不会长久，可能隔一段时间网站就消失了，找不到了，你花钱买的翻墙利器也就没了保障。</p>
+
+<p>说一点黑历史，之前 UC 浏览器中有一个翻墙的神器叫红杏出墙，当时觉得特别好用，也是免费的。翻墙嘛，毕竟也是国家花大力气建造的 GFW 来做这堵墙的，这么好的工具很定不能让你轻易地用啊。之后 UC 就撤掉了这个插件，现在也找不到了，现在关于红杏出墙的所有网站都算是空壳了，千万不要再相信关于红杏出墙的任何网站，想当年红杏出墙的克隆网站、钓鱼网站相当之多，现在已经是凄凄惨惨戚戚。后来也是出现一些翻墙浏览器，简单的就是说，在浏览器中做了一些插件，只需要把人家提供的浏览器装上去，就可以翻墙了，但是无奈，这种东西能用的时间太过于短了，市场需要更新，对于嫌麻烦的人来说这简直就是不可以忍受的。然后还有一个不得不说的工具 <code>Lantern</code> ，这个工具是基于 <code>P2P</code> 的，这种点对点的协议屏蔽的很多的中间环节，所以说能够翻墙，但是在国内想封锁 <code>Lantern</code> 是比较容易的，只是说国家在很大程度上不想让绝大多数人翻墙而已，这才是GFW的目的，目前 <code>Lantern</code> 是时不时就不能用的玩意儿。</p>
+
+<h3 id="windows-篇">Windows 篇</h3>
+
+<p>下面来到我们的重要环节，怎么样才能优雅地翻墙，首先是 <code>Windows</code> 篇：</p>
+
+<p>首先我是不推荐那些乱七八糟的网站里边的小工具的，不可靠也不长久，然后也不推荐 <code>Lantern</code> 的。只推荐一个东西：<a href="https://shadowsocks.org/">Shadowsocks</a>，这个网站不翻墙是访问不到的。</p>
+
+<p>然后着重强调一点的是本文不提供任何非官方的下载链接，所有官方下载链接均是目前的最新版，如果你看到的是时间是很久以后，请根据提供的链接自行寻找最新版的下载链结，我想这个并不困难吧。</p>
+
+<p>最后，本文不提供任何截图，原因不说明。</p>
+
+<h4 id="第一种方法">第一种方法</h4>
+
+<ul>
+<li>首先，到 <code>GitHub</code> 找到 <a href="https://github.com/shadowsocks/">Shadowsocks</a> 这个项目，可以稍微浏览一下，这个项目是开源的，你可以查看它的所有项目的每一行代码。</li>
+<li>然后，找到一个项目，名字叫 <a href="https://github.com/shadowsocks/shadowsocks-qt5">shadowsocks-qt5</a>，看到 <code>QT5</code> 你应该知道，这个项目的软件是跨平台的。</li>
+<li>OK，亲爱的盆友们，在这个项目里边找找 <code>Windows</code> 的软件在哪里吧。在代码列表的上方有个 <a href="https://github.com/shadowsocks/shadowsocks-qt5/releases">Release</a> 的链接，点开来看，就可以看到最新发布的版本了。</li>
+<li>Release 页面往下拉一下，就可以看到两个编译好的版本的下载链接，截止本文更新的时间，最新版本的发布时间为 2017 年 7 月 24 日。可以下载 <a href="https://github.com/shadowsocks/shadowsocks-qt5/releases/download/v2.9.0/ss-qt5-v2.9.0-win64.7z">ss-qt5-v2.9.0-win64.7z</a>。下载会很慢，稍等即可。然后上边还有一个后缀名为 <code>AppImage</code> 的文件，这种格式是 Linux 的通用格式，加上可执行权限就可以在 Linux 上直接使用，目前发现在 Deepin 系统上，由于系统问题暂时有问题，其他系统没有任何问题。</li>
+<li>下载后，可以直接运行，然后需要配置一些信息，包括服务器 <code>IP</code>，<code>Port</code> 等等之类的信息。这些信息怎么获取到呢？这些信息是需要买的，或者自己搭建一个 Shadowsocks Server 的服务。</li>
+<li>之后，把购买到的 <code>IP</code>，<code>Port</code>，加密算法填进去，请反复验证以上信息是一致的，否则不能成功。</li>
+<li>最后在，本地地址上填写 <code>0.0.0.0</code>，这样写的好处是可以使局域网内的其他用户也可以用这个翻墙服务，本地端口填写 1880，也务必保证这个填写的 1880 端口没有本其他应用程序占用，否则请更换成其它端口，之后要用。点击软件上方的连接按钮即可。到此为止，我们的 Shadowsocks 已经连接成功了。</li>
+<li>但是仍然没有办法访问墙外的资源，因为这个 Shadowsocks 的客户端仅仅是在本地开启了一个 socks5 的通道，浏览器翻墙需要另外的一个东西了，名字叫 <a href="https://github.com/FelisCatus/SwitchyOmega">SwitchyOmega</a>，具体它的下载方法跟 Shadowsocks 下载方法是一样的。</li>
+<li>现在我认为你已经下载了 <a href="https://github.com/FelisCatus/SwitchyOmega">SwitchyOmega</a>，而且用的浏览器是 <code>Chrome</code>。</li>
+<li>在 Chrome 中访问 <a href="chrome://extensions/">extensions</a>，打开右上角的开发者模式。</li>
+<li>然后把 SwitchyOmega.crx 文件拖动到 <a href="chrome://extensions/">extensions</a> 这个页面上。</li>
+<li>之后 SwitchyOmega 会引导你怎么用。可以看一眼，没什么坏处。</li>
+<li>首先选择到右侧的 <code>proxy</code> 选项。代理协议选择 <code>SOCKS5</code>，代理服务器填写 <code>127.0.0.1</code>，代理端口填写上边设置好的 <code>1880</code>。</li>
+<li>SwitchyOmega 是有几种模式的：
+
+<ul>
+<li>proxy：全部都翻墙，显然是不合理的，对于国内的网站是不需要翻墙的。</li>
+<li>auto switch：自动选择，这是本人非常推荐的，选择不能访问的页面翻墙。</li>
+<li>系统代理：选择系统上的代理，这种一般用不到。</li>
+<li>直接连接：就是没有做任何的代理。</li>
+</ul></li>
+<li>当有资源未加载的话，在 Chrome 浏览器有右上角有个圆圈，那是 SwitchyOmega 的图标，然后图标上会有带有数字的感叹号。点击图标，会有显示多少资源未加载的菜单。之后会让你选择那些未加载的资源是否选择 proxy，选择之后那个资源就永远的加载到了 SwitchyOmega 的翻墙列表中了。不需要再次设置，除非浏览器卸载或者 SwitchyOmega 重装。之所以有时候某个资源明明已经选择翻墙了，但是下次还是会有显示那个资源未被加载，原因在于这个资源可能不稳定或者网络情况不太好，请给它足够的时间的时间，而不是一直点加入我的翻墙列表中。</li>
+<li>当用了一段时间 SwitchyOmega 之后，翻墙列表会越来越丰富，这是一个习惯培养的过程。</li>
+</ul>
+
+<h4 id="第二种方法">第二种方法</h4>
+
+<ul>
+<li>第一种方法是最行之有效最稳定的方法，这第二种方法和上边的方法没有太大的不一样，只是用的 Shadowssocks 软件不太一样。</li>
+<li>首先，还是查看 <a href="https://github.com">GitHub</a> 上用户 <a href="https://github.com/shadowsocks">shadowsocks</a> 有一个项目 <a href="https://github.com/shadowsocks/shadowsocks-chromeapp">shadowsocks-chromeapp</a>，看名字就知道这是 Chrome 的一个插件。</li>
+<li>唯一不好的是，这个插件需要编译而且官方没有提供编译好的版本，没有程序员朋友为你编译，你是没有办法用得了的，貌似没有人再为它跟新任何东西了。如果你动手能力足够强的话，可以看着文档自己编译。</li>
+<li>后边的步骤和上边第一种方法没有什么不一样的了。</li>
+<li>然后说一个比较坑的地方，这个插件 shadowsocks-chromeapp，不知道为什么会自己关闭。等到你不能翻墙的时候，查看一下 shadowsocks-chromeapp 是否在开着吧。</li>
+</ul>
+
+<h4 id="第三种方法">第三种方法</h4>
+
+<ul>
+<li>第三种方法，也是用的 Shadowssocks 软件不太一样，这次用的软件是用 C# 写的。在某一段时间 GitHub 上这个仓库的源代码被移除了，这是中国政府的斗争结果，我很不想表达我的愤怒的，但是还是要发泄一下，GFW 吃狗屎去吧。目前代码都还在，但是项目介绍中的 <code>If you want to keep a secret, you must also hide it from yourself.</code> 意味深长，不知道是不是说的是这个事儿。</li>
+<li>虽然我们看不到源代码，但是还是可以下载到的。请到这个 <a href="https://github.com/shadowsocks/shadowsocks-windows">shadowsocks-windows</a> 下去找 <a href="https://github.com/shadowsocks/shadowsocks-windows/releases/">Release</a> 版本。最新版本是 2018 年 3 月 14 日的。</li>
+<li>配置和上边是一样的。</li>
+<li>仍然要说的比较坑的是，最新版有时候会出现一些问题，导致连接不了 Server，但是是可以解决的。行之有效的方法是在 Windows 管理员命令行中执行一条命令 <code>netsh int ipv4 reset all &amp;&amp; netsh int ipv6 reset all &amp;&amp; netsh winsock reset all</code>，如何打开管理员命令行，不解释。之后重启电脑就 OK 了。其他的问题请访问这个<a href="https://github.com/shadowsocks/shadowsocks-windows/issues/621">链接</a>。</li>
+<li>然后，稍微探索一下这个 shadowsocks-windows 软件，你会发现用这个软件翻墙不再需要 SwitchyOmega，这个软件会帮我们下载需要翻墙的网址列表。现在我想你已经知道为什么中国政府为什么要斗争着要把这个项目给删掉了吧，因为翻墙的门槛太低了，小白都能学会。翻墙可以，就是不能这么容易，这就是中国政府的态度。</li>
+<li>还有就是这个软件可以选择全局翻墙，不论当前电脑访问的任何网络，流量都会由 Shadowsocks 代理一下。</li>
+</ul>
+
+<h3 id="linux-篇">Linux 篇</h3>
+
+<ul>
+<li>首先，这里说的 Linux 发行版适用于 Ubuntu Archlinux，有几个方案都可以用。</li>
+</ul>
+
+<h4 id="第一种方法-1">第一种方法</h4>
+
+<ul>
+<li>从<a href="https://github.com/shadowsocks/shadowsocks-qt5">这里</a>下载一个 QT 版本的 Shadowsocks，但是这个版本貌似更新有点不太频繁，最新的稳定版本支持的加密算法也不太多。但是用是没有任何问题的。他们提供了一种后缀名叫 <code>.AppImage</code> 的文件，这种文件是支持常见的 Linux 发行版的。下载后只需要给其加上可执行权限就能直接运行，简单的配置和 Windows 的一模一样。</li>
+<li>每次需要科学上网的时候需要将这个软件打开，在浏览器上配置好 SwitchOmega，就可以了。请注意端口一致！</li>
+</ul>
+
+<h4 id="第二种方法-1">第二种方法</h4>
+
+<ul>
+<li>一般 Linux 都会有默认安装 Python，但是可能没有默认安装 pip，执行命令 <code>sudo apt install python-pip</code> 或 <code>sudo pacman -S python-pip</code>, 安装完成之后，就可以直接安装 Shadowsocks 的 Python 版本了，执行命令 <code>sudo -H pip install shadowsocks</code>，或者你担心不是装的最新版本的 Shadowsocks，可以执行命令 <code>pip install git+https://github.com/shadowsocks/shadowsocks.git@master</code>。</li>
+<li>安装完成之后系统里边会多出来一个命令 sslocal，sslocal 可以接受命令行参数或者文件配置。</li>
+</ul>
+
+<pre><code class="language-json">{
+    &quot;server&quot;: &quot;my_server_ip&quot;,
+    &quot;server_port&quot;: 8388,
+    &quot;local_address&quot;: &quot;127.0.0.1&quot;,
+    &quot;local_port&quot;: 1080,
+    &quot;password&quot;: &quot;mypassword&quot;,
+    &quot;timeout&quot;: 300,
+    &quot;method&quot;: &quot;aes-256-cfb&quot;,
+    &quot;fast_open&quot;: false,
+    &quot;workers&quot;: 1,
+    &quot;prefer_ipv6&quot;: false
+}
+</code></pre>
+
+<ul>
+<li><code>sslocal -p 8388 -s 45.35.75.57 -k password -l 1080 -m aes-256-cfb</code> 用参数在命令行启动。</li>
+<li><code>sslocal -c config.json</code> 利用配置文件启动。</li>
+<li>以上这样启动之后只是在前台运行了一个 Shadowsocks 的客户端，怎样开机自启动这才是关键，首先还是一个 Python 的工具软件 <code>supervisor</code>，这是一个很有名的进程管理工具，安装 <code>sudo -H pip install supervisor</code>。</li>
+<li>编辑文件 <code>/etc/supervisor/conf.d/shadowsocks.conf</code> 写入以下内容：</li>
+</ul>
+
+<pre><code class="language-json">[program:shadowsocks]
+command=ssserver -c /etc/shadowsocks.json
+autorestart=true
+user=nobody
+</code></pre>
+
+<ul>
+<li>如果监听的端口小于 1024 以上的 <code>user=nobody</code> 改成 <code>user=root</code>。</li>
+<li><code>service supervisor start</code> 启动 supervisor 的服务。</li>
+<li><code>supervisorctl reload</code> 重载 supervisor 服务的配置。</li>
+<li><code>supervisorctl restart shadowsocks</code> 启动指定的服务。</li>
+<li>如果对 <code>supervisor</code> 的操作有有什么疑问的话可以专门搜索一下 <code>supervisor</code> 的基本操作。</li>
+</ul>
+
+<h4 id="第三种方法-1">第三种方法</h4>
+
+<ul>
+<li>在 ubuntu 和 ArchLinux 的源里有 shadowsocks-libev 的包，直接 <code>sudo apt install shadowsocks-libev</code> 或者 <code>sudo pacman -S shadowsocks-libev</code>。</li>
+<li>如果你在你的 Linux 发行版中没有找到 shadowsocks-libe 相关的包的话，可以考虑从源码开始编译安装。具体编译过程可以参照<a href="https://github.com/shadowsocks/shadowsocks-libev#distribution-specific-guide">这里</a>。</li>
+<li>安装好之后在系统的 <code>/lib/systemd/system/shadowsocks-local@.service</code> 的文件，不尽相同，大多是这样 <code>shadowsocks-local@.service</code> 的名字，这个文件就是 <code>systemd</code> 所需要的启动文件。</li>
+<li><code>sudo systemctl enable shadowsocks-local@config.service</code> 看见和那个文件名有什么不同了么？多了一个 config，指的是在这个服务启动的时候传入参数 config。看一眼这个文件的内容你就理解了。</li>
+<li>编辑好 <code>/etc/shadowsocks-libev/config.json</code> 也可能是 <code>/etc/shadowsocks/config.json</code> 具体是哪个文件以这个文件为准 <code>/lib/systemd/system/shadowsocks-local@.service</code>。</li>
+<li>最后 <code>sudo systemctl start shadowsocks-local@config.service</code>。</li>
+<li>然后浏览器装上 SwitchyOmega，就可以用了。</li>
+<li>然后有些人需要 git 翻墙，需要这样两条命令设置 git 的代理。</li>
+<li><code>git config --global http.proxy 'socks5://127.0.0.1:1080'</code></li>
+<li><code>git config --global https.proxy 'socks5://127.0.0.1:1080'</code></li>
+</ul>
+
+<h3 id="linux-server-篇">Linux Server 篇</h3>
+
+<p>为了最快化的安装 Shadowsocks 的 Server，我们采用 Docker 来操作。</p>
+
+<ul>
+<li><code>curl -fsSL get.docker.com -o get-docker.sh</code> 然后 <code>sh get-docker.sh</code> 稍等片刻就会安装完成。具体安装过程遇见的坑，多多搜索一下就好。</li>
+<li><code>curl -sSL https://github.com/shadowsocks/shadowsocks-libev/raw/master/docker/alpine/Dockerfile | docker build -t shadowsocks-libev -</code> 这样直接会编译一个 Docker 镜像根据<a href="https://github.com/shadowsocks/shadowsocks-libev/blob/master/docker/alpine/Dockerfile">这里</a>的 Dockerfile。</li>
+<li><code>docker run --name &quot;shadowsocks&quot; --restart=always -d -e METHOD=&quot;aes-256-gcm&quot; -e PASSWORD=1234567890 --hostname &quot;shadowsocks&quot; -p 10240:8388 -p 10240:8388/udp shadowsocks-libev</code> 这样这个 Docker Container 在 Server 中每次开机都会自己启动。</li>
+<li>以上参数启动的 Docker Container 对外提供的服务参数就是：加密算法是 aes-256-gcm，密码是 1234567890，端口是 10240。</li>
+</ul>
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Tosone</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">2017-02-24</span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://tosone.cn/tags/shadowsocks/">Shadowsocks</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/live-nginx/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">Nginx 搭建直播</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        
+          <a class="next" href="/post/git-useful-command/">
+            <span class="next-text nav-default">Git 基本操作</span>
+            <span class="prev-text nav-mobile">Next</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+    
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="icon-links">
+  
+  
+    <a href="mailto:i@tosone.cn" rel="me noopener" class="iconfont"
+      title="email" >
+      <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M664.781909 681.472759 0 97.881301C0 3.997201 71.046997 0 71.046997 0L474.477909 0 961.649408 0 1361.641813 0C1361.641813 0 1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759C771.345323 681.472759 764.482731 685.154773 753.594283 688.65053L753.594283 688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858L682.561621 688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759L664.781909 681.472759ZM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633 0 212.052267 0 212.052267L0 942.809523C0 942.809523 0 1024 83.726336 1024L682.532949 1024 753.579947 1024 1348.948139 1024C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523L1432.688811 212.052267C1432.688811 212.052267 893.138176 701.759633 817.019477 767.734955 777.248 802.205449 742.347691 811.03081 718.063616 811.603883L718.063616 811.603883Z"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://github.com/tosone" rel="me noopener" class="iconfont"
+      title="github"  target="_blank"
+      >
+      <svg class="icon" style="" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M512 12.672c-282.88 0-512 229.248-512 512 0 226.261333 146.688 418.133333 350.08 485.76 25.6 4.821333 34.986667-11.008 34.986667-24.618667 0-12.16-0.426667-44.373333-0.64-87.04-142.421333 30.890667-172.458667-68.693333-172.458667-68.693333C188.672 770.986667 155.008 755.2 155.008 755.2c-46.378667-31.744 3.584-31.104 3.584-31.104 51.413333 3.584 78.421333 52.736 78.421333 52.736 45.653333 78.293333 119.850667 55.68 149.12 42.581333 4.608-33.109333 17.792-55.68 32.426667-68.48-113.706667-12.8-233.216-56.832-233.216-253.013333 0-55.893333 19.84-101.546667 52.693333-137.386667-5.76-12.928-23.04-64.981333 4.48-135.509333 0 0 42.88-13.738667 140.8 52.48 40.96-11.392 84.48-17.024 128-17.28 43.52 0.256 87.04 5.888 128 17.28 97.28-66.218667 140.16-52.48 140.16-52.48 27.52 70.528 10.24 122.581333 5.12 135.509333 32.64 35.84 52.48 81.493333 52.48 137.386667 0 196.693333-119.68 240-233.6 252.586667 17.92 15.36 34.56 46.762667 34.56 94.72 0 68.522667-0.64 123.562667-0.64 140.202666 0 13.44 8.96 29.44 35.2 24.32C877.44 942.592 1024 750.592 1024 524.672c0-282.752-229.248-512-512-512"></path>
+</svg>
+
+    </a>
+  
+    <a href="http://weibo.com/gyguoyu" rel="me noopener" class="iconfont"
+      title="weibo"  target="_blank"
+      >
+      <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M385.714286 733.714286q12-19.428571 6.285714-39.428571t-25.714286-28.571429q-19.428571-8-41.714286-0.571429t-34.285714 26.285714q-12.571429 19.428571-7.428571 39.142857t24.571429 28.857143 42.571429 1.428571 35.714286-27.142857zm53.714286-69.142857q4.571429-7.428571 2-15.142857t-10-10.571429q-8-2.857143-16.285714 2.857143t-12.285714 10.571429q-9.714286 17.714286 7.428571 25.714286 8 2.857143 16.571429 2.857143t12.571429-10.571429zm99.428571 61.142857q-25.714286 58.285714-90.285714 85.714286t-128 6.857143q-61.142857-19.428571-84.285714-72.285714t3.714286-107.142857q26.857143-53.142857 86.571429-79.428571t120.285714-10.857143q63.428571 16.571429 90.571429 68.285714t1.428571 108.857143zm178.285714-91.428571q-5.142857-54.857143-50.857143-97.142857t-119.142857-62.285714-156.857143-12q-127.428571 13.142857-211.142857 80.857143t-75.714286 151.142857q5.142857 54.857143 50.857143 97.142857t119.142857 62.285714 156.857143 12q127.428571-13.142857 211.142857-80.857143t75.714286-151.142857zm176 2.285714q0 38.857143-21.142857 79.714286t-62.285714 78.285714-96.285714 67.142857-129.142857 47.428571-154.571429 17.714286-157.142857-19.142857-137.428571-53.142857-98-86.285714-37.142857-114q0-65.714286 39.714286-140t112.857143-147.428571q96.571429-96.571429 195.142857-134.857143t140.857143 4q37.142857 36.571429 11.428571 119.428571-2.285714 8-0.571429 11.428571t5.714286 4 8.285714 2.857143 7.714286-2l3.428571-1.142857q79.428571-33.714286 140.571429-33.714286t87.428571 34.857143q25.714286 36 0 101.714286-1.142857 7.428571-2.571429 11.428571t2.571429 7.142857 6.857143 4.285714 9.714286 3.428571q32.571429 10.285714 58.857143 26.857143t45.714286 46.571429 19.428571 66.571429zm-42.285714-356.571429q24 26.857143 31.142857 62t-3.714286 67.142857q-4.571429 13.142857-16.857143 19.428571t-25.428571 2.285714q-13.142857-4.571429-19.428571-16.857143t-2.285714-25.428571q11.428571-36-13.714286-63.428571t-61.142857-20q-13.714286 2.857143-25.714286-4.571429t-14.285714-21.142857q-2.857143-13.714286 4.571429-25.428571t21.142857-14.571429q34.285714-7.428571 68 3.142857t57.714286 37.428571zm103.428571-93.142857q49.714286 54.857143 64.285714 127.142857t-7.714286 138q-5.142857 15.428571-19.428571 22.857143t-29.714286 2.285714-22.857143-19.428571-2.857143-29.714286q16-46.857143 5.714286-98.285714t-45.714286-90.285714q-35.428571-39.428571-84.571429-54.571429t-98.857143-4.857143q-16 3.428571-29.714286-5.428571t-17.142857-24.857143 5.428571-29.428571 24.857143-16.857143q70.285714-14.857143 139.428571 6.571429t118.857143 76.857143z"></path>
+</svg>
+
+    </a>
+
+
+<a href="https://tosone.cn/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+   
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    
+      2016 -
+    2019
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        Tosone
+        
+      </span></span>
+
+  
+  
+    <span id="busuanzi_container">
+      访客数/访问量：<span id="busuanzi_value_site_uv"></span>/<span id="busuanzi_value_site_pv"></span>
+    </span>
+  
+
+  
+    <span>
+      豫ICP备16023221号
+    </span>
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

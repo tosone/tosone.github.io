@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Raspberry on Tosone&#39;s Blog</title>
+    <link>https://tosone.cn/tags/raspberry/</link>
+    <description>Recent content in Raspberry on Tosone&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 25 Nov 2017 18:27:37 +0000</lastBuildDate>
+    
+	<atom:link href="https://tosone.cn/tags/raspberry/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>RaspberryPi 上手</title>
+      <link>https://tosone.cn/post/raspberry/</link>
+      <pubDate>Sat, 25 Nov 2017 18:27:37 +0000</pubDate>
+      
+      <guid>https://tosone.cn/post/raspberry/</guid>
+      <description>&lt;p&gt;当你花 35 美元买到一部树莓派（Raspberry Pi）计算机的时候，机器里面是没有预装操作系统（OS）的。这个时候你要自己下载一个 OS 到 SD 卡，插到树莓派上重启完成 OS 的安装。这一切看起来很简便，但你考虑过这个跟树莓派兼容的OS是哪里来的吗？&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

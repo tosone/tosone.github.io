@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Web RTC Demo - Tosone&#39;s Blog</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="Tosone" />
+  <meta name="description" content="WebRTC 项目的最终目的主要是让 Web 开发者能够基于浏览器轻易快捷开发出丰富的实时多媒体应用，而无需下载安装任何插件，Web 开发者也无需关注多媒体的数字信号处理过程，只需编写简单的 Javascript 程序即可实现。
+" />
+
+  <meta name="keywords" content="Tosone, blog" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.6" />
+
+
+<link rel="canonical" href="https://tosone.cn/post/webrtc/" />
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.ec807d8b802a40889537c26e014f733206312ea440d42e1f0dabed80918de1ac.css" integrity="sha256-7IB9i4AqQIiVN8JuAU9zMgYxLqRA1C4fDavtgJGN4aw=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+<meta property="og:title" content="Web RTC Demo" />
+<meta property="og:description" content="WebRTC 项目的最终目的主要是让 Web 开发者能够基于浏览器轻易快捷开发出丰富的实时多媒体应用，而无需下载安装任何插件，Web 开发者也无需关注多媒体的数字信号处理过程，只需编写简单的 Javascript 程序即可实现。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://tosone.cn/post/webrtc/" />
+<meta property="article:published_time" content="2017-02-26T09:56:03&#43;00:00"/>
+<meta property="article:modified_time" content="2017-02-26T09:56:03&#43;00:00"/>
+
+<meta itemprop="name" content="Web RTC Demo">
+<meta itemprop="description" content="WebRTC 项目的最终目的主要是让 Web 开发者能够基于浏览器轻易快捷开发出丰富的实时多媒体应用，而无需下载安装任何插件，Web 开发者也无需关注多媒体的数字信号处理过程，只需编写简单的 Javascript 程序即可实现。">
+
+
+<meta itemprop="datePublished" content="2017-02-26T09:56:03&#43;00:00" />
+<meta itemprop="dateModified" content="2017-02-26T09:56:03&#43;00:00" />
+<meta itemprop="wordCount" content="1239">
+
+
+
+<meta itemprop="keywords" content="NodeJs," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Web RTC Demo"/>
+<meta name="twitter:description" content="WebRTC 项目的最终目的主要是让 Web 开发者能够基于浏览器轻易快捷开发出丰富的实时多媒体应用，而无需下载安装任何插件，Web 开发者也无需关注多媒体的数字信号处理过程，只需编写简单的 Javascript 程序即可实现。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Tosone</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://tosone.cn/">This is Home</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://tosone.cn/post/">Archives</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://tosone.cn/tags/">Tags</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://tosone.cn/categories/">Categories</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://tosone.cn/about.html">About</a>
+          
+        
+      </li>
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      Tosone
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://tosone.cn/">This is Home</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://tosone.cn/post/">Archives</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://tosone.cn/tags/">Tags</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://tosone.cn/categories/">Categories</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://tosone.cn/about.html">About</a>
+          
+
+        
+
+      </li>
+    
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">Web RTC Demo</h1>
+      
+      <div class="post-meta">
+        <time datetime="2017-02-26" class="post-time">
+          2017-02-26
+        </time>
+        
+        
+
+        
+        
+          <span id="busuanzi_container_page_pv">
+            | 阅读 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    
+    <div class="post-content">
+      <p>WebRTC 项目的最终目的主要是让 Web 开发者能够基于浏览器轻易快捷开发出丰富的实时多媒体应用，而无需下载安装任何插件，Web 开发者也无需关注多媒体的数字信号处理过程，只需编写简单的 Javascript 程序即可实现。</p>
+
+<p>{% codeblock package.json lang:json %}
+{
+  &ldquo;name&rdquo;: &ldquo;WebRTC-demo&rdquo;,
+  &ldquo;description&rdquo;: &ldquo;A simple WebRTC demo&rdquo;,
+  &ldquo;dependencies&rdquo;: {
+    &ldquo;uuid&rdquo;: &ldquo;^3.0.1&rdquo;,
+    &ldquo;ws&rdquo;: &ldquo;^2.1.0&rdquo;
+  }
+}
+{% endcodeblock %}</p>
+
+<p>{% codeblock server.js lang:javascript %}
+const http = require(&ldquo;http&rdquo;);
+const uuid = require(&ldquo;uuid&rdquo;);
+const util = require(&ldquo;util&rdquo;);
+const fs = require(&ldquo;fs&rdquo;);
+const url = require(&lsquo;url&rsquo;);
+const path = require(&lsquo;path&rsquo;);
+const WebSocket = require(&lsquo;ws&rsquo;);</p>
+
+<p>const PORT = 3000; //端口
+const dist = &ldquo;./&rdquo;; //根目录
+const mine = {
+  &ldquo;.css&rdquo;: &ldquo;text/css&rdquo;,
+  &ldquo;.html&rdquo;: &ldquo;text/html&rdquo;,
+  &ldquo;.ico&rdquo;: &ldquo;image/x-icon&rdquo;,
+  &ldquo;.jpeg&rdquo;: &ldquo;image/jpeg&rdquo;,
+  &ldquo;.jpg&rdquo;: &ldquo;image/jpeg&rdquo;,
+  &ldquo;.gif&rdquo;: &ldquo;image/gif&rdquo;,
+  &ldquo;.js&rdquo;: &ldquo;text/javascript&rdquo;,
+  &ldquo;.json&rdquo;: &ldquo;application/json&rdquo;,
+  &ldquo;.pdf&rdquo;: &ldquo;application/pdf&rdquo;,
+  &ldquo;.png&rdquo;: &ldquo;image/png&rdquo;,
+  &ldquo;.svg&rdquo;: &ldquo;image/svg+xml&rdquo;,
+  &ldquo;.swf&rdquo;: &ldquo;application/x-shockwave-flash&rdquo;,
+  &ldquo;.tiff&rdquo;: &ldquo;image/tiff&rdquo;,
+  &ldquo;.txt&rdquo;: &ldquo;text/plain&rdquo;,
+  &ldquo;.wav&rdquo;: &ldquo;audio/x-wav&rdquo;,
+  &ldquo;.wma&rdquo;: &ldquo;audio/x-ms-wma&rdquo;,
+  &ldquo;.wmv&rdquo;: &ldquo;video/x-ms-wmv&rdquo;,
+  &ldquo;.xml&rdquo;: &ldquo;text/xml&rdquo;,
+  &ldquo;.mp3&rdquo;: &ldquo;audio/mpeg&rdquo;,
+  &ldquo;.mp4&rdquo;: &ldquo;video/mp4&rdquo;,
+  &ldquo;.exe&rdquo;: &ldquo;application/octet-stream&rdquo;,
+  &ldquo;.md&rdquo;: &ldquo;text/x-markdown&rdquo;
+};
+const default_visit_list = [&ldquo;index.html&rdquo;, &ldquo;index.htm&rdquo;, &ldquo;default.html&rdquo;, &ldquo;default.htm&rdquo;];</p>
+
+<p>let default_visit = (request, response, default_visit_file_list, i) =&gt; {
+  fs.exists(path.join(<strong>dirname, dist, url.parse(request.url).pathname, default_visit_file_list[i]), function (exists) {
+    if (exists) { //若index.html存在
+      fs.readFile(path.join(</strong>dirname, dist, url.parse(request.url).pathname, default_visit_file_list[i]), &ldquo;binary&rdquo;, function (err, file) {
+        response.writeHead(200, {
+          &lsquo;Content-Type&rsquo;: mine[&ldquo;.html&rdquo;] || &ldquo;text/plain&rdquo;
+        });
+        response.write(file, &ldquo;binary&rdquo;);
+        response.end();
+      });
+    } else { //若index.html不存在
+      if (default_visit_file_list.length - 1 == i) {
+        console.log(&rdquo;\x1B[31mERROR\x1B[39m: &ldquo; + default_visit_file_list[0] + &ldquo; is not exists.&rdquo;);
+        file_not_found
+          (response, request);
+      } else {
+        default_visit(request, response, default_visit_list, i + 1);
+      }
+    }
+  });
+}
+let file_not_found = (response, request) =&gt; {
+  response.writeHead(404, {
+    &lsquo;Content-Type&rsquo;: &lsquo;text/plain&rsquo;
+  });
+  response.write(&ldquo;This request URL &rdquo; + url.parse(request.url).pathname + &ldquo; was not found on this server.&rdquo;);
+  response.end();
+}
+let server = http.createServer((request, response) =&gt; {
+  let realPath = path.join(__dirname, dist, url.parse(request.url).pathname);
+  if (url.parse(request.url).pathname == &ldquo;/&rdquo; || url.parse(request.url).pathname.split(&ldquo;/&rdquo;)[url.parse(request.url).pathname.split(&ldquo;/&rdquo;).length - 1].indexOf(&ldquo;.&rdquo;) == -1) { //访问目录为 &ldquo;/&rdquo;
+    default_visit(request, response, default_visit_list, 0);
+  } else { //指定路径
+    let ext = path.extname(realPath);
+    fs.exists(realPath, exists =&gt; {
+      if (!exists) { //指定路径的文件不存在
+        console.log(&rdquo;\x1B[31mERROR\x1B[39m: &ldquo; + realPath + &rdquo; is not exists.&ldquo;);
+        file_not_found(response, request);
+      } else { //指定路径的文件存在
+        fs.readFile(realPath, &ldquo;binary&rdquo;, (err, file) =&gt; {
+          response.writeHead(200, {
+            &lsquo;Content-Type&rsquo;: mine[ext] || &ldquo;text/plain&rdquo;
+          });
+          response.write(file, &ldquo;binary&rdquo;);
+          response.end();
+        });
+      }
+    });
+  }
+});
+server.listen(PORT);
+server.on(&lsquo;listening&rsquo;, () =&gt; {
+  console.log(&ldquo;Server runing at <a href="http://127.0.0.1:&quot;">http://127.0.0.1:&quot;</a> + server.address().port + &ldquo;.&rdquo;);
+});
+server.on(&lsquo;error&rsquo;, () =&gt; {
+  console.log(&ldquo;Server Listen on &rdquo; + PORT + &ldquo; error.&rdquo;);
+});
+let sockets = new Map();
+let socketsID = new Set();
+let wss = new WebSocket.Server({ server: server });
+wss.on(&lsquo;connection&rsquo;, socket =&gt; {
+  socket.id = uuid.v4().split(&ldquo;-&rdquo;).join(&ldquo;);
+  console.log(&lsquo;connection &rsquo; + sockets.size);
+  socket.send(JSON.stringify({
+    event: &ldquo;peers&rdquo;,
+    data: {
+      queue: sockets.size + 1,
+      socketID: socket.id,
+      socketsID: Array.from(socketsID)
+    }
+  }));
+  for (let item of sockets.entries()) {
+    item[1].send(JSON.stringify({
+      event: &ldquo;new_peer&rdquo;,
+      data: {
+        socketID: socket.id,
+        me: item[1].id
+      }
+    }));
+  }
+  sockets.set(socket.id, socket);
+  socketsID.add(socket.id);
+  socket.on(&lsquo;message&rsquo;, msg =&gt; {
+    console.log(JSON.parse(msg).event + &ldquo;: &ldquo; + socket.id + &rdquo; &mdash;&gt; &ldquo; + sockets.get(JSON.parse(msg).data.socketID).id);
+    if (JSON.parse(msg).event === &ldquo;msg&rdquo;) {
+      for (let item of sockets.entries()) {
+        if (item[0] == JSON.parse(msg).data.socketID) continue;
+        item[1].send(msg);
+      }
+    } else {
+      sockets.get(JSON.parse(msg).data.socketID).send(msg);
+    }
+  });
+  socket.on(&ldquo;close&rdquo;, () =&gt; {
+    console.log(&ldquo;delete &rdquo; + socket.id);
+    sockets.delete(socket.id);
+    socketsID.delete(socket.id);
+    for (let item of sockets.entries()) {
+      item[1].send(JSON.stringify({
+        event: &ldquo;close&rdquo;,
+        data: {
+          socketID: socket.id
+        }
+      }));
+    }
+  })
+});
+{% endcodeblock %}
+{% codeblock index.html lang:html %}
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }</p>
+
+<pre><code>body {
+  font-size: 62.5%;
+  font-family: Consolas, &quot;Microsoft Yahei&quot;;
+  height: 100%;
+  width: 100%;
+  background: url(https://o3cpfaosb.qnssl.com/4874bd3e3bb8e89fd704771c77551f70.png) center center no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+}
+
+.login {
+  display: block;
+  font-family: inherit;
+  left: 50%;
+  top: 50%;
+  line-height: 1;
+  width: 400px;
+  height: 40px;
+  position: absolute;
+  margin-left: -200px;
+  margin-top: -20px;
+  box-sizing: border-box;
+  border: 1px solid #333;
+  font-size: 2rem;
+  padding: 3px;
+  border-radius: 5px;
+}
+
+.login:focus,
+.login:active {
+  border: 1px solid #333;
+}
+
+.body {
+  width: 960px;
+  margin: 0 auto;
+}
+
+.box {
+  width: 100%;
+}
+
+video {
+  float: left;
+  width: 420px;
+  height: 315px;
+  margin: 30px;
+  background-color: #333;
+  border-radius: 4px;
+  width: 420px;
+  height: 315px;
+  border-radius: 4px;
+}
+
+.message {
+  background-color: #333;
+  height: 400px;
+  width: 900px;
+  margin: 0 auto;
+  padding: 3px 10px;
+  line-height: 1.2;
+  overflow-y: auto;
+  overflow-x: visible;
+  box-sizing: border-box;
+}
+
+ ::-webkit-scrollbar {
+  width: 5px;
+  background-color: transparent;
+}
+
+ ::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+  border-radius: 10px;
+  background-color: #777;
+}
+
+ ::-webkit-scrollbar-thumb {
+  height: 20px;
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+  background-color: #555;
+}
+
+p {
+  margin: 0;
+}
+
+p .name {
+  font-size: 2rem;
+}
+
+p .name.me {
+  color: #12BCD4;
+}
+
+p .name.other {
+  color: #F34E4E;
+}
+
+p .msg {
+  font-size: 1.8rem;
+  color: #A9A7A7;
+  word-wrap: break-word;
+}
+
+#msg-ipt {
+  display: block;
+  margin-left: 30px;
+  margin-right: 30px;
+  width: 900px;
+  box-sizing: border-box;
+  height: 40px;
+  line-height: 40px;
+  font-size: 2rem;
+  margin-top: 10px;
+  border-radius: 5px;
+  border: 0;
+  padding: 3px;
+}
+
+#msg-ipt:active {
+  outline: none;
+  border: 0;
+}
+
+.clearfix:after {
+  content: &quot;.&quot;;
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden
+}
+
+.clearfix {
+  *+height: 1%;
+}
+</code></pre>
+
+<p></style>
+</head>
+<body>
+  <div class="body">
+    <div class="box clearfix">
+      <video id="localVideo" autoplay></video>
+    </div>
+    <div class="message"></div>
+    <input type="text" id="msg-ipt">
+  </div>
+  <script src="https://cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+  <script src='index.js'></script>
+</body>
+</html>
+{% endcodeblock %}
+{% codeblock index.js lang:javascript %}
+var iceServer = {
+  &ldquo;iceServers&rdquo;: [{
+    url: &ldquo;stun:115.28.87.181:40167&rdquo;
+  }]
+};
+var socket = new WebSocket(&ldquo;wss://&rdquo; + window.location.host); //socket
+var localStream = null;
+var peerconns = new Map();
+var ipt_addevent = false;
+socket.onopen = function () {
+  socket.onmessage = function (msg) {
+    new Promise(function (resolve, reject) {
+      if (localStream) {
+        resolve(localStream);
+      } else {
+        navigator.webkitGetUserMedia({
+          &ldquo;audio&rdquo;: true,
+          &ldquo;video&rdquo;: true
+        }, function (stream) {
+          localStream = stream;
+          resolve(stream);
+          document.getElementById(&lsquo;localVideo&rsquo;).src = URL.createObjectURL(stream);
+        }, function (error) {
+          reject(error);
+        });
+      }
+    }).then(function (stream) {
+      var json = JSON.parse(msg.data);
+      var data = json.data;
+      if (!ipt_addevent) {
+        ipt_addevent = true;
+        var ipt = document.getElementById(&ldquo;msg-ipt&rdquo;);
+        ipt.addEventListener(&ldquo;keydown&rdquo;, function (e) {
+          if (e.keyCode == 13) {
+            socket.send(JSON.stringify({
+              event: &ldquo;msg&rdquo;,
+              data: {
+                msg: ipt.value,
+                socketID: data.socketID
+              }
+            }));
+            $(&ldquo;.message&rdquo;).append(&rdquo;<p><span class=\"name me\">&rdquo; + data.socketID + &ldquo;: </span><span class=\"msg\">&rdquo; + ipt.value + &ldquo;</span></p>&rdquo;);
+            ipt.value = &ldquo;&rdquo;;
+          }
+        }, true);
+      }
+      var createRTCPeerConnection = function (socketID, me) {
+        var pc = new webkitRTCPeerConnection(iceServer);
+        pc.addStream(stream);
+        peerconns.set(socketID, pc);
+        pc.onicecandidate = function (event) {
+          if (event.candidate !== null) {
+            socket.send(JSON.stringify({
+              event: &ldquo;_ice_candidate&rdquo;,
+              data: {
+                candidate: event.candidate,
+                socketID: socketID,
+                me: me
+              }
+            }));
+          }
+        };
+        pc.onaddstream = function (event) {
+          $(&ldquo;.box&rdquo;).append(&rdquo;<video id=\"" + socketID + "\" autoplay src='" + URL.createObjectURL(event.stream) + "'></video>&rdquo;)
+        };
+        return pc;
+      }
+      switch (json.event) {
+      case &ldquo;new_peer&rdquo;:
+        console.log(data.me)
+        createRTCPeerConnection(data.me, data.socketID);
+        break;
+      case &lsquo;peers&rsquo;:
+        console.log(data.socketsID)
+        for (var i in data.socketsID) {
+          (function () {
+            var otherSocketID = data.socketsID[i];
+            console.log(otherSocketID)
+            var pc = createRTCPeerConnection(otherSocketID, data.socketID);
+            pc.createOffer(function (desc) {
+              pc.setLocalDescription(desc);
+              socket.send(JSON.stringify({
+                event: &ldquo;_offer&rdquo;,
+                data: {
+                  sdp: desc,
+                  socketID: otherSocketID,
+                  me: data.socketID
+                }
+              }));
+            }, function (error) {
+              console.log(&lsquo;Failure callback: &lsquo; + error);
+            });
+          })()
+        }
+        if (data.queue == 1) {
+        }
+        break;
+      case &lsquo;_ice_candidate&rsquo;:
+        var pc = peerconns.get(data.socketID);
+        pc.addIceCandidate(new RTCIceCandidate(data.candidate));
+        break;
+      case &lsquo;_offer&rsquo;:
+        var pc = peerconns.get(data.socketID);
+        pc.setRemoteDescription(new RTCSessionDescription(data.sdp));
+        pc.createAnswer(function (desc) {
+          pc.setLocalDescription(desc);
+          socket.send(JSON.stringify({
+            event: &ldquo;_answer&rdquo;,
+            data: {
+              sdp: desc,
+              socketID: data.me,
+              me: data.socketID
+            }
+          }));
+        }, function (error) {
+          console.log(&lsquo;Failure callback: &lsquo; + error);
+        });
+        break;
+      case &lsquo;_answer&rsquo;:
+        peerconns.get(data.me).setRemoteDescription(new RTCSessionDescription(data.sdp)); //receive answer
+        break;
+      case &ldquo;close&rdquo;:
+        peerconns.delete(data.socketID);
+        $(&ldquo;#&rdquo; + data.socketID).remove();
+        break;
+      case &ldquo;msg&rdquo;:
+        $(&ldquo;.message&rdquo;).append(&rdquo;<p><span class=\"name other\">&rdquo; + data.socketID + &ldquo;: </span><span class=\"msg\">&rdquo; + data.msg + &ldquo;</span></p>&rdquo;);
+        break;
+      }
+    }).catch(function (err) {
+      console.log(err);
+    });
+  }
+}
+{% endcodeblock %}</p>
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Tosone</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">2017-02-26</span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://tosone.cn/tags/nodejs/">NodeJs</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/mount-tai-reference/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">泰山旅游指南</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        
+          <a class="next" href="/post/matrix-calc/">
+            <span class="next-text nav-default">N 阶行列式求解</span>
+            <span class="prev-text nav-mobile">Next</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+    
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="icon-links">
+  
+  
+    <a href="mailto:i@tosone.cn" rel="me noopener" class="iconfont"
+      title="email" >
+      <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M664.781909 681.472759 0 97.881301C0 3.997201 71.046997 0 71.046997 0L474.477909 0 961.649408 0 1361.641813 0C1361.641813 0 1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759C771.345323 681.472759 764.482731 685.154773 753.594283 688.65053L753.594283 688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858L682.561621 688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759L664.781909 681.472759ZM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633 0 212.052267 0 212.052267L0 942.809523C0 942.809523 0 1024 83.726336 1024L682.532949 1024 753.579947 1024 1348.948139 1024C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523L1432.688811 212.052267C1432.688811 212.052267 893.138176 701.759633 817.019477 767.734955 777.248 802.205449 742.347691 811.03081 718.063616 811.603883L718.063616 811.603883Z"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://github.com/tosone" rel="me noopener" class="iconfont"
+      title="github"  target="_blank"
+      >
+      <svg class="icon" style="" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M512 12.672c-282.88 0-512 229.248-512 512 0 226.261333 146.688 418.133333 350.08 485.76 25.6 4.821333 34.986667-11.008 34.986667-24.618667 0-12.16-0.426667-44.373333-0.64-87.04-142.421333 30.890667-172.458667-68.693333-172.458667-68.693333C188.672 770.986667 155.008 755.2 155.008 755.2c-46.378667-31.744 3.584-31.104 3.584-31.104 51.413333 3.584 78.421333 52.736 78.421333 52.736 45.653333 78.293333 119.850667 55.68 149.12 42.581333 4.608-33.109333 17.792-55.68 32.426667-68.48-113.706667-12.8-233.216-56.832-233.216-253.013333 0-55.893333 19.84-101.546667 52.693333-137.386667-5.76-12.928-23.04-64.981333 4.48-135.509333 0 0 42.88-13.738667 140.8 52.48 40.96-11.392 84.48-17.024 128-17.28 43.52 0.256 87.04 5.888 128 17.28 97.28-66.218667 140.16-52.48 140.16-52.48 27.52 70.528 10.24 122.581333 5.12 135.509333 32.64 35.84 52.48 81.493333 52.48 137.386667 0 196.693333-119.68 240-233.6 252.586667 17.92 15.36 34.56 46.762667 34.56 94.72 0 68.522667-0.64 123.562667-0.64 140.202666 0 13.44 8.96 29.44 35.2 24.32C877.44 942.592 1024 750.592 1024 524.672c0-282.752-229.248-512-512-512"></path>
+</svg>
+
+    </a>
+  
+    <a href="http://weibo.com/gyguoyu" rel="me noopener" class="iconfont"
+      title="weibo"  target="_blank"
+      >
+      <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M385.714286 733.714286q12-19.428571 6.285714-39.428571t-25.714286-28.571429q-19.428571-8-41.714286-0.571429t-34.285714 26.285714q-12.571429 19.428571-7.428571 39.142857t24.571429 28.857143 42.571429 1.428571 35.714286-27.142857zm53.714286-69.142857q4.571429-7.428571 2-15.142857t-10-10.571429q-8-2.857143-16.285714 2.857143t-12.285714 10.571429q-9.714286 17.714286 7.428571 25.714286 8 2.857143 16.571429 2.857143t12.571429-10.571429zm99.428571 61.142857q-25.714286 58.285714-90.285714 85.714286t-128 6.857143q-61.142857-19.428571-84.285714-72.285714t3.714286-107.142857q26.857143-53.142857 86.571429-79.428571t120.285714-10.857143q63.428571 16.571429 90.571429 68.285714t1.428571 108.857143zm178.285714-91.428571q-5.142857-54.857143-50.857143-97.142857t-119.142857-62.285714-156.857143-12q-127.428571 13.142857-211.142857 80.857143t-75.714286 151.142857q5.142857 54.857143 50.857143 97.142857t119.142857 62.285714 156.857143 12q127.428571-13.142857 211.142857-80.857143t75.714286-151.142857zm176 2.285714q0 38.857143-21.142857 79.714286t-62.285714 78.285714-96.285714 67.142857-129.142857 47.428571-154.571429 17.714286-157.142857-19.142857-137.428571-53.142857-98-86.285714-37.142857-114q0-65.714286 39.714286-140t112.857143-147.428571q96.571429-96.571429 195.142857-134.857143t140.857143 4q37.142857 36.571429 11.428571 119.428571-2.285714 8-0.571429 11.428571t5.714286 4 8.285714 2.857143 7.714286-2l3.428571-1.142857q79.428571-33.714286 140.571429-33.714286t87.428571 34.857143q25.714286 36 0 101.714286-1.142857 7.428571-2.571429 11.428571t2.571429 7.142857 6.857143 4.285714 9.714286 3.428571q32.571429 10.285714 58.857143 26.857143t45.714286 46.571429 19.428571 66.571429zm-42.285714-356.571429q24 26.857143 31.142857 62t-3.714286 67.142857q-4.571429 13.142857-16.857143 19.428571t-25.428571 2.285714q-13.142857-4.571429-19.428571-16.857143t-2.285714-25.428571q11.428571-36-13.714286-63.428571t-61.142857-20q-13.714286 2.857143-25.714286-4.571429t-14.285714-21.142857q-2.857143-13.714286 4.571429-25.428571t21.142857-14.571429q34.285714-7.428571 68 3.142857t57.714286 37.428571zm103.428571-93.142857q49.714286 54.857143 64.285714 127.142857t-7.714286 138q-5.142857 15.428571-19.428571 22.857143t-29.714286 2.285714-22.857143-19.428571-2.857143-29.714286q16-46.857143 5.714286-98.285714t-45.714286-90.285714q-35.428571-39.428571-84.571429-54.571429t-98.857143-4.857143q-16 3.428571-29.714286-5.428571t-17.142857-24.857143 5.428571-29.428571 24.857143-16.857143q70.285714-14.857143 139.428571 6.571429t118.857143 76.857143z"></path>
+</svg>
+
+    </a>
+
+
+<a href="https://tosone.cn/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+   
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    
+      2016 -
+    2019
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        Tosone
+        
+      </span></span>
+
+  
+  
+    <span id="busuanzi_container">
+      访客数/访问量：<span id="busuanzi_value_site_uv"></span>/<span id="busuanzi_value_site_pv"></span>
+    </span>
+  
+
+  
+    <span>
+      豫ICP备16023221号
+    </span>
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>如何才能看到不该看到的东西 - Tosone&#39;s Blog</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="Tosone" />
+  <meta name="description" content="有人不想让我们看见一些东西。
+" />
+
+  <meta name="keywords" content="Tosone, blog" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.6" />
+
+
+<link rel="canonical" href="https://tosone.cn/post/shadowsocks-ppt/" />
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.ec807d8b802a40889537c26e014f733206312ea440d42e1f0dabed80918de1ac.css" integrity="sha256-7IB9i4AqQIiVN8JuAU9zMgYxLqRA1C4fDavtgJGN4aw=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+<meta property="og:title" content="如何才能看到不该看到的东西" />
+<meta property="og:description" content="有人不想让我们看见一些东西。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://tosone.cn/post/shadowsocks-ppt/" />
+<meta property="article:published_time" content="2017-05-05T12:48:41&#43;00:00"/>
+<meta property="article:modified_time" content="2017-05-05T12:48:41&#43;00:00"/>
+
+<meta itemprop="name" content="如何才能看到不该看到的东西">
+<meta itemprop="description" content="有人不想让我们看见一些东西。">
+
+
+<meta itemprop="datePublished" content="2017-05-05T12:48:41&#43;00:00" />
+<meta itemprop="dateModified" content="2017-05-05T12:48:41&#43;00:00" />
+<meta itemprop="wordCount" content="2675">
+
+
+
+<meta itemprop="keywords" content="Shadowsocks," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="如何才能看到不该看到的东西"/>
+<meta name="twitter:description" content="有人不想让我们看见一些东西。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Tosone</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://tosone.cn/">This is Home</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://tosone.cn/post/">Archives</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://tosone.cn/tags/">Tags</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://tosone.cn/categories/">Categories</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://tosone.cn/about.html">About</a>
+          
+        
+      </li>
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      Tosone
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://tosone.cn/">This is Home</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://tosone.cn/post/">Archives</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://tosone.cn/tags/">Tags</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://tosone.cn/categories/">Categories</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://tosone.cn/about.html">About</a>
+          
+
+        
+
+      </li>
+    
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">如何才能看到不该看到的东西</h1>
+      
+      <div class="post-meta">
+        <time datetime="2017-05-05" class="post-time">
+          2017-05-05
+        </time>
+        
+        
+
+        
+        
+          <span id="busuanzi_container_page_pv">
+            | 阅读 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    
+    <div class="post-content">
+      <p>有人不想让我们看见一些东西。</p>
+
+<h4 id="墙从-何-处来">墙从 &ldquo;何&rdquo; 处来</h4>
+
+<blockquote>
+<p>方滨兴（1960 年 7 月 17 日－），中国共产党党员，中国工程院院士，全国人大代表。曾任北京邮电大学校长，国家计算机网络与信息安全管理中心主任兼总工程师、信息产业部互联网应急处理协调办公室主任。现任国家信息化专家咨询委员会网络与信息安全专委会副主任，国家互联网信息办公室专家委员会委员；第十一届全国人大代表，北京市第十四届人大常务委员会委员；国家 863 计划 &ldquo;十二五&rdquo; 专家委员会委员，中国通信学会副理事长。他是中国信息安全专家之一，也是中国网络审查体系防火长城（GFW）关键部分的首要设计师，因此被网友称为 &ldquo;中国防火墙之父&rdquo; ，其官方在线简历也显示他主持建设了 &ldquo;国家网络安全监控平台&rdquo; 等多个相关系统。 &ndash; 引用自<a href="https://zh.wikipedia.org/wiki/%E6%96%B9%E6%BB%A8%E5%85%B4">维基百科</a></p>
+
+<p>2011 年 5 月 19 日上午，网友在推特称 &ldquo;下午方滨兴将出现在武汉大学计算机学院 B 座 4 楼&rdquo;，很快在网络上开始了一场 &ldquo;悬赏&rdquo; 袭击方滨兴的活动。当天下午，方滨兴在武汉大学教学大楼下车时，遭一学生从背后扔鞋袭击。据报道，现场有学生准备了鸡蛋，该学生先向方滨兴投掷了鸡蛋，但未投中。随后，该学生脱下脚上鞋子向其扔去，第一只鞋打中了方滨兴，但第二只鞋被一男一女挡住。事后华中科技大学和武汉大学对此事低调处理，肇事学生也未见被抓捕归案。然而此事早已在网络上传播甚广。中共官方媒体新华社下属新华网也转载了《云南信息报》的报道。在接受 CNN 的专访时，该发布消息的网友说：&rdquo;我不高兴他（方滨兴）做的事情。他让我花不必要的钱去访问本该是能够免费访问的网站，他使我的网上冲浪很不方便。&rdquo;</p>
+</blockquote>
+
+<h3 id="gfw-不是墙">GFW 不是墙</h3>
+
+<p>GFW 其实是一个入侵检测系统 (IDS)。你的每一次跨境访问都是被当做一次入侵，根据对你的流量分析是否拒绝访问，返回 RST 或者返回一个奇怪的 IP。</p>
+
+<h4 id="gfw-的封锁方式">GFW 的封锁方式</h4>
+
+<ul>
+<li>DNS 污染</li>
+<li>DNS 劫持</li>
+<li>IP 路由劫持</li>
+<li>深度包检测</li>
+<li>热点分析</li>
+<li>伪造证书</li>
+<li>机房白名单制</li>
+</ul>
+
+<h4 id="协议符合什么特征才可以翻墙">协议符合什么特征才可以翻墙</h4>
+
+<ul>
+<li>数据被加密，任何可以截取到数据流的人，无法解密出原始数据</li>
+<li>观察一段数据流量，是否能判别这是一个代理协议的流量</li>
+<li>对于一个仅暴露出 TCP 端口的黑箱，能否判断这个端口提供了代理服务</li>
+</ul>
+
+<h4 id="gfw-干过多少匪夷所思的事">GFW 干过多少匪夷所思的事</h4>
+
+<ul>
+<li>GitHub 怎么访问不了了</li>
+<li>我的网站怎么没办法访问了</li>
+<li>怎么大面积的网站被转发到了同一个 IP</li>
+<li>北京的根域名服务器被移除了国际认可</li>
+</ul>
+
+<h4 id="有墙的历史之后就有了翻墙的历史">有墙的历史之后就有了翻墙的历史</h4>
+
+<blockquote>
+<p>不会翻墙的程序员是没有走在正确的康庄大道上，不会翻墙的民众就不是明事理的民众，翻墙是你的必备技能。</p>
+</blockquote>
+
+<p>翻墙的话，方法有很多，直接到百度上搜一下关键词 vpn 也是可以搜到很多相关信息。很多乱七八糟的那些网站里边的东西也都是可以用的。但是有一点，那些网站里边的东西可能并不会长久，可能隔一段时间网站就消失了，找不到了，你花钱买的翻墙利器也就没了保障。</p>
+
+<p>说一点黑历史，之前 UC 浏览器中有一个翻墙的神器叫红杏出墙，当时觉得特别好用，也是免费的。翻墙嘛，毕竟也是国家花大力气建造的 GFW 来做这堵墙的，这么好的工具很定不能让你轻易地用啊。之后 UC 就撤掉了这个插件，现在也找不到了，现在关于红杏出墙的所有网站都算是空壳了，千万不要再相信关于红杏出墙的任何网站，想当年红杏出墙的克隆网站、钓鱼网站相当之多，现在已经是凄凄惨惨戚戚。后来也是出现一些翻墙浏览器，简单的就是说，在浏览器中做了一些插件，只需要把人家提供的浏览器装上去，就可以翻墙了，但是无奈，这种东西能用的时间太过于短了，市场需要更新，对于嫌麻烦的人来说这简直就是不可以忍受的。</p>
+
+<h4 id="ssh-翻墙">SSH 翻墙</h4>
+
+<p>SSH -D 利用 SSH 的动态绑定的功能。</p>
+
+<p>SSH 这种协议是加密的没有问题，有非对称加密也没有问题，关键是后边是对称加密，因为 SSH 认为一直采用非对称加密来传输消息太慢了。这就造成了一个问题，用对称的加密算法加密 HTTP 协议的流量的时候数据包是有特征的。</p>
+
+<p>当 GFW 分析到你的流量特征中含有 HTTP 的数据的时候将会时不时的逗你一下，让你断一下线什么的。</p>
+
+<h4 id="tor">Tor</h4>
+
+<p>The Onion Router，洋葱路由</p>
+
+<p>Tor 主要是用来做一些比较私密性的交流或者网络活动在能用到的。Tor 的特点就是需要多个网桥从中间中继你的网络流量，每个网桥只是简单的相互投递匿名信，经过多轮的投递之后，每个中继只是知道这封信是上个中继的，但是并不知道这封信的具体作者是谁。</p>
+
+<p>Tor 的更大的作用是让交流更私密，并不适用于翻墙。</p>
+
+<p>GFW 虽然说不能知道你和中继之间交流的数据，但是他会经常打入到 Tor 网络的内部去封锁一些中继节点。</p>
+
+<h4 id="vpn-翻墙">VPN 翻墙</h4>
+
+<p>国家已经出台了相关的政策，VPN 翻墙以后要备案，未经允许的翻墙属于违法行为。已经不太适用于个人用户了，属于企业及政府之类的。</p>
+
+<h4 id="lantern">Lantern</h4>
+
+<p>还有一个不得不说的工具 Lantern ，这个工具是基于 P2P 的，这种点对点的协议屏蔽的很多的中间环节，所以说能够翻墙，但是在国内想封锁 Lantern 是比较容易的，只是说国家在很大程度上不想让绝大多数人翻墙而已，这才是GFW的目的，目前 Lantern 是时不时就不能用的玩意儿。</p>
+
+<p>Lantern 是基于 P2P 的每个安装了 Lantern 的人都是一个中继节点，当然墙外的人就很少人去装这个 Lantern 了。所以需要有人在墙外去公开一些节点，每个稳定的节点都是要用钱的。不过不太好的是这种 P2P 的协议及其容易被 Gank 掉。只要 GFW 知道 Lantern 会链接哪些 IP 封锁掉就行了。</p>
+
+<h4 id="squid">Squid</h4>
+
+<p>Squid 以 https 的方式提供代理服务，然后在客户端机器使用 chrome 访问被封的网站。</p>
+
+<h4 id="shadowsocks">Shadowsocks</h4>
+
+<p>Long long ago, 在一个叫 v2ex 的地方，有一位叫做 clowwindy 的用户，其实是中国人。他为了避免网络流量分类技术和 ssh tunnel 的低效，自己写了一个用于加密流量的协议，并自用了一年多. 后来，由于这个协议非常高效，而且使用json 作为配置文件，配置起来非常方便，所以迅速赢得了很多用户，并在 v2ex 上有了一个专属的节点。shadowsocks 迅速被移植到各种平台、各种语言，用户也急剧上升，并且有了专门经营 shadowsocks 服务的商家。</p>
+
+<p>Shadowsocks 可以跨过 GFW 的原因在于它的流量特征无法被检测到。例如：AES-CFB，由于加密流程和解密流程中被块加密器加密的数据是前一段密文，因此即使明文数据的长度不是加密块大小的整数倍也是不需要填充的，这保证了数据长度在加密前后是相同的。</p>
+
+<p>Shadowsocks 发展了这么多年，SS 足够稳定、快速、高效，涵盖各大主流平台、100% 翻墙无障碍，这就足够了。</p>
+
+<h5 id="从协议上加速-shadowsocks">从协议上加速 shadowsocks</h5>
+
+<p>Shadowsocks 如何才能更快呢？基于 TCP 协议的，3 次握手 4 次断开确实很费劲，有些人说为什么不可以用 UDP 呢？但是 UDP 虽然说是很快，但是如果想下载一个很完整的文件的时候，很容易出现丢包的现象，造成下载失败。那么 UDP TCP 的特性合并一下，基于 UDP 做一个安全的 TCP 的传输，有一个 SRUDP。</p>
+
+<p>有人做了一个 KCP，结合了 TCP 的一些缺陷设计的。</p>
+
+<p>从 Linux kernel <a href="https://github.com/shadowsocks/shadowsocks/wiki/%E4%BC%98%E5%8C%96-Shadowsocks">优化 Shadowsocks</a> 让服务更快。</p>
+
+<h4 id="最完美的解决方案">最完美的解决方案</h4>
+
+<p>肉身翻墙</p>
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Tosone</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">2017-05-05</span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://tosone.cn/tags/shadowsocks/">Shadowsocks</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/docker/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">Docker 入门</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        
+          <a class="next" href="/post/feature-branch/">
+            <span class="next-text nav-default">Feature Branch Workflow 实践</span>
+            <span class="prev-text nav-mobile">Next</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+    
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="icon-links">
+  
+  
+    <a href="mailto:i@tosone.cn" rel="me noopener" class="iconfont"
+      title="email" >
+      <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M664.781909 681.472759 0 97.881301C0 3.997201 71.046997 0 71.046997 0L474.477909 0 961.649408 0 1361.641813 0C1361.641813 0 1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759C771.345323 681.472759 764.482731 685.154773 753.594283 688.65053L753.594283 688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858L682.561621 688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759L664.781909 681.472759ZM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633 0 212.052267 0 212.052267L0 942.809523C0 942.809523 0 1024 83.726336 1024L682.532949 1024 753.579947 1024 1348.948139 1024C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523L1432.688811 212.052267C1432.688811 212.052267 893.138176 701.759633 817.019477 767.734955 777.248 802.205449 742.347691 811.03081 718.063616 811.603883L718.063616 811.603883Z"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://github.com/tosone" rel="me noopener" class="iconfont"
+      title="github"  target="_blank"
+      >
+      <svg class="icon" style="" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M512 12.672c-282.88 0-512 229.248-512 512 0 226.261333 146.688 418.133333 350.08 485.76 25.6 4.821333 34.986667-11.008 34.986667-24.618667 0-12.16-0.426667-44.373333-0.64-87.04-142.421333 30.890667-172.458667-68.693333-172.458667-68.693333C188.672 770.986667 155.008 755.2 155.008 755.2c-46.378667-31.744 3.584-31.104 3.584-31.104 51.413333 3.584 78.421333 52.736 78.421333 52.736 45.653333 78.293333 119.850667 55.68 149.12 42.581333 4.608-33.109333 17.792-55.68 32.426667-68.48-113.706667-12.8-233.216-56.832-233.216-253.013333 0-55.893333 19.84-101.546667 52.693333-137.386667-5.76-12.928-23.04-64.981333 4.48-135.509333 0 0 42.88-13.738667 140.8 52.48 40.96-11.392 84.48-17.024 128-17.28 43.52 0.256 87.04 5.888 128 17.28 97.28-66.218667 140.16-52.48 140.16-52.48 27.52 70.528 10.24 122.581333 5.12 135.509333 32.64 35.84 52.48 81.493333 52.48 137.386667 0 196.693333-119.68 240-233.6 252.586667 17.92 15.36 34.56 46.762667 34.56 94.72 0 68.522667-0.64 123.562667-0.64 140.202666 0 13.44 8.96 29.44 35.2 24.32C877.44 942.592 1024 750.592 1024 524.672c0-282.752-229.248-512-512-512"></path>
+</svg>
+
+    </a>
+  
+    <a href="http://weibo.com/gyguoyu" rel="me noopener" class="iconfont"
+      title="weibo"  target="_blank"
+      >
+      <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M385.714286 733.714286q12-19.428571 6.285714-39.428571t-25.714286-28.571429q-19.428571-8-41.714286-0.571429t-34.285714 26.285714q-12.571429 19.428571-7.428571 39.142857t24.571429 28.857143 42.571429 1.428571 35.714286-27.142857zm53.714286-69.142857q4.571429-7.428571 2-15.142857t-10-10.571429q-8-2.857143-16.285714 2.857143t-12.285714 10.571429q-9.714286 17.714286 7.428571 25.714286 8 2.857143 16.571429 2.857143t12.571429-10.571429zm99.428571 61.142857q-25.714286 58.285714-90.285714 85.714286t-128 6.857143q-61.142857-19.428571-84.285714-72.285714t3.714286-107.142857q26.857143-53.142857 86.571429-79.428571t120.285714-10.857143q63.428571 16.571429 90.571429 68.285714t1.428571 108.857143zm178.285714-91.428571q-5.142857-54.857143-50.857143-97.142857t-119.142857-62.285714-156.857143-12q-127.428571 13.142857-211.142857 80.857143t-75.714286 151.142857q5.142857 54.857143 50.857143 97.142857t119.142857 62.285714 156.857143 12q127.428571-13.142857 211.142857-80.857143t75.714286-151.142857zm176 2.285714q0 38.857143-21.142857 79.714286t-62.285714 78.285714-96.285714 67.142857-129.142857 47.428571-154.571429 17.714286-157.142857-19.142857-137.428571-53.142857-98-86.285714-37.142857-114q0-65.714286 39.714286-140t112.857143-147.428571q96.571429-96.571429 195.142857-134.857143t140.857143 4q37.142857 36.571429 11.428571 119.428571-2.285714 8-0.571429 11.428571t5.714286 4 8.285714 2.857143 7.714286-2l3.428571-1.142857q79.428571-33.714286 140.571429-33.714286t87.428571 34.857143q25.714286 36 0 101.714286-1.142857 7.428571-2.571429 11.428571t2.571429 7.142857 6.857143 4.285714 9.714286 3.428571q32.571429 10.285714 58.857143 26.857143t45.714286 46.571429 19.428571 66.571429zm-42.285714-356.571429q24 26.857143 31.142857 62t-3.714286 67.142857q-4.571429 13.142857-16.857143 19.428571t-25.428571 2.285714q-13.142857-4.571429-19.428571-16.857143t-2.285714-25.428571q11.428571-36-13.714286-63.428571t-61.142857-20q-13.714286 2.857143-25.714286-4.571429t-14.285714-21.142857q-2.857143-13.714286 4.571429-25.428571t21.142857-14.571429q34.285714-7.428571 68 3.142857t57.714286 37.428571zm103.428571-93.142857q49.714286 54.857143 64.285714 127.142857t-7.714286 138q-5.142857 15.428571-19.428571 22.857143t-29.714286 2.285714-22.857143-19.428571-2.857143-29.714286q16-46.857143 5.714286-98.285714t-45.714286-90.285714q-35.428571-39.428571-84.571429-54.571429t-98.857143-4.857143q-16 3.428571-29.714286-5.428571t-17.142857-24.857143 5.428571-29.428571 24.857143-16.857143q70.285714-14.857143 139.428571 6.571429t118.857143 76.857143z"></path>
+</svg>
+
+    </a>
+
+
+<a href="https://tosone.cn/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+   
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    
+      2016 -
+    2019
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        Tosone
+        
+      </span></span>
+
+  
+  
+    <span id="busuanzi_container">
+      访客数/访问量：<span id="busuanzi_value_site_uv"></span>/<span id="busuanzi_value_site_pv"></span>
+    </span>
+  
+
+  
+    <span>
+      豫ICP备16023221号
+    </span>
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
