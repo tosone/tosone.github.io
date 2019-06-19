@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: https://tosone.cn/sitemap.xml
+Sitemap: https://www.tosone.cn/sitemap.xml

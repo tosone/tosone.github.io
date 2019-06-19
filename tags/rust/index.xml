@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Rust on Tosone&#39;s Blog</title>
-    <link>https://tosone.cn/tags/rust/</link>
+    <link>https://www.tosone.cn/tags/rust/</link>
     <description>Recent content in Rust on Tosone&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sun, 11 Mar 2018 20:14:28 +0000</lastBuildDate>
     
-	<atom:link href="https://tosone.cn/tags/rust/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.tosone.cn/tags/rust/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>[转载] 那些 C 语言缺失的，我在 Rust 里找到了</title>
-      <link>https://tosone.cn/post/missing-in-c-but-found-in-rust/</link>
+      <link>https://www.tosone.cn/post/missing-in-c-but-found-in-rust/</link>
       <pubDate>Sun, 11 Mar 2018 20:14:28 +0000</pubDate>
       
-      <guid>https://tosone.cn/post/missing-in-c-but-found-in-rust/</guid>
+      <guid>https://www.tosone.cn/post/missing-in-c-but-found-in-rust/</guid>
       <description>&lt;p&gt;我大概在 24 年前就爱上了 C 语言。当时，我通过一本西班牙语版的 &amp;ldquo;The C Programming Language&amp;rdquo;（第二版，作者是 Brian Kernighan 和 Dennis Ritchie，所以有时候也用 K&amp;amp;R 来称呼这本书）来学习 C 语言。在这之前，我用过 Turbo Pascal，它也有指针，也需要手动管理内存，而 C 语言在当时是新生事物，但十分强大。&lt;/p&gt;</description>
     </item>
     
