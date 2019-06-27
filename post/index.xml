@@ -6,10 +6,21 @@
     <description>Recent content in Posts on Tosone&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 26 Apr 2019 10:38:24 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 27 Jun 2019 23:03:09 +0800</lastBuildDate>
     
 	<atom:link href="https://www.tosone.cn/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Kubernetes tutorial</title>
+      <link>https://www.tosone.cn/post/kubernetes-tutorial/</link>
+      <pubDate>Thu, 27 Jun 2019 23:03:09 +0800</pubDate>
+      
+      <guid>https://www.tosone.cn/post/kubernetes-tutorial/</guid>
+      <description>&lt;p&gt;Kubernetes (K8s) is an open-source system for automating deployment, scaling, and management of containerized applications.&lt;/p&gt;
+
+&lt;p&gt;It groups containers that make up an application into logical units for easy management and discovery. Kubernetes builds upon 15 years of experience of running production workloads at Google, combined with best-of-breed ideas and practices from the community.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>CoreOS 初始化配置</title>
@@ -182,15 +193,6 @@
       
       <guid>https://www.tosone.cn/post/webrtc/</guid>
       <description>&lt;p&gt;WebRTC 项目的最终目的主要是让 Web 开发者能够基于浏览器轻易快捷开发出丰富的实时多媒体应用，而无需下载安装任何插件，Web 开发者也无需关注多媒体的数字信号处理过程，只需编写简单的 Javascript 程序即可实现。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>N 阶行列式求解</title>
-      <link>https://www.tosone.cn/post/matrix-calc/</link>
-      <pubDate>Fri, 24 Feb 2017 22:09:45 +0000</pubDate>
-      
-      <guid>https://www.tosone.cn/post/matrix-calc/</guid>
-      <description>&lt;p&gt;用递归的方式求解 N 阶行列式的值。&lt;/p&gt;</description>
     </item>
     
   </channel>
