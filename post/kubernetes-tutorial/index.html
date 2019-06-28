@@ -331,6 +331,12 @@ It groups containers that make up an application into logical units for easy man
 <p>It groups containers that make up an application into logical units for easy management and discovery. Kubernetes builds upon 15 years of experience of running production workloads at Google, combined with best-of-breed ideas and practices from the community.</p>
 </blockquote>
 
+<p><strong>Kubernetes</strong> 典型的结构图：</p>
+
+<p><img src="/img/k8s_0330_01.png" alt="Kubernetes" /></p>
+
+<p>按照角色划分，Kubernetes 和绝大多数分布式系统一样，分为 Master 和 Slave 两类。其中 Master 是整个系统的控制中心，是大脑；而 Slave 是分布在各个节点的工作单元。</p>
+
 <h3 id="工具介绍">工具介绍</h3>
 
 <p><strong>Kubernetes</strong> 三大支撑工具：<strong>kubelet</strong>，<strong>kubeadm</strong>，<strong>kubectl</strong>。</p>
@@ -340,12 +346,6 @@ It groups containers that make up an application into logical units for easy man
 <p><strong>kubeadm</strong>: 用于初始化引导 Kubernetes cluster 的创建。</p>
 
 <p><strong>kubectl</strong>: 是 kubenetes 命令行工具，通过 kubectl 可以部署和管理应用，查看各种资源，创建，删除和更新组件。</p>
-
-<p><strong>Kubernetes</strong> 典型的结构图：</p>
-
-<p><img src="/img/k8s_0330_01.png" alt="Kubernetes" /></p>
-
-<p>按照角色划分，Kubernetes 和绝大多数分布式系统一样，分为 Master 和 Slave 两类。其中 Master 是整个系统的控制中心，是大脑；而 Slave 是分布在各个节点的工作单元。</p>
 
 <h3 id="组件介绍">组件介绍</h3>
 

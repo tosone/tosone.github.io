@@ -24,6 +24,12 @@
 &lt;p&gt;It groups containers that make up an application into logical units for easy management and discovery. Kubernetes builds upon 15 years of experience of running production workloads at Google, combined with best-of-breed ideas and practices from the community.&lt;/p&gt;
 &lt;/blockquote&gt;
 
+&lt;p&gt;&lt;strong&gt;Kubernetes&lt;/strong&gt; 典型的结构图：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://tosone.cn/img/k8s_0330_01.png&#34; alt=&#34;Kubernetes&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;按照角色划分，Kubernetes 和绝大多数分布式系统一样，分为 Master 和 Slave 两类。其中 Master 是整个系统的控制中心，是大脑；而 Slave 是分布在各个节点的工作单元。&lt;/p&gt;
+
 &lt;h3 id=&#34;工具介绍&#34;&gt;工具介绍&lt;/h3&gt;
 
 &lt;p&gt;&lt;strong&gt;Kubernetes&lt;/strong&gt; 三大支撑工具：&lt;strong&gt;kubelet&lt;/strong&gt;，&lt;strong&gt;kubeadm&lt;/strong&gt;，&lt;strong&gt;kubectl&lt;/strong&gt;。&lt;/p&gt;
@@ -33,12 +39,6 @@
 &lt;p&gt;&lt;strong&gt;kubeadm&lt;/strong&gt;: 用于初始化引导 Kubernetes cluster 的创建。&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;kubectl&lt;/strong&gt;: 是 kubenetes 命令行工具，通过 kubectl 可以部署和管理应用，查看各种资源，创建，删除和更新组件。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Kubernetes&lt;/strong&gt; 典型的结构图：&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://tosone.cn/img/k8s_0330_01.png&#34; alt=&#34;Kubernetes&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;按照角色划分，Kubernetes 和绝大多数分布式系统一样，分为 Master 和 Slave 两类。其中 Master 是整个系统的控制中心，是大脑；而 Slave 是分布在各个节点的工作单元。&lt;/p&gt;
 
 &lt;h3 id=&#34;组件介绍&#34;&gt;组件介绍&lt;/h3&gt;
 
