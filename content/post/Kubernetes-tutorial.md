@@ -1,5 +1,5 @@
 ---
-title: "Kubernetes tutorial"
+title: "Kubernetes Tutorial"
 date: 2019-06-27T23:03:09+08:00
 tags: [ "Kubernetes" ]
 ---
@@ -10,7 +10,7 @@ It groups containers that make up an application into logical units for easy man
 
 <!--more-->
 
-__Kubernetes__ 三大支撑工具：
+__Kubernetes__ 三大支撑工具：__kubelet__，__kubeadm__，__kubectl__。
 
 __kubelet__: Kubernetes 是一个分布式的集群管理系统，在每个节点上都要运行一个 agent 对容器进行生命周期的管理，这个 agent 程序就是 kubelet。简单地说，kubelet 的主要功能就是定时从某个地方获取节点上 pod/Container 的期望状态，运行什么容器、运行的副本数量、网络或者存储如何配置等等，并调用对应的容器平台接口达到这个状态。上面说的定时从某个地方获取就是指的通过 Kubernetes 资源注册与发现框架从apiserver中获取。
 
@@ -40,8 +40,90 @@ __kube-proxy__[^2]，我们可以在集群中创建 pod，也能通过 Replicati
 
 __Replication Controller__（RC）是 Kubernetes 中的另一个核心概念，应用托管在 Kubernetes 之后，Kubernetes 需要保证应用能够持续运行，这是RC 的工作内容，它会确保任何时间 Kubernetes 中都有指定数量的 Pod 在运行。在此基础上，RC 还提供了一些更高级的特性，比如滚动升级、升级回滚等。
 
-__Deployment__ 为 Kubernetes 提供了一种更加简单的更新 RC 和 Pod 的机制。通过在 Deployment 中描述你所期望的集群状态，Deployment Controller 会将现在的集群状态在一个可控的速度下逐步更新成你所期望的集群状态。Deployment 主要职责同样是为了保证pod的数量和健康，90%的功能与Replication Controller 完全一样，可以看做新一代的 Replication Controller。但是，它又具备了 Replication Controller 之外的新特性[^3]：
-Replication Controller全部功能，事件和状态查看，回滚，版本记录，暂停和启动，多种升级方案。
+__Deployment__ 为 Kubernetes 提供了一种更加简单的更新 RC 和 Pod 的机制。通过在 Deployment 中描述你所期望的集群状态，Deployment Controller 会将现在的集群状态在一个可控的速度下逐步更新成你所期望的集群状态。Deployment 主要职责同样是为了保证pod的数量和健康，90% 的功能与 Replication Controller 完全一样，可以看做新一代的 Replication Controller。但是，它又具备了 Replication Controller 之外的新特性[^3]：
+Replication Controller 全部功能，事件和状态查看，回滚，版本记录，暂停和启动，多种升级方案。
+
+### 实例操作
+
+我们先不讨论如何用 kubeadm 来初始化一个 Kubernetes 的集群，先用一个测试的好用的工具来试验一把 Kubernetes 的效果。
+
+首先安装 `Docker`，`virtualbox`, `minikube` 通过 `brew cask install virtualbox docker minikube`。
+
+安装 `kubectl` 通过 `brew install kubectl`。
+
+启动 `minikube`，通过 `minikube start --memory 4096 --cpus 2`，这里指定 `minikube` 可利用的内存为 4GB，CPU 核心数为 2。
+
+下面我们就看一个意大利面条一样的 Kubernetes 的配置：
+
+``` yaml
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: meow
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: meow
+  template:
+    metadata:
+      labels:
+        app: meow
+    spec:
+      containers:
+      - name: meow
+        image: kennship/http-echo:latest
+        ports:
+        - containerPort: 3000
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: meow-svc
+spec:
+  ports:
+  - port: 80
+    targetPort: 3000
+    protocol: TCP
+    name: http
+  selector:
+    app: meow
+---
+
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: meow-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: \"false\"
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /meow
+        backend:
+          serviceName: meow-svc
+          servicePort: 80
+```
+
+以上配置设置了三项东西分别是 Deployment，Service 和 Ingress。启动方式是 `kubectl apply -f http-echo.yaml`。
+
+运行 `kubectl get pods -w` 查看当前的 pod 的启动情况，稍等片刻将会启动成功。
+
+运行 `kubectl get svc -w` 查看当前的 Service 的启动情况。
+
+运行 `kubectl get ing -w` 查看当前的 Ing 的启动情况。
+
+运行 `minikube ip` 获取 `minikube` 的 IP 地址。访问容器内的服务通过 `https://IP/meow`，浏览器会提示不是有效的可靠证书，但是没关系可以继续访问。
+
+### 改进点
+
+- 多服务多依赖的复杂部署。
+- 灰度部署蓝绿部署。
+- 状态监控。
+- 警告管理。
+- 自动伸缩。
 
 [^1]: Kubernetes 调度器 kube-scheduler https://zhuanlan.zhihu.com/p/56088355
 [^2]: kubernetes 简介：service 和 kube-proxy 原理 https://cizixs.com/2017/03/30/kubernetes-introduction-service-and-kube-proxy/
