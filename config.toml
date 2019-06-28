@@ -1,4 +1,4 @@
-baseURL = "https://www.tosone.cn"
+baseURL = "https://tosone.cn"
 title = "Tosone's Blog"
 enableRobotsTXT = true
 enableEmoji = true
