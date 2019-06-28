@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>C&#43;&#43; on Tosone&#39;s Blog</title>
-    <link>https://www.tosone.cn/tags/c&#43;&#43;/</link>
+    <link>https://tosone.cn/tags/c&#43;&#43;/</link>
     <description>Recent content in C&#43;&#43; on Tosone&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sat, 15 Apr 2017 14:22:24 +0000</lastBuildDate>
     
-	<atom:link href="https://www.tosone.cn/tags/c++/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://tosone.cn/tags/c++/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Compile Opencv</title>
-      <link>https://www.tosone.cn/post/compile-opencv/</link>
+      <link>https://tosone.cn/post/compile-opencv/</link>
       <pubDate>Sat, 15 Apr 2017 14:22:24 +0000</pubDate>
       
-      <guid>https://www.tosone.cn/post/compile-opencv/</guid>
+      <guid>https://tosone.cn/post/compile-opencv/</guid>
       <description>&lt;p&gt;OpenCV is released under a BSD license and hence it’s free for both academic and commercial use. It has C++, C, Python and Java interfaces and supports Windows, Linux, Mac OS, iOS and Android. OpenCV was designed for computational efficiency and with a strong focus on real-time applications. Written in optimized C/C++, the library can take advantage of multi-core processing. Enabled with OpenCL, it can take advantage of the hardware acceleration of the underlying heterogeneous compute platform.&lt;/p&gt;</description>
     </item>
     

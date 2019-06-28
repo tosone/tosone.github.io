@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Docker on Tosone&#39;s Blog</title>
-    <link>https://www.tosone.cn/tags/docker/</link>
+    <link>https://tosone.cn/tags/docker/</link>
     <description>Recent content in Docker on Tosone&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sun, 07 May 2017 10:59:43 +0000</lastBuildDate>
     
-	<atom:link href="https://www.tosone.cn/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://tosone.cn/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Docker 入门</title>
-      <link>https://www.tosone.cn/post/docker/</link>
+      <link>https://tosone.cn/post/docker/</link>
       <pubDate>Sun, 07 May 2017 10:59:43 +0000</pubDate>
       
-      <guid>https://www.tosone.cn/post/docker/</guid>
+      <guid>https://tosone.cn/post/docker/</guid>
       <description>&lt;p&gt;Docker 安装以及常用数据库安装。&lt;/p&gt;</description>
     </item>
     

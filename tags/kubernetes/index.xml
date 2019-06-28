@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Kubernetes on Tosone&#39;s Blog</title>
-    <link>https://www.tosone.cn/tags/kubernetes/</link>
+    <link>https://tosone.cn/tags/kubernetes/</link>
     <description>Recent content in Kubernetes on Tosone&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Thu, 27 Jun 2019 23:03:09 +0800</lastBuildDate>
     
-	<atom:link href="https://www.tosone.cn/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://tosone.cn/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Kubernetes tutorial</title>
-      <link>https://www.tosone.cn/post/kubernetes-tutorial/</link>
+      <link>https://tosone.cn/post/kubernetes-tutorial/</link>
       <pubDate>Thu, 27 Jun 2019 23:03:09 +0800</pubDate>
       
-      <guid>https://www.tosone.cn/post/kubernetes-tutorial/</guid>
+      <guid>https://tosone.cn/post/kubernetes-tutorial/</guid>
       <description>&lt;p&gt;Kubernetes (K8s) is an open-source system for automating deployment, scaling, and management of containerized applications.&lt;/p&gt;
 
 &lt;p&gt;It groups containers that make up an application into logical units for easy management and discovery. Kubernetes builds upon 15 years of experience of running production workloads at Google, combined with best-of-breed ideas and practices from the community.&lt;/p&gt;</description>

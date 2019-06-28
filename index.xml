@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tosone&#39;s Blog</title>
-    <link>https://www.tosone.cn/</link>
+    <link>https://tosone.cn/</link>
     <description>Recent content on Tosone&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Thu, 27 Jun 2019 23:03:09 +0800</lastBuildDate>
     
-        <atom:link href="https://www.tosone.cn/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://tosone.cn/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Kubernetes tutorial</title>
-      <link>https://www.tosone.cn/post/kubernetes-tutorial/</link>
+      <link>https://tosone.cn/post/kubernetes-tutorial/</link>
       <pubDate>Thu, 27 Jun 2019 23:03:09 +0800</pubDate>
       
-      <guid>https://www.tosone.cn/post/kubernetes-tutorial/</guid>
+      <guid>https://tosone.cn/post/kubernetes-tutorial/</guid>
       
         <description>&lt;p&gt;Kubernetes (K8s) is an open-source system for automating deployment, scaling, and management of containerized applications.&lt;/p&gt;
 
@@ -32,7 +32,7 @@
 
 &lt;p&gt;&lt;strong&gt;Kubernetes&lt;/strong&gt; 典型的结构图：&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://www.tosone.cn/img/kubernetes-control-plane.png&#34; alt=&#34;Kubernetes&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tosone.cn/img/kubernetes-control-plane.png&#34; alt=&#34;Kubernetes&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;按照角色划分，Kubernetes 和绝大多数分布式系统一样，分为 Master 和 Slave 两类。其中 Master 是整个系统的控制中心，是大脑；而 Slave 是分布在各个节点的工作单元。&lt;/p&gt;
 
@@ -72,10 +72,10 @@ Replication Controller全部功能，事件和状态查看，回滚，版本记�
     
     <item>
       <title>CoreOS 初始化配置</title>
-      <link>https://www.tosone.cn/post/coreos-init/</link>
+      <link>https://tosone.cn/post/coreos-init/</link>
       <pubDate>Fri, 26 Apr 2019 10:38:24 +0000</pubDate>
       
-      <guid>https://www.tosone.cn/post/coreos-init/</guid>
+      <guid>https://tosone.cn/post/coreos-init/</guid>
       
         <description>&lt;blockquote&gt;
 &lt;p&gt;Container Linux (formerly CoreOS Linux) is an open-source lightweight operating system based on the Linux kernel and designed for providing infrastructure to clustered deployments, while focusing on automation, ease of application deployment, security, reliability and scalability. As an operating system, Container Linux provides only the minimal functionality required for deploying applications inside software containers, together with built-in mechanisms for service discovery and configuration sharing.&lt;/p&gt;
@@ -261,10 +261,10 @@ curl -L &lt;span class=&#34;s2&#34;&gt;&amp;#34;https://github.com/docker/compos
     
     <item>
       <title>Golang 中如何用 CGO 与 C 之间做一个缓存 buffer</title>
-      <link>https://www.tosone.cn/post/golang-cgo-buffer/</link>
+      <link>https://tosone.cn/post/golang-cgo-buffer/</link>
       <pubDate>Mon, 05 Nov 2018 20:00:00 +0000</pubDate>
       
-      <guid>https://www.tosone.cn/post/golang-cgo-buffer/</guid>
+      <guid>https://tosone.cn/post/golang-cgo-buffer/</guid>
       
         <description>&lt;p&gt;Golang 和 C 之间如何传递二进制数据呢？&lt;/p&gt;
 
@@ -495,10 +495,10 @@ curl -L &lt;span class=&#34;s2&#34;&gt;&amp;#34;https://github.com/docker/compos
     
     <item>
       <title>CGO 注意事项</title>
-      <link>https://www.tosone.cn/post/cgo-attation/</link>
+      <link>https://tosone.cn/post/cgo-attation/</link>
       <pubDate>Wed, 12 Sep 2018 10:14:28 +0000</pubDate>
       
-      <guid>https://www.tosone.cn/post/cgo-attation/</guid>
+      <guid>https://tosone.cn/post/cgo-attation/</guid>
       
         <description>&lt;p&gt;Golang 和 C 之间相互调用存在一些局限性。&lt;/p&gt;
 
@@ -585,10 +585,10 @@ curl -L &lt;span class=&#34;s2&#34;&gt;&amp;#34;https://github.com/docker/compos
     
     <item>
       <title>系统初始化</title>
-      <link>https://www.tosone.cn/post/linux-init/</link>
+      <link>https://tosone.cn/post/linux-init/</link>
       <pubDate>Tue, 11 Sep 2018 12:53:15 +0000</pubDate>
       
-      <guid>https://www.tosone.cn/post/linux-init/</guid>
+      <guid>https://tosone.cn/post/linux-init/</guid>
       
         <description>&lt;p&gt;Ubuntu 和 NodeJs 的环境的初始化。&lt;/p&gt;
 
@@ -789,10 +789,10 @@ sudo sh -c &lt;span class=&#34;s2&#34;&gt;&amp;#34;echo \&amp;#34;logfile=/var/l
     
     <item>
       <title>CGO 入门</title>
-      <link>https://www.tosone.cn/post/cgo/</link>
+      <link>https://tosone.cn/post/cgo/</link>
       <pubDate>Tue, 10 Jul 2018 21:14:28 +0000</pubDate>
       
-      <guid>https://www.tosone.cn/post/cgo/</guid>
+      <guid>https://tosone.cn/post/cgo/</guid>
       
         <description>&lt;p&gt;Golang 和 C 之间相互调用入门。&lt;/p&gt;
 
@@ -1065,10 +1065,10 @@ sudo sh -c &lt;span class=&#34;s2&#34;&gt;&amp;#34;echo \&amp;#34;logfile=/var/l
     
     <item>
       <title>[转载] 那些 C 语言缺失的，我在 Rust 里找到了</title>
-      <link>https://www.tosone.cn/post/missing-in-c-but-found-in-rust/</link>
+      <link>https://tosone.cn/post/missing-in-c-but-found-in-rust/</link>
       <pubDate>Sun, 11 Mar 2018 20:14:28 +0000</pubDate>
       
-      <guid>https://www.tosone.cn/post/missing-in-c-but-found-in-rust/</guid>
+      <guid>https://tosone.cn/post/missing-in-c-but-found-in-rust/</guid>
       
         <description>&lt;p&gt;我大概在 24 年前就爱上了 C 语言。当时，我通过一本西班牙语版的 &amp;ldquo;The C Programming Language&amp;rdquo;（第二版，作者是 Brian Kernighan 和 Dennis Ritchie，所以有时候也用 K&amp;amp;R 来称呼这本书）来学习 C 语言。在这之前，我用过 Turbo Pascal，它也有指针，也需要手动管理内存，而 C 语言在当时是新生事物，但十分强大。&lt;/p&gt;
 
@@ -1393,10 +1393,10 @@ sudo sh -c &lt;span class=&#34;s2&#34;&gt;&amp;#34;echo \&amp;#34;logfile=/var/l
     
     <item>
       <title>cgo is not go</title>
-      <link>https://www.tosone.cn/post/cgo-is-not-go/</link>
+      <link>https://tosone.cn/post/cgo-is-not-go/</link>
       <pubDate>Sat, 10 Mar 2018 21:14:28 +0000</pubDate>
       
-      <guid>https://www.tosone.cn/post/cgo-is-not-go/</guid>
+      <guid>https://tosone.cn/post/cgo-is-not-go/</guid>
       
         <description>&lt;p&gt;Some people, when confronted with a problem, think &amp;ldquo;I know, I’ll use cgo.&amp;rdquo; Now they have two problems.&lt;/p&gt;
 
@@ -1510,10 +1510,10 @@ sudo sh -c &lt;span class=&#34;s2&#34;&gt;&amp;#34;echo \&amp;#34;logfile=/var/l
     
     <item>
       <title>Golang 获取 goroutine id 完全指南</title>
-      <link>https://www.tosone.cn/post/golang-get-goroutine-id/</link>
+      <link>https://tosone.cn/post/golang-get-goroutine-id/</link>
       <pubDate>Fri, 09 Mar 2018 21:14:28 +0000</pubDate>
       
-      <guid>https://www.tosone.cn/post/golang-get-goroutine-id/</guid>
+      <guid>https://tosone.cn/post/golang-get-goroutine-id/</guid>
       
         <description>&lt;p&gt;在 Golang 中，每个 goroutine 协程都有一个 goroutine id (goid)，该goid没有向应用层暴露。但是，在很多场景下，开发者又希望使用 goid 作为唯一标识，将一个 goroutine 中的函数层级调用串联起来。比如，希望在一个 http handler 中将这个请求的每行日志都加上对应的 goid 以便于对这个请求处理过程进行跟踪和分析。&lt;/p&gt;
 
@@ -1817,10 +1817,10 @@ sudo sh -c &lt;span class=&#34;s2&#34;&gt;&amp;#34;echo \&amp;#34;logfile=/var/l
     
     <item>
       <title>PHONY target</title>
-      <link>https://www.tosone.cn/post/phony-target/</link>
+      <link>https://tosone.cn/post/phony-target/</link>
       <pubDate>Thu, 08 Mar 2018 21:14:28 +0000</pubDate>
       
-      <guid>https://www.tosone.cn/post/phony-target/</guid>
+      <guid>https://tosone.cn/post/phony-target/</guid>
       
         <description>&lt;p&gt;A phony target is one that is not really the name of a file; rather it is just a name for a recipe to be executed when you make an explicit request. There are two reasons to use a phony target: to avoid a conflict with a file of the same name, and to improve performance.&lt;/p&gt;
 
@@ -1979,10 +1979,10 @@ sudo sh -c &lt;span class=&#34;s2&#34;&gt;&amp;#34;echo \&amp;#34;logfile=/var/l
     
     <item>
       <title>RaspberryPi 上手</title>
-      <link>https://www.tosone.cn/post/raspberry/</link>
+      <link>https://tosone.cn/post/raspberry/</link>
       <pubDate>Sat, 25 Nov 2017 18:27:37 +0000</pubDate>
       
-      <guid>https://www.tosone.cn/post/raspberry/</guid>
+      <guid>https://tosone.cn/post/raspberry/</guid>
       
         <description>&lt;p&gt;当你花 35 美元买到一部树莓派（Raspberry Pi）计算机的时候，机器里面是没有预装操作系统（OS）的。这个时候你要自己下载一个 OS 到 SD 卡，插到树莓派上重启完成 OS 的安装。这一切看起来很简便，但你考虑过这个跟树莓派兼容的OS是哪里来的吗？&lt;/p&gt;
 
@@ -2063,10 +2063,10 @@ deb-src https://mirror.tuna.tsinghua.edu.cn/raspberrypi/ stretch main ui&lt;/cod
     
     <item>
       <title>Docker 入门</title>
-      <link>https://www.tosone.cn/post/docker/</link>
+      <link>https://tosone.cn/post/docker/</link>
       <pubDate>Sun, 07 May 2017 10:59:43 +0000</pubDate>
       
-      <guid>https://www.tosone.cn/post/docker/</guid>
+      <guid>https://tosone.cn/post/docker/</guid>
       
         <description>&lt;p&gt;Docker 安装以及常用数据库安装。&lt;/p&gt;
 
@@ -2355,10 +2355,10 @@ aof-rewrite-incremental-fsync yes&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;
     
     <item>
       <title>如何才能看到不该看到的东西</title>
-      <link>https://www.tosone.cn/post/shadowsocks-ppt/</link>
+      <link>https://tosone.cn/post/shadowsocks-ppt/</link>
       <pubDate>Fri, 05 May 2017 12:48:41 +0000</pubDate>
       
-      <guid>https://www.tosone.cn/post/shadowsocks-ppt/</guid>
+      <guid>https://tosone.cn/post/shadowsocks-ppt/</guid>
       
         <description>&lt;p&gt;有人不想让我们看见一些东西。&lt;/p&gt;
 
@@ -2469,10 +2469,10 @@ aof-rewrite-incremental-fsync yes&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;
     
     <item>
       <title>Feature Branch Workflow 实践</title>
-      <link>https://www.tosone.cn/post/feature-branch/</link>
+      <link>https://tosone.cn/post/feature-branch/</link>
       <pubDate>Sat, 22 Apr 2017 14:23:31 +0000</pubDate>
       
-      <guid>https://www.tosone.cn/post/feature-branch/</guid>
+      <guid>https://tosone.cn/post/feature-branch/</guid>
       
         <description>&lt;p&gt;这只是一份关于 Feature Branch Workflow 实践的建议。&lt;/p&gt;
 
@@ -2588,10 +2588,10 @@ Feature 分支会相对复杂，但也不能过分复杂。&lt;/p&gt;
     
     <item>
       <title>Generate SSH key and GPG key</title>
-      <link>https://www.tosone.cn/post/ssh-gpg-keys/</link>
+      <link>https://tosone.cn/post/ssh-gpg-keys/</link>
       <pubDate>Sat, 22 Apr 2017 13:16:42 +0000</pubDate>
       
-      <guid>https://www.tosone.cn/post/ssh-gpg-keys/</guid>
+      <guid>https://tosone.cn/post/ssh-gpg-keys/</guid>
       
         <description>&lt;p&gt;2012年3月4号，GitHub 的&lt;a href=&#34;https://github.com/blog/1068-public-key-security-vulnerability-and-mitigationhttp://&#34;&gt;公钥安全漏洞&lt;/a&gt;被一个叫 Egor Homakov 的俄国人利用了。这个漏洞允许他向 GitHub 上的 Ruby on Rails 框架的主分支上提交代码。&lt;a href=&#34;http://www.oschina.net/translate/git-horror-story&#34;&gt;Git 使用中的教训：签名提交确保代码完整可信&lt;/a&gt;&lt;/p&gt;
 
@@ -2616,10 +2616,10 @@ Feature 分支会相对复杂，但也不能过分复杂。&lt;/p&gt;
     
     <item>
       <title>ECS init</title>
-      <link>https://www.tosone.cn/post/ecs-init/</link>
+      <link>https://tosone.cn/post/ecs-init/</link>
       <pubDate>Mon, 17 Apr 2017 21:38:24 +0000</pubDate>
       
-      <guid>https://www.tosone.cn/post/ecs-init/</guid>
+      <guid>https://tosone.cn/post/ecs-init/</guid>
       
         <description>&lt;p&gt;ECS 新购主机 Ubuntu 初始化的一些操作。&lt;/p&gt;
 
@@ -2691,10 +2691,10 @@ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh &lt
     
     <item>
       <title>Compile Opencv</title>
-      <link>https://www.tosone.cn/post/compile-opencv/</link>
+      <link>https://tosone.cn/post/compile-opencv/</link>
       <pubDate>Sat, 15 Apr 2017 14:22:24 +0000</pubDate>
       
-      <guid>https://www.tosone.cn/post/compile-opencv/</guid>
+      <guid>https://tosone.cn/post/compile-opencv/</guid>
       
         <description>&lt;p&gt;OpenCV is released under a BSD license and hence it’s free for both academic and commercial use. It has C++, C, Python and Java interfaces and supports Windows, Linux, Mac OS, iOS and Android. OpenCV was designed for computational efficiency and with a strong focus on real-time applications. Written in optimized C/C++, the library can take advantage of multi-core processing. Enabled with OpenCL, it can take advantage of the hardware acceleration of the underlying heterogeneous compute platform.&lt;/p&gt;
 
@@ -2785,10 +2785,10 @@ sudo apt-get update&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
     
     <item>
       <title>Golang auto build version</title>
-      <link>https://www.tosone.cn/post/golang-auto-build-versioning/</link>
+      <link>https://tosone.cn/post/golang-auto-build-versioning/</link>
       <pubDate>Tue, 11 Apr 2017 20:26:54 +0000</pubDate>
       
-      <guid>https://www.tosone.cn/post/golang-auto-build-versioning/</guid>
+      <guid>https://tosone.cn/post/golang-auto-build-versioning/</guid>
       
         <description>&lt;p&gt;We needed a version number to find whether the binary was from yesterday or today’s source. Then we decided that for all our golang applications we should have a way to find out the version number, so that we can always query and find out which version it is, there by which source is running.&lt;/p&gt;
 
@@ -2840,10 +2840,10 @@ sudo apt-get update&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
     
     <item>
       <title>泰山旅游指南</title>
-      <link>https://www.tosone.cn/post/mount-tai-reference/</link>
+      <link>https://tosone.cn/post/mount-tai-reference/</link>
       <pubDate>Sat, 04 Mar 2017 16:57:15 +0000</pubDate>
       
-      <guid>https://www.tosone.cn/post/mount-tai-reference/</guid>
+      <guid>https://tosone.cn/post/mount-tai-reference/</guid>
       
         <description>&lt;p&gt;泰山，以五岳独尊名扬天下，中国历代曾有 72 位皇帝到泰山封禅。杜甫一首《望岳》中的“会当凌绝顶，一览众山小”表达出自信自励的意志和坚定豪迈的气概，亦充分体现出泰山的巍峨雄伟与险峻。&lt;/p&gt;
 
@@ -2968,10 +2968,10 @@ sudo apt-get update&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
     
     <item>
       <title>Web RTC Demo</title>
-      <link>https://www.tosone.cn/post/webrtc/</link>
+      <link>https://tosone.cn/post/webrtc/</link>
       <pubDate>Sun, 26 Feb 2017 09:56:03 +0000</pubDate>
       
-      <guid>https://www.tosone.cn/post/webrtc/</guid>
+      <guid>https://tosone.cn/post/webrtc/</guid>
       
         <description>&lt;p&gt;WebRTC 项目的最终目的主要是让 Web 开发者能够基于浏览器轻易快捷开发出丰富的实时多媒体应用，而无需下载安装任何插件，Web 开发者也无需关注多媒体的数字信号处理过程，只需编写简单的 Javascript 程序即可实现。&lt;/p&gt;
 

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Makefile on Tosone&#39;s Blog</title>
-    <link>https://www.tosone.cn/tags/makefile/</link>
+    <link>https://tosone.cn/tags/makefile/</link>
     <description>Recent content in Makefile on Tosone&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Thu, 08 Mar 2018 21:14:28 +0000</lastBuildDate>
     
-	<atom:link href="https://www.tosone.cn/tags/makefile/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://tosone.cn/tags/makefile/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>PHONY target</title>
-      <link>https://www.tosone.cn/post/phony-target/</link>
+      <link>https://tosone.cn/post/phony-target/</link>
       <pubDate>Thu, 08 Mar 2018 21:14:28 +0000</pubDate>
       
-      <guid>https://www.tosone.cn/post/phony-target/</guid>
+      <guid>https://tosone.cn/post/phony-target/</guid>
       <description>&lt;p&gt;A phony target is one that is not really the name of a file; rather it is just a name for a recipe to be executed when you make an explicit request. There are two reasons to use a phony target: to avoid a conflict with a file of the same name, and to improve performance.&lt;/p&gt;</description>
     </item>
     
