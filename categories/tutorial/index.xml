@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorial on Tosone&#39;s Blog</title>
+    <link>https://tosone.cn/categories/tutorial/</link>
+    <description>Recent content in Tutorial on Tosone&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 27 Jun 2019 23:03:09 +0800</lastBuildDate>
+    
+	<atom:link href="https://tosone.cn/categories/tutorial/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Kubernetes Tutorial</title>
+      <link>https://tosone.cn/post/kubernetes-tutorial/</link>
+      <pubDate>Thu, 27 Jun 2019 23:03:09 +0800</pubDate>
+      
+      <guid>https://tosone.cn/post/kubernetes-tutorial/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Kubernetes&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:k8s&#34;&gt;&lt;a href=&#34;#fn:k8s&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; is an open-source system for automating deployment, scaling, and management of containerized applications.&lt;/p&gt;
+
+&lt;p&gt;It groups containers that make up an application into logical units for easy management and discovery. Kubernetes builds upon 15 years of experience of running production workloads at Google, combined with best-of-breed ideas and practices from the community.&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
+    <item>
+      <title>Docker Tutorial</title>
+      <link>https://tosone.cn/post/docker/</link>
+      <pubDate>Sun, 07 May 2017 10:59:43 +0000</pubDate>
+      
+      <guid>https://tosone.cn/post/docker/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Securely build, share and run any application, anywhere.&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:description&#34;&gt;&lt;a href=&#34;#fn:description&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

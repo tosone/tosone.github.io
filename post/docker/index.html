@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Docker 入门 - Tosone&#39;s Blog</title>
+  <title>Docker Tutorial - Tosone&#39;s Blog</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -23,7 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Tosone" />
-  <meta name="description" content="Docker 安装以及常用数据库安装。
+  <meta name="description" content=" Securely build, share and run any application, anywhere.1
 " />
 
   <meta name="keywords" content="Tosone, blog" />
@@ -58,27 +58,33 @@
 
 
 
-<meta property="og:title" content="Docker 入门" />
-<meta property="og:description" content="Docker 安装以及常用数据库安装。" />
+<meta property="og:title" content="Docker Tutorial" />
+<meta property="og:description" content="
+Securely build, share and run any application, anywhere.1
+" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://tosone.cn/post/docker/" />
 <meta property="article:published_time" content="2017-05-07T10:59:43&#43;00:00"/>
 <meta property="article:modified_time" content="2017-05-07T10:59:43&#43;00:00"/>
 
-<meta itemprop="name" content="Docker 入门">
-<meta itemprop="description" content="Docker 安装以及常用数据库安装。">
+<meta itemprop="name" content="Docker Tutorial">
+<meta itemprop="description" content="
+Securely build, share and run any application, anywhere.1
+">
 
 
 <meta itemprop="datePublished" content="2017-05-07T10:59:43&#43;00:00" />
 <meta itemprop="dateModified" content="2017-05-07T10:59:43&#43;00:00" />
-<meta itemprop="wordCount" content="438">
+<meta itemprop="wordCount" content="295">
 
 
 
 <meta itemprop="keywords" content="Docker," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Docker 入门"/>
-<meta name="twitter:description" content="Docker 安装以及常用数据库安装。"/>
+<meta name="twitter:title" content="Docker Tutorial"/>
+<meta name="twitter:description" content="
+Securely build, share and run any application, anywhere.1
+"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -290,13 +296,16 @@
           <article class="post bg-white">
     
     <header class="post-header">
-      <h1 class="post-title">Docker 入门</h1>
+      <h1 class="post-title">Docker Tutorial</h1>
       
       <div class="post-meta">
         <time datetime="2017-05-07" class="post-time">
           2017-05-07
         </time>
-        
+        <div class="post-category">
+            <a href="https://tosone.cn/categories/tutorial/"> Tutorial </a>
+            
+          </div>
         
 
         
@@ -312,19 +321,14 @@
 
     
     <div class="post-content">
-      <p>Docker 安装以及常用数据库安装。</p>
+      <blockquote>
+<p>Securely build, share and run any application, anywhere.<sup class="footnote-ref" id="fnref:description"><a href="#fn:description">1</a></sup></p>
+</blockquote>
 
 <h3 id="安装-docker">安装 Docker</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">curl -sSL https://get.docker.com/ <span class="p">|</span> sh
-wget -qO- https://get.docker.com/ <span class="p">|</span> sh</code></pre></td></tr></table>
-</div>
-</div>
+
+<p>各种 Linux 发行版都有相应的 Docker 软件在软件源中，但是需要自己寻找，比如 Ubuntu 19.04 中这么安装 <code>sudo apt install docker.io</code>。但是最稳妥的安装方式是 <code>curl -sSL https://get.docker.com/ | sh</code>。官方的这个脚本会自动配置 Docker 的软件源，但是一般国内都很慢，很痛苦，还会配置 Docker 在 systemd 中的 service，想要开机自启动就需要这个 service，随后还会自动的将这个 service 启动起来。这样安装完成之后用 Docker 的任何命令会发现都需要 sudo 权限，原因在于 Docker 不在你的用户组里边，那么就需要将它加入到当前用户的用户组里边，运行 <code>sudo usermod -a -G docker $USER</code>，然后当前用户重新登录就 OK 了。</p>
+
 <h3 id="安装-docker-compose">安装 Docker Compose</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -332,267 +336,32 @@ wget -qO- https://get.docker.com/ <span class="p">|</span> sh</code></pre></td><
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">curl -L https://github.com/docker/compose/releases/download/1.13.0/docker-compose-<span class="sb">`</span>uname -s<span class="sb">`</span>-<span class="sb">`</span>uname -m<span class="sb">`</span> &gt; /usr/bin/docker-compose
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo curl -L <span class="s2">&#34;https://github.com/docker/compose/releases/download/1.24.0/docker-compose-</span><span class="k">$(</span>uname -s<span class="k">)</span><span class="s2">-</span><span class="k">$(</span>uname -m<span class="k">)</span><span class="s2">&#34;</span> -o /usr/bin/docker-compose
 chmod +x /usr/bin/docker-compose</code></pre></td></tr></table>
 </div>
 </div>
-<h3 id="安装-mongodb">安装 MongoDB</h3>
+<h3 id="验证安装">验证安装</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
 </span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">FROM mongo:latest
-ENV MONGO_INITDB_ROOT_USERNAME mongodb_name
-ENV MONGO_INITDB_ROOT_PASSWORD mongodb_passwd
-COPY mongod.conf /etc/
-EXPOSE <span class="m">27017</span>
-CMD <span class="o">[</span><span class="s2">&#34;mongod&#34;</span>, <span class="s2">&#34;-f&#34;</span>, <span class="s2">&#34;/etc/mongod.conf&#34;</span><span class="o">]</span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">processManagement:
-    fork: <span class="nb">true</span>
-net:
-    bindIp: <span class="s2">&#34;0.0.0.0&#34;</span>
-    port: <span class="m">27017</span>
-    maxIncomingConnections: <span class="m">1000</span>
-    http:
-        enabled: <span class="nb">false</span>
-        JSONPEnabled: <span class="nb">false</span>
-        RESTInterfaceEnabled: <span class="nb">false</span>
-storage:
-    dbPath: <span class="s2">&#34;/data/db&#34;</span>
-    directoryPerDB: <span class="nb">true</span>
-    journal:
-        enabled: <span class="nb">true</span>
-systemLog:
-    destination: <span class="s2">&#34;file&#34;</span>
-    path: <span class="s2">&#34;/var/log/mongodb/mongod.log&#34;</span>
-    logAppend: <span class="nb">true</span>
-security:
-    authorization: <span class="s2">&#34;enabled&#34;</span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">docker build -t mongo-tosone .
-docker run --name mongo -v /data/mongodb/data:/data/db --hostname<span class="o">=</span><span class="s2">&#34;mongodb&#34;</span> -p <span class="m">27017</span>:27017 -d mongo-tosone --smallfiles</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">docker version
+docker-compose --help</code></pre></td></tr></table>
 </div>
 </div>
-<h3 id="安装-mysql">安装 Mysql</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">FROM mysql:latest
-ENV MYSQL_ROOT_PASSWORD <span class="m">8541539655</span>
-ENV MYSQL_USER tosone
-ENV MYSQL_PASSWORD <span class="m">8541539655</span>
-CMD <span class="o">[</span><span class="s2">&#34;mysqld&#34;</span><span class="o">]</span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">docker build -t mysql-tosone .
-docker run --name mysql -v /data/mysql:/var/lib/mysql --hostname<span class="o">=</span><span class="s2">&#34;mysql&#34;</span> -p <span class="m">3306</span>:3306 -d mysql-tosone</code></pre></td></tr></table>
-</div>
-</div>
-<h3 id="安装-redis">安装 Redis</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">FROM redis:latest
-COPY redis.conf /etc/redis/redis.conf
-CMD <span class="o">[</span> <span class="s2">&#34;redis-server&#34;</span>, <span class="s2">&#34;/etc/redis/redis.conf&#34;</span> <span class="o">]</span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span><span class="lnt">56
-</span><span class="lnt">57
-</span><span class="lnt">58
-</span><span class="lnt">59
-</span><span class="lnt">60
-</span><span class="lnt">61
-</span><span class="lnt">62
-</span><span class="lnt">63
-</span><span class="lnt">64
-</span><span class="lnt">65
-</span><span class="lnt">66
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">################################## INCLUDES ###################################</span>
-<span class="c1">################################## NETWORK #####################################</span>
-<span class="nb">bind</span> <span class="m">0</span>.0.0.0
-protected-mode yes
-port <span class="m">6379</span>
-tcp-backlog <span class="m">511</span>
-timeout <span class="m">0</span>
-tcp-keepalive <span class="m">300</span>
-<span class="c1">################################# GENERAL #####################################</span>
-daemonize no
-supervised no
-pidfile /var/run/redis_6379.pid
-loglevel notice
-logfile <span class="s2">&#34;&#34;</span>
-databases <span class="m">16</span>
-<span class="c1">################################ SNAPSHOTTING  ###############################</span>
-save <span class="m">900</span> <span class="m">1</span>
-save <span class="m">300</span> <span class="m">10</span>
-save <span class="m">60</span> <span class="m">10000</span>
-stop-writes-on-bgsave-error yes
-rdbcompression yes
-rdbchecksum yes
-dbfilename dump.rdb
-dir ./
-<span class="c1">################################# REPLICATION #################################</span>
-slave-read-only yes
-repl-diskless-sync no
-repl-diskless-sync-delay <span class="m">5</span>
-repl-disable-tcp-nodelay no
-slave-priority <span class="m">100</span>
-<span class="c1">################################## SECURITY ###################################</span>
-requirepass <span class="m">8541539655</span>
-<span class="c1">################################### LIMITS ####################################</span>
-<span class="c1">############################## APPEND ONLY MODE ###############################</span>
-appendonly no
-appendfilename <span class="s2">&#34;appendonly.aof&#34;</span>
-appendfsync everysec
-no-appendfsync-on-rewrite no
-auto-aof-rewrite-percentage <span class="m">100</span>
-auto-aof-rewrite-min-size 64mb
-aof-load-truncated yes
-<span class="c1">################################ LUA SCRIPTING  ###############################</span>
-lua-time-limit <span class="m">5000</span>
-<span class="c1">################################ REDIS CLUSTER  ##############################</span>
-<span class="c1">################################## SLOW LOG ###################################</span>
-slowlog-log-slower-than <span class="m">10000</span>
-slowlog-max-len <span class="m">128</span>
-<span class="c1">################################ LATENCY MONITOR ##############################</span>
-latency-monitor-threshold <span class="m">0</span>
-<span class="c1">############################# EVENT NOTIFICATION ##############################</span>
-notify-keyspace-events <span class="s2">&#34;&#34;</span>
-<span class="c1">############################### ADVANCED CONFIG ###############################</span>
-hash-max-ziplist-entries <span class="m">512</span>
-hash-max-ziplist-value <span class="m">64</span>
-list-max-ziplist-size -2
-list-compress-depth <span class="m">0</span>
-set-max-intset-entries <span class="m">512</span>
-zset-max-ziplist-entries <span class="m">128</span>
-zset-max-ziplist-value <span class="m">64</span>
-hll-sparse-max-bytes <span class="m">3000</span>
-activerehashing yes
-client-output-buffer-limit normal <span class="m">0</span> <span class="m">0</span> <span class="m">0</span>
-client-output-buffer-limit slave 256mb 64mb <span class="m">60</span>
-client-output-buffer-limit pubsub 32mb 8mb <span class="m">60</span>
-hz <span class="m">10</span>
-aof-rewrite-incremental-fsync yes</code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">docker build -t redis-tosone .</code></pre></td></tr></table>
-</div>
+<h3 id="镜像与容器">镜像与容器</h3>
+
+<p>docker-machine start</p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:description">Enterprise Container Platform for High-Velocity Innovation <a href="https://www.docker.com/">https://www.docker.com/</a>
+ <a class="footnote-return" href="#fnref:description"><sup>[return]</sup></a></li>
+</ol>
 </div>
     </div>
 

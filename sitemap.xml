@@ -2,6 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://tosone.cn/categories/</loc>
+    <lastmod>2019-06-27T23:03:09+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://tosone.cn/tags/kubernetes/</loc>
     <lastmod>2019-06-27T23:03:09+08:00</lastmod>
     <priority>0</priority>
@@ -28,6 +34,12 @@
   
   <url>
     <loc>https://tosone.cn/</loc>
+    <lastmod>2019-06-27T23:03:09+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tosone.cn/categories/tutorial/</loc>
     <lastmod>2019-06-27T23:03:09+08:00</lastmod>
     <priority>0</priority>
   </url>
@@ -331,11 +343,6 @@
   <url>
     <loc>https://tosone.cn/tags/luajit/</loc>
     <lastmod>2016-12-31T15:14:28+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://tosone.cn/categories/</loc>
     <priority>0</priority>
   </url>
   

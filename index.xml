@@ -2221,25 +2221,20 @@ deb-src https://mirror.tuna.tsinghua.edu.cn/raspberrypi/ stretch main ui&lt;/cod
     </item>
     
     <item>
-      <title>Docker 入门</title>
+      <title>Docker Tutorial</title>
       <link>https://tosone.cn/post/docker/</link>
       <pubDate>Sun, 07 May 2017 10:59:43 +0000</pubDate>
       
       <guid>https://tosone.cn/post/docker/</guid>
       
-        <description>&lt;p&gt;Docker 安装以及常用数据库安装。&lt;/p&gt;
+        <description>&lt;blockquote&gt;
+&lt;p&gt;Securely build, share and run any application, anywhere.&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:description&#34;&gt;&lt;a href=&#34;#fn:description&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;h3 id=&#34;安装-docker&#34;&gt;安装 Docker&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;curl -sSL https://get.docker.com/ &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; sh
-wget -qO- https://get.docker.com/ &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; sh&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+
+&lt;p&gt;各种 Linux 发行版都有相应的 Docker 软件在软件源中，但是需要自己寻找，比如 Ubuntu 19.04 中这么安装 &lt;code&gt;sudo apt install docker.io&lt;/code&gt;。但是最稳妥的安装方式是 &lt;code&gt;curl -sSL https://get.docker.com/ | sh&lt;/code&gt;。官方的这个脚本会自动配置 Docker 的软件源，但是一般国内都很慢，很痛苦，还会配置 Docker 在 systemd 中的 service，想要开机自启动就需要这个 service，随后还会自动的将这个 service 启动起来。这样安装完成之后用 Docker 的任何命令会发现都需要 sudo 权限，原因在于 Docker 不在你的用户组里边，那么就需要将它加入到当前用户的用户组里边，运行 &lt;code&gt;sudo usermod -a -G docker $USER&lt;/code&gt;，然后当前用户重新登录就 OK 了。&lt;/p&gt;
+
 &lt;h3 id=&#34;安装-docker-compose&#34;&gt;安装 Docker Compose&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -2247,267 +2242,32 @@ wget -qO- https://get.docker.com/ &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; s
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;curl -L https://github.com/docker/compose/releases/download/1.13.0/docker-compose-&lt;span class=&#34;sb&#34;&gt;`&lt;/span&gt;uname -s&lt;span class=&#34;sb&#34;&gt;`&lt;/span&gt;-&lt;span class=&#34;sb&#34;&gt;`&lt;/span&gt;uname -m&lt;span class=&#34;sb&#34;&gt;`&lt;/span&gt; &amp;gt; /usr/bin/docker-compose
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo curl -L &lt;span class=&#34;s2&#34;&gt;&amp;#34;https://github.com/docker/compose/releases/download/1.24.0/docker-compose-&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;uname -s&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;uname -m&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt; -o /usr/bin/docker-compose
 chmod +x /usr/bin/docker-compose&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;h3 id=&#34;安装-mongodb&#34;&gt;安装 MongoDB&lt;/h3&gt;
+&lt;h3 id=&#34;验证安装&#34;&gt;验证安装&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;FROM mongo:latest
-ENV MONGO_INITDB_ROOT_USERNAME mongodb_name
-ENV MONGO_INITDB_ROOT_PASSWORD mongodb_passwd
-COPY mongod.conf /etc/
-EXPOSE &lt;span class=&#34;m&#34;&gt;27017&lt;/span&gt;
-CMD &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;mongod&amp;#34;&lt;/span&gt;, &lt;span class=&#34;s2&#34;&gt;&amp;#34;-f&amp;#34;&lt;/span&gt;, &lt;span class=&#34;s2&#34;&gt;&amp;#34;/etc/mongod.conf&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;processManagement:
-    fork: &lt;span class=&#34;nb&#34;&gt;true&lt;/span&gt;
-net:
-    bindIp: &lt;span class=&#34;s2&#34;&gt;&amp;#34;0.0.0.0&amp;#34;&lt;/span&gt;
-    port: &lt;span class=&#34;m&#34;&gt;27017&lt;/span&gt;
-    maxIncomingConnections: &lt;span class=&#34;m&#34;&gt;1000&lt;/span&gt;
-    http:
-        enabled: &lt;span class=&#34;nb&#34;&gt;false&lt;/span&gt;
-        JSONPEnabled: &lt;span class=&#34;nb&#34;&gt;false&lt;/span&gt;
-        RESTInterfaceEnabled: &lt;span class=&#34;nb&#34;&gt;false&lt;/span&gt;
-storage:
-    dbPath: &lt;span class=&#34;s2&#34;&gt;&amp;#34;/data/db&amp;#34;&lt;/span&gt;
-    directoryPerDB: &lt;span class=&#34;nb&#34;&gt;true&lt;/span&gt;
-    journal:
-        enabled: &lt;span class=&#34;nb&#34;&gt;true&lt;/span&gt;
-systemLog:
-    destination: &lt;span class=&#34;s2&#34;&gt;&amp;#34;file&amp;#34;&lt;/span&gt;
-    path: &lt;span class=&#34;s2&#34;&gt;&amp;#34;/var/log/mongodb/mongod.log&amp;#34;&lt;/span&gt;
-    logAppend: &lt;span class=&#34;nb&#34;&gt;true&lt;/span&gt;
-security:
-    authorization: &lt;span class=&#34;s2&#34;&gt;&amp;#34;enabled&amp;#34;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;docker build -t mongo-tosone .
-docker run --name mongo -v /data/mongodb/data:/data/db --hostname&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;mongodb&amp;#34;&lt;/span&gt; -p &lt;span class=&#34;m&#34;&gt;27017&lt;/span&gt;:27017 -d mongo-tosone --smallfiles&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;docker version
+docker-compose --help&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;h3 id=&#34;安装-mysql&#34;&gt;安装 Mysql&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;FROM mysql:latest
-ENV MYSQL_ROOT_PASSWORD &lt;span class=&#34;m&#34;&gt;8541539655&lt;/span&gt;
-ENV MYSQL_USER tosone
-ENV MYSQL_PASSWORD &lt;span class=&#34;m&#34;&gt;8541539655&lt;/span&gt;
-CMD &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;mysqld&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;docker build -t mysql-tosone .
-docker run --name mysql -v /data/mysql:/var/lib/mysql --hostname&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;mysql&amp;#34;&lt;/span&gt; -p &lt;span class=&#34;m&#34;&gt;3306&lt;/span&gt;:3306 -d mysql-tosone&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;h3 id=&#34;安装-redis&#34;&gt;安装 Redis&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;FROM redis:latest
-COPY redis.conf /etc/redis/redis.conf
-CMD &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;redis-server&amp;#34;&lt;/span&gt;, &lt;span class=&#34;s2&#34;&gt;&amp;#34;/etc/redis/redis.conf&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;31
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;32
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;33
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;34
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;35
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;36
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;37
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;38
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;39
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;40
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;41
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;42
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;43
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;44
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;45
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;46
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;47
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;48
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;49
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;50
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;51
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;52
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;53
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;54
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;55
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;56
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;57
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;58
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;59
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;60
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;61
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;62
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;63
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;64
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;65
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;66
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;c1&#34;&gt;################################## INCLUDES ###################################&lt;/span&gt;
-&lt;span class=&#34;c1&#34;&gt;################################## NETWORK #####################################&lt;/span&gt;
-&lt;span class=&#34;nb&#34;&gt;bind&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;.0.0.0
-protected-mode yes
-port &lt;span class=&#34;m&#34;&gt;6379&lt;/span&gt;
-tcp-backlog &lt;span class=&#34;m&#34;&gt;511&lt;/span&gt;
-timeout &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;
-tcp-keepalive &lt;span class=&#34;m&#34;&gt;300&lt;/span&gt;
-&lt;span class=&#34;c1&#34;&gt;################################# GENERAL #####################################&lt;/span&gt;
-daemonize no
-supervised no
-pidfile /var/run/redis_6379.pid
-loglevel notice
-logfile &lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
-databases &lt;span class=&#34;m&#34;&gt;16&lt;/span&gt;
-&lt;span class=&#34;c1&#34;&gt;################################ SNAPSHOTTING  ###############################&lt;/span&gt;
-save &lt;span class=&#34;m&#34;&gt;900&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;
-save &lt;span class=&#34;m&#34;&gt;300&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;10&lt;/span&gt;
-save &lt;span class=&#34;m&#34;&gt;60&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;10000&lt;/span&gt;
-stop-writes-on-bgsave-error yes
-rdbcompression yes
-rdbchecksum yes
-dbfilename dump.rdb
-dir ./
-&lt;span class=&#34;c1&#34;&gt;################################# REPLICATION #################################&lt;/span&gt;
-slave-read-only yes
-repl-diskless-sync no
-repl-diskless-sync-delay &lt;span class=&#34;m&#34;&gt;5&lt;/span&gt;
-repl-disable-tcp-nodelay no
-slave-priority &lt;span class=&#34;m&#34;&gt;100&lt;/span&gt;
-&lt;span class=&#34;c1&#34;&gt;################################## SECURITY ###################################&lt;/span&gt;
-requirepass &lt;span class=&#34;m&#34;&gt;8541539655&lt;/span&gt;
-&lt;span class=&#34;c1&#34;&gt;################################### LIMITS ####################################&lt;/span&gt;
-&lt;span class=&#34;c1&#34;&gt;############################## APPEND ONLY MODE ###############################&lt;/span&gt;
-appendonly no
-appendfilename &lt;span class=&#34;s2&#34;&gt;&amp;#34;appendonly.aof&amp;#34;&lt;/span&gt;
-appendfsync everysec
-no-appendfsync-on-rewrite no
-auto-aof-rewrite-percentage &lt;span class=&#34;m&#34;&gt;100&lt;/span&gt;
-auto-aof-rewrite-min-size 64mb
-aof-load-truncated yes
-&lt;span class=&#34;c1&#34;&gt;################################ LUA SCRIPTING  ###############################&lt;/span&gt;
-lua-time-limit &lt;span class=&#34;m&#34;&gt;5000&lt;/span&gt;
-&lt;span class=&#34;c1&#34;&gt;################################ REDIS CLUSTER  ##############################&lt;/span&gt;
-&lt;span class=&#34;c1&#34;&gt;################################## SLOW LOG ###################################&lt;/span&gt;
-slowlog-log-slower-than &lt;span class=&#34;m&#34;&gt;10000&lt;/span&gt;
-slowlog-max-len &lt;span class=&#34;m&#34;&gt;128&lt;/span&gt;
-&lt;span class=&#34;c1&#34;&gt;################################ LATENCY MONITOR ##############################&lt;/span&gt;
-latency-monitor-threshold &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;
-&lt;span class=&#34;c1&#34;&gt;############################# EVENT NOTIFICATION ##############################&lt;/span&gt;
-notify-keyspace-events &lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
-&lt;span class=&#34;c1&#34;&gt;############################### ADVANCED CONFIG ###############################&lt;/span&gt;
-hash-max-ziplist-entries &lt;span class=&#34;m&#34;&gt;512&lt;/span&gt;
-hash-max-ziplist-value &lt;span class=&#34;m&#34;&gt;64&lt;/span&gt;
-list-max-ziplist-size -2
-list-compress-depth &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;
-set-max-intset-entries &lt;span class=&#34;m&#34;&gt;512&lt;/span&gt;
-zset-max-ziplist-entries &lt;span class=&#34;m&#34;&gt;128&lt;/span&gt;
-zset-max-ziplist-value &lt;span class=&#34;m&#34;&gt;64&lt;/span&gt;
-hll-sparse-max-bytes &lt;span class=&#34;m&#34;&gt;3000&lt;/span&gt;
-activerehashing yes
-client-output-buffer-limit normal &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;
-client-output-buffer-limit slave 256mb 64mb &lt;span class=&#34;m&#34;&gt;60&lt;/span&gt;
-client-output-buffer-limit pubsub 32mb 8mb &lt;span class=&#34;m&#34;&gt;60&lt;/span&gt;
-hz &lt;span class=&#34;m&#34;&gt;10&lt;/span&gt;
-aof-rewrite-incremental-fsync yes&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;docker build -t redis-tosone .&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
+&lt;h3 id=&#34;镜像与容器&#34;&gt;镜像与容器&lt;/h3&gt;
+
+&lt;p&gt;docker-machine start&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+&lt;li id=&#34;fn:description&#34;&gt;Enterprise Container Platform for High-Velocity Innovation &lt;a href=&#34;https://www.docker.com/&#34;&gt;https://www.docker.com/&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:description&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
 &lt;/div&gt;</description>
       
     </item>
