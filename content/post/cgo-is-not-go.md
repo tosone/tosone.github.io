@@ -1,5 +1,5 @@
 ---
-title: "cgo is not go"
+title: "CGO is not Go"
 tags: [ "Golang", "C", "CGO" ]
 date: 2018-03-10 21:14:28
 ---
