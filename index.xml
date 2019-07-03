@@ -26,7 +26,7 @@
 
 &lt;p&gt;&lt;strong&gt;Kubernetes&lt;/strong&gt; 典型的结构图：&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://tosone.cn/img/k8s_0330_01.png&#34; alt=&#34;Kubernetes&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tc.tosone.cn/20190703175351.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;按照角色划分，Kubernetes 和绝大多数分布式系统一样，分为 Master 和 Slave 两类。其中 Master 是整个系统的控制中心，是大脑；而 Slave 是分布在各个节点的工作单元。&lt;/p&gt;
 
