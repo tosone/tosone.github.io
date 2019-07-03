@@ -56,5 +56,14 @@
       <description>&lt;p&gt;Some people, when confronted with a problem, think &amp;ldquo;I know, I’ll use cgo.&amp;rdquo; Now they have two problems.&lt;/p&gt;</description>
     </item>
     
+    <item>
+      <title>N 阶行列式求解</title>
+      <link>https://tosone.cn/post/matrix-calc/</link>
+      <pubDate>Fri, 24 Feb 2017 22:09:45 +0000</pubDate>
+      
+      <guid>https://tosone.cn/post/matrix-calc/</guid>
+      <description>&lt;p&gt;用递归的方式求解 N 阶行列式的值。&lt;/p&gt;</description>
+    </item>
+    
   </channel>
 </rss>

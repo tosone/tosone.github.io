@@ -25,14 +25,32 @@
     </item>
     
     <item>
+      <title>RaspberryPi 上手</title>
+      <link>https://tosone.cn/post/raspberry-tutorial/</link>
+      <pubDate>Sat, 25 Nov 2017 18:27:37 +0000</pubDate>
+      
+      <guid>https://tosone.cn/post/raspberry-tutorial/</guid>
+      <description>&lt;p&gt;当你花 35 美元买到一部树莓派（Raspberry Pi）计算机的时候，机器里面是没有预装操作系统（OS）的。这个时候你要自己下载一个 OS 到 SD 卡，插到树莓派上重启完成 OS 的安装。这一切看起来很简便，但你考虑过这个跟树莓派兼容的OS是哪里来的吗？&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Docker Tutorial</title>
-      <link>https://tosone.cn/post/docker/</link>
+      <link>https://tosone.cn/post/docker-tutorial/</link>
       <pubDate>Sun, 07 May 2017 10:59:43 +0000</pubDate>
       
-      <guid>https://tosone.cn/post/docker/</guid>
+      <guid>https://tosone.cn/post/docker-tutorial/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Securely build, share and run any application, anywhere.&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:description&#34;&gt;&lt;a href=&#34;#fn:description&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 &lt;/blockquote&gt;</description>
+    </item>
+    
+    <item>
+      <title>Nginx 搭建直播</title>
+      <link>https://tosone.cn/post/live-nginx/</link>
+      <pubDate>Fri, 24 Feb 2017 21:45:11 +0000</pubDate>
+      
+      <guid>https://tosone.cn/post/live-nginx/</guid>
+      <description>&lt;p&gt;相关行业数据显示，2015 年至今，全国在线直播平台数量超过 200 家。截止 2016 年 10 月，网络直播行业除孕育出欢聚时代、9158 两家上市公司外，斗鱼和映客也已跻身独角兽行列，在方正证券的预测中，2020 年网络直播市场规模将达到 600 亿，有研究甚至认为 2020 年网络直播及周边行业将撬动千亿级资金。&lt;/p&gt;</description>
     </item>
     
   </channel>

@@ -665,7 +665,7 @@ curl -L &lt;span class=&#34;s2&#34;&gt;&amp;#34;https://github.com/docker/compos
 
 &lt;p&gt;我们知道 C 语言中 stdarg.h 这个头文件提供了可变参数的实现，但是 cgo 中暂未实现对这个特性的支持，这并不意味着 Golang 不支持可变参数，仅仅是 cgo 不支持而已。具体可以看这个 &lt;a href=&#34;https://github.com/golang/go/issues/975&#34;&gt;issue&lt;/a&gt; 和这个 &lt;a href=&#34;https://github.com/golang/go/commit/67d276c57cda9e05faa84c332ba52791d4713f65&#34;&gt;commit&lt;/a&gt;。&lt;/p&gt;
 
-&lt;p&gt;{% image fancybox fig-50 clear /assets/images/cgo-attation-1.png &amp;ldquo;CGO variable&amp;rdquo; %}&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tc.tosone.cn/20190703180522.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;其次不支持带参数的宏定义&#34;&gt;其次不支持带参数的宏定义&lt;/h3&gt;
 
@@ -2138,10 +2138,10 @@ sudo sh -c &lt;span class=&#34;s2&#34;&gt;&amp;#34;echo \&amp;#34;logfile=/var/l
     
     <item>
       <title>RaspberryPi 上手</title>
-      <link>https://tosone.cn/post/raspberry/</link>
+      <link>https://tosone.cn/post/raspberry-tutorial/</link>
       <pubDate>Sat, 25 Nov 2017 18:27:37 +0000</pubDate>
       
-      <guid>https://tosone.cn/post/raspberry/</guid>
+      <guid>https://tosone.cn/post/raspberry-tutorial/</guid>
       
         <description>&lt;p&gt;当你花 35 美元买到一部树莓派（Raspberry Pi）计算机的时候，机器里面是没有预装操作系统（OS）的。这个时候你要自己下载一个 OS 到 SD 卡，插到树莓派上重启完成 OS 的安装。这一切看起来很简便，但你考虑过这个跟树莓派兼容的OS是哪里来的吗？&lt;/p&gt;
 
@@ -2222,10 +2222,10 @@ deb-src https://mirror.tuna.tsinghua.edu.cn/raspberrypi/ stretch main ui&lt;/cod
     
     <item>
       <title>Docker Tutorial</title>
-      <link>https://tosone.cn/post/docker/</link>
+      <link>https://tosone.cn/post/docker-tutorial/</link>
       <pubDate>Sun, 07 May 2017 10:59:43 +0000</pubDate>
       
-      <guid>https://tosone.cn/post/docker/</guid>
+      <guid>https://tosone.cn/post/docker-tutorial/</guid>
       
         <description>&lt;blockquote&gt;
 &lt;p&gt;Securely build, share and run any application, anywhere.&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:description&#34;&gt;&lt;a href=&#34;#fn:description&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
@@ -2789,7 +2789,7 @@ sudo apt-get update&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;li&gt;桃花峪-最浪漫的登山线路&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;{% image fancybox fig-50 clear /assets/images/route-tai.jpeg &amp;ldquo;泰山路线图&amp;rdquo; %}&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tc.tosone.cn/20190703180529.jpeg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;泰山中路-最经典的登山线路&#34;&gt;泰山中路 - 最经典的登山线路&lt;/h3&gt;
 
