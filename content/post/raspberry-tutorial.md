@@ -2,6 +2,7 @@
 title: "RaspberryPi 上手"
 date: 2017-11-25 18:27:37
 tags: [ "Raspberry" ]
+categories: [ "Tutorial" ]
 ---
 
 当你花 35 美元买到一部树莓派（Raspberry Pi）计算机的时候，机器里面是没有预装操作系统（OS）的。这个时候你要自己下载一个 OS 到 SD 卡，插到树莓派上重启完成 OS 的安装。这一切看起来很简便，但你考虑过这个跟树莓派兼容的OS是哪里来的吗？
