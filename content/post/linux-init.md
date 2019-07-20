@@ -2,6 +2,9 @@
 title: "系统初始化"
 date: 2018-09-11 12:53:15
 tags: [ "Linux" ]
+categories: [ "Config" ]
+draft: false
+contentCopyright: false
 ---
 
 Ubuntu 和 NodeJs 的环境的初始化。

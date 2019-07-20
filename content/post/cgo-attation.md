@@ -2,6 +2,9 @@
 title: "CGO 注意事项"
 tags: [ "Golang", "C", "CGO" ]
 date: 2018-09-12 10:14:28
+categories: [ "Develop" ]
+draft: false
+contentCopyright: false
 ---
 
 Golang 和 C 之间相互调用存在一些局限性。

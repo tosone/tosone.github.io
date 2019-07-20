@@ -2,6 +2,9 @@
 date: 2019-04-26 10:38:24
 tags: [ "Linux" ]
 title: "CoreOS 初始化配置"
+categories: [ "Config" ]
+draft: false
+contentCopyright: false
 ---
 
 > Container Linux (formerly CoreOS Linux) is an open-source lightweight operating system based on the Linux kernel and designed for providing infrastructure to clustered deployments, while focusing on automation, ease of application deployment, security, reliability and scalability. As an operating system, Container Linux provides only the minimal functionality required for deploying applications inside software containers, together with built-in mechanisms for service discovery and configuration sharing.

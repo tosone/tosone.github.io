@@ -2,6 +2,9 @@
 date: 2017-05-05 12:48:41
 tags: [ "Shadowsocks" ]
 title: 如何才能看到不该看到的东西
+categories: [ "Artical" ]
+draft: false
+contentCopyright: false
 ---
 
 有人不想让我们看见一些东西。

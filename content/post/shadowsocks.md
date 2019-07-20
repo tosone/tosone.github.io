@@ -2,6 +2,9 @@
 title: 优雅的翻墙
 tags: [ "Shadowsocks" ]
 date: 2017-02-24 15:14:28
+categories: [ "Config" ]
+draft: false
+contentCopyright: false
 ---
 
 Long long ago, 在一个叫 v2ex 的地方，有一位叫做 clowwindy 的用户。他为了避免网络流量分类技术和 ssh tunnel 的低效，自己写了一个用于加密流量的协议，并自用了一年多. 后来，由于这个协议非常高效，而且使用json 作为配置文件，配置起来非常方便，所以迅速赢得了很多用户，并在 v2ex 上有了一个专属的节点。shadowsocks 迅速被移植到各种平台、各种语言，用户也急剧上升，并且有了专门经营 shadowsocks 服务的商家。

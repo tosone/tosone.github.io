@@ -1,7 +1,10 @@
 ---
-title: "Golang 中如何用 CGO 与 C 之间做一个缓存 buffer"
+title: "Golang 中如何用 CGO 与 C 之间做一个缓存 Buffer"
 tags: [ "Golang", "C", "CGO" ]
 date: 2018-11-05 20:00:00
+categories: [ "Develop" ]
+draft: false
+contentCopyright: false
 ---
 
 Golang 和 C 之间如何传递二进制数据呢？

@@ -2,6 +2,9 @@
 date: 2017-04-22 14:23:31
 tags: [ "Git" ]
 title: "Feature Branch Workflow 实践"
+categories: [ "Tips" ]
+draft: false
+contentCopyright: false
 ---
 
 这只是一份关于 Feature Branch Workflow 实践的建议。

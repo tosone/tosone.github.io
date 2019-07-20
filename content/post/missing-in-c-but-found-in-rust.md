@@ -2,6 +2,9 @@
 date: 2018-03-11 20:14:28
 tags: [ "Rust", "C" ]
 title: "[转载] 那些 C 语言缺失的，我在 Rust 里找到了"
+categories: [ "Develop" ]
+draft: false
+contentCopyright: false
 ---
 
 我大概在 24 年前就爱上了 C 语言。当时，我通过一本西班牙语版的 "The C Programming Language"（第二版，作者是 Brian Kernighan 和 Dennis Ritchie，所以有时候也用 K&R 来称呼这本书）来学习 C 语言。在这之前，我用过 Turbo Pascal，它也有指针，也需要手动管理内存，而 C 语言在当时是新生事物，但十分强大。

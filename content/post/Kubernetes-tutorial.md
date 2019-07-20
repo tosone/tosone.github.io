@@ -1,8 +1,10 @@
 ---
 title: "Kubernetes Tutorial"
 date: 2019-06-27T23:03:09+08:00
-tags: [ "Kubernetes" ]
+tags: [ "Kubernetes", "Container" ]
 categories: [ "Tutorial" ]
+draft: false
+contentCopyright: false
 ---
 
 > Kubernetes[^k8s] is an open-source system for automating deployment, scaling, and management of containerized applications.

@@ -2,6 +2,9 @@
 date: 2017-02-24 22:09:45
 title: "N 阶行列式求解"
 tags: [ "Algorithm", "C" ]
+categories: [ "Develop" ]
+draft: false
+contentCopyright: false
 ---
 
 用递归的方式求解 N 阶行列式的值。

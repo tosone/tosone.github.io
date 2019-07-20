@@ -2,6 +2,9 @@
 date: 2017-04-15 14:22:24
 tags: [ "OpenCV", "C++" ]
 title: "Compile Opencv"
+categories: [ "Develop" ]
+draft: false
+contentCopyright: false
 ---
 
 OpenCV is released under a BSD license and hence it’s free for both academic and commercial use. It has C++, C, Python and Java interfaces and supports Windows, Linux, Mac OS, iOS and Android. OpenCV was designed for computational efficiency and with a strong focus on real-time applications. Written in optimized C/C++, the library can take advantage of multi-core processing. Enabled with OpenCL, it can take advantage of the hardware acceleration of the underlying heterogeneous compute platform.

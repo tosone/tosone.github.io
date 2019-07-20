@@ -2,6 +2,9 @@
 date: 2017-01-03 00:20:20
 title: "Git 基本操作"
 tags: [ "Git" ]
+categories: [ "Tutorial" ]
+draft: false
+contentCopyright: false
 ---
 
 Git 是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。Git 的读音为 /gɪt/。

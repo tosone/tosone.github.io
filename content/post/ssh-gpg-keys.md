@@ -2,6 +2,9 @@
 date: 2017-04-22 13:16:42
 tags: [ "Git" ]
 title: Generate SSH key and GPG key
+categories: [ "Config" ]
+draft: false
+contentCopyright: false
 ---
 
 2012年3月4号，GitHub 的[公钥安全漏洞](https://github.com/blog/1068-public-key-security-vulnerability-and-mitigationhttp://)被一个叫 Egor Homakov 的俄国人利用了。这个漏洞允许他向 GitHub 上的 Ruby on Rails 框架的主分支上提交代码。[Git 使用中的教训：签名提交确保代码完整可信](http://www.oschina.net/translate/git-horror-story)

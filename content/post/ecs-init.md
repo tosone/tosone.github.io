@@ -2,6 +2,9 @@
 date: 2017-04-17 21:38:24
 tags: [ "Linux" ]
 title: "ECS init"
+categories: [ "Config" ]
+draft: false
+contentCopyright: false
 ---
 
 ECS 新购主机 Ubuntu 初始化的一些操作。

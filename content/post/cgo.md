@@ -2,6 +2,9 @@
 title: "CGO 入门"
 tags: [ "Golang", "C", "CGO" ]
 date: 2018-07-10 21:14:28
+categories: [ "Develop" ]
+draft: false
+contentCopyright: false
 ---
 
 Golang 和 C 之间相互调用入门。

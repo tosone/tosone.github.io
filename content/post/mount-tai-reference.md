@@ -3,6 +3,8 @@ tags: [ "Travel" ]
 date: 2017-03-04 16:57:15
 title: "泰山旅游指南"
 categories: [ "Travel" ]
+draft: false
+contentCopyright: false
 ---
 
 泰山，以五岳独尊名扬天下，中国历代曾有 72 位皇帝到泰山封禅。杜甫一首《望岳》中的“会当凌绝顶，一览众山小”表达出自信自励的意志和坚定豪迈的气概，亦充分体现出泰山的巍峨雄伟与险峻。

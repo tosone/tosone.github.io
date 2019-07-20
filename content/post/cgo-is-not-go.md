@@ -2,6 +2,9 @@
 title: "CGO is not Go"
 tags: [ "Golang", "C", "CGO" ]
 date: 2018-03-10 21:14:28
+categories: [ "Develop" ]
+draft: false
+contentCopyright: false
 ---
 
 Some people, when confronted with a problem, think "I know, I’ll use cgo." Now they have two problems.

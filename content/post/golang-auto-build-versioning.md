@@ -2,6 +2,9 @@
 title: "Golang auto build version"
 tags: [ "Golang" ]
 date: 2017-04-11 20:26:54
+categories: [ "Develop", "Config" ]
+draft: false
+contentCopyright: false
 ---
 
 We needed a version number to find whether the binary was from yesterday or today’s source. Then we decided that for all our golang applications we should have a way to find out the version number, so that we can always query and find out which version it is, there by which source is running.

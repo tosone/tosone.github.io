@@ -2,6 +2,9 @@
 date: 2017-01-02 18:32:08
 title: "Apache 下的 Lua 的配置"
 tags: [ "Lua", "Apache" ]
+categories: [ "Develop" ]
+draft: false
+contentCopyright: false
 ---
 
 对于 Apache 这个东西，绝大多数人都是非常熟悉的。很多人都会诟病这个 Apache，说它效率不高而且非常消耗资源，然后会建议用 Nginx。这些不能否认，但是我还是很喜欢 Apache，因为它比较稳定。

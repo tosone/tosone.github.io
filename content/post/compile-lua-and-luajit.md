@@ -2,6 +2,9 @@
 title: "Compile Lua and Luajit"
 tags: [ "Lua", "Luajit" ]
 date: 2016-12-31 15:14:28
+categories: [ "Develop" ]
+draft: false
+contentCopyright: false
 ---
 
 Lua is a lightweight, multi-paradigm programming language designed primarily for embedded systems and clients. Lua is cross-platform, since the interpreter is written in ANSI C, and has a relatively simple C API.

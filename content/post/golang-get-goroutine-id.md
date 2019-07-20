@@ -2,6 +2,9 @@
 title: "Golang 获取 goroutine id 完全指南"
 tags: [ "Golang" ]
 date: 2018-03-09 21:14:28
+categories: [ "Develop" ]
+draft: false
+contentCopyright: false
 ---
 
 在 Golang 中，每个 goroutine 协程都有一个 goroutine id (goid)，该goid没有向应用层暴露。但是，在很多场景下，开发者又希望使用 goid 作为唯一标识，将一个 goroutine 中的函数层级调用串联起来。比如，希望在一个 http handler 中将这个请求的每行日志都加上对应的 goid 以便于对这个请求处理过程进行跟踪和分析。
