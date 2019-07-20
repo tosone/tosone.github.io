@@ -6,10 +6,30 @@
     <description>Recent content in Posts on Tosone&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 27 Jun 2019 23:03:09 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 20 Jul 2019 12:09:17 +0800</lastBuildDate>
     
 	<atom:link href="https://tosone.cn/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Mac 下更换 Homebrew 镜像源</title>
+      <link>https://tosone.cn/post/homebrew/</link>
+      <pubDate>Sat, 20 Jul 2019 12:09:17 +0800</pubDate>
+      
+      <guid>https://tosone.cn/post/homebrew/</guid>
+      <description>&lt;p&gt;Mac 下更换 Homebrew 镜像源，加速软件的更新以及下载。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Cloudify Tutorial</title>
+      <link>https://tosone.cn/post/cloudify/</link>
+      <pubDate>Sat, 20 Jul 2019 11:22:09 +0800</pubDate>
+      
+      <guid>https://tosone.cn/post/cloudify/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;A single open source, end-to-end platform designed to transform network services and applications, connect branches, deploy and manage multi-access edge and IoT devices, break down silos and deliver all services on-demand – automatically, at scale.&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
     
     <item>
       <title>Kubernetes Tutorial</title>
@@ -36,7 +56,7 @@
     </item>
     
     <item>
-      <title>Golang 中如何用 CGO 与 C 之间做一个缓存 buffer</title>
+      <title>Golang 中如何用 CGO 与 C 之间做一个缓存 Buffer</title>
       <link>https://tosone.cn/post/golang-cgo-buffer/</link>
       <pubDate>Mon, 05 Nov 2018 20:00:00 +0000</pubDate>
       
@@ -179,24 +199,6 @@
       
       <guid>https://tosone.cn/post/golang-auto-build-versioning/</guid>
       <description>&lt;p&gt;We needed a version number to find whether the binary was from yesterday or today’s source. Then we decided that for all our golang applications we should have a way to find out the version number, so that we can always query and find out which version it is, there by which source is running.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>泰山旅游指南</title>
-      <link>https://tosone.cn/post/mount-tai-reference/</link>
-      <pubDate>Sat, 04 Mar 2017 16:57:15 +0000</pubDate>
-      
-      <guid>https://tosone.cn/post/mount-tai-reference/</guid>
-      <description>&lt;p&gt;泰山，以五岳独尊名扬天下，中国历代曾有 72 位皇帝到泰山封禅。杜甫一首《望岳》中的“会当凌绝顶，一览众山小”表达出自信自励的意志和坚定豪迈的气概，亦充分体现出泰山的巍峨雄伟与险峻。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Web RTC Demo</title>
-      <link>https://tosone.cn/post/webrtc/</link>
-      <pubDate>Sun, 26 Feb 2017 09:56:03 +0000</pubDate>
-      
-      <guid>https://tosone.cn/post/webrtc/</guid>
-      <description>&lt;p&gt;WebRTC 项目的最终目的主要是让 Web 开发者能够基于浏览器轻易快捷开发出丰富的实时多媒体应用，而无需下载安装任何插件，Web 开发者也无需关注多媒体的数字信号处理过程，只需编写简单的 Javascript 程序即可实现。&lt;/p&gt;</description>
     </item>
     
   </channel>

@@ -12,7 +12,7 @@
     
     
     <item>
-      <title>Golang 中如何用 CGO 与 C 之间做一个缓存 buffer</title>
+      <title>Golang 中如何用 CGO 与 C 之间做一个缓存 Buffer</title>
       <link>https://tosone.cn/post/golang-cgo-buffer/</link>
       <pubDate>Mon, 05 Nov 2018 20:00:00 +0000</pubDate>
       

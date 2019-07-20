@@ -6,10 +6,299 @@
     <description>Recent content on Tosone&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 27 Jun 2019 23:03:09 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 20 Jul 2019 12:09:17 +0800</lastBuildDate>
     
         <atom:link href="https://tosone.cn/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Mac 下更换 Homebrew 镜像源</title>
+      <link>https://tosone.cn/post/homebrew/</link>
+      <pubDate>Sat, 20 Jul 2019 12:09:17 +0800</pubDate>
+      
+      <guid>https://tosone.cn/post/homebrew/</guid>
+      
+        <description>&lt;p&gt;Mac 下更换 Homebrew 镜像源，加速软件的更新以及下载。&lt;/p&gt;
+
+&lt;p&gt;替换 brew.git：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;brew --repo&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
+git remote set-url origin https://mirrors.ustc.edu.cn/brew.git&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;替换 homebrew-core.git：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;brew --repo&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;/Library/Taps/homebrew/homebrew-core&amp;#34;&lt;/span&gt;
+git remote set-url origin https://mirrors.ustc.edu.cn/homebrew-core.git&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;替换 homebrew-cask.git：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;brew --repo&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;/Library/Taps/homebrew/homebrew-cask&amp;#34;&lt;/span&gt;
+git remote set-url origin https://mirrors.ustc.edu.cn/homebrew-cask.git&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles&amp;#39;&lt;/span&gt; &amp;gt;&amp;gt; ~/.zshrc
+&lt;span class=&#34;nb&#34;&gt;source&lt;/span&gt; ~/.zshrc&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;复原：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git -C &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;brew --repo&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt; remote set-url origin https://github.com/Homebrew/brew.git
+
+git -C &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;brew --repo homebrew/core&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt; remote set-url origin https://github.com/Homebrew/homebrew-core
+
+brew update&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Cloudify Tutorial</title>
+      <link>https://tosone.cn/post/cloudify/</link>
+      <pubDate>Sat, 20 Jul 2019 11:22:09 +0800</pubDate>
+      
+      <guid>https://tosone.cn/post/cloudify/</guid>
+      
+        <description>&lt;blockquote&gt;
+&lt;p&gt;A single open source, end-to-end platform designed to transform network services and applications, connect branches, deploy and manage multi-access edge and IoT devices, break down silos and deliver all services on-demand – automatically, at scale.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&#34;文档&#34;&gt;文档&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;首先在 &lt;a href=&#34;https://github.com/cloudify-cosmo/cloudify-dev&#34;&gt;cloudify-dev&lt;/a&gt; 有一个详细的关于 cloudify 的开发说明，包括他们各个模块之间的关系，环境配置，开发流程管理，开发过程中的一些实用脚本。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Cloudify 最重要的三个仓库为 &lt;a href=&#34;https://github.com/cloudify-cosmo/cloudify-cli&#34;&gt;cloudify-cli&lt;/a&gt; (Cloudify&amp;rsquo;s Command Line Interface), &lt;a href=&#34;https://github.com/cloudify-cosmo/cloudify-manager&#34;&gt;cloudify-manager&lt;/a&gt; (Cloudify&amp;rsquo;s manager REST service, Cloudify system-workflows, Integration tests), &lt;a href=&#34;https://github.com/cloudify-cosmo/cloudify-common&#34;&gt;cloudify-common&lt;/a&gt; (DSL parsing package, DSL Parser, REST Client, Script Plugin)&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://tc.tosone.cn/20190718110415.png&#34; alt=&#34;drawing&#34; width=&#34;600&#34;/&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Cloudify 的 restful API 的在线地址在&lt;a href=&#34;https://docs.cloudify.co/api/v3.1/&#34;&gt;这里&lt;/a&gt;，文档源码在&lt;a href=&#34;https://github.com/cloudify-cosmo/cloudify-rest-docs&#34;&gt;这里&lt;/a&gt;，文档写的非常详细。文档是用的 &lt;code&gt;Hugo&lt;/code&gt; 来生成的，将代码克隆下来之后，直接运行 &lt;code&gt;hugo&lt;/code&gt; 就可以看到了。我的&lt;a href=&#34;https://tosone.cn&#34;&gt;博客&lt;/a&gt;也是用这个搭建的，非常好用。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Cloudify 的 Python API 的在线地址在&lt;a href=&#34;https://docs.cloudify.co/cloudify-rest-client/&#34;&gt;这里&lt;/a&gt;，文档源码在&lt;a href=&#34;https://github.com/cloudify-cosmo/cloudify-rest-client&#34;&gt;这里&lt;/a&gt;。文档是用的 &lt;code&gt;ReadTheDocs&lt;/code&gt; 来生成的。在根目录下运行 &lt;code&gt;make dev &amp;amp;&amp;amp; make docs&lt;/code&gt; 然后 &lt;code&gt;serve docs/_build/html&lt;/code&gt; 就直接可以在本地访问到文档。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;cloudify-plugins-common 的在线地址在&lt;a href=&#34;http://cloudify-plugins-common.readthedocs.org/en/latest/&#34;&gt;这里&lt;/a&gt;，文档源码在&lt;a href=&#34;https://github.com/cloudify-cosmo/cloudify-plugins-common/tree/master/docs&#34;&gt;这里&lt;/a&gt;。文档是用的 &lt;code&gt;ReadTheDocs&lt;/code&gt; 来生成的。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://docs.getcloudify.org/latest/blueprints/overview/&#34;&gt;DSL Specification&lt;/a&gt; BluePrint 的语法规则。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://docs.getcloudify.org/latest/plugins/script/&#34;&gt;Script Plugin&lt;/a&gt; The Script plugin can be used to map node life-cycle operations and workflows to scripts that are included in your blueprint. Scripts can be written in Python, bash, ruby, and so on.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;api-authentication-1&#34;&gt;API Authentication&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/h4&gt;
+
+&lt;p&gt;Starting from Cloudify 4.0.0, all restful API communication to the server requires:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Authentication using user credentials.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Tenant name, representing the scope of the request.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Every Cloudify Manager has a default tenant, called &lt;code&gt;default_tenant&lt;/code&gt;. The &lt;code&gt;default_tenant&lt;/code&gt; tenant is created during bootstrap.&lt;/p&gt;
+
+&lt;p&gt;In addition to the &lt;code&gt;default_tenant&lt;/code&gt;, every Cloudify Manager includes a bootstrap Admin. The bootstrap Admin is the Admin user that created during the bootstrap.&lt;/p&gt;
+
+&lt;p&gt;In addition to the user credentials, every request must also specify a tenant in the header.&lt;/p&gt;
+
+&lt;p&gt;In the case of using the Cloudify community edition or if you have not created any new tenant, you can use the &lt;code&gt;default_tenant&lt;/code&gt; as the tenant for the request.&lt;/p&gt;
+
+&lt;h4 id=&#34;资源更新&#34;&gt;资源更新&lt;/h4&gt;
+
+&lt;p&gt;资源的更新可能会涉及到 &lt;code&gt;Blueprints&lt;/code&gt; 的&lt;a href=&#34;https://docs.cloudify.co/api/v3.1/#upload-blueprint&#34;&gt;更新&lt;/a&gt;，&lt;code&gt;Deployment&lt;/code&gt; 的&lt;a href=&#34;https://docs.cloudify.co/api/v3.1/#update-deployment&#34;&gt;更新&lt;/a&gt;。&lt;/p&gt;
+
+&lt;h4 id=&#34;实例&#34;&gt;实例&lt;/h4&gt;
+
+&lt;p&gt;部署的服务器资源至少是 2C2G 的才不至于会卡。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo docker run --name cfy_manager_local -d --restart unless-stopped -v /sys/fs/cgroup:/sys/fs/cgroup:ro --tmpfs /run --tmpfs /run/lock --security-opt seccomp:unconfined --cap-add SYS_ADMIN -p &lt;span class=&#34;m&#34;&gt;80&lt;/span&gt;:80 -p &lt;span class=&#34;m&#34;&gt;8000&lt;/span&gt;:8000 cloudifyplatform/community:19.01.24&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;部署一个 Hello World 的应用进去。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;docker &lt;span class=&#34;nb&#34;&gt;exec&lt;/span&gt; -it cfy_manager_local sh -c &lt;span class=&#34;s2&#34;&gt;&amp;#34;cfy install https://github.com/cloudify-examples/local-simple-python-webserver-blueprint/archive/master.zip&amp;#34;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;访问 &lt;code&gt;http://104.207.134.211:8000/&lt;/code&gt; 可以看到一个正确的结果。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 获取用户的 auth token&lt;/span&gt;
+curl -X GET &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    --header &lt;span class=&#34;s2&#34;&gt;&amp;#34;Tenant: default_tenant&amp;#34;&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    -u admin:admin &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;s2&#34;&gt;&amp;#34;http://104.207.134.211/api/v3.1/tokens&amp;#34;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;nt&#34;&gt;&amp;#34;username&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;admin&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+  &lt;span class=&#34;nt&#34;&gt;&amp;#34;role&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;sys_admin&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+  &lt;span class=&#34;nt&#34;&gt;&amp;#34;value&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;WyIwIiwiOTY0OGQ3YTM5ZGQ5NzBlZTE0ZGVkNDc1ZWU4MWI1ZTQiXQ.XTAqMA.km04sF50HUfMwID3EWysJNnAlQg&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 获取所有 blueprints 的 id&lt;/span&gt;
+curl -X GET &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    --header &lt;span class=&#34;s2&#34;&gt;&amp;#34;Tenant: default_tenant&amp;#34;&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    --header &lt;span class=&#34;s2&#34;&gt;&amp;#34;Authentication-Token: WyIwIiwiOTY0OGQ3YTM5ZGQ5NzBlZTE0ZGVkNDc1ZWU4MWI1ZTQiXQ.XTAqMA.km04sF50HUfMwID3EWysJNnAlQg&amp;#34;&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;s2&#34;&gt;&amp;#34;http://104.207.134.211/api/v3.1/blueprints?_include=id&amp;#34;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;nt&#34;&gt;&amp;#34;items&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:[&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+      &lt;span class=&#34;nt&#34;&gt;&amp;#34;id&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;local-simple-python-webserver-blueprint-master&amp;#34;&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;],&lt;/span&gt;
+  &lt;span class=&#34;nt&#34;&gt;&amp;#34;metadata&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:{&lt;/span&gt;
+    &lt;span class=&#34;nt&#34;&gt;&amp;#34;pagination&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:{&lt;/span&gt;
+      &lt;span class=&#34;nt&#34;&gt;&amp;#34;total&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+      &lt;span class=&#34;nt&#34;&gt;&amp;#34;offset&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+      &lt;span class=&#34;nt&#34;&gt;&amp;#34;size&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1000&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 获取某个 blueprint 的指定信息&lt;/span&gt;
+curl -X GET &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    --header &lt;span class=&#34;s2&#34;&gt;&amp;#34;Tenant: default_tenant&amp;#34;&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    --header &lt;span class=&#34;s2&#34;&gt;&amp;#34;Authentication-Token: WyIwIiwiOTY0OGQ3YTM5ZGQ5NzBlZTE0ZGVkNDc1ZWU4MWI1ZTQiXQ.XTAqMA.km04sF50HUfMwID3EWysJNnAlQg&amp;#34;&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;s2&#34;&gt;&amp;#34;http://104.207.134.211/api/v3.1/blueprints?id=local-simple-python-webserver-blueprint-master&amp;amp;_include=id,description,main_file_name&amp;#34;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;nt&#34;&gt;&amp;#34;items&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:[&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+      &lt;span class=&#34;nt&#34;&gt;&amp;#34;main_file_name&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;blueprint.yaml&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+      &lt;span class=&#34;nt&#34;&gt;&amp;#34;description&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+      &lt;span class=&#34;nt&#34;&gt;&amp;#34;id&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;local-simple-python-webserver-blueprint-master&amp;#34;&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;],&lt;/span&gt;
+  &lt;span class=&#34;nt&#34;&gt;&amp;#34;metadata&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:{&lt;/span&gt;
+    &lt;span class=&#34;nt&#34;&gt;&amp;#34;pagination&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:{&lt;/span&gt;
+      &lt;span class=&#34;nt&#34;&gt;&amp;#34;total&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+      &lt;span class=&#34;nt&#34;&gt;&amp;#34;offset&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+      &lt;span class=&#34;nt&#34;&gt;&amp;#34;size&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1000&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class=&#34;footnotes&#34;&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;Cloudify REST API V3.1 &lt;a href=&#34;https://docs.cloudify.co/api/v3.1/#cloudify-rest-api-v3-1&#34;&gt;https://docs.cloudify.co/api/v3.1/#cloudify-rest-api-v3-1&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</description>
+      
+    </item>
     
     <item>
       <title>Kubernetes Tutorial</title>
@@ -419,7 +708,7 @@ curl -L &lt;span class=&#34;s2&#34;&gt;&amp;#34;https://github.com/docker/compos
     </item>
     
     <item>
-      <title>Golang 中如何用 CGO 与 C 之间做一个缓存 buffer</title>
+      <title>Golang 中如何用 CGO 与 C 之间做一个缓存 Buffer</title>
       <link>https://tosone.cn/post/golang-cgo-buffer/</link>
       <pubDate>Mon, 05 Nov 2018 20:00:00 +0000</pubDate>
       
@@ -2754,743 +3043,6 @@ sudo apt-get update&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;                   -X main.BuildStamp=`date -u &amp;#39;+%Y-%m-%d_%I:%M:%S%p&amp;#39;`&amp;#34;&lt;/span&gt; main.go&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;</description>
-      
-    </item>
-    
-    <item>
-      <title>泰山旅游指南</title>
-      <link>https://tosone.cn/post/mount-tai-reference/</link>
-      <pubDate>Sat, 04 Mar 2017 16:57:15 +0000</pubDate>
-      
-      <guid>https://tosone.cn/post/mount-tai-reference/</guid>
-      
-        <description>&lt;p&gt;泰山，以五岳独尊名扬天下，中国历代曾有 72 位皇帝到泰山封禅。杜甫一首《望岳》中的“会当凌绝顶，一览众山小”表达出自信自励的意志和坚定豪迈的气概，亦充分体现出泰山的巍峨雄伟与险峻。&lt;/p&gt;
-
-&lt;h3 id=&#34;如何前往泰山&#34;&gt;如何前往泰山&lt;/h3&gt;
-
-&lt;h5 id=&#34;泰山的位置&#34;&gt;泰山的位置&lt;/h5&gt;
-
-&lt;p&gt;泰山坐落于泰安市北，是泰安地区标志性景点。想要登泰山，首先要抵达泰安市。由于泰安距离济南不远，而且目前泰安没有民用机场，所以其他城市抵达泰安首选的交通工具是火车。&lt;/p&gt;
-
-&lt;h5 id=&#34;泰山站和泰安站的区别&#34;&gt;泰山站和泰安站的区别&lt;/h5&gt;
-
-&lt;p&gt;泰安市一共有两个火车站，购买火车票的时候需要注意的地方就是【泰山站】和【泰安站】并非是同一个车站。具体如何区分这两个车站，可以参考当地人的叫法：泰安站出发的都是动车，当地人都把【泰安站称为高铁站】；泰山站出发的都是普通列车，距离泰安市区最近，所以当地人都把这个车站直接成为【火车站】。&lt;/p&gt;
-
-&lt;h5 id=&#34;如何前往登山口&#34;&gt;如何前往登山口&lt;/h5&gt;
-
-&lt;p&gt;如果打算从红门上山，可直接在泰山站乘坐 3 路公交车（ 2 元）或乘坐出租车到红门或天外村（车费在 10 元左右）；若是由泰安站下车，可乘 37 路公交车至红门或天外村，也可选择乘坐出租车从泰安站至红门或天外村约40分钟左右，车费大约在 35 元左右。如果选择桃花峪游览路线登山，可以从泰山站乘坐 16 路公交车到达。如果选择天烛峰游览路线登山，可以从泰山站乘坐 19 路公交车到达。&lt;/p&gt;
-
-&lt;h3 id=&#34;登泰山的4条线路如何选择&#34;&gt;登泰山的4条线路如何选择&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;泰山中路-最经典的登山线路&lt;/li&gt;
-&lt;li&gt;泰山西路-最省力的登山线路&lt;/li&gt;
-&lt;li&gt;天烛峰-最古朴自然的登山线路&lt;/li&gt;
-&lt;li&gt;桃花峪-最浪漫的登山线路&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://tc.tosone.cn/20190703180529.jpeg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;泰山中路-最经典的登山线路&#34;&gt;泰山中路 - 最经典的登山线路&lt;/h3&gt;
-
-&lt;p&gt;此登山线路以【岱庙】为起点 ，是泰山上人文和自然景观最集中的经典登山线路，也是泰山的精华所在，全程 9.5 公里，盘道 7000 多节，山脚至山顶之间几乎没有平路。历朝皇帝封禅皆为此处登山，本线路也被称为泰山御道。途中树木郁郁葱葱，阶梯盘旋而上，山峰奇秀俊美，人文古迹众多，古朴寺庙8处、碑碣200多块、摩崖刻石 300 多处，可以充分体验传统文化的韵味。&lt;/p&gt;
-
-&lt;p&gt;该路线途径：岱庙（门票 30 元每位）—— 岱宗坊 —— 红门宫 —— 万仙楼（进山购票处：125元每位）—— 斗母宫 —— 经石峪 —— 壶天阁 —— 回马岭 —— 中天门 —— 快活三里 —— 云步桥 —— 五大夫松 —— 十八盘 —— 南天门 —— 天街 —— 碧霞祠 —— 唐摩崖 —— 五岳独尊 —— 玉皇顶 —— 拱北石&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Tips：&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;初次登泰山者，强烈推荐由此处登山。登泰山没走过这条线路，不算真正意义游览过泰山。&lt;/li&gt;
-&lt;li&gt;从红门步行登至山顶，成年人需大约 4 — 6 小时。也可以从岱庙开始游览，需多出 1 — 2 小时游览时间。&lt;/li&gt;
-&lt;li&gt;本线路如果全程步行登山，对体力和毅力是一向考验。如登山途中体力不支，可在【中天门】换乘索道抵达山顶。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&#34;泰山西路-最省力的登山线路&#34;&gt;泰山西路 - 最省力的登山线路&lt;/h3&gt;
-
-&lt;p&gt;此线路以【天外村广场】为起点，是最为方便、省时、省力的登山线路。登山线路分为两段：前段为天外村至半山腰的中天门的盘山公路，路程为 14.35 公里，景区交通车时间为 30 分钟左右，沿途有很多自然景观和历史遗迹，可随车欣赏沿途美景；后段为中天门至山顶，可以选择步行登山（约 2 小时）或者乘坐索道（约 15 分钟）。&lt;/p&gt;
-
-&lt;p&gt;该路线途径：天外村（进山购票处：125 元/位；景区交通车：30 元/位）—— 龙潭水库 —— 白龙池 —— 黑龙潭 —— 竹林寺 —— 黄溪河水库 —— 扇子崖 —— 傲徕峰 —— 中天门 —— 索道（100 元/位）——南天门 —— 碧霞祠 —— 玉皇顶&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Tips：&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;本线路虽然省力便捷，但是以牺牲众多景点为代价，建议乘车抵达中天门后，步行登至山顶，以便欣赏更多的泰山美景。&lt;/li&gt;
-&lt;li&gt;相对来讲这条路线更适合带小孩或者老人出行的家庭。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&#34;天烛峰-最古朴自然的登山线路&#34;&gt;天烛峰 - 最古朴自然的登山线路&lt;/h3&gt;
-
-&lt;p&gt;此线路以【天烛峰】为起点，位置在泰山东北麓的扫帚峪，长达 5.4 公里。这里奇峰俊秀，松石多姿，自然之美不逊于张家界，天柱峰其峰顶有一颗松树，远望像蜡烛的火焰而得名。此线路是泰山人工开发程度最低的景区，原始朴拙，风貌自然保持完好，是泰山“奥绝”所在。建议喜欢自助游的小伙伴，可以选择本线路下山，这样不仅避免走回头路，而且可以更加全面的欣赏泰山美景。&lt;/p&gt;
-
-&lt;p&gt;该路线途径：天烛峰（进山购票处：125 元/位）——望天门——姊妹松——小天烛峰——娘娘庙——索道（单程 20 元/人）——玉皇顶&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Tips：
-这条路沿途的旅游服务设施相对前两条登山线路略有不足，选择此处上下山需要自备食品和水。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&#34;桃花峪-最浪漫的登山线路&#34;&gt;桃花峪 - 最浪漫的登山线路&lt;/h3&gt;
-
-&lt;p&gt;此线路由以【桃花峪】为起点，位置在泰山西麓。春天桃花盛开的时候，满山遍野尤其俊美。本线路登山位置距离市区较远，仅适合自驾游客选择。不建议普通自由行游客由此登山。&lt;/p&gt;
-
-&lt;p&gt;该路线途径：桃花峪（进山购票处：125 元/位；景区交通车：30 元/位）——钓鱼台——碧峰寺——彩石溪——赤鳞溪——红雨川——桃花源索道（单程 100 元/人）&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Tips：
-索道与地面落差巨大，恐高或者有心脏方面疾病的客人，不建议乘坐桃花源索道。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&#34;夜爬泰山你需要知道点什么&#34;&gt;夜爬泰山你需要知道点什么&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;选择登山线路之后，再次需要确认的就是登山时间了。在这里需要简单的提一下泰山的四大奇观：泰山日出、云海玉盘、晚霞夕照、泰山佛光。其中排在泰山四大奇观之首的就是泰山日出。日出时刻的美景动人心弦，也是“天下第一山”的重要标志。&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;观赏泰山日出，有两种方式可以选择：&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;是住在泰山顶的宾馆，第二天早起直接山顶观看；&lt;/li&gt;
-&lt;li&gt;是前半夜开始由【红门】登山，6 小时左右抵达山顶后，略等片刻即可观看到日出。&lt;/li&gt;
-&lt;/ol&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;两种方式各有利弊，住在山顶的好处是起床后不用过于劳累即可观赏日出，缺点是山顶房间与物资紧张，住宿费用虚高，住宿性价比低，而且在旅游旺季有钱未必有房。&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;这里推荐半夜登山，红门方向登山的游客数量很多，不必担心安全问题，半山腰可以观看到泰安市夜景，最主要是可以省下好多的银子，缺点就是半夜登山对体力消耗略大，对后几天的生物钟有影响。【红门】登山盘山道是 24 小时开放，另外三条登山线路环山车晚上停止运营。能否看到日出是无法预测的，要视当天山顶的天气情况、云量的多少、能见度高低等诸多因素而定。山顶气温比山下气温低 3 - 6 摄氏度，白天感觉差别不大，夜间山顶会感觉有些寒冷，请参考下方登山装备推荐。&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;夜登泰山装备推荐&#34;&gt;夜登泰山装备推荐&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;夜登泰山必备装备之【军大衣】。山下、山顶均有租军大衣的摊位。租金 10 元钱左右一件，附带一个防潮垫。一般租借每件大衣需要缴纳100元的押金，老板会开一个押金收据，归还衣服时出示押金收据条后退还收取的押金费用。尤其是夏天的时候，大家最好到了山顶再租，不要听山下老板的忽悠什么山顶多贵，价格一样的。&lt;/li&gt;
-&lt;li&gt;【登山杖】选择性购买即可。登山途中的路边小摊位均有出售，价格视质量而定，山脚下卖的两块钱一根的就可以。&lt;/li&gt;
-&lt;li&gt;【手电筒】选择性购买即可，最好自己能带一个。&lt;/li&gt;
-&lt;li&gt;由于山顶气温略低，数码产品如相机、手机等拍摄装备等，低温下电池性能下降，需要提前充好电，或者携带备用电源。&lt;/li&gt;
-&lt;li&gt;食品携带量不宜过大，增加负重对登山体力有消耗，路边摊位均可购买，价格比山下略贵一些。&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&#34;注意点&#34;&gt;注意点&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;泰安地区住宿标准对比其他城市略低。&lt;/li&gt;
-&lt;li&gt;山东地区绝大部分酒店均不提供一次性洗漱用品，美其名曰低碳环保，实则减少成本支出。无论自由行或者参团的朋友，记得携带好个人洗漱用品。&lt;/li&gt;
-&lt;li&gt;山上有50余出卫生间，间隔一般 500 米左右。绿牌卫生间是免费的，红牌的卫生间是个人承包，使用是需要收费的，价格一般是 1 元/位。&lt;/li&gt;
-&lt;li&gt;登山时一定要穿着舒适的旅游鞋，游览时遵循“登山不观景，观景不登山”，有些台阶很滑，请务必注意安全。&lt;/li&gt;
-&lt;li&gt;如选择泰山拍摄一次成像，一定问清价格以免上当（尽量自备相机）。山顶有些景点拍摄取景需要收费，拍照前要看清楚。&lt;/li&gt;
-&lt;li&gt;登山途中注意补充水分：不渴先喝、少喝多饮，也可带些高热量的食品（如牛奶、巧克力等），可帮助恢复体力。切勿采摘野生果实食用或饮用山泉水。&lt;/li&gt;
-&lt;li&gt;如果有喜欢的泰山摊位纪念品要买，可以略微讨价还价，不买最好不问。尽量不要随便动摊位的东西，如有损坏，需要赔偿。&lt;/li&gt;
-&lt;/ol&gt;</description>
-      
-    </item>
-    
-    <item>
-      <title>Web RTC Demo</title>
-      <link>https://tosone.cn/post/webrtc/</link>
-      <pubDate>Sun, 26 Feb 2017 09:56:03 +0000</pubDate>
-      
-      <guid>https://tosone.cn/post/webrtc/</guid>
-      
-        <description>&lt;p&gt;WebRTC 项目的最终目的主要是让 Web 开发者能够基于浏览器轻易快捷开发出丰富的实时多媒体应用，而无需下载安装任何插件，Web 开发者也无需关注多媒体的数字信号处理过程，只需编写简单的 Javascript 程序即可实现。&lt;/p&gt;
-
-&lt;p&gt;{% codeblock package.json lang:json %}
-{
-  &amp;ldquo;name&amp;rdquo;: &amp;ldquo;WebRTC-demo&amp;rdquo;,
-  &amp;ldquo;description&amp;rdquo;: &amp;ldquo;A simple WebRTC demo&amp;rdquo;,
-  &amp;ldquo;dependencies&amp;rdquo;: {
-    &amp;ldquo;uuid&amp;rdquo;: &amp;ldquo;^3.0.1&amp;rdquo;,
-    &amp;ldquo;ws&amp;rdquo;: &amp;ldquo;^2.1.0&amp;rdquo;
-  }
-}
-{% endcodeblock %}&lt;/p&gt;
-
-&lt;p&gt;{% codeblock server.js lang:javascript %}
-const http = require(&amp;ldquo;http&amp;rdquo;);
-const uuid = require(&amp;ldquo;uuid&amp;rdquo;);
-const util = require(&amp;ldquo;util&amp;rdquo;);
-const fs = require(&amp;ldquo;fs&amp;rdquo;);
-const url = require(&amp;lsquo;url&amp;rsquo;);
-const path = require(&amp;lsquo;path&amp;rsquo;);
-const WebSocket = require(&amp;lsquo;ws&amp;rsquo;);&lt;/p&gt;
-
-&lt;p&gt;const PORT = 3000; //端口
-const dist = &amp;ldquo;./&amp;rdquo;; //根目录
-const mine = {
-  &amp;ldquo;.css&amp;rdquo;: &amp;ldquo;text/css&amp;rdquo;,
-  &amp;ldquo;.html&amp;rdquo;: &amp;ldquo;text/html&amp;rdquo;,
-  &amp;ldquo;.ico&amp;rdquo;: &amp;ldquo;image/x-icon&amp;rdquo;,
-  &amp;ldquo;.jpeg&amp;rdquo;: &amp;ldquo;image/jpeg&amp;rdquo;,
-  &amp;ldquo;.jpg&amp;rdquo;: &amp;ldquo;image/jpeg&amp;rdquo;,
-  &amp;ldquo;.gif&amp;rdquo;: &amp;ldquo;image/gif&amp;rdquo;,
-  &amp;ldquo;.js&amp;rdquo;: &amp;ldquo;text/javascript&amp;rdquo;,
-  &amp;ldquo;.json&amp;rdquo;: &amp;ldquo;application/json&amp;rdquo;,
-  &amp;ldquo;.pdf&amp;rdquo;: &amp;ldquo;application/pdf&amp;rdquo;,
-  &amp;ldquo;.png&amp;rdquo;: &amp;ldquo;image/png&amp;rdquo;,
-  &amp;ldquo;.svg&amp;rdquo;: &amp;ldquo;image/svg+xml&amp;rdquo;,
-  &amp;ldquo;.swf&amp;rdquo;: &amp;ldquo;application/x-shockwave-flash&amp;rdquo;,
-  &amp;ldquo;.tiff&amp;rdquo;: &amp;ldquo;image/tiff&amp;rdquo;,
-  &amp;ldquo;.txt&amp;rdquo;: &amp;ldquo;text/plain&amp;rdquo;,
-  &amp;ldquo;.wav&amp;rdquo;: &amp;ldquo;audio/x-wav&amp;rdquo;,
-  &amp;ldquo;.wma&amp;rdquo;: &amp;ldquo;audio/x-ms-wma&amp;rdquo;,
-  &amp;ldquo;.wmv&amp;rdquo;: &amp;ldquo;video/x-ms-wmv&amp;rdquo;,
-  &amp;ldquo;.xml&amp;rdquo;: &amp;ldquo;text/xml&amp;rdquo;,
-  &amp;ldquo;.mp3&amp;rdquo;: &amp;ldquo;audio/mpeg&amp;rdquo;,
-  &amp;ldquo;.mp4&amp;rdquo;: &amp;ldquo;video/mp4&amp;rdquo;,
-  &amp;ldquo;.exe&amp;rdquo;: &amp;ldquo;application/octet-stream&amp;rdquo;,
-  &amp;ldquo;.md&amp;rdquo;: &amp;ldquo;text/x-markdown&amp;rdquo;
-};
-const default_visit_list = [&amp;ldquo;index.html&amp;rdquo;, &amp;ldquo;index.htm&amp;rdquo;, &amp;ldquo;default.html&amp;rdquo;, &amp;ldquo;default.htm&amp;rdquo;];&lt;/p&gt;
-
-&lt;p&gt;let default_visit = (request, response, default_visit_file_list, i) =&amp;gt; {
-  fs.exists(path.join(&lt;strong&gt;dirname, dist, url.parse(request.url).pathname, default_visit_file_list[i]), function (exists) {
-    if (exists) { //若index.html存在
-      fs.readFile(path.join(&lt;/strong&gt;dirname, dist, url.parse(request.url).pathname, default_visit_file_list[i]), &amp;ldquo;binary&amp;rdquo;, function (err, file) {
-        response.writeHead(200, {
-          &amp;lsquo;Content-Type&amp;rsquo;: mine[&amp;ldquo;.html&amp;rdquo;] || &amp;ldquo;text/plain&amp;rdquo;
-        });
-        response.write(file, &amp;ldquo;binary&amp;rdquo;);
-        response.end();
-      });
-    } else { //若index.html不存在
-      if (default_visit_file_list.length - 1 == i) {
-        console.log(&amp;rdquo;\x1B[31mERROR\x1B[39m: &amp;ldquo; + default_visit_file_list[0] + &amp;ldquo; is not exists.&amp;rdquo;);
-        file_not_found
-          (response, request);
-      } else {
-        default_visit(request, response, default_visit_list, i + 1);
-      }
-    }
-  });
-}
-let file_not_found = (response, request) =&amp;gt; {
-  response.writeHead(404, {
-    &amp;lsquo;Content-Type&amp;rsquo;: &amp;lsquo;text/plain&amp;rsquo;
-  });
-  response.write(&amp;ldquo;This request URL &amp;rdquo; + url.parse(request.url).pathname + &amp;ldquo; was not found on this server.&amp;rdquo;);
-  response.end();
-}
-let server = http.createServer((request, response) =&amp;gt; {
-  let realPath = path.join(__dirname, dist, url.parse(request.url).pathname);
-  if (url.parse(request.url).pathname == &amp;ldquo;/&amp;rdquo; || url.parse(request.url).pathname.split(&amp;ldquo;/&amp;rdquo;)[url.parse(request.url).pathname.split(&amp;ldquo;/&amp;rdquo;).length - 1].indexOf(&amp;ldquo;.&amp;rdquo;) == -1) { //访问目录为 &amp;ldquo;/&amp;rdquo;
-    default_visit(request, response, default_visit_list, 0);
-  } else { //指定路径
-    let ext = path.extname(realPath);
-    fs.exists(realPath, exists =&amp;gt; {
-      if (!exists) { //指定路径的文件不存在
-        console.log(&amp;rdquo;\x1B[31mERROR\x1B[39m: &amp;ldquo; + realPath + &amp;rdquo; is not exists.&amp;ldquo;);
-        file_not_found(response, request);
-      } else { //指定路径的文件存在
-        fs.readFile(realPath, &amp;ldquo;binary&amp;rdquo;, (err, file) =&amp;gt; {
-          response.writeHead(200, {
-            &amp;lsquo;Content-Type&amp;rsquo;: mine[ext] || &amp;ldquo;text/plain&amp;rdquo;
-          });
-          response.write(file, &amp;ldquo;binary&amp;rdquo;);
-          response.end();
-        });
-      }
-    });
-  }
-});
-server.listen(PORT);
-server.on(&amp;lsquo;listening&amp;rsquo;, () =&amp;gt; {
-  console.log(&amp;ldquo;Server runing at &lt;a href=&#34;http://127.0.0.1:&amp;quot;&#34;&gt;http://127.0.0.1:&amp;quot;&lt;/a&gt; + server.address().port + &amp;ldquo;.&amp;rdquo;);
-});
-server.on(&amp;lsquo;error&amp;rsquo;, () =&amp;gt; {
-  console.log(&amp;ldquo;Server Listen on &amp;rdquo; + PORT + &amp;ldquo; error.&amp;rdquo;);
-});
-let sockets = new Map();
-let socketsID = new Set();
-let wss = new WebSocket.Server({ server: server });
-wss.on(&amp;lsquo;connection&amp;rsquo;, socket =&amp;gt; {
-  socket.id = uuid.v4().split(&amp;ldquo;-&amp;rdquo;).join(&amp;ldquo;);
-  console.log(&amp;lsquo;connection &amp;rsquo; + sockets.size);
-  socket.send(JSON.stringify({
-    event: &amp;ldquo;peers&amp;rdquo;,
-    data: {
-      queue: sockets.size + 1,
-      socketID: socket.id,
-      socketsID: Array.from(socketsID)
-    }
-  }));
-  for (let item of sockets.entries()) {
-    item[1].send(JSON.stringify({
-      event: &amp;ldquo;new_peer&amp;rdquo;,
-      data: {
-        socketID: socket.id,
-        me: item[1].id
-      }
-    }));
-  }
-  sockets.set(socket.id, socket);
-  socketsID.add(socket.id);
-  socket.on(&amp;lsquo;message&amp;rsquo;, msg =&amp;gt; {
-    console.log(JSON.parse(msg).event + &amp;ldquo;: &amp;ldquo; + socket.id + &amp;rdquo; &amp;mdash;&amp;gt; &amp;ldquo; + sockets.get(JSON.parse(msg).data.socketID).id);
-    if (JSON.parse(msg).event === &amp;ldquo;msg&amp;rdquo;) {
-      for (let item of sockets.entries()) {
-        if (item[0] == JSON.parse(msg).data.socketID) continue;
-        item[1].send(msg);
-      }
-    } else {
-      sockets.get(JSON.parse(msg).data.socketID).send(msg);
-    }
-  });
-  socket.on(&amp;ldquo;close&amp;rdquo;, () =&amp;gt; {
-    console.log(&amp;ldquo;delete &amp;rdquo; + socket.id);
-    sockets.delete(socket.id);
-    socketsID.delete(socket.id);
-    for (let item of sockets.entries()) {
-      item[1].send(JSON.stringify({
-        event: &amp;ldquo;close&amp;rdquo;,
-        data: {
-          socketID: socket.id
-        }
-      }));
-    }
-  })
-});
-{% endcodeblock %}
-{% codeblock index.html lang:html %}
-&lt;html&gt;
-&lt;head&gt;
-  &lt;meta charset=&#34;UTF-8&#34;&gt;
-  &lt;style&gt;
-    html,
-    body {
-      margin: 0;
-      padding: 0;
-    }&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;  1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;  2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;  3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;  4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;  5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;  6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;  7
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;  8
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;  9
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 10
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 11
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 12
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 13
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 14
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 15
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 16
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 17
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 18
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 19
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 20
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 21
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 22
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 23
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 24
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 25
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 26
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 27
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 28
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 29
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 30
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 31
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 32
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 33
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 34
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 35
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 36
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 37
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 38
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 39
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 40
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 41
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 42
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 43
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 44
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 45
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 46
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 47
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 48
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 49
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 50
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 51
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 52
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 53
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 54
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 55
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 56
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 57
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 58
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 59
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 60
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 61
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 62
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 63
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 64
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 65
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 66
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 67
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 68
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 69
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 70
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 71
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 72
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 73
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 74
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 75
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 76
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 77
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 78
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 79
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 80
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 81
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 82
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 83
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 84
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 85
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 86
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 87
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 88
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 89
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 90
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 91
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 92
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 93
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 94
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 95
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 96
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 97
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 98
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 99
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;100
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;101
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;102
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;103
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;104
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;105
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;106
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;107
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;108
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;109
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;110
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;111
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;112
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;113
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;114
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;115
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;116
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;117
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;118
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;119
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;120
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;121
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;122
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;123
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;124
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;125
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;126
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;127
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;128
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;129
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;130
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;131
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;132
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;133
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;134
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;135
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;136
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;137
-&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;body {
-  font-size: 62.5%;
-  font-family: Consolas, &amp;#34;Microsoft Yahei&amp;#34;;
-  height: 100%;
-  width: 100%;
-  background: url(https://o3cpfaosb.qnssl.com/4874bd3e3bb8e89fd704771c77551f70.png) center center no-repeat;
-  background-size: 100% 100%;
-  background-attachment: fixed;
-}
-
-.login {
-  display: block;
-  font-family: inherit;
-  left: 50%;
-  top: 50%;
-  line-height: 1;
-  width: 400px;
-  height: 40px;
-  position: absolute;
-  margin-left: -200px;
-  margin-top: -20px;
-  box-sizing: border-box;
-  border: 1px solid #333;
-  font-size: 2rem;
-  padding: 3px;
-  border-radius: 5px;
-}
-
-.login:focus,
-.login:active {
-  border: 1px solid #333;
-}
-
-.body {
-  width: 960px;
-  margin: 0 auto;
-}
-
-.box {
-  width: 100%;
-}
-
-video {
-  float: left;
-  width: 420px;
-  height: 315px;
-  margin: 30px;
-  background-color: #333;
-  border-radius: 4px;
-  width: 420px;
-  height: 315px;
-  border-radius: 4px;
-}
-
-.message {
-  background-color: #333;
-  height: 400px;
-  width: 900px;
-  margin: 0 auto;
-  padding: 3px 10px;
-  line-height: 1.2;
-  overflow-y: auto;
-  overflow-x: visible;
-  box-sizing: border-box;
-}
-
- ::-webkit-scrollbar {
-  width: 5px;
-  background-color: transparent;
-}
-
- ::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
-  border-radius: 10px;
-  background-color: #777;
-}
-
- ::-webkit-scrollbar-thumb {
-  height: 20px;
-  border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
-  background-color: #555;
-}
-
-p {
-  margin: 0;
-}
-
-p .name {
-  font-size: 2rem;
-}
-
-p .name.me {
-  color: #12BCD4;
-}
-
-p .name.other {
-  color: #F34E4E;
-}
-
-p .msg {
-  font-size: 1.8rem;
-  color: #A9A7A7;
-  word-wrap: break-word;
-}
-
-#msg-ipt {
-  display: block;
-  margin-left: 30px;
-  margin-right: 30px;
-  width: 900px;
-  box-sizing: border-box;
-  height: 40px;
-  line-height: 40px;
-  font-size: 2rem;
-  margin-top: 10px;
-  border-radius: 5px;
-  border: 0;
-  padding: 3px;
-}
-
-#msg-ipt:active {
-  outline: none;
-  border: 0;
-}
-
-.clearfix:after {
-  content: &amp;#34;.&amp;#34;;
-  display: block;
-  height: 0;
-  clear: both;
-  visibility: hidden
-}
-
-.clearfix {
-  *+height: 1%;
-}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;&lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;div class=&#34;body&#34;&gt;
-    &lt;div class=&#34;box clearfix&#34;&gt;
-      &lt;video id=&#34;localVideo&#34; autoplay&gt;&lt;/video&gt;
-    &lt;/div&gt;
-    &lt;div class=&#34;message&#34;&gt;&lt;/div&gt;
-    &lt;input type=&#34;text&#34; id=&#34;msg-ipt&#34;&gt;
-  &lt;/div&gt;
-  &lt;script src=&#34;https://cdn.bootcss.com/jquery/2.2.1/jquery.min.js&#34;&gt;&lt;/script&gt;
-  &lt;script src=&#39;index.js&#39;&gt;&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-{% endcodeblock %}
-{% codeblock index.js lang:javascript %}
-var iceServer = {
-  &amp;ldquo;iceServers&amp;rdquo;: [{
-    url: &amp;ldquo;stun:115.28.87.181:40167&amp;rdquo;
-  }]
-};
-var socket = new WebSocket(&amp;ldquo;wss://&amp;rdquo; + window.location.host); //socket
-var localStream = null;
-var peerconns = new Map();
-var ipt_addevent = false;
-socket.onopen = function () {
-  socket.onmessage = function (msg) {
-    new Promise(function (resolve, reject) {
-      if (localStream) {
-        resolve(localStream);
-      } else {
-        navigator.webkitGetUserMedia({
-          &amp;ldquo;audio&amp;rdquo;: true,
-          &amp;ldquo;video&amp;rdquo;: true
-        }, function (stream) {
-          localStream = stream;
-          resolve(stream);
-          document.getElementById(&amp;lsquo;localVideo&amp;rsquo;).src = URL.createObjectURL(stream);
-        }, function (error) {
-          reject(error);
-        });
-      }
-    }).then(function (stream) {
-      var json = JSON.parse(msg.data);
-      var data = json.data;
-      if (!ipt_addevent) {
-        ipt_addevent = true;
-        var ipt = document.getElementById(&amp;ldquo;msg-ipt&amp;rdquo;);
-        ipt.addEventListener(&amp;ldquo;keydown&amp;rdquo;, function (e) {
-          if (e.keyCode == 13) {
-            socket.send(JSON.stringify({
-              event: &amp;ldquo;msg&amp;rdquo;,
-              data: {
-                msg: ipt.value,
-                socketID: data.socketID
-              }
-            }));
-            $(&amp;ldquo;.message&amp;rdquo;).append(&amp;rdquo;&lt;p&gt;&lt;span class=\&#34;name me\&#34;&gt;&amp;rdquo; + data.socketID + &amp;ldquo;: &lt;/span&gt;&lt;span class=\&#34;msg\&#34;&gt;&amp;rdquo; + ipt.value + &amp;ldquo;&lt;/span&gt;&lt;/p&gt;&amp;rdquo;);
-            ipt.value = &amp;ldquo;&amp;rdquo;;
-          }
-        }, true);
-      }
-      var createRTCPeerConnection = function (socketID, me) {
-        var pc = new webkitRTCPeerConnection(iceServer);
-        pc.addStream(stream);
-        peerconns.set(socketID, pc);
-        pc.onicecandidate = function (event) {
-          if (event.candidate !== null) {
-            socket.send(JSON.stringify({
-              event: &amp;ldquo;_ice_candidate&amp;rdquo;,
-              data: {
-                candidate: event.candidate,
-                socketID: socketID,
-                me: me
-              }
-            }));
-          }
-        };
-        pc.onaddstream = function (event) {
-          $(&amp;ldquo;.box&amp;rdquo;).append(&amp;rdquo;&lt;video id=\&#34;&#34; + socketID + &#34;\&#34; autoplay src=&#39;&#34; + URL.createObjectURL(event.stream) + &#34;&#39;&gt;&lt;/video&gt;&amp;rdquo;)
-        };
-        return pc;
-      }
-      switch (json.event) {
-      case &amp;ldquo;new_peer&amp;rdquo;:
-        console.log(data.me)
-        createRTCPeerConnection(data.me, data.socketID);
-        break;
-      case &amp;lsquo;peers&amp;rsquo;:
-        console.log(data.socketsID)
-        for (var i in data.socketsID) {
-          (function () {
-            var otherSocketID = data.socketsID[i];
-            console.log(otherSocketID)
-            var pc = createRTCPeerConnection(otherSocketID, data.socketID);
-            pc.createOffer(function (desc) {
-              pc.setLocalDescription(desc);
-              socket.send(JSON.stringify({
-                event: &amp;ldquo;_offer&amp;rdquo;,
-                data: {
-                  sdp: desc,
-                  socketID: otherSocketID,
-                  me: data.socketID
-                }
-              }));
-            }, function (error) {
-              console.log(&amp;lsquo;Failure callback: &amp;lsquo; + error);
-            });
-          })()
-        }
-        if (data.queue == 1) {
-        }
-        break;
-      case &amp;lsquo;_ice_candidate&amp;rsquo;:
-        var pc = peerconns.get(data.socketID);
-        pc.addIceCandidate(new RTCIceCandidate(data.candidate));
-        break;
-      case &amp;lsquo;_offer&amp;rsquo;:
-        var pc = peerconns.get(data.socketID);
-        pc.setRemoteDescription(new RTCSessionDescription(data.sdp));
-        pc.createAnswer(function (desc) {
-          pc.setLocalDescription(desc);
-          socket.send(JSON.stringify({
-            event: &amp;ldquo;_answer&amp;rdquo;,
-            data: {
-              sdp: desc,
-              socketID: data.me,
-              me: data.socketID
-            }
-          }));
-        }, function (error) {
-          console.log(&amp;lsquo;Failure callback: &amp;lsquo; + error);
-        });
-        break;
-      case &amp;lsquo;_answer&amp;rsquo;:
-        peerconns.get(data.me).setRemoteDescription(new RTCSessionDescription(data.sdp)); //receive answer
-        break;
-      case &amp;ldquo;close&amp;rdquo;:
-        peerconns.delete(data.socketID);
-        $(&amp;ldquo;#&amp;rdquo; + data.socketID).remove();
-        break;
-      case &amp;ldquo;msg&amp;rdquo;:
-        $(&amp;ldquo;.message&amp;rdquo;).append(&amp;rdquo;&lt;p&gt;&lt;span class=\&#34;name other\&#34;&gt;&amp;rdquo; + data.socketID + &amp;ldquo;: &lt;/span&gt;&lt;span class=\&#34;msg\&#34;&gt;&amp;rdquo; + data.msg + &amp;ldquo;&lt;/span&gt;&lt;/p&gt;&amp;rdquo;);
-        break;
-      }
-    }).catch(function (err) {
-      console.log(err);
-    });
-  }
-}
-{% endcodeblock %}&lt;/p&gt;</description>
       
     </item>
     

@@ -62,7 +62,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://tosone.cn/" />
 
-<meta property="og:updated_time" content="2019-06-27T23:03:09&#43;08:00"/>
+<meta property="og:updated_time" content="2019-07-20T12:09:17&#43;08:00"/>
 
 <meta itemprop="name" content="Tosone&#39;s Blog">
 <meta itemprop="description" content="Tosone&#39;s blog">
@@ -295,6 +295,74 @@
   <header class="post-header">
     <h1 class="post-title">
       
+      <a class="post-link" href="/post/golang-get-goroutine-id/">Golang 获取 goroutine id 完全指南</a>
+    </h1>
+    
+    <div class="post-meta">
+      <time datetime="2018-03-09" class="post-time">
+        2018-03-09
+      </time>
+      <div class="post-category">
+          <a href="https://tosone.cn/categories/develop/"> Develop </a>
+          
+        </div>
+      
+      
+      
+    </div>
+  </header>
+  
+  <div class="post-content">
+    
+    <div class="post-summary">
+      <p>在 Golang 中，每个 goroutine 协程都有一个 goroutine id (goid)，该goid没有向应用层暴露。但是，在很多场景下，开发者又希望使用 goid 作为唯一标识，将一个 goroutine 中的函数层级调用串联起来。比如，希望在一个 http handler 中将这个请求的每行日志都加上对应的 goid 以便于对这个请求处理过程进行跟踪和分析。</p>
+    </div>
+    <div class="read-more">
+      <a href="/post/golang-get-goroutine-id/" class="read-more-link">Read more</a>
+    </div>
+    
+  </div>
+</article>
+
+    
+      <article class="post bg-white">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/post/phony-target/">PHONY target</a>
+    </h1>
+    
+    <div class="post-meta">
+      <time datetime="2018-03-08" class="post-time">
+        2018-03-08
+      </time>
+      <div class="post-category">
+          <a href="https://tosone.cn/categories/develop/"> Develop </a>
+          
+        </div>
+      
+      
+      
+    </div>
+  </header>
+  
+  <div class="post-content">
+    
+    <div class="post-summary">
+      <p>A phony target is one that is not really the name of a file; rather it is just a name for a recipe to be executed when you make an explicit request. There are two reasons to use a phony target: to avoid a conflict with a file of the same name, and to improve performance.</p>
+    </div>
+    <div class="read-more">
+      <a href="/post/phony-target/" class="read-more-link">Read more</a>
+    </div>
+    
+  </div>
+</article>
+
+    
+      <article class="post bg-white">
+  <header class="post-header">
+    <h1 class="post-title">
+      
       <a class="post-link" href="/post/raspberry-tutorial/">RaspberryPi 上手</a>
     </h1>
     
@@ -372,7 +440,10 @@
       <time datetime="2017-05-05" class="post-time">
         2017-05-05
       </time>
-      
+      <div class="post-category">
+          <a href="https://tosone.cn/categories/artical/"> Artical </a>
+          
+        </div>
       
       
       
@@ -403,7 +474,10 @@
       <time datetime="2017-04-22" class="post-time">
         2017-04-22
       </time>
-      
+      <div class="post-category">
+          <a href="https://tosone.cn/categories/tips/"> Tips </a>
+          
+        </div>
       
       
       
@@ -434,7 +508,10 @@
       <time datetime="2017-04-22" class="post-time">
         2017-04-22
       </time>
-      
+      <div class="post-category">
+          <a href="https://tosone.cn/categories/config/"> Config </a>
+          
+        </div>
       
       
       
@@ -465,7 +542,10 @@
       <time datetime="2017-04-17" class="post-time">
         2017-04-17
       </time>
-      
+      <div class="post-category">
+          <a href="https://tosone.cn/categories/config/"> Config </a>
+          
+        </div>
       
       
       
@@ -496,7 +576,10 @@
       <time datetime="2017-04-15" class="post-time">
         2017-04-15
       </time>
-      
+      <div class="post-category">
+          <a href="https://tosone.cn/categories/develop/"> Develop </a>
+          
+        </div>
       
       
       
@@ -527,7 +610,11 @@
       <time datetime="2017-04-11" class="post-time">
         2017-04-11
       </time>
-      
+      <div class="post-category">
+          <a href="https://tosone.cn/categories/develop/"> Develop </a>
+          <a href="https://tosone.cn/categories/config/"> Config </a>
+          
+        </div>
       
       
       
@@ -541,74 +628,6 @@
     </div>
     <div class="read-more">
       <a href="/post/golang-auto-build-versioning/" class="read-more-link">Read more</a>
-    </div>
-    
-  </div>
-</article>
-
-    
-      <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/post/mount-tai-reference/">泰山旅游指南</a>
-    </h1>
-    
-    <div class="post-meta">
-      <time datetime="2017-03-04" class="post-time">
-        2017-03-04
-      </time>
-      <div class="post-category">
-          <a href="https://tosone.cn/categories/travel/"> Travel </a>
-          
-        </div>
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      <p>泰山，以五岳独尊名扬天下，中国历代曾有 72 位皇帝到泰山封禅。杜甫一首《望岳》中的“会当凌绝顶，一览众山小”表达出自信自励的意志和坚定豪迈的气概，亦充分体现出泰山的巍峨雄伟与险峻。</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/mount-tai-reference/" class="read-more-link">Read more</a>
-    </div>
-    
-  </div>
-</article>
-
-    
-      <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/post/webrtc/">Web RTC Demo</a>
-    </h1>
-    
-    <div class="post-meta">
-      <time datetime="2017-02-26" class="post-time">
-        2017-02-26
-      </time>
-      <div class="post-category">
-          <a href="https://tosone.cn/categories/tutorial/"> Tutorial </a>
-          
-        </div>
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      <p>WebRTC 项目的最终目的主要是让 Web 开发者能够基于浏览器轻易快捷开发出丰富的实时多媒体应用，而无需下载安装任何插件，Web 开发者也无需关注多媒体的数字信号处理过程，只需编写简单的 Javascript 程序即可实现。</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/webrtc/" class="read-more-link">Read more</a>
     </div>
     
   </div>

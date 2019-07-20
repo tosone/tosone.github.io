@@ -3,7 +3,69 @@
   
   <url>
     <loc>https://tosone.cn/categories/</loc>
-    <lastmod>2019-06-27T23:03:09+08:00</lastmod>
+    <lastmod>2019-07-20T12:09:17+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tosone.cn/post/homebrew/</loc>
+    <lastmod>2019-07-20T12:09:17+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://tosone.cn/categories/macos/</loc>
+    <lastmod>2019-07-20T12:09:17+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tosone.cn/post/</loc>
+    <lastmod>2019-07-20T12:09:17+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tosone.cn/tags/</loc>
+    <lastmod>2019-07-20T12:09:17+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tosone.cn/tags/tips/</loc>
+    <lastmod>2019-07-20T12:09:17+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tosone.cn/</loc>
+    <lastmod>2019-07-20T12:09:17+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tosone.cn/tags/cloudify/</loc>
+    <lastmod>2019-07-20T11:22:09+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tosone.cn/post/cloudify/</loc>
+    <lastmod>2019-07-20T11:22:09+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://tosone.cn/tags/container/</loc>
+    <lastmod>2019-07-20T11:22:09+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tosone.cn/categories/tutorial/</loc>
+    <lastmod>2019-07-20T11:22:09+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -21,26 +83,8 @@
   </url>
   
   <url>
-    <loc>https://tosone.cn/post/</loc>
-    <lastmod>2019-06-27T23:03:09+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://tosone.cn/tags/</loc>
-    <lastmod>2019-06-27T23:03:09+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://tosone.cn/</loc>
-    <lastmod>2019-06-27T23:03:09+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://tosone.cn/categories/tutorial/</loc>
-    <lastmod>2019-06-27T23:03:09+08:00</lastmod>
+    <loc>https://tosone.cn/categories/config/</loc>
+    <lastmod>2019-04-26T10:38:24+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -65,6 +109,12 @@
   
   <url>
     <loc>https://tosone.cn/tags/cgo/</loc>
+    <lastmod>2018-11-05T20:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tosone.cn/categories/develop/</loc>
     <lastmod>2018-11-05T20:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -170,6 +220,12 @@
   </url>
   
   <url>
+    <loc>https://tosone.cn/categories/artical/</loc>
+    <lastmod>2017-05-05T12:48:41+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://tosone.cn/tags/shadowsocks/</loc>
     <lastmod>2017-05-05T12:48:41+00:00</lastmod>
     <priority>0</priority>
@@ -191,6 +247,12 @@
   
   <url>
     <loc>https://tosone.cn/tags/git/</loc>
+    <lastmod>2017-04-22T14:23:31+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tosone.cn/categories/tips/</loc>
     <lastmod>2017-04-22T14:23:31+00:00</lastmod>
     <priority>0</priority>
   </url>

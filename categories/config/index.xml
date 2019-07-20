@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Config on Tosone&#39;s Blog</title>
+    <link>https://tosone.cn/categories/config/</link>
+    <description>Recent content in Config on Tosone&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 26 Apr 2019 10:38:24 +0000</lastBuildDate>
+    
+	<atom:link href="https://tosone.cn/categories/config/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>CoreOS 初始化配置</title>
+      <link>https://tosone.cn/post/coreos-init/</link>
+      <pubDate>Fri, 26 Apr 2019 10:38:24 +0000</pubDate>
+      
+      <guid>https://tosone.cn/post/coreos-init/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Container Linux (formerly CoreOS Linux) is an open-source lightweight operating system based on the Linux kernel and designed for providing infrastructure to clustered deployments, while focusing on automation, ease of application deployment, security, reliability and scalability. As an operating system, Container Linux provides only the minimal functionality required for deploying applications inside software containers, together with built-in mechanisms for service discovery and configuration sharing.&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
+    <item>
+      <title>系统初始化</title>
+      <link>https://tosone.cn/post/linux-init/</link>
+      <pubDate>Tue, 11 Sep 2018 12:53:15 +0000</pubDate>
+      
+      <guid>https://tosone.cn/post/linux-init/</guid>
+      <description>&lt;p&gt;Ubuntu 和 NodeJs 的环境的初始化。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Generate SSH key and GPG key</title>
+      <link>https://tosone.cn/post/ssh-gpg-keys/</link>
+      <pubDate>Sat, 22 Apr 2017 13:16:42 +0000</pubDate>
+      
+      <guid>https://tosone.cn/post/ssh-gpg-keys/</guid>
+      <description>&lt;p&gt;2012年3月4号，GitHub 的&lt;a href=&#34;https://github.com/blog/1068-public-key-security-vulnerability-and-mitigationhttp://&#34;&gt;公钥安全漏洞&lt;/a&gt;被一个叫 Egor Homakov 的俄国人利用了。这个漏洞允许他向 GitHub 上的 Ruby on Rails 框架的主分支上提交代码。&lt;a href=&#34;http://www.oschina.net/translate/git-horror-story&#34;&gt;Git 使用中的教训：签名提交确保代码完整可信&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ECS init</title>
+      <link>https://tosone.cn/post/ecs-init/</link>
+      <pubDate>Mon, 17 Apr 2017 21:38:24 +0000</pubDate>
+      
+      <guid>https://tosone.cn/post/ecs-init/</guid>
+      <description>&lt;p&gt;ECS 新购主机 Ubuntu 初始化的一些操作。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Golang auto build version</title>
+      <link>https://tosone.cn/post/golang-auto-build-versioning/</link>
+      <pubDate>Tue, 11 Apr 2017 20:26:54 +0000</pubDate>
+      
+      <guid>https://tosone.cn/post/golang-auto-build-versioning/</guid>
+      <description>&lt;p&gt;We needed a version number to find whether the binary was from yesterday or today’s source. Then we decided that for all our golang applications we should have a way to find out the version number, so that we can always query and find out which version it is, there by which source is running.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>优雅的翻墙</title>
+      <link>https://tosone.cn/post/shadowsocks/</link>
+      <pubDate>Fri, 24 Feb 2017 15:14:28 +0000</pubDate>
+      
+      <guid>https://tosone.cn/post/shadowsocks/</guid>
+      <description>&lt;p&gt;Long long ago, 在一个叫 v2ex 的地方，有一位叫做 clowwindy 的用户。他为了避免网络流量分类技术和 ssh tunnel 的低效，自己写了一个用于加密流量的协议，并自用了一年多. 后来，由于这个协议非常高效，而且使用json 作为配置文件，配置起来非常方便，所以迅速赢得了很多用户，并在 v2ex 上有了一个专属的节点。shadowsocks 迅速被移植到各种平台、各种语言，用户也急剧上升，并且有了专门经营 shadowsocks 服务的商家。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>SublimeText3 注册码</title>
+      <link>https://tosone.cn/post/sublime-exploit-code/</link>
+      <pubDate>Tue, 03 Jan 2017 00:11:19 +0000</pubDate>
+      
+      <guid>https://tosone.cn/post/sublime-exploit-code/</guid>
+      <description>&lt;p&gt;Sublime Text 是一个代码编辑器（Sublime Text 3 是收费软件，但可以无限期试用），也是HTML和散文先进的文本编辑器。Sublime Text 是由程序员 Jon Skinner 于 2008 年 1 月份所开发出来，它最初被设计为一个具有丰富扩展功能的Vim。
+Sublime Text 具有漂亮的用户界面和强大的功能，例如代码缩略图，Python 的插件，代码段等。还可自定义键绑定，菜单和工具栏。Sublime Text 的主要功能包括：拼写检查，书签，完整的 Python API ， Goto 功能，即时项目切换，多选择，多窗口等等。Sublime Text 是一个跨平台的编辑器，同时支持 Windows、Linux、MacOSX 等操作系统。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
