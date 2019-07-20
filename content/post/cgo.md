@@ -8,6 +8,7 @@ contentCopyright: false
 ---
 
 Golang 和 C 之间相互调用入门。
+
 <!--more-->
 
 > 原文链接：[https://github.com/golang/go/wiki/cgo](https://github.com/golang/go/wiki/cgo)
