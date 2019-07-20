@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Tosone&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 20 Jul 2019 12:09:17 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 20 Jul 2019 12:47:23 +0800</lastBuildDate>
     
 	<atom:link href="https://tosone.cn/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Leetcode C/C&#43;&#43;</title>
+      <link>https://tosone.cn/post/leetcode-c-c&#43;&#43;/</link>
+      <pubDate>Sat, 20 Jul 2019 12:47:23 +0800</pubDate>
+      
+      <guid>https://tosone.cn/post/leetcode-c-c&#43;&#43;/</guid>
+      <description>&lt;p&gt;LeetCode 上做一些 C/C++ 的算法的时候总会出现一些奇奇怪怪的问题。如何在本地的时候把问题解决解决或者 Debug 出来呢？&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Mac 下更换 Homebrew 镜像源</title>
@@ -190,15 +199,6 @@
       
       <guid>https://tosone.cn/post/compile-opencv/</guid>
       <description>&lt;p&gt;OpenCV is released under a BSD license and hence it’s free for both academic and commercial use. It has C++, C, Python and Java interfaces and supports Windows, Linux, Mac OS, iOS and Android. OpenCV was designed for computational efficiency and with a strong focus on real-time applications. Written in optimized C/C++, the library can take advantage of multi-core processing. Enabled with OpenCL, it can take advantage of the hardware acceleration of the underlying heterogeneous compute platform.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Golang auto build version</title>
-      <link>https://tosone.cn/post/golang-auto-build-versioning/</link>
-      <pubDate>Tue, 11 Apr 2017 20:26:54 +0000</pubDate>
-      
-      <guid>https://tosone.cn/post/golang-auto-build-versioning/</guid>
-      <description>&lt;p&gt;We needed a version number to find whether the binary was from yesterday or today’s source. Then we decided that for all our golang applications we should have a way to find out the version number, so that we can always query and find out which version it is, there by which source is running.&lt;/p&gt;</description>
     </item>
     
   </channel>

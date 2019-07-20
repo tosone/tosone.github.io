@@ -6,10 +6,19 @@
     <description>Recent content in Develop on Tosone&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 05 Nov 2018 20:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 20 Jul 2019 12:47:23 +0800</lastBuildDate>
     
 	<atom:link href="https://tosone.cn/categories/develop/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Leetcode C/C&#43;&#43;</title>
+      <link>https://tosone.cn/post/leetcode-c-c&#43;&#43;/</link>
+      <pubDate>Sat, 20 Jul 2019 12:47:23 +0800</pubDate>
+      
+      <guid>https://tosone.cn/post/leetcode-c-c&#43;&#43;/</guid>
+      <description>&lt;p&gt;LeetCode 上做一些 C/C++ 的算法的时候总会出现一些奇奇怪怪的问题。如何在本地的时候把问题解决解决或者 Debug 出来呢？&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Golang 中如何用 CGO 与 C 之间做一个缓存 Buffer</title>

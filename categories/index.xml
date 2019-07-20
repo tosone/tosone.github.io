@@ -6,10 +6,19 @@
     <description>Recent content in Categories on Tosone&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 20 Jul 2019 12:09:17 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 20 Jul 2019 12:47:23 +0800</lastBuildDate>
     
 	<atom:link href="https://tosone.cn/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Develop</title>
+      <link>https://tosone.cn/categories/develop/</link>
+      <pubDate>Sat, 20 Jul 2019 12:47:23 +0800</pubDate>
+      
+      <guid>https://tosone.cn/categories/develop/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Macos</title>
@@ -35,15 +44,6 @@
       <pubDate>Fri, 26 Apr 2019 10:38:24 +0000</pubDate>
       
       <guid>https://tosone.cn/categories/config/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Develop</title>
-      <link>https://tosone.cn/categories/develop/</link>
-      <pubDate>Mon, 05 Nov 2018 20:00:00 +0000</pubDate>
-      
-      <guid>https://tosone.cn/categories/develop/</guid>
       <description></description>
     </item>
     
