@@ -1,5 +1,5 @@
 ---
-title: "Leetcode C/C++"
+title: "LeetCode C/C++"
 date: 2019-07-20T12:47:23+08:00
 draft: false
 contentCopyright: false
