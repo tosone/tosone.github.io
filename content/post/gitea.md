@@ -111,7 +111,7 @@ entryPoint = "http"
 docker-compose up --force-recreate -d traefik
 ```
 
-OK，这时候再启动你的 gitea，然后把相应的域名解析到你的服务器上，你就完成了一个 https 的服务部署了。
+OK，这时候再启动你的 gitea，然后把相应的域名解析到你的服务器上，你就完成了一个 https 的服务部署了，因为 traefik 可以监听所有 docker 上的容器的 label 参数，然后代理对应容器的服务成 https。
 
 ### SSH
 
