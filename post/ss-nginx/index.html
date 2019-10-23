@@ -72,7 +72,7 @@
 
 <meta itemprop="datePublished" content="2019-10-23T19:38:03&#43;08:00" />
 <meta itemprop="dateModified" content="2019-10-23T19:38:03&#43;08:00" />
-<meta itemprop="wordCount" content="1372">
+<meta itemprop="wordCount" content="1404">
 
 
 
@@ -515,8 +515,21 @@ cat <span class="s">&lt;&lt; EOF
 
 <p><code>SHADOWSOCKS_PORT</code> 这个变量在代理中的配置，在 Shadowsocks server 中的外部地址都是一样的，这就可以只改一个地方的配置，其他同步配置只执行一条命令就完成了服务的更新。</p>
 
+<h3 id="总结">总结</h3>
+
 <p>说到这里其实该说的都已经说完了，但是怎么个高可用呢？首先一个国外的服务器作为 Shadowsocks server，如果国内把这个 IP 在某些地区封掉呢？（经验发现 IP 被封，是某些区域可用，某些区域不可以用，全国区域都被封，那真的是神仙难救）那么就需要在国内找个能访问这个 IP 的国内主机做一次代理，有时候一层代理还不够，那就多来几层，有时候国外的主机一台不稳定，那就多台负载均衡。反正可以尽情发挥。</p>
 
+<p>有了这些配置整个过程中你需要执行的命令只有两条：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">make shadowsocks
+make shadowsocks-proxy</code></pre></td></tr></table>
+</div>
+</div>
 <p>以上零零散散的有一些配置，不适合学习，完整的所有配置下载在<a href="https://tc.tosone.cn/high-available-shadowsocks.tar.gz">这里</a>。</p>
     </div>
 
@@ -536,6 +549,19 @@ cat <span class="s">&lt;&lt; EOF
       
       <nav class="post-nav">
         
+          <a class="prev" href="/post/gitea/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">Gitea</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
         
           <a class="next" href="/post/leetcode-c-c&#43;&#43;/">
             <span class="next-text nav-default">LeetCode C/C&#43;&#43;</span>

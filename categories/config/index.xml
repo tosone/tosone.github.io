@@ -6,10 +6,19 @@
     <description>Recent content in Config on Tosone&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 23 Oct 2019 19:38:03 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 23 Oct 2019 21:03:15 +0800</lastBuildDate>
     
 	<atom:link href="https://tosone.cn/categories/config/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Gitea</title>
+      <link>https://tosone.cn/post/gitea/</link>
+      <pubDate>Wed, 23 Oct 2019 21:03:15 +0800</pubDate>
+      
+      <guid>https://tosone.cn/post/gitea/</guid>
+      <description>&lt;p&gt;A painless self-hosted Git service. Gitea is a community managed lightweight code hosting solution written in Go.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>High available shadowsocks</title>

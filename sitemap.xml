@@ -3,14 +3,49 @@
   
   <url>
     <loc>https://tosone.cn/categories/</loc>
-    <lastmod>2019-10-23T19:38:03+08:00</lastmod>
+    <lastmod>2019-10-23T21:03:15+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://tosone.cn/categories/config/</loc>
-    <lastmod>2019-10-23T19:38:03+08:00</lastmod>
+    <lastmod>2019-10-23T21:03:15+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://tosone.cn/tags/git/</loc>
+    <lastmod>2019-10-23T21:03:15+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://tosone.cn/post/gitea/</loc>
+    <lastmod>2019-10-23T21:03:15+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://tosone.cn/post/</loc>
+    <lastmod>2019-10-23T21:03:15+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://tosone.cn/tags/</loc>
+    <lastmod>2019-10-23T21:03:15+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://tosone.cn/</loc>
+    <lastmod>2019-10-23T21:03:15+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -23,28 +58,7 @@
   </url>
   
   <url>
-    <loc>https://tosone.cn/post/</loc>
-    <lastmod>2019-10-23T19:38:03+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://tosone.cn/tags/shadowsocks/</loc>
-    <lastmod>2019-10-23T19:38:03+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://tosone.cn/tags/</loc>
-    <lastmod>2019-10-23T19:38:03+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://tosone.cn/</loc>
     <lastmod>2019-10-23T19:38:03+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -283,13 +297,6 @@
   
   <url>
     <loc>https://tosone.cn/post/feature-branch/</loc>
-    <lastmod>2017-04-22T14:23:31+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://tosone.cn/tags/git/</loc>
     <lastmod>2017-04-22T14:23:31+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

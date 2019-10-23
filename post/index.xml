@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Tosone&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 23 Oct 2019 19:38:03 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 23 Oct 2019 21:03:15 +0800</lastBuildDate>
     
 	<atom:link href="https://tosone.cn/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Gitea</title>
+      <link>https://tosone.cn/post/gitea/</link>
+      <pubDate>Wed, 23 Oct 2019 21:03:15 +0800</pubDate>
+      
+      <guid>https://tosone.cn/post/gitea/</guid>
+      <description>&lt;p&gt;A painless self-hosted Git service. Gitea is a community managed lightweight code hosting solution written in Go.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>High available shadowsocks</title>
@@ -190,15 +199,6 @@
       
       <guid>https://tosone.cn/post/ssh-gpg-keys/</guid>
       <description>&lt;p&gt;2012年3月4号，GitHub 的&lt;a href=&#34;https://github.com/blog/1068-public-key-security-vulnerability-and-mitigationhttp://&#34;&gt;公钥安全漏洞&lt;/a&gt;被一个叫 Egor Homakov 的俄国人利用了。这个漏洞允许他向 GitHub 上的 Ruby on Rails 框架的主分支上提交代码。&lt;a href=&#34;http://www.oschina.net/translate/git-horror-story&#34;&gt;Git 使用中的教训：签名提交确保代码完整可信&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>ECS init</title>
-      <link>https://tosone.cn/post/ecs-init/</link>
-      <pubDate>Mon, 17 Apr 2017 21:38:24 +0000</pubDate>
-      
-      <guid>https://tosone.cn/post/ecs-init/</guid>
-      <description>&lt;p&gt;ECS 新购主机 Ubuntu 初始化的一些操作。&lt;/p&gt;</description>
     </item>
     
   </channel>

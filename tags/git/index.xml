@@ -6,10 +6,19 @@
     <description>Recent content in Git on Tosone&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 22 Apr 2017 14:23:31 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 23 Oct 2019 21:03:15 +0800</lastBuildDate>
     
 	<atom:link href="https://tosone.cn/tags/git/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Gitea</title>
+      <link>https://tosone.cn/post/gitea/</link>
+      <pubDate>Wed, 23 Oct 2019 21:03:15 +0800</pubDate>
+      
+      <guid>https://tosone.cn/post/gitea/</guid>
+      <description>&lt;p&gt;A painless self-hosted Git service. Gitea is a community managed lightweight code hosting solution written in Go.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Feature Branch Workflow 实践</title>
