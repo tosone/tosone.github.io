@@ -72,7 +72,7 @@
 
 <meta itemprop="datePublished" content="2019-10-23T21:03:15&#43;08:00" />
 <meta itemprop="dateModified" content="2019-10-23T21:03:15&#43;08:00" />
-<meta itemprop="wordCount" content="982">
+<meta itemprop="wordCount" content="1019">
 
 
 
@@ -510,7 +510,7 @@
 <pre class="chroma"><code class="language-bash" data-lang="bash">docker-compose up --force-recreate -d traefik</code></pre></td></tr></table>
 </div>
 </div>
-<p>OK，这时候再启动你的 gitea，然后把相应的域名解析到你的服务器上，你就完成了一个 https 的服务部署了。</p>
+<p>OK，这时候再启动你的 gitea，然后把相应的域名解析到你的服务器上，你就完成了一个 https 的服务部署了，因为 traefik 可以监听所有 docker 上的容器的 label 参数，然后代理对应容器的服务成 https。</p>
 
 <h3 id="ssh">SSH</h3>
 
