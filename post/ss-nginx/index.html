@@ -72,7 +72,7 @@
 
 <meta itemprop="datePublished" content="2019-10-23T19:38:03&#43;08:00" />
 <meta itemprop="dateModified" content="2019-10-23T19:38:03&#43;08:00" />
-<meta itemprop="wordCount" content="1307">
+<meta itemprop="wordCount" content="1372">
 
 
 
@@ -512,6 +512,8 @@ cat <span class="s">&lt;&lt; EOF
 </div>
 </div>
 <p>So easy，是不是。</p>
+
+<p><code>SHADOWSOCKS_PORT</code> 这个变量在代理中的配置，在 Shadowsocks server 中的外部地址都是一样的，这就可以只改一个地方的配置，其他同步配置只执行一条命令就完成了服务的更新。</p>
 
 <p>说到这里其实该说的都已经说完了，但是怎么个高可用呢？首先一个国外的服务器作为 Shadowsocks server，如果国内把这个 IP 在某些地区封掉呢？（经验发现 IP 被封，是某些区域可用，某些区域不可以用，全国区域都被封，那真的是神仙难救）那么就需要在国内找个能访问这个 IP 的国内主机做一次代理，有时候一层代理还不够，那就多来几层，有时候国外的主机一台不稳定，那就多台负载均衡。反正可以尽情发挥。</p>
 
