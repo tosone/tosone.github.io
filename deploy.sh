@@ -8,10 +8,10 @@ cd public
 
 git add .
 git commit -m "Rebuilding site `date`"
-git push origin master --force
+git push origin master --force-with-lease
 
 cd ..
 
 git add .
 git commit -m "Add new post `date`"
-git push origin source --force
+git push origin source --force-with-lease
