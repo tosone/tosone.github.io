@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>High available shadowsocks - Tosone&#39;s Blog</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="Tosone" />
+  <meta name="description" content="我们都知道国内总有一些 404 的网站，但是某些有技术的人总能访问到一些不存在的网站，这个在之前的文章中有说，有这一篇，也有这一篇，但是每到一些关键节日，某些技术比较不是特别强的人只能等比较严格的网络封锁过去之后才能再去访问那些网站，但是有没有一种永远可用特别高级的方式呢？答案是有的。快看！
+" />
+
+  <meta name="keywords" content="Tosone, blog" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.59.0" />
+
+
+<link rel="canonical" href="https://tosone.cn/post/ss-nginx/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.af20b78e95c84de86b00a0242a4a77bd2601700e1b250edf27537d957ac0041d.css" integrity="sha256-ryC3jpXITehrAKAkKkp3vSYBcA4bJQ7fJ1N9lXrABB0=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+<meta property="og:title" content="High available shadowsocks" />
+<meta property="og:description" content="我们都知道国内总有一些 404 的网站，但是某些有技术的人总能访问到一些不存在的网站，这个在之前的文章中有说，有这一篇，也有这一篇，但是每到一些关键节日，某些技术比较不是特别强的人只能等比较严格的网络封锁过去之后才能再去访问那些网站，但是有没有一种永远可用特别高级的方式呢？答案是有的。快看！" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://tosone.cn/post/ss-nginx/" />
+<meta property="article:published_time" content="2019-10-23T19:38:03+08:00" />
+<meta property="article:modified_time" content="2019-10-23T19:38:03+08:00" />
+<meta itemprop="name" content="High available shadowsocks">
+<meta itemprop="description" content="我们都知道国内总有一些 404 的网站，但是某些有技术的人总能访问到一些不存在的网站，这个在之前的文章中有说，有这一篇，也有这一篇，但是每到一些关键节日，某些技术比较不是特别强的人只能等比较严格的网络封锁过去之后才能再去访问那些网站，但是有没有一种永远可用特别高级的方式呢？答案是有的。快看！">
+
+
+<meta itemprop="datePublished" content="2019-10-23T19:38:03&#43;08:00" />
+<meta itemprop="dateModified" content="2019-10-23T19:38:03&#43;08:00" />
+<meta itemprop="wordCount" content="1307">
+
+
+
+<meta itemprop="keywords" content="Shadowsocks," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="High available shadowsocks"/>
+<meta name="twitter:description" content="我们都知道国内总有一些 404 的网站，但是某些有技术的人总能访问到一些不存在的网站，这个在之前的文章中有说，有这一篇，也有这一篇，但是每到一些关键节日，某些技术比较不是特别强的人只能等比较严格的网络封锁过去之后才能再去访问那些网站，但是有没有一种永远可用特别高级的方式呢？答案是有的。快看！"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Tosone</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://tosone.cn/">This is Home</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://tosone.cn/post/">Archives</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://tosone.cn/tags/">Tags</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://tosone.cn/categories/">Categories</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://tosone.cn/about.html">About</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      Tosone
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://tosone.cn/">This is Home</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://tosone.cn/post/">Archives</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://tosone.cn/tags/">Tags</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://tosone.cn/categories/">Categories</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://tosone.cn/about.html">About</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">High available shadowsocks</h1>
+      
+      <div class="post-meta">
+        <time datetime="2019-10-23" class="post-time">
+          2019-10-23
+        </time>
+        <div class="post-category">
+            <a href="https://tosone.cn/categories/config/"> Config </a>
+            
+          </div>
+        
+
+        
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    
+    <div class="post-content">
+      <p>我们都知道国内总有一些 404 的网站，但是某些有技术的人总能访问到一些不存在的网站，这个在之前的文章中有说，有这<a href="https://tosone.cn/post/shadowsocks-ppt/">一篇</a>，也有这<a href="https://tosone.cn/post/shadowsocks/">一篇</a>，但是每到一些关键节日，某些技术比较不是特别强的人只能等比较严格的网络封锁过去之后才能再去访问那些网站，但是有没有一种永远可用特别高级的方式呢？答案是有的。快看！</p>
+
+<p>首先你看这个短文的时候默认你已经会了一下几个东西：</p>
+
+<ul>
+<li>Docker</li>
+<li>docker-compose</li>
+<li>Makefile</li>
+</ul>
+
+<p>我们注意到 Docker Hub 里边有一些关于 Shadowsocks 的镜像，有一个名叫 <code>shadowsocks/shadowsocks-libev</code> 是 Shadowsocks 官方的镜像，功能比较单一，但是完全够用。另外一个镜像 <code>mritd/shadowsocks</code>，这个镜像功能比较丰富，提供了 kcp 和 obfs 的功能，但是我比较懒得研究，其实官方的那个镜像就挺好。说到这里，镜像解决了，下边来一个 Shadowsocks 的 docker-compose 的启动配置。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-YAML" data-lang="YAML"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-YAML" data-lang="YAML">version<span class="p">:</span><span class="w"> </span><span class="s2">&#34;3.7&#34;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span>services<span class="p">:</span><span class="w">
+</span><span class="w">  </span>shadowsocks-proxy<span class="p">:</span><span class="w">
+</span><span class="w">    </span>image<span class="p">:</span><span class="w"> </span>nginx<span class="p">:</span>dev<span class="w">
+</span><span class="w">    </span>container_name<span class="p">:</span><span class="w"> </span>shadowsocks<span class="w">
+</span><span class="w">    </span>restart<span class="p">:</span><span class="w"> </span>always<span class="w">
+</span><span class="w">    </span>hostname<span class="p">:</span><span class="w"> </span>shadowsocks<span class="w">
+</span><span class="w">    </span>build<span class="p">:</span><span class="w"> </span>$PWD/shadowsocks-proxy<span class="w">
+</span><span class="w">    </span>ports<span class="p">:</span><span class="w">
+</span><span class="w">      </span>-<span class="w"> </span>${SHADOWSOCKS_PORT}<span class="p">:</span>${SHADOWSOCKS_PORT}<span class="w">
+</span><span class="w">  </span>shadowsocks<span class="p">:</span><span class="w">
+</span><span class="w">    </span>image<span class="p">:</span><span class="w"> </span>shadowsocks/shadowsocks-libev<span class="p">:</span>latest<span class="w">
+</span><span class="w">    </span>container_name<span class="p">:</span><span class="w"> </span>shadowsocks<span class="w">
+</span><span class="w">    </span>restart<span class="p">:</span><span class="w"> </span>always<span class="w">
+</span><span class="w">    </span>hostname<span class="p">:</span><span class="w"> </span>shadowsocks<span class="w">
+</span><span class="w">    </span>environment<span class="p">:</span><span class="w">
+</span><span class="w">      </span>-<span class="w"> </span>METHOD=chacha20-ietf-poly1305<span class="w">
+</span><span class="w">      </span>-<span class="w"> </span>PASSWORD=${SECRETPERSONAL}<span class="w">
+</span><span class="w">    </span>ports<span class="p">:</span><span class="w">
+</span><span class="w">      </span>-<span class="w"> </span>${SHADOWSOCKS_PORT}<span class="p">:</span><span class="m">8388</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>OK，解释一下上边的配置，<code>shadowsocks-proxy</code> 这个 service 的配置先不用管，下边有解释。<code>shadowsocks</code> 这个 service 的配置仅仅定义了加密方法和秘钥，还有对外映射的 8388 端口。里边有一些环境变量的东西，暂时先不管，下边讲。如果配置完了的话，直接运行 <code>docker-compose up -d shadowsocks</code> 就完了，你的 Shadowsocks 就启动完了，就能用了。</p>
+
+<p>然后看一眼环境变量的文件内容，如下，保存内容为 <code>.env</code>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">SHADOWSOCKS_SERVER</span><span class="o">=</span>us.tosone.cn china.tosone.cn
+<span class="nv">SHADOWSOCKS_PORT</span><span class="o">=</span><span class="m">8388</span>
+<span class="nv">SECRETPERSONAL</span><span class="o">=</span>my_secret_you_dont_know</code></pre></td></tr></table>
+</div>
+</div>
+<p>上边 <code>SHADOWSOCKS_PORT</code> 设置成了 8388 但是你千万不要这么做，8388，这个数字很危险，希望看到这篇短文的人都能懂。<code>SHADOWSOCKS_SERVER</code> 这个在下文有用，先别着急。</p>
+
+<p>最后就剩下最重要的一个文件了，<code>Makefile</code> 如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-makefile" data-lang="makefile"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-makefile" data-lang="makefile"><span class="err">include</span> <span class="err">.env</span>
+<span class="k">export $(</span><span class="nv">shell</span> <span class="nv">sed</span> &#39;<span class="nv">s</span>/=.*//&#39; .<span class="nv">env</span><span class="k">)</span>
+
+<span class="nf">.PHONY</span><span class="o">:</span> <span class="n">install</span>-<span class="n">docker</span>
+<span class="nf">install-docker</span><span class="o">:</span>
+	curl -fsSL https://get.docker.com <span class="p">|</span> sh
+	sudo usermod -aG docker <span class="k">$(</span>USER<span class="k">)</span>
+	sudo curl -L https://github.com/docker/compose/releases/download/1.24.1/docker-compose-<span class="sb">`</span>uname -s<span class="sb">`</span>-<span class="sb">`</span>uname -m<span class="sb">`</span> -o /usr/bin/docker-compose
+	sudo chmod +x /usr/bin/docker-compose
+
+<span class="nf">.PHONY</span><span class="o">:</span> <span class="n">shadowsocks</span>-<span class="n">proxy</span>
+<span class="nf">shadowsocks-proxy</span><span class="o">:</span>
+	shadowsocks-proxy/gen.sh &gt;&gt; <span class="nv">$@</span>/modules-enabled/shadowsocks.conf
+	docker-compose -f docker-compose-shadowsocks.yml up --force-recreate -d --build <span class="nv">$@</span>
+	<span class="k">$(</span>RM<span class="k">)</span> <span class="nv">$@</span>/modules-enabled/shadowsocks.conf
+
+<span class="nf">.PHONY</span><span class="o">:</span> <span class="n">shadowsocks</span>
+<span class="nf">shadowsocks</span><span class="o">:</span>
+	docker-compose -f docker-compose-<span class="nv">$@</span>.yml up --force-recreate -d <span class="nv">$@</span>
+
+<span class="nf">.PHONY</span><span class="o">:</span> <span class="n">upgrade</span>
+<span class="nf">upgrade</span><span class="o">:</span>
+	docker-compose pull
+</code></pre></td></tr></table>
+</div>
+</div>
+<p><code>Makefile</code> 的前两行是将 .env 中的环境变量导入到 Makefile 执行的环境变量中，这里需要注意的一点是，Makefile 执行的环境变量和你当前在的 bash 环境变量不是一个东西，需要特别注意，这一点很重要，一定要记住。</p>
+
+<p><code>Makefile</code> 的 target <code>install-docker</code> 是在你的环境里边安装 Docker 和 docker-compose，但是如果你是国内的环境的话，这个命令执行的时间长度将会比你的一辈子都要长，安装这两个东西不过多深入，反正这样安装的是最正统的。哈哈哈。</p>
+
+<p><code>Makefile</code> 的 target <code>shadowsocks</code> 是将 shadowsocks server 运行起来，需要找个能访问那些 404 网站的服务器上运行。</p>
+
+<p><code>Makefile</code> 的 target <code>shadowsocks-proxy</code> 是运行起来一个对于 Shadowsocks server 的透明代理。里边写的比较复杂，里边主要做的是可以对多个 Shadowsocks server 做反向代理的负载均衡，哈哈哈，会将 <code>SHADOWSOCKS_SERVER</code> 中的配置写到 nginx 的配置中作为代理用。主要的魔法在 <code>shadowsocks-proxy/gen.sh</code> 这个文件里边，内容如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/sh
+</span><span class="cp"></span>
+cat <span class="s">&lt;&lt; EOF
+</span><span class="s">stream {
+</span><span class="s">	upstream group {
+</span><span class="s">EOF</span>
+
+<span class="k">for</span> i in <span class="nv">$SHADOWSOCKS_SERVER</span><span class="p">;</span> <span class="k">do</span>
+cat <span class="s">&lt;&lt; EOF
+</span><span class="s">		server $i:$SHADOWSOCKS_PORT;
+</span><span class="s">EOF</span>
+<span class="k">done</span>
+
+cat <span class="s">&lt;&lt; EOF
+</span><span class="s">	}
+</span><span class="s">	server {
+</span><span class="s">		listen $SHADOWSOCKS_PORT;
+</span><span class="s">		listen $SHADOWSOCKS_PORT udp;
+</span><span class="s">		proxy_pass group;
+</span><span class="s">	}
+</span><span class="s">}
+</span><span class="s">EOF</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>So easy，是不是。</p>
+
+<p>说到这里其实该说的都已经说完了，但是怎么个高可用呢？首先一个国外的服务器作为 Shadowsocks server，如果国内把这个 IP 在某些地区封掉呢？（经验发现 IP 被封，是某些区域可用，某些区域不可以用，全国区域都被封，那真的是神仙难救）那么就需要在国内找个能访问这个 IP 的国内主机做一次代理，有时候一层代理还不够，那就多来几层，有时候国外的主机一台不稳定，那就多台负载均衡。反正可以尽情发挥。</p>
+
+<p>以上零零散散的有一些配置，不适合学习，完整的所有配置下载在<a href="https://tc.tosone.cn/high-available-shadowsocks.tar.gz">这里</a>。</p>
+    </div>
+
+    
+    
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://tosone.cn/tags/shadowsocks/">Shadowsocks</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+        
+          <a class="next" href="/post/leetcode-c-c&#43;&#43;/">
+            <span class="next-text nav-default">LeetCode C/C&#43;&#43;</span>
+            <span class="prev-text nav-mobile">Next</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+    
+
+  
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="icon-links">
+  
+
+
+<a href="https://tosone.cn/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+   
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    
+      2016 -
+    2019
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        Tosone
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
