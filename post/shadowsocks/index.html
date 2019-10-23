@@ -33,10 +33,12 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.6" />
+<meta name="generator" content="Hugo 0.59.0" />
 
 
 <link rel="canonical" href="https://tosone.cn/post/shadowsocks/" />
+
+
 
 
 
@@ -52,7 +54,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.31c4b7729c8d71cc152f8de4203d90bfd8a04f7eab69372de7234ebf55b7701b.css" integrity="sha256-McS3cpyNccwVL43kID2Qv9igT36raTct5yNOv1W3cBs=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.af20b78e95c84de86b00a0242a4a77bd2601700e1b250edf27537d957ac0041d.css" integrity="sha256-ryC3jpXITehrAKAkKkp3vSYBcA4bJQ7fJ1N9lXrABB0=" media="screen" crossorigin="anonymous">
 
 
 
@@ -62,9 +64,8 @@
 <meta property="og:description" content="Long long ago, 在一个叫 v2ex 的地方，有一位叫做 clowwindy 的用户。他为了避免网络流量分类技术和 ssh tunnel 的低效，自己写了一个用于加密流量的协议，并自用了一年多. 后来，由于这个协议非常高效，而且使用json 作为配置文件，配置起来非常方便，所以迅速赢得了很多用户，并在 v2ex 上有了一个专属的节点。shadowsocks 迅速被移植到各种平台、各种语言，用户也急剧上升，并且有了专门经营 shadowsocks 服务的商家。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://tosone.cn/post/shadowsocks/" />
-<meta property="article:published_time" content="2017-02-24T15:14:28&#43;00:00"/>
-<meta property="article:modified_time" content="2017-02-24T15:14:28&#43;00:00"/>
-
+<meta property="article:published_time" content="2017-02-24T15:14:28+00:00" />
+<meta property="article:modified_time" content="2017-02-24T15:14:28+00:00" />
 <meta itemprop="name" content="优雅的翻墙">
 <meta itemprop="description" content="Long long ago, 在一个叫 v2ex 的地方，有一位叫做 clowwindy 的用户。他为了避免网络流量分类技术和 ssh tunnel 的低效，自己写了一个用于加密流量的协议，并自用了一年多. 后来，由于这个协议非常高效，而且使用json 作为配置文件，配置起来非常方便，所以迅速赢得了很多用户，并在 v2ex 上有了一个专属的节点。shadowsocks 迅速被移植到各种平台、各种语言，用户也急剧上升，并且有了专门经营 shadowsocks 服务的商家。">
 
@@ -415,8 +416,8 @@
 
 <ul>
 <li>一般 Linux 都会有默认安装 Python，但是可能没有默认安装 pip，执行命令 <code>sudo apt install python-pip</code> 或 <code>sudo pacman -S python-pip</code>, 安装完成之后，就可以直接安装 Shadowsocks 的 Python 版本了，执行命令 <code>sudo -H pip install shadowsocks</code>，或者你担心不是装的最新版本的 Shadowsocks，可以执行命令 <code>pip install git+https://github.com/shadowsocks/shadowsocks.git@master</code>。</li>
-<li>安装完成之后系统里边会多出来一个命令 sslocal，sslocal 可以接受命令行参数或者文件配置。</li>
-</ul>
+
+<li><p>安装完成之后系统里边会多出来一个命令 sslocal，sslocal 可以接受命令行参数或者文件配置。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-json" data-lang="json"><span class="lnt"> 1
@@ -434,25 +435,27 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
-    <span class="nt">&#34;server&#34;</span><span class="p">:</span> <span class="s2">&#34;my_server_ip&#34;</span><span class="p">,</span>
-    <span class="nt">&#34;server_port&#34;</span><span class="p">:</span> <span class="mi">8388</span><span class="p">,</span>
-    <span class="nt">&#34;local_address&#34;</span><span class="p">:</span> <span class="s2">&#34;127.0.0.1&#34;</span><span class="p">,</span>
-    <span class="nt">&#34;local_port&#34;</span><span class="p">:</span> <span class="mi">1080</span><span class="p">,</span>
-    <span class="nt">&#34;password&#34;</span><span class="p">:</span> <span class="s2">&#34;mypassword&#34;</span><span class="p">,</span>
-    <span class="nt">&#34;timeout&#34;</span><span class="p">:</span> <span class="mi">300</span><span class="p">,</span>
-    <span class="nt">&#34;method&#34;</span><span class="p">:</span> <span class="s2">&#34;aes-256-cfb&#34;</span><span class="p">,</span>
-    <span class="nt">&#34;fast_open&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-    <span class="nt">&#34;workers&#34;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="nt">&#34;prefer_ipv6&#34;</span><span class="p">:</span> <span class="kc">false</span>
+<span class="nt">&#34;server&#34;</span><span class="p">:</span> <span class="s2">&#34;my_server_ip&#34;</span><span class="p">,</span>
+<span class="nt">&#34;server_port&#34;</span><span class="p">:</span> <span class="mi">8388</span><span class="p">,</span>
+<span class="nt">&#34;local_address&#34;</span><span class="p">:</span> <span class="s2">&#34;127.0.0.1&#34;</span><span class="p">,</span>
+<span class="nt">&#34;local_port&#34;</span><span class="p">:</span> <span class="mi">1080</span><span class="p">,</span>
+<span class="nt">&#34;password&#34;</span><span class="p">:</span> <span class="s2">&#34;mypassword&#34;</span><span class="p">,</span>
+<span class="nt">&#34;timeout&#34;</span><span class="p">:</span> <span class="mi">300</span><span class="p">,</span>
+<span class="nt">&#34;method&#34;</span><span class="p">:</span> <span class="s2">&#34;aes-256-cfb&#34;</span><span class="p">,</span>
+<span class="nt">&#34;fast_open&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+<span class="nt">&#34;workers&#34;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+<span class="nt">&#34;prefer_ipv6&#34;</span><span class="p">:</span> <span class="kc">false</span>
 <span class="p">}</span></code></pre></td></tr></table>
 </div>
-</div>
-<ul>
-<li><code>sslocal -p 8388 -s 45.35.75.57 -k password -l 1080 -m aes-256-cfb</code> 用参数在命令行启动。</li>
-<li><code>sslocal -c config.json</code> 利用配置文件启动。</li>
-<li>以上这样启动之后只是在前台运行了一个 Shadowsocks 的客户端，怎样开机自启动这才是关键，首先还是一个 Python 的工具软件 <code>supervisor</code>，这是一个很有名的进程管理工具，安装 <code>sudo -H pip install supervisor</code>。</li>
-<li>编辑文件 <code>/etc/supervisor/conf.d/shadowsocks.conf</code> 写入以下内容：</li>
-</ul>
+</div></li>
+
+<li><p><code>sslocal -p 8388 -s 45.35.75.57 -k password -l 1080 -m aes-256-cfb</code> 用参数在命令行启动。</p></li>
+
+<li><p><code>sslocal -c config.json</code> 利用配置文件启动。</p></li>
+
+<li><p>以上这样启动之后只是在前台运行了一个 Shadowsocks 的客户端，怎样开机自启动这才是关键，首先还是一个 Python 的工具软件 <code>supervisor</code>，这是一个很有名的进程管理工具，安装 <code>sudo -H pip install supervisor</code>。</p></li>
+
+<li><p>编辑文件 <code>/etc/supervisor/conf.d/shadowsocks.conf</code> 写入以下内容：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-json" data-lang="json"><span class="lnt">1
@@ -466,13 +469,17 @@
 <span class="err">autorestart=</span><span class="kc">true</span>
 <span class="err">user=nobody</span></code></pre></td></tr></table>
 </div>
-</div>
-<ul>
-<li>如果监听的端口小于 1024 以上的 <code>user=nobody</code> 改成 <code>user=root</code>。</li>
-<li><code>service supervisor start</code> 启动 supervisor 的服务。</li>
-<li><code>supervisorctl reload</code> 重载 supervisor 服务的配置。</li>
-<li><code>supervisorctl restart shadowsocks</code> 启动指定的服务。</li>
-<li>如果对 <code>supervisor</code> 的操作有有什么疑问的话可以专门搜索一下 <code>supervisor</code> 的基本操作。</li>
+</div></li>
+
+<li><p>如果监听的端口小于 1024 以上的 <code>user=nobody</code> 改成 <code>user=root</code>。</p></li>
+
+<li><p><code>service supervisor start</code> 启动 supervisor 的服务。</p></li>
+
+<li><p><code>supervisorctl reload</code> 重载 supervisor 服务的配置。</p></li>
+
+<li><p><code>supervisorctl restart shadowsocks</code> 启动指定的服务。</p></li>
+
+<li><p>如果对 <code>supervisor</code> 的操作有有什么疑问的话可以专门搜索一下 <code>supervisor</code> 的基本操作。</p></li>
 </ul>
 
 <h4 id="第三种方法-1">第三种方法</h4>
@@ -568,6 +575,8 @@
 
     
 
+  
+
         </div>
       </div>
     </main>
@@ -577,8 +586,16 @@
   
 
 
+<a href="https://tosone.cn/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
 
-
+  </a>
+   
 </div>
 
 <div class="copyright">
@@ -593,7 +610,7 @@
   <span class="copyright-year">
     &copy;
     
-    2016 -
+      2016 -
     2019
     <span class="heart">
       
@@ -607,17 +624,17 @@
 
       </i>
     </span><span class="author">
-      Tosone
-      
-    </span></span>
+        Tosone
+        
+      </span></span>
 
   
   
 
   
-  <span>
-    <a href="http://www.beian.miit.gov.cn" target="_blank">豫ICP备16023221号</a>
-  </span>
+    <span>
+      &lt;a href=&#34;http://www.beian.miit.gov.cn&#34; target=&#34;_blank&#34;&gt;豫ICP备16023221号&lt;/a&gt;
+    </span>
   
 </div>
 
@@ -643,6 +660,12 @@
 
 
 <script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
+
+
+
+
+
+
 
 
 
