@@ -71,7 +71,7 @@ docker-compose up --force-recreate -d gitea
 
 ### HTTPS
 
-实现 https 的方式有很多，这里选用 [traefik](https://traefik.io/) 这个软件，可以实现 https 的自动续期，负载均衡，蓝绿部署等等，配置比较复杂，我们需要的配置很简单。配置如下：
+实现 https 的方式有很多，这里选用 [traefik](https://traefik.io/) 这个软件，可以实现 HTTPS 的自动续期，负载均衡，蓝绿部署等等，配置比较复杂，我们需要的配置很简单。配置如下：
 
 ``` toml
 logLevel = "ERROR"
@@ -111,11 +111,11 @@ entryPoint = "http"
 docker-compose up --force-recreate -d traefik
 ```
 
-OK，这时候再启动你的 gitea，然后把相应的域名解析到你的服务器上，你就完成了一个 https 的服务部署了，因为 traefik 可以监听所有 docker 上的容器的 label 参数，然后代理对应容器的服务成 https。
+OK，这时候再启动你的 gitea，然后把相应的域名解析到你的服务器上，你就完成了一个 https 的服务部署了，因为 traefik 可以监听所有 docker 上的容器的 label 参数，然后代理对应容器的服务成 HTTPS
 
 ### SSH
 
-还不满足，git 的 ssh 功能还不能用，因为服务器的 22 端口和这个 service 需要监听的端口是冲突的，那么需要一边让路。这个端口做不到复用，这里的方案是服务器的 ssh 端口为 git ssh 端口让步。OK，上边的那个 docker-compose.yml 文件不需要任何修改，修改本机的 `/etc/ssh/sshd_config` 里边有个关于 `Port` 的配置修改为其他端口，暂且认为你修改成了 10，然后重启 `sshd` 的服务 `systemctl restart sshd`，OK，现在 gitea 的 SSH 22 端口的服务是可以使用了，但是有个后遗症，导致我们以后登录服务器需要用这样的命令登陆 `ssh -p 10 user@10.10.10.10`，每次需要我们手动指定这个端口号，有些人会受不了，可以这么做，修改你本地的 `$HOME/.ssh/config` 这个文件，添加如下内容：
+还不满足，Git 的 ssh 功能还不能用，因为服务器的 22 端口和这个 service 需要监听的端口是冲突的，那么需要一边让路。这个端口做不到复用，这里的方案是服务器的 ssh 端口为 git ssh 端口让步。OK，上边的那个 docker-compose.yml 文件不需要任何修改，修改本机的 `/etc/ssh/sshd_config` 里边有个关于 `Port` 的配置修改为其他端口，暂且认为你修改成了 10，然后重启 `sshd` 的服务 `systemctl restart sshd`，OK，现在 gitea 的 SSH 22 端口的服务是可以使用了，但是有个后遗症，导致我们以后登录服务器需要用这样的命令登陆 `ssh -p 10 user@10.10.10.10`，每次需要我们手动指定这个端口号，有些人会受不了，可以这么做，修改你本地的 `$HOME/.ssh/config` 这个文件，添加如下内容：
 
 ```
 Host my_saoqi_host
@@ -128,10 +128,10 @@ Host my_saoqi_host
 
 ### 存储备份
 
-你的 Gitea 可以用 https 了，也可以 ssh 了，但是主机突然没了怎么办？那就需要我们定时的备份一下存储到云存储上，这里选用 OSS。经过我的一番调教每次运行如下命令直接将 Gitea 的内容被增量备份 OSS：
+你的 Gitea 可以用 HTTPS 了，也可以 SSH 了，但是主机突然没了怎么办？那就需要我们定时的备份一下存储到云存储上，这里选用 OSS。经过我的一番调教每次运行如下命令直接将 Gitea 的内容被增量备份 OSS：
 
 ``` bash
-ossutil64 cp -r -u -c .ossutilconfig  /data/volume oss://your-bucker/volume
+ossutil64 cp -r -u -c .ossutilconfig  /data/volume oss://your-bucket/volume
 ```
 
 将以上内容加入到 crond 中就可以定时备份存储到 OSS 上了，是增量更新，OSS 上的存储也不贵，你总是内网传输这部分内容，所以不会有流量传输的费用，仅有存储费用。
