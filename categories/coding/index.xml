@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>NodeJs on Tosone&#39;s Blog</title>
-    <link>https://tosone.cn/tags/nodejs/</link>
-    <description>Recent content in NodeJs on Tosone&#39;s Blog</description>
+    <title>Coding on Tosone&#39;s Blog</title>
+    <link>https://tosone.cn/categories/coding/</link>
+    <description>Recent content in Coding on Tosone&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Tue, 12 Nov 2019 22:01:55 +0800</lastBuildDate>
     
-	<atom:link href="https://tosone.cn/tags/nodejs/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://tosone.cn/categories/coding/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -18,15 +18,6 @@
       
       <guid>https://tosone.cn/post/node-iojs/</guid>
       <description>&lt;p&gt;2014 年 12 月，多位重量级 Node.js 开发者不满 Joyent 对 Node.js 的管理，自立门户创建了 io.js。io.js 的发展速度非常快，先是于 2015 年 1 月份发布了 1.0 版本，并且很快就达到了 2.0 版本，社区非常活跃。而最近 io.js 社区又宣布，这两个项目将合并到 Node 基金会下，并暂时由 Node.js 和 io.js 核心技术团队联合监督”运营。本文将聊一聊Node.js 项目的一些历史情况，与 io.js 项目之间的恩怨纠葛，他们将来的发展去向。希望能从历史的层面去了解这个开源项目在运营模式上是如何演变和发展的。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Web RTC Demo</title>
-      <link>https://tosone.cn/post/webrtc/</link>
-      <pubDate>Sun, 26 Feb 2017 09:56:03 +0000</pubDate>
-      
-      <guid>https://tosone.cn/post/webrtc/</guid>
-      <description>&lt;p&gt;WebRTC 项目的最终目的主要是让 Web 开发者能够基于浏览器轻易快捷开发出丰富的实时多媒体应用，而无需下载安装任何插件，Web 开发者也无需关注多媒体的数字信号处理过程，只需编写简单的 Javascript 程序即可实现。&lt;/p&gt;</description>
     </item>
     
   </channel>
