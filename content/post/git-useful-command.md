@@ -15,7 +15,7 @@ Torvalds 开始着手开发 Git 是为了作为一种过渡方案来替代 BitKe
 
 ### 基础配置
 
-- `git config --global user.email "itosone@outlook.com"`
+- `git config --global user.email "i@tosone.cn"`
 - `git config --global user.name "Tosone"`
 - `git config --global credential.helper store`
 - `git config --global push.default simple`
