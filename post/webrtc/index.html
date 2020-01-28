@@ -33,7 +33,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1" />
+<meta name="generator" content="Hugo 0.63.1" />
 
 
 <link rel="canonical" href="https://tosone.cn/post/webrtc/" />
@@ -54,7 +54,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.af20b78e95c84de86b00a0242a4a77bd2601700e1b250edf27537d957ac0041d.css" integrity="sha256-ryC3jpXITehrAKAkKkp3vSYBcA4bJQ7fJ1N9lXrABB0=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.0995afa14b62cd93e93cfc066b646c4c17a3eddca0e9d52a1d9dcf5d90aaacd3.css" integrity="sha256-CZWvoUtizZPpPPwGa2RsTBej7dyg6dUqHZ3PXZCqrNM=" media="screen" crossorigin="anonymous">
 
 
 
@@ -68,16 +68,13 @@
 <meta property="article:modified_time" content="2017-02-26T09:56:03+00:00" />
 <meta itemprop="name" content="Web RTC Demo">
 <meta itemprop="description" content="WebRTC 项目的最终目的主要是让 Web 开发者能够基于浏览器轻易快捷开发出丰富的实时多媒体应用，而无需下载安装任何插件，Web 开发者也无需关注多媒体的数字信号处理过程，只需编写简单的 Javascript 程序即可实现。">
-
-
 <meta itemprop="datePublished" content="2017-02-26T09:56:03&#43;00:00" />
 <meta itemprop="dateModified" content="2017-02-26T09:56:03&#43;00:00" />
-<meta itemprop="wordCount" content="1376">
+<meta itemprop="wordCount" content="887">
 
 
 
-<meta itemprop="keywords" content="NodeJs," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="NodeJs," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Web RTC Demo"/>
 <meta name="twitter:description" content="WebRTC 项目的最终目的主要是让 Web 开发者能够基于浏览器轻易快捷开发出丰富的实时多媒体应用，而无需下载安装任何插件，Web 开发者也无需关注多媒体的数字信号处理过程，只需编写简单的 Javascript 程序即可实现。"/>
 
@@ -325,18 +322,16 @@
     
     <div class="post-content">
       <p>WebRTC 项目的最终目的主要是让 Web 开发者能够基于浏览器轻易快捷开发出丰富的实时多媒体应用，而无需下载安装任何插件，Web 开发者也无需关注多媒体的数字信号处理过程，只需编写简单的 Javascript 程序即可实现。</p>
-
 <p>{% codeblock package.json lang:json %}
 {
-  &ldquo;name&rdquo;: &ldquo;WebRTC-demo&rdquo;,
-  &ldquo;description&rdquo;: &ldquo;A simple WebRTC demo&rdquo;,
-  &ldquo;dependencies&rdquo;: {
-    &ldquo;uuid&rdquo;: &ldquo;^3.0.1&rdquo;,
-    &ldquo;ws&rdquo;: &ldquo;^2.1.0&rdquo;
-  }
+&ldquo;name&rdquo;: &ldquo;WebRTC-demo&rdquo;,
+&ldquo;description&rdquo;: &ldquo;A simple WebRTC demo&rdquo;,
+&ldquo;dependencies&rdquo;: {
+&ldquo;uuid&rdquo;: &ldquo;^3.0.1&rdquo;,
+&ldquo;ws&rdquo;: &ldquo;^2.1.0&rdquo;
+}
 }
 {% endcodeblock %}</p>
-
 <p>{% codeblock server.js lang:javascript %}
 const http = require(&ldquo;http&rdquo;);
 const uuid = require(&ldquo;uuid&rdquo;);
@@ -345,297 +340,146 @@ const fs = require(&ldquo;fs&rdquo;);
 const url = require(&lsquo;url&rsquo;);
 const path = require(&lsquo;path&rsquo;);
 const WebSocket = require(&lsquo;ws&rsquo;);</p>
-
 <p>const PORT = 3000; //端口
-const dist = &ldquo;./&rdquo;; //根目录
+const dist = &ldquo;./&quot;; //根目录
 const mine = {
-  &ldquo;.css&rdquo;: &ldquo;text/css&rdquo;,
-  &ldquo;.html&rdquo;: &ldquo;text/html&rdquo;,
-  &ldquo;.ico&rdquo;: &ldquo;image/x-icon&rdquo;,
-  &ldquo;.jpeg&rdquo;: &ldquo;image/jpeg&rdquo;,
-  &ldquo;.jpg&rdquo;: &ldquo;image/jpeg&rdquo;,
-  &ldquo;.gif&rdquo;: &ldquo;image/gif&rdquo;,
-  &ldquo;.js&rdquo;: &ldquo;text/javascript&rdquo;,
-  &ldquo;.json&rdquo;: &ldquo;application/json&rdquo;,
-  &ldquo;.pdf&rdquo;: &ldquo;application/pdf&rdquo;,
-  &ldquo;.png&rdquo;: &ldquo;image/png&rdquo;,
-  &ldquo;.svg&rdquo;: &ldquo;image/svg+xml&rdquo;,
-  &ldquo;.swf&rdquo;: &ldquo;application/x-shockwave-flash&rdquo;,
-  &ldquo;.tiff&rdquo;: &ldquo;image/tiff&rdquo;,
-  &ldquo;.txt&rdquo;: &ldquo;text/plain&rdquo;,
-  &ldquo;.wav&rdquo;: &ldquo;audio/x-wav&rdquo;,
-  &ldquo;.wma&rdquo;: &ldquo;audio/x-ms-wma&rdquo;,
-  &ldquo;.wmv&rdquo;: &ldquo;video/x-ms-wmv&rdquo;,
-  &ldquo;.xml&rdquo;: &ldquo;text/xml&rdquo;,
-  &ldquo;.mp3&rdquo;: &ldquo;audio/mpeg&rdquo;,
-  &ldquo;.mp4&rdquo;: &ldquo;video/mp4&rdquo;,
-  &ldquo;.exe&rdquo;: &ldquo;application/octet-stream&rdquo;,
-  &ldquo;.md&rdquo;: &ldquo;text/x-markdown&rdquo;
+&ldquo;.css&rdquo;: &ldquo;text/css&rdquo;,
+&ldquo;.html&rdquo;: &ldquo;text/html&rdquo;,
+&ldquo;.ico&rdquo;: &ldquo;image/x-icon&rdquo;,
+&ldquo;.jpeg&rdquo;: &ldquo;image/jpeg&rdquo;,
+&ldquo;.jpg&rdquo;: &ldquo;image/jpeg&rdquo;,
+&ldquo;.gif&rdquo;: &ldquo;image/gif&rdquo;,
+&ldquo;.js&rdquo;: &ldquo;text/javascript&rdquo;,
+&ldquo;.json&rdquo;: &ldquo;application/json&rdquo;,
+&ldquo;.pdf&rdquo;: &ldquo;application/pdf&rdquo;,
+&ldquo;.png&rdquo;: &ldquo;image/png&rdquo;,
+&ldquo;.svg&rdquo;: &ldquo;image/svg+xml&rdquo;,
+&ldquo;.swf&rdquo;: &ldquo;application/x-shockwave-flash&rdquo;,
+&ldquo;.tiff&rdquo;: &ldquo;image/tiff&rdquo;,
+&ldquo;.txt&rdquo;: &ldquo;text/plain&rdquo;,
+&ldquo;.wav&rdquo;: &ldquo;audio/x-wav&rdquo;,
+&ldquo;.wma&rdquo;: &ldquo;audio/x-ms-wma&rdquo;,
+&ldquo;.wmv&rdquo;: &ldquo;video/x-ms-wmv&rdquo;,
+&ldquo;.xml&rdquo;: &ldquo;text/xml&rdquo;,
+&ldquo;.mp3&rdquo;: &ldquo;audio/mpeg&rdquo;,
+&ldquo;.mp4&rdquo;: &ldquo;video/mp4&rdquo;,
+&ldquo;.exe&rdquo;: &ldquo;application/octet-stream&rdquo;,
+&ldquo;.md&rdquo;: &ldquo;text/x-markdown&rdquo;
 };
 const default_visit_list = [&ldquo;index.html&rdquo;, &ldquo;index.htm&rdquo;, &ldquo;default.html&rdquo;, &ldquo;default.htm&rdquo;];</p>
-
 <p>let default_visit = (request, response, default_visit_file_list, i) =&gt; {
-  fs.exists(path.join(<strong>dirname, dist, url.parse(request.url).pathname, default_visit_file_list[i]), function (exists) {
-    if (exists) { //若index.html存在
-      fs.readFile(path.join(</strong>dirname, dist, url.parse(request.url).pathname, default_visit_file_list[i]), &ldquo;binary&rdquo;, function (err, file) {
-        response.writeHead(200, {
-          &lsquo;Content-Type&rsquo;: mine[&ldquo;.html&rdquo;] || &ldquo;text/plain&rdquo;
-        });
-        response.write(file, &ldquo;binary&rdquo;);
-        response.end();
-      });
-    } else { //若index.html不存在
-      if (default_visit_file_list.length - 1 == i) {
-        console.log(&rdquo;\x1B[31mERROR\x1B[39m: &ldquo; + default_visit_file_list[0] + &ldquo; is not exists.&rdquo;);
-        file_not_found
-          (response, request);
-      } else {
-        default_visit(request, response, default_visit_list, i + 1);
-      }
-    }
-  });
+fs.exists(path.join(__dirname, dist, url.parse(request.url).pathname, default_visit_file_list[i]), function (exists) {
+if (exists) { //若index.html存在
+fs.readFile(path.join(__dirname, dist, url.parse(request.url).pathname, default_visit_file_list[i]), &ldquo;binary&rdquo;, function (err, file) {
+response.writeHead(200, {
+&lsquo;Content-Type&rsquo;: mine[&quot;.html&rdquo;] || &ldquo;text/plain&rdquo;
+});
+response.write(file, &ldquo;binary&rdquo;);
+response.end();
+});
+} else { //若index.html不存在
+if (default_visit_file_list.length - 1 == i) {
+console.log(&quot;\x1B[31mERROR\x1B[39m: &quot; + default_visit_file_list[0] + &quot; is not exists.&quot;);
+file_not_found
+(response, request);
+} else {
+default_visit(request, response, default_visit_list, i + 1);
+}
+}
+});
 }
 let file_not_found = (response, request) =&gt; {
-  response.writeHead(404, {
-    &lsquo;Content-Type&rsquo;: &lsquo;text/plain&rsquo;
-  });
-  response.write(&ldquo;This request URL &rdquo; + url.parse(request.url).pathname + &ldquo; was not found on this server.&rdquo;);
-  response.end();
+response.writeHead(404, {
+&lsquo;Content-Type&rsquo;: &lsquo;text/plain&rsquo;
+});
+response.write(&ldquo;This request URL &quot; + url.parse(request.url).pathname + &quot; was not found on this server.&quot;);
+response.end();
 }
 let server = http.createServer((request, response) =&gt; {
-  let realPath = path.join(__dirname, dist, url.parse(request.url).pathname);
-  if (url.parse(request.url).pathname == &ldquo;/&rdquo; || url.parse(request.url).pathname.split(&ldquo;/&rdquo;)[url.parse(request.url).pathname.split(&ldquo;/&rdquo;).length - 1].indexOf(&ldquo;.&rdquo;) == -1) { //访问目录为 &ldquo;/&rdquo;
-    default_visit(request, response, default_visit_list, 0);
-  } else { //指定路径
-    let ext = path.extname(realPath);
-    fs.exists(realPath, exists =&gt; {
-      if (!exists) { //指定路径的文件不存在
-        console.log(&rdquo;\x1B[31mERROR\x1B[39m: &ldquo; + realPath + &rdquo; is not exists.&ldquo;);
-        file_not_found(response, request);
-      } else { //指定路径的文件存在
-        fs.readFile(realPath, &ldquo;binary&rdquo;, (err, file) =&gt; {
-          response.writeHead(200, {
-            &lsquo;Content-Type&rsquo;: mine[ext] || &ldquo;text/plain&rdquo;
-          });
-          response.write(file, &ldquo;binary&rdquo;);
-          response.end();
-        });
-      }
-    });
-  }
+let realPath = path.join(__dirname, dist, url.parse(request.url).pathname);
+if (url.parse(request.url).pathname == &ldquo;/&rdquo; || url.parse(request.url).pathname.split(&quot;/&quot;)[url.parse(request.url).pathname.split(&quot;/&quot;).length - 1].indexOf(&quot;.&quot;) == -1) { //访问目录为 &ldquo;/&rdquo;
+default_visit(request, response, default_visit_list, 0);
+} else { //指定路径
+let ext = path.extname(realPath);
+fs.exists(realPath, exists =&gt; {
+if (!exists) { //指定路径的文件不存在
+console.log(&quot;\x1B[31mERROR\x1B[39m: &quot; + realPath + &quot; is not exists.&quot;);
+file_not_found(response, request);
+} else { //指定路径的文件存在
+fs.readFile(realPath, &ldquo;binary&rdquo;, (err, file) =&gt; {
+response.writeHead(200, {
+&lsquo;Content-Type&rsquo;: mine[ext] || &ldquo;text/plain&rdquo;
+});
+response.write(file, &ldquo;binary&rdquo;);
+response.end();
+});
+}
+});
+}
 });
 server.listen(PORT);
 server.on(&lsquo;listening&rsquo;, () =&gt; {
-  console.log(&ldquo;Server runing at <a href="http://127.0.0.1:&quot;">http://127.0.0.1:&quot;</a> + server.address().port + &ldquo;.&rdquo;);
+console.log(&ldquo;Server runing at http://127.0.0.1:&rdquo; + server.address().port + &ldquo;.&quot;);
 });
 server.on(&lsquo;error&rsquo;, () =&gt; {
-  console.log(&ldquo;Server Listen on &rdquo; + PORT + &ldquo; error.&rdquo;);
+console.log(&ldquo;Server Listen on &quot; + PORT + &quot; error.&quot;);
 });
 let sockets = new Map();
 let socketsID = new Set();
 let wss = new WebSocket.Server({ server: server });
 wss.on(&lsquo;connection&rsquo;, socket =&gt; {
-  socket.id = uuid.v4().split(&ldquo;-&rdquo;).join(&ldquo;);
-  console.log(&lsquo;connection &rsquo; + sockets.size);
-  socket.send(JSON.stringify({
-    event: &ldquo;peers&rdquo;,
-    data: {
-      queue: sockets.size + 1,
-      socketID: socket.id,
-      socketsID: Array.from(socketsID)
-    }
-  }));
-  for (let item of sockets.entries()) {
-    item[1].send(JSON.stringify({
-      event: &ldquo;new_peer&rdquo;,
-      data: {
-        socketID: socket.id,
-        me: item[1].id
-      }
-    }));
-  }
-  sockets.set(socket.id, socket);
-  socketsID.add(socket.id);
-  socket.on(&lsquo;message&rsquo;, msg =&gt; {
-    console.log(JSON.parse(msg).event + &ldquo;: &ldquo; + socket.id + &rdquo; &mdash;&gt; &ldquo; + sockets.get(JSON.parse(msg).data.socketID).id);
-    if (JSON.parse(msg).event === &ldquo;msg&rdquo;) {
-      for (let item of sockets.entries()) {
-        if (item[0] == JSON.parse(msg).data.socketID) continue;
-        item[1].send(msg);
-      }
-    } else {
-      sockets.get(JSON.parse(msg).data.socketID).send(msg);
-    }
-  });
-  socket.on(&ldquo;close&rdquo;, () =&gt; {
-    console.log(&ldquo;delete &rdquo; + socket.id);
-    sockets.delete(socket.id);
-    socketsID.delete(socket.id);
-    for (let item of sockets.entries()) {
-      item[1].send(JSON.stringify({
-        event: &ldquo;close&rdquo;,
-        data: {
-          socketID: socket.id
-        }
-      }));
-    }
-  })
+socket.id = uuid.v4().split(&quot;-&quot;).join('');
+console.log(&lsquo;connection ' + sockets.size);
+socket.send(JSON.stringify({
+event: &ldquo;peers&rdquo;,
+data: {
+queue: sockets.size + 1,
+socketID: socket.id,
+socketsID: Array.from(socketsID)
+}
+}));
+for (let item of sockets.entries()) {
+item[1].send(JSON.stringify({
+event: &ldquo;new_peer&rdquo;,
+data: {
+socketID: socket.id,
+me: item[1].id
+}
+}));
+}
+sockets.set(socket.id, socket);
+socketsID.add(socket.id);
+socket.on(&lsquo;message&rsquo;, msg =&gt; {
+console.log(JSON.parse(msg).event + &ldquo;: &quot; + socket.id + &quot; &mdash;&gt; &quot; + sockets.get(JSON.parse(msg).data.socketID).id);
+if (JSON.parse(msg).event === &ldquo;msg&rdquo;) {
+for (let item of sockets.entries()) {
+if (item[0] == JSON.parse(msg).data.socketID) continue;
+item[1].send(msg);
+}
+} else {
+sockets.get(JSON.parse(msg).data.socketID).send(msg);
+}
+});
+socket.on(&ldquo;close&rdquo;, () =&gt; {
+console.log(&ldquo;delete &quot; + socket.id);
+sockets.delete(socket.id);
+socketsID.delete(socket.id);
+for (let item of sockets.entries()) {
+item[1].send(JSON.stringify({
+event: &ldquo;close&rdquo;,
+data: {
+socketID: socket.id
+}
+}));
+}
+})
 });
 {% endcodeblock %}
-{% codeblock index.html lang:html %}
-<html>
-<head>
-  <meta charset="UTF-8">
-  <style>
-    html,
-    body {
-      margin: 0;
-      padding: 0;
-    }</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">  1
-</span><span class="lnt">  2
-</span><span class="lnt">  3
-</span><span class="lnt">  4
-</span><span class="lnt">  5
-</span><span class="lnt">  6
-</span><span class="lnt">  7
-</span><span class="lnt">  8
-</span><span class="lnt">  9
-</span><span class="lnt"> 10
-</span><span class="lnt"> 11
-</span><span class="lnt"> 12
-</span><span class="lnt"> 13
-</span><span class="lnt"> 14
-</span><span class="lnt"> 15
-</span><span class="lnt"> 16
-</span><span class="lnt"> 17
-</span><span class="lnt"> 18
-</span><span class="lnt"> 19
-</span><span class="lnt"> 20
-</span><span class="lnt"> 21
-</span><span class="lnt"> 22
-</span><span class="lnt"> 23
-</span><span class="lnt"> 24
-</span><span class="lnt"> 25
-</span><span class="lnt"> 26
-</span><span class="lnt"> 27
-</span><span class="lnt"> 28
-</span><span class="lnt"> 29
-</span><span class="lnt"> 30
-</span><span class="lnt"> 31
-</span><span class="lnt"> 32
-</span><span class="lnt"> 33
-</span><span class="lnt"> 34
-</span><span class="lnt"> 35
-</span><span class="lnt"> 36
-</span><span class="lnt"> 37
-</span><span class="lnt"> 38
-</span><span class="lnt"> 39
-</span><span class="lnt"> 40
-</span><span class="lnt"> 41
-</span><span class="lnt"> 42
-</span><span class="lnt"> 43
-</span><span class="lnt"> 44
-</span><span class="lnt"> 45
-</span><span class="lnt"> 46
-</span><span class="lnt"> 47
-</span><span class="lnt"> 48
-</span><span class="lnt"> 49
-</span><span class="lnt"> 50
-</span><span class="lnt"> 51
-</span><span class="lnt"> 52
-</span><span class="lnt"> 53
-</span><span class="lnt"> 54
-</span><span class="lnt"> 55
-</span><span class="lnt"> 56
-</span><span class="lnt"> 57
-</span><span class="lnt"> 58
-</span><span class="lnt"> 59
-</span><span class="lnt"> 60
-</span><span class="lnt"> 61
-</span><span class="lnt"> 62
-</span><span class="lnt"> 63
-</span><span class="lnt"> 64
-</span><span class="lnt"> 65
-</span><span class="lnt"> 66
-</span><span class="lnt"> 67
-</span><span class="lnt"> 68
-</span><span class="lnt"> 69
-</span><span class="lnt"> 70
-</span><span class="lnt"> 71
-</span><span class="lnt"> 72
-</span><span class="lnt"> 73
-</span><span class="lnt"> 74
-</span><span class="lnt"> 75
-</span><span class="lnt"> 76
-</span><span class="lnt"> 77
-</span><span class="lnt"> 78
-</span><span class="lnt"> 79
-</span><span class="lnt"> 80
-</span><span class="lnt"> 81
-</span><span class="lnt"> 82
-</span><span class="lnt"> 83
-</span><span class="lnt"> 84
-</span><span class="lnt"> 85
-</span><span class="lnt"> 86
-</span><span class="lnt"> 87
-</span><span class="lnt"> 88
-</span><span class="lnt"> 89
-</span><span class="lnt"> 90
-</span><span class="lnt"> 91
-</span><span class="lnt"> 92
-</span><span class="lnt"> 93
-</span><span class="lnt"> 94
-</span><span class="lnt"> 95
-</span><span class="lnt"> 96
-</span><span class="lnt"> 97
-</span><span class="lnt"> 98
-</span><span class="lnt"> 99
-</span><span class="lnt">100
-</span><span class="lnt">101
-</span><span class="lnt">102
-</span><span class="lnt">103
-</span><span class="lnt">104
-</span><span class="lnt">105
-</span><span class="lnt">106
-</span><span class="lnt">107
-</span><span class="lnt">108
-</span><span class="lnt">109
-</span><span class="lnt">110
-</span><span class="lnt">111
-</span><span class="lnt">112
-</span><span class="lnt">113
-</span><span class="lnt">114
-</span><span class="lnt">115
-</span><span class="lnt">116
-</span><span class="lnt">117
-</span><span class="lnt">118
-</span><span class="lnt">119
-</span><span class="lnt">120
-</span><span class="lnt">121
-</span><span class="lnt">122
-</span><span class="lnt">123
-</span><span class="lnt">124
-</span><span class="lnt">125
-</span><span class="lnt">126
-</span><span class="lnt">127
-</span><span class="lnt">128
-</span><span class="lnt">129
-</span><span class="lnt">130
-</span><span class="lnt">131
-</span><span class="lnt">132
-</span><span class="lnt">133
-</span><span class="lnt">134
-</span><span class="lnt">135
-</span><span class="lnt">136
-</span><span class="lnt">137
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">body {
+{% codeblock index.html lang:html %}</p>
+<!-- raw HTML omitted -->
+<pre><code>body {
   font-size: 62.5%;
-  font-family: Consolas, &#34;Microsoft Yahei&#34;;
+  font-family: Consolas, &quot;Microsoft Yahei&quot;;
   height: 100%;
   width: 100%;
   background: url(https://o3cpfaosb.qnssl.com/4874bd3e3bb8e89fd704771c77551f70.png) center center no-repeat;
@@ -760,7 +604,7 @@ p .msg {
 }
 
 .clearfix:after {
-  content: &#34;.&#34;;
+  content: &quot;.&quot;;
   display: block;
   height: 0;
   clear: both;
@@ -769,160 +613,10 @@ p .msg {
 
 .clearfix {
   *+height: 1%;
-}</pre></td></tr></table>
-</div>
-</div>
-<p></style>
-</head>
-<body>
-  <div class="body">
-    <div class="box clearfix">
-      <video id="localVideo" autoplay></video>
-    </div>
-    <div class="message"></div>
-    <input type="text" id="msg-ipt">
-  </div>
-  <script src="https://cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
-  <script src='index.js'></script>
-</body>
-</html>
-{% endcodeblock %}
-{% codeblock index.js lang:javascript %}
-var iceServer = {
-  &ldquo;iceServers&rdquo;: [{
-    url: &ldquo;stun:115.28.87.181:40167&rdquo;
-  }]
-};
-var socket = new WebSocket(&ldquo;wss://&rdquo; + window.location.host); //socket
-var localStream = null;
-var peerconns = new Map();
-var ipt_addevent = false;
-socket.onopen = function () {
-  socket.onmessage = function (msg) {
-    new Promise(function (resolve, reject) {
-      if (localStream) {
-        resolve(localStream);
-      } else {
-        navigator.webkitGetUserMedia({
-          &ldquo;audio&rdquo;: true,
-          &ldquo;video&rdquo;: true
-        }, function (stream) {
-          localStream = stream;
-          resolve(stream);
-          document.getElementById(&lsquo;localVideo&rsquo;).src = URL.createObjectURL(stream);
-        }, function (error) {
-          reject(error);
-        });
-      }
-    }).then(function (stream) {
-      var json = JSON.parse(msg.data);
-      var data = json.data;
-      if (!ipt_addevent) {
-        ipt_addevent = true;
-        var ipt = document.getElementById(&ldquo;msg-ipt&rdquo;);
-        ipt.addEventListener(&ldquo;keydown&rdquo;, function (e) {
-          if (e.keyCode == 13) {
-            socket.send(JSON.stringify({
-              event: &ldquo;msg&rdquo;,
-              data: {
-                msg: ipt.value,
-                socketID: data.socketID
-              }
-            }));
-            $(&ldquo;.message&rdquo;).append(&rdquo;<p><span class=\"name me\">&rdquo; + data.socketID + &ldquo;: </span><span class=\"msg\">&rdquo; + ipt.value + &ldquo;</span></p>&rdquo;);
-            ipt.value = &ldquo;&rdquo;;
-          }
-        }, true);
-      }
-      var createRTCPeerConnection = function (socketID, me) {
-        var pc = new webkitRTCPeerConnection(iceServer);
-        pc.addStream(stream);
-        peerconns.set(socketID, pc);
-        pc.onicecandidate = function (event) {
-          if (event.candidate !== null) {
-            socket.send(JSON.stringify({
-              event: &ldquo;_ice_candidate&rdquo;,
-              data: {
-                candidate: event.candidate,
-                socketID: socketID,
-                me: me
-              }
-            }));
-          }
-        };
-        pc.onaddstream = function (event) {
-          $(&ldquo;.box&rdquo;).append(&rdquo;<video id=\"" + socketID + "\" autoplay src='" + URL.createObjectURL(event.stream) + "'></video>&rdquo;)
-        };
-        return pc;
-      }
-      switch (json.event) {
-      case &ldquo;new_peer&rdquo;:
-        console.log(data.me)
-        createRTCPeerConnection(data.me, data.socketID);
-        break;
-      case &lsquo;peers&rsquo;:
-        console.log(data.socketsID)
-        for (var i in data.socketsID) {
-          (function () {
-            var otherSocketID = data.socketsID[i];
-            console.log(otherSocketID)
-            var pc = createRTCPeerConnection(otherSocketID, data.socketID);
-            pc.createOffer(function (desc) {
-              pc.setLocalDescription(desc);
-              socket.send(JSON.stringify({
-                event: &ldquo;_offer&rdquo;,
-                data: {
-                  sdp: desc,
-                  socketID: otherSocketID,
-                  me: data.socketID
-                }
-              }));
-            }, function (error) {
-              console.log(&lsquo;Failure callback: &lsquo; + error);
-            });
-          })()
-        }
-        if (data.queue == 1) {
-        }
-        break;
-      case &lsquo;_ice_candidate&rsquo;:
-        var pc = peerconns.get(data.socketID);
-        pc.addIceCandidate(new RTCIceCandidate(data.candidate));
-        break;
-      case &lsquo;_offer&rsquo;:
-        var pc = peerconns.get(data.socketID);
-        pc.setRemoteDescription(new RTCSessionDescription(data.sdp));
-        pc.createAnswer(function (desc) {
-          pc.setLocalDescription(desc);
-          socket.send(JSON.stringify({
-            event: &ldquo;_answer&rdquo;,
-            data: {
-              sdp: desc,
-              socketID: data.me,
-              me: data.socketID
-            }
-          }));
-        }, function (error) {
-          console.log(&lsquo;Failure callback: &lsquo; + error);
-        });
-        break;
-      case &lsquo;_answer&rsquo;:
-        peerconns.get(data.me).setRemoteDescription(new RTCSessionDescription(data.sdp)); //receive answer
-        break;
-      case &ldquo;close&rdquo;:
-        peerconns.delete(data.socketID);
-        $(&ldquo;#&rdquo; + data.socketID).remove();
-        break;
-      case &ldquo;msg&rdquo;:
-        $(&ldquo;.message&rdquo;).append(&rdquo;<p><span class=\"name other\">&rdquo; + data.socketID + &ldquo;: </span><span class=\"msg\">&rdquo; + data.msg + &ldquo;</span></p>&rdquo;);
-        break;
-      }
-    }).catch(function (err) {
-      console.log(err);
-    });
-  }
 }
-{% endcodeblock %}</p>
+</code></pre>
+<p><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
     </div>
 
     
@@ -1027,7 +721,7 @@ socket.onopen = function () {
     &copy;
     
       2016 -
-    2019
+    2020
     <span class="heart">
       
       <i class="iconfont">

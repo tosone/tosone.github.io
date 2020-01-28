@@ -33,7 +33,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1" />
+<meta name="generator" content="Hugo 0.63.1" />
 
 
 <link rel="canonical" href="https://tosone.cn/post/ecs-init/" />
@@ -54,7 +54,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.af20b78e95c84de86b00a0242a4a77bd2601700e1b250edf27537d957ac0041d.css" integrity="sha256-ryC3jpXITehrAKAkKkp3vSYBcA4bJQ7fJ1N9lXrABB0=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.0995afa14b62cd93e93cfc066b646c4c17a3eddca0e9d52a1d9dcf5d90aaacd3.css" integrity="sha256-CZWvoUtizZPpPPwGa2RsTBej7dyg6dUqHZ3PXZCqrNM=" media="screen" crossorigin="anonymous">
 
 
 
@@ -68,16 +68,13 @@
 <meta property="article:modified_time" content="2017-04-17T21:38:24+00:00" />
 <meta itemprop="name" content="ECS init">
 <meta itemprop="description" content="ECS 新购主机 Ubuntu 初始化的一些操作。">
-
-
 <meta itemprop="datePublished" content="2017-04-17T21:38:24&#43;00:00" />
 <meta itemprop="dateModified" content="2017-04-17T21:38:24&#43;00:00" />
 <meta itemprop="wordCount" content="323">
 
 
 
-<meta itemprop="keywords" content="Linux," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Linux," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="ECS init"/>
 <meta name="twitter:description" content="ECS 新购主机 Ubuntu 初始化的一些操作。"/>
 
@@ -325,19 +322,14 @@
     
     <div class="post-content">
       <p>ECS 新购主机 Ubuntu 初始化的一些操作。</p>
-
 <h3 id="重置主机名">重置主机名</h3>
-
 <ul>
 <li>修改你的自己的个性化主机名 <code>vi /etc/hostname</code>。</li>
 <li>完事之后还需要修改 <code>vi /etc/hosts</code> <a href="https://askubuntu.com/questions/59458/error-message-when-i-run-sudo-unable-to-resolve-host-none">原因请看</a>。</li>
 <li>最后 <code>apt update</code>。</li>
 </ul>
-
 <h3 id="挂载数据盘">挂载数据盘</h3>
-
 <p>系统盘是系统该有东西，总是要有个存储数据的地方，所以你需要有一个数据盘。</p>
-
 <ul>
 <li>查看未挂载的磁盘 <code>fdisk -l</code></li>
 <li>创建分区 <code>fdisk /dev/xvdb</code></li>
@@ -348,11 +340,10 @@
 <li>重启 <code>reboot</code></li>
 <li>查看分区信息 <code>df</code></li>
 </ul>
-
 <h3 id="创建用户">创建用户</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -361,19 +352,16 @@
 <pre class="chroma"><code class="language-bash" data-lang="bash">adduser tosone
 apt install sudo
 gpasswd -a tosone sudo
-visudo</code></pre></td></tr></table>
+visudo
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>在 <code># User privilege specification</code> 这里行下边添加一行 <code>tosone ALL=(ALL:ALL) ALL</code>。tosone 这个用户将使用密码来拥有所有 root 拥有的权限。</p>
-
+</div><p>在 <code># User privilege specification</code> 这里行下边添加一行 <code>tosone ALL=(ALL:ALL) ALL</code>。tosone 这个用户将使用密码来拥有所有 root 拥有的权限。</p>
 <h3 id="复制公钥">复制公钥</h3>
-
 <p><code>ssh-key-copy tosone@ip</code> 将自己的 pubkey 复制到远程的主机上，然后后续不再需要密码登录主机了。</p>
-
 <h3 id="安装常用软件">安装常用软件</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -386,7 +374,8 @@ sh -c <span class="s2">&#34;</span><span class="k">$(</span>curl -fsSL https://r
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh <span class="p">|</span> bash
 <span class="nb">echo</span> <span class="s2">&#34;export NVM_DIR=\&#34;\$HOME/.nvm\&#34;&#34;</span> &gt;&gt; ~/.zshrc
 <span class="nb">echo</span> <span class="s2">&#34;[ -s \&#34;\$NVM_DIR/nvm.sh\&#34; ] &amp;&amp; . \&#34;\$NVM_DIR/nvm.sh\&#34;&#34;</span> &gt;&gt; ~/.zshrc
-<span class="nb">source</span> ~/.zshrc</code></pre></td></tr></table>
+<span class="nb">source</span> ~/.zshrc
+</code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -493,7 +482,7 @@ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh <sp
     &copy;
     
       2016 -
-    2019
+    2020
     <span class="heart">
       
       <i class="iconfont">

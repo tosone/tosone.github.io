@@ -33,7 +33,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1" />
+<meta name="generator" content="Hugo 0.63.1" />
 
 
 <link rel="canonical" href="https://tosone.cn/post/phony-target/" />
@@ -54,7 +54,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.af20b78e95c84de86b00a0242a4a77bd2601700e1b250edf27537d957ac0041d.css" integrity="sha256-ryC3jpXITehrAKAkKkp3vSYBcA4bJQ7fJ1N9lXrABB0=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.0995afa14b62cd93e93cfc066b646c4c17a3eddca0e9d52a1d9dcf5d90aaacd3.css" integrity="sha256-CZWvoUtizZPpPPwGa2RsTBej7dyg6dUqHZ3PXZCqrNM=" media="screen" crossorigin="anonymous">
 
 
 
@@ -68,16 +68,13 @@
 <meta property="article:modified_time" content="2018-03-08T21:14:28+00:00" />
 <meta itemprop="name" content="PHONY target">
 <meta itemprop="description" content="A phony target is one that is not really the name of a file; rather it is just a name for a recipe to be executed when you make an explicit request. There are two reasons to use a phony target: to avoid a conflict with a file of the same name, and to improve performance.">
-
-
 <meta itemprop="datePublished" content="2018-03-08T21:14:28&#43;00:00" />
 <meta itemprop="dateModified" content="2018-03-08T21:14:28&#43;00:00" />
 <meta itemprop="wordCount" content="920">
 
 
 
-<meta itemprop="keywords" content="Makefile," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Makefile," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="PHONY target"/>
 <meta name="twitter:description" content="A phony target is one that is not really the name of a file; rather it is just a name for a recipe to be executed when you make an explicit request. There are two reasons to use a phony target: to avoid a conflict with a file of the same name, and to improve performance."/>
 
@@ -325,15 +322,13 @@
     
     <div class="post-content">
       <p>A phony target is one that is not really the name of a file; rather it is just a name for a recipe to be executed when you make an explicit request. There are two reasons to use a phony target: to avoid a conflict with a file of the same name, and to improve performance.</p>
-
 <blockquote>
 <p>原文链接：<a href="https://www.gnu.org/software/make/manual/html_node/Phony-Targets.html">https://www.gnu.org/software/make/manual/html_node/Phony-Targets.html</a></p>
 </blockquote>
-
 <p>If you write a rule whose recipe will not create the target file, the recipe will be executed every time the target comes up for remaking. Here is an example:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-makefile" data-lang="makefile"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
@@ -341,13 +336,11 @@
     rm *.o temp
 </code></pre></td></tr></table>
 </div>
-</div>
-<p>Because the rm command does not create a file named clean, probably no such file will ever exist. Therefore, the rm command will be executed every time you say ‘make clean’.</p>
-
+</div><p>Because the rm command does not create a file named clean, probably no such file will ever exist. Therefore, the rm command will be executed every time you say ‘make clean’.</p>
 <p>In this example, the clean target will not work properly if a file named clean is ever created in this directory. Since it has no prerequisites, clean would always be considered up to date and its recipe would not be executed. To avoid this problem you can explicitly declare the target to be phony by making it a prerequisite of the special target .PHONY (see Special Built-in Target Names) as follows:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-makefile" data-lang="makefile"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
@@ -357,13 +350,11 @@
     rm *.o temp
 </code></pre></td></tr></table>
 </div>
-</div>
-<p>Once this is done, ‘make clean’ will run the recipe regardless of whether there is a file named clean.</p>
-
+</div><p>Once this is done, ‘make clean’ will run the recipe regardless of whether there is a file named clean.</p>
 <p>Phony targets are also useful in conjunction with recursive invocations of make (see Recursive Use of make). In this situation the makefile will often contain a variable which lists a number of sub-directories to be built. A simplistic way to handle this is to define one rule with a recipe that loops over the sub-directories, like this:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-makefile" data-lang="makefile"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -379,13 +370,11 @@
 </span><span class="se"></span>    <span class="k">done</span>
 </code></pre></td></tr></table>
 </div>
-</div>
-<p>There are problems with this method, however. First, any error detected in a sub-make is ignored by this rule, so it will continue to build the rest of the directories even when one fails. This can be overcome by adding shell commands to note the error and exit, but then it will do so even if make is invoked with the -k option, which is unfortunate. Second, and perhaps more importantly, you cannot take advantage of make’s ability to build targets in parallel (see Parallel Execution), since there is only one rule.</p>
-
+</div><p>There are problems with this method, however. First, any error detected in a sub-make is ignored by this rule, so it will continue to build the rest of the directories even when one fails. This can be overcome by adding shell commands to note the error and exit, but then it will do so even if make is invoked with the -k option, which is unfortunate. Second, and perhaps more importantly, you cannot take advantage of make’s ability to build targets in parallel (see Parallel Execution), since there is only one rule.</p>
 <p>By declaring the sub-directories as .PHONY targets (you must do this as the sub-directory obviously always exists; otherwise it won’t be built) you can remove these problems:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-makefile" data-lang="makefile"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -409,17 +398,13 @@
 <span class="nf">foo</span><span class="o">:</span> <span class="n">baz</span>
 </code></pre></td></tr></table>
 </div>
-</div>
-<p>Here we’ve also declared that the foo sub-directory cannot be built until after the baz sub-directory is complete; this kind of relationship declaration is particularly important when attempting parallel builds.</p>
-
+</div><p>Here we’ve also declared that the foo sub-directory cannot be built until after the baz sub-directory is complete; this kind of relationship declaration is particularly important when attempting parallel builds.</p>
 <p>The implicit rule search (see Implicit Rules) is skipped for .PHONY targets. This is why declaring a target as .PHONY is good for performance, even if you are not worried about the actual file existing.</p>
-
 <p>A phony target should not be a prerequisite of a real target file; if it is, its recipe will be run every time make goes to update that file. As long as a phony target is never a prerequisite of a real target, the phony target recipe will be executed only when the phony target is a specified goal (see Arguments to Specify the Goals).</p>
-
 <p>Phony targets can have prerequisites. When one directory contains multiple programs, it is most convenient to describe all of the programs in one makefile ./Makefile. Since the target remade by default will be the first one in the makefile, it is common to make this a phony target named ‘all’ and give it, as prerequisites, all the individual programs. For example:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-makefile" data-lang="makefile"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -445,13 +430,11 @@
     cc -o prog3 prog3.o sort.o utils.o
 </code></pre></td></tr></table>
 </div>
-</div>
-<p>Now you can say just ‘make’ to remake all three programs, or specify as arguments the ones to remake (as in ‘make prog1 prog3’). Phoniness is not inherited: the prerequisites of a phony target are not themselves phony, unless explicitly declared to be so.</p>
-
+</div><p>Now you can say just ‘make’ to remake all three programs, or specify as arguments the ones to remake (as in ‘make prog1 prog3’). Phoniness is not inherited: the prerequisites of a phony target are not themselves phony, unless explicitly declared to be so.</p>
 <p>When one phony target is a prerequisite of another, it serves as a subroutine of the other. For example, here ‘make cleanall’ will delete the object files, the difference files, and the file program:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-makefile" data-lang="makefile"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -580,7 +563,7 @@
     &copy;
     
       2016 -
-    2019
+    2020
     <span class="heart">
       
       <i class="iconfont">

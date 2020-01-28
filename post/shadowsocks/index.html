@@ -33,7 +33,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1" />
+<meta name="generator" content="Hugo 0.63.1" />
 
 
 <link rel="canonical" href="https://tosone.cn/post/shadowsocks/" />
@@ -54,7 +54,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.af20b78e95c84de86b00a0242a4a77bd2601700e1b250edf27537d957ac0041d.css" integrity="sha256-ryC3jpXITehrAKAkKkp3vSYBcA4bJQ7fJ1N9lXrABB0=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.0995afa14b62cd93e93cfc066b646c4c17a3eddca0e9d52a1d9dcf5d90aaacd3.css" integrity="sha256-CZWvoUtizZPpPPwGa2RsTBej7dyg6dUqHZ3PXZCqrNM=" media="screen" crossorigin="anonymous">
 
 
 
@@ -68,16 +68,13 @@
 <meta property="article:modified_time" content="2017-02-24T15:14:28+00:00" />
 <meta itemprop="name" content="优雅的翻墙">
 <meta itemprop="description" content="Long long ago, 在一个叫 v2ex 的地方，有一位叫做 clowwindy 的用户。他为了避免网络流量分类技术和 ssh tunnel 的低效，自己写了一个用于加密流量的协议，并自用了一年多. 后来，由于这个协议非常高效，而且使用json 作为配置文件，配置起来非常方便，所以迅速赢得了很多用户，并在 v2ex 上有了一个专属的节点。shadowsocks 迅速被移植到各种平台、各种语言，用户也急剧上升，并且有了专门经营 shadowsocks 服务的商家。">
-
-
 <meta itemprop="datePublished" content="2017-02-24T15:14:28&#43;00:00" />
 <meta itemprop="dateModified" content="2017-02-24T15:14:28&#43;00:00" />
 <meta itemprop="wordCount" content="4335">
 
 
 
-<meta itemprop="keywords" content="Shadowsocks," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Shadowsocks," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="优雅的翻墙"/>
 <meta name="twitter:description" content="Long long ago, 在一个叫 v2ex 的地方，有一位叫做 clowwindy 的用户。他为了避免网络流量分类技术和 ssh tunnel 的低效，自己写了一个用于加密流量的协议，并自用了一年多. 后来，由于这个协议非常高效，而且使用json 作为配置文件，配置起来非常方便，所以迅速赢得了很多用户，并在 v2ex 上有了一个专属的节点。shadowsocks 迅速被移植到各种平台、各种语言，用户也急剧上升，并且有了专门经营 shadowsocks 服务的商家。"/>
 
@@ -325,33 +322,20 @@
     
     <div class="post-content">
       <p>Long long ago, 在一个叫 v2ex 的地方，有一位叫做 clowwindy 的用户。他为了避免网络流量分类技术和 ssh tunnel 的低效，自己写了一个用于加密流量的协议，并自用了一年多. 后来，由于这个协议非常高效，而且使用json 作为配置文件，配置起来非常方便，所以迅速赢得了很多用户，并在 v2ex 上有了一个专属的节点。shadowsocks 迅速被移植到各种平台、各种语言，用户也急剧上升，并且有了专门经营 shadowsocks 服务的商家。</p>
-
 <h3 id="关于翻墙">关于翻墙</h3>
-
-<hr />
-
+<hr>
 <blockquote>
 <p>不会翻墙的程序员是没有走在正确的康庄大道上，不会翻墙的民众就不是明事理的民众，翻墙是你的必备技能。</p>
 </blockquote>
-
 <h3 id="翻墙历史">翻墙历史</h3>
-
 <p>翻墙的话，方法有很多，直接到百度上搜一下关键词 <code>vpn</code> 也是可以搜到很多相关信息。很多乱七八糟的那些网站里边的东西也都是可以用的。但是有一点，那些网站里边的东西可能并不会长久，可能隔一段时间网站就消失了，找不到了，你花钱买的翻墙利器也就没了保障。</p>
-
 <p>说一点黑历史，之前 UC 浏览器中有一个翻墙的神器叫红杏出墙，当时觉得特别好用，也是免费的。翻墙嘛，毕竟也是国家花大力气建造的 GFW 来做这堵墙的，这么好的工具很定不能让你轻易地用啊。之后 UC 就撤掉了这个插件，现在也找不到了，现在关于红杏出墙的所有网站都算是空壳了，千万不要再相信关于红杏出墙的任何网站，想当年红杏出墙的克隆网站、钓鱼网站相当之多，现在已经是凄凄惨惨戚戚。后来也是出现一些翻墙浏览器，简单的就是说，在浏览器中做了一些插件，只需要把人家提供的浏览器装上去，就可以翻墙了，但是无奈，这种东西能用的时间太过于短了，市场需要更新，对于嫌麻烦的人来说这简直就是不可以忍受的。然后还有一个不得不说的工具 <code>Lantern</code> ，这个工具是基于 <code>P2P</code> 的，这种点对点的协议屏蔽的很多的中间环节，所以说能够翻墙，但是在国内想封锁 <code>Lantern</code> 是比较容易的，只是说国家在很大程度上不想让绝大多数人翻墙而已，这才是GFW的目的，目前 <code>Lantern</code> 是时不时就不能用的玩意儿。</p>
-
 <h3 id="windows-篇">Windows 篇</h3>
-
 <p>下面来到我们的重要环节，怎么样才能优雅地翻墙，首先是 <code>Windows</code> 篇：</p>
-
 <p>首先我是不推荐那些乱七八糟的网站里边的小工具的，不可靠也不长久，然后也不推荐 <code>Lantern</code> 的。只推荐一个东西：<a href="https://shadowsocks.org/">Shadowsocks</a>，这个网站不翻墙是访问不到的。</p>
-
 <p>然后着重强调一点的是本文不提供任何非官方的下载链接，所有官方下载链接均是目前的最新版，如果你看到的是时间是很久以后，请根据提供的链接自行寻找最新版的下载链结，我想这个并不困难吧。</p>
-
 <p>最后，本文不提供任何截图，原因不说明。</p>
-
 <h4 id="第一种方法">第一种方法</h4>
-
 <ul>
 <li>首先，到 <code>GitHub</code> 找到 <a href="https://github.com/shadowsocks/">Shadowsocks</a> 这个项目，可以稍微浏览一下，这个项目是开源的，你可以查看它的所有项目的每一行代码。</li>
 <li>然后，找到一个项目，名字叫 <a href="https://github.com/shadowsocks/shadowsocks-qt5">shadowsocks-qt5</a>，看到 <code>QT5</code> 你应该知道，这个项目的软件是跨平台的。</li>
@@ -367,19 +351,17 @@
 <li>之后 SwitchyOmega 会引导你怎么用。可以看一眼，没什么坏处。</li>
 <li>首先选择到右侧的 <code>proxy</code> 选项。代理协议选择 <code>SOCKS5</code>，代理服务器填写 <code>127.0.0.1</code>，代理端口填写上边设置好的 <code>1880</code>。</li>
 <li>SwitchyOmega 是有几种模式的：
-
 <ul>
 <li>proxy：全部都翻墙，显然是不合理的，对于国内的网站是不需要翻墙的。</li>
 <li>auto switch：自动选择，这是本人非常推荐的，选择不能访问的页面翻墙。</li>
 <li>系统代理：选择系统上的代理，这种一般用不到。</li>
 <li>直接连接：就是没有做任何的代理。</li>
-</ul></li>
+</ul>
+</li>
 <li>当有资源未加载的话，在 Chrome 浏览器有右上角有个圆圈，那是 SwitchyOmega 的图标，然后图标上会有带有数字的感叹号。点击图标，会有显示多少资源未加载的菜单。之后会让你选择那些未加载的资源是否选择 proxy，选择之后那个资源就永远的加载到了 SwitchyOmega 的翻墙列表中了。不需要再次设置，除非浏览器卸载或者 SwitchyOmega 重装。之所以有时候某个资源明明已经选择翻墙了，但是下次还是会有显示那个资源未被加载，原因在于这个资源可能不稳定或者网络情况不太好，请给它足够的时间的时间，而不是一直点加入我的翻墙列表中。</li>
 <li>当用了一段时间 SwitchyOmega 之后，翻墙列表会越来越丰富，这是一个习惯培养的过程。</li>
 </ul>
-
 <h4 id="第二种方法">第二种方法</h4>
-
 <ul>
 <li>第一种方法是最行之有效最稳定的方法，这第二种方法和上边的方法没有太大的不一样，只是用的 Shadowssocks 软件不太一样。</li>
 <li>首先，还是查看 <a href="https://github.com">GitHub</a> 上用户 <a href="https://github.com/shadowsocks">shadowsocks</a> 有一个项目 <a href="https://github.com/shadowsocks/shadowsocks-chromeapp">shadowsocks-chromeapp</a>，看名字就知道这是 Chrome 的一个插件。</li>
@@ -387,9 +369,7 @@
 <li>后边的步骤和上边第一种方法没有什么不一样的了。</li>
 <li>然后说一个比较坑的地方，这个插件 shadowsocks-chromeapp，不知道为什么会自己关闭。等到你不能翻墙的时候，查看一下 shadowsocks-chromeapp 是否在开着吧。</li>
 </ul>
-
 <h4 id="第三种方法">第三种方法</h4>
-
 <ul>
 <li>第三种方法，也是用的 Shadowssocks 软件不太一样，这次用的软件是用 C# 写的。在某一段时间 GitHub 上这个仓库的源代码被移除了，这是中国政府的斗争结果，我很不想表达我的愤怒的，但是还是要发泄一下，GFW 吃狗屎去吧。目前代码都还在，但是项目介绍中的 <code>If you want to keep a secret, you must also hide it from yourself.</code> 意味深长，不知道是不是说的是这个事儿。</li>
 <li>虽然我们看不到源代码，但是还是可以下载到的。请到这个 <a href="https://github.com/shadowsocks/shadowsocks-windows">shadowsocks-windows</a> 下去找 <a href="https://github.com/shadowsocks/shadowsocks-windows/releases/">Release</a> 版本。最新版本是 2018 年 3 月 14 日的。</li>
@@ -398,29 +378,23 @@
 <li>然后，稍微探索一下这个 shadowsocks-windows 软件，你会发现用这个软件翻墙不再需要 SwitchyOmega，这个软件会帮我们下载需要翻墙的网址列表。现在我想你已经知道为什么中国政府为什么要斗争着要把这个项目给删掉了吧，因为翻墙的门槛太低了，小白都能学会。翻墙可以，就是不能这么容易，这就是中国政府的态度。</li>
 <li>还有就是这个软件可以选择全局翻墙，不论当前电脑访问的任何网络，流量都会由 Shadowsocks 代理一下。</li>
 </ul>
-
 <h3 id="linux-篇">Linux 篇</h3>
-
 <ul>
 <li>首先，这里说的 Linux 发行版适用于 Ubuntu Archlinux，有几个方案都可以用。</li>
 </ul>
-
 <h4 id="第一种方法-1">第一种方法</h4>
-
 <ul>
 <li>从<a href="https://github.com/shadowsocks/shadowsocks-qt5">这里</a>下载一个 QT 版本的 Shadowsocks，但是这个版本貌似更新有点不太频繁，最新的稳定版本支持的加密算法也不太多。但是用是没有任何问题的。他们提供了一种后缀名叫 <code>.AppImage</code> 的文件，这种文件是支持常见的 Linux 发行版的。下载后只需要给其加上可执行权限就能直接运行，简单的配置和 Windows 的一模一样。</li>
 <li>每次需要科学上网的时候需要将这个软件打开，在浏览器上配置好 SwitchOmega，就可以了。请注意端口一致！</li>
 </ul>
-
 <h4 id="第二种方法-1">第二种方法</h4>
-
 <ul>
 <li>一般 Linux 都会有默认安装 Python，但是可能没有默认安装 pip，执行命令 <code>sudo apt install python-pip</code> 或 <code>sudo pacman -S python-pip</code>, 安装完成之后，就可以直接安装 Shadowsocks 的 Python 版本了，执行命令 <code>sudo -H pip install shadowsocks</code>，或者你担心不是装的最新版本的 Shadowsocks，可以执行命令 <code>pip install git+https://github.com/shadowsocks/shadowsocks.git@master</code>。</li>
-
-<li><p>安装完成之后系统里边会多出来一个命令 sslocal，sslocal 可以接受命令行参数或者文件配置。</p>
+<li>安装完成之后系统里边会多出来一个命令 sslocal，sslocal 可以接受命令行参数或者文件配置。</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-json" data-lang="json"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -435,55 +409,47 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
-<span class="nt">&#34;server&#34;</span><span class="p">:</span> <span class="s2">&#34;my_server_ip&#34;</span><span class="p">,</span>
-<span class="nt">&#34;server_port&#34;</span><span class="p">:</span> <span class="mi">8388</span><span class="p">,</span>
-<span class="nt">&#34;local_address&#34;</span><span class="p">:</span> <span class="s2">&#34;127.0.0.1&#34;</span><span class="p">,</span>
-<span class="nt">&#34;local_port&#34;</span><span class="p">:</span> <span class="mi">1080</span><span class="p">,</span>
-<span class="nt">&#34;password&#34;</span><span class="p">:</span> <span class="s2">&#34;mypassword&#34;</span><span class="p">,</span>
-<span class="nt">&#34;timeout&#34;</span><span class="p">:</span> <span class="mi">300</span><span class="p">,</span>
-<span class="nt">&#34;method&#34;</span><span class="p">:</span> <span class="s2">&#34;aes-256-cfb&#34;</span><span class="p">,</span>
-<span class="nt">&#34;fast_open&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-<span class="nt">&#34;workers&#34;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-<span class="nt">&#34;prefer_ipv6&#34;</span><span class="p">:</span> <span class="kc">false</span>
-<span class="p">}</span></code></pre></td></tr></table>
+    <span class="nt">&#34;server&#34;</span><span class="p">:</span> <span class="s2">&#34;my_server_ip&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;server_port&#34;</span><span class="p">:</span> <span class="mi">8388</span><span class="p">,</span>
+    <span class="nt">&#34;local_address&#34;</span><span class="p">:</span> <span class="s2">&#34;127.0.0.1&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;local_port&#34;</span><span class="p">:</span> <span class="mi">1080</span><span class="p">,</span>
+    <span class="nt">&#34;password&#34;</span><span class="p">:</span> <span class="s2">&#34;mypassword&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;timeout&#34;</span><span class="p">:</span> <span class="mi">300</span><span class="p">,</span>
+    <span class="nt">&#34;method&#34;</span><span class="p">:</span> <span class="s2">&#34;aes-256-cfb&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;fast_open&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nt">&#34;workers&#34;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&#34;prefer_ipv6&#34;</span><span class="p">:</span> <span class="kc">false</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p><code>sslocal -p 8388 -s 45.35.75.57 -k password -l 1080 -m aes-256-cfb</code> 用参数在命令行启动。</p></li>
-
-<li><p><code>sslocal -c config.json</code> 利用配置文件启动。</p></li>
-
-<li><p>以上这样启动之后只是在前台运行了一个 Shadowsocks 的客户端，怎样开机自启动这才是关键，首先还是一个 Python 的工具软件 <code>supervisor</code>，这是一个很有名的进程管理工具，安装 <code>sudo -H pip install supervisor</code>。</p></li>
-
-<li><p>编辑文件 <code>/etc/supervisor/conf.d/shadowsocks.conf</code> 写入以下内容：</p>
+</div><ul>
+<li><code>sslocal -p 8388 -s 45.35.75.57 -k password -l 1080 -m aes-256-cfb</code> 用参数在命令行启动。</li>
+<li><code>sslocal -c config.json</code> 利用配置文件启动。</li>
+<li>以上这样启动之后只是在前台运行了一个 Shadowsocks 的客户端，怎样开机自启动这才是关键，首先还是一个 Python 的工具软件 <code>supervisor</code>，这是一个很有名的进程管理工具，安装 <code>sudo -H pip install supervisor</code>。</li>
+<li>编辑文件 <code>/etc/supervisor/conf.d/shadowsocks.conf</code> 写入以下内容：</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-json" data-lang="json"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">[</span><span class="err">program:shadowsocks</span><span class="p">]</span>
-<span class="err">command=ssserver</span> <span class="err">-c</span> <span class="err">/etc/shadowsocks.json</span>
-<span class="err">autorestart=</span><span class="kc">true</span>
-<span class="err">user=nobody</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">[</span><span class="err">p</span><span class="err">r</span><span class="err">o</span><span class="err">g</span><span class="err">r</span><span class="err">a</span><span class="err">m</span><span class="err">:</span><span class="err">s</span><span class="err">h</span><span class="err">a</span><span class="err">d</span><span class="err">o</span><span class="err">w</span><span class="err">s</span><span class="err">o</span><span class="err">c</span><span class="err">k</span><span class="err">s</span><span class="p">]</span>
+<span class="err">c</span><span class="err">o</span><span class="err">m</span><span class="err">m</span><span class="err">a</span><span class="err">n</span><span class="err">d</span><span class="err">=</span><span class="err">s</span><span class="err">s</span><span class="err">s</span><span class="err">e</span><span class="err">r</span><span class="err">v</span><span class="err">e</span><span class="err">r</span> <span class="err">-</span><span class="err">c</span> <span class="err">/</span><span class="err">e</span><span class="err">t</span><span class="err">c</span><span class="err">/</span><span class="err">s</span><span class="err">h</span><span class="err">a</span><span class="err">d</span><span class="err">o</span><span class="err">w</span><span class="err">s</span><span class="err">o</span><span class="err">c</span><span class="err">k</span><span class="err">s</span><span class="err">.</span><span class="err">j</span><span class="err">s</span><span class="err">o</span><span class="err">n</span>
+<span class="err">a</span><span class="err">u</span><span class="err">t</span><span class="err">o</span><span class="err">r</span><span class="err">e</span><span class="err">s</span><span class="err">t</span><span class="err">a</span><span class="err">r</span><span class="err">t</span><span class="err">=</span><span class="kc">true</span>
+<span class="err">u</span><span class="err">s</span><span class="err">e</span><span class="err">r</span><span class="err">=</span><span class="err">n</span><span class="err">o</span><span class="err">b</span><span class="err">o</span><span class="err">d</span><span class="err">y</span>
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>如果监听的端口小于 1024 以上的 <code>user=nobody</code> 改成 <code>user=root</code>。</p></li>
-
-<li><p><code>service supervisor start</code> 启动 supervisor 的服务。</p></li>
-
-<li><p><code>supervisorctl reload</code> 重载 supervisor 服务的配置。</p></li>
-
-<li><p><code>supervisorctl restart shadowsocks</code> 启动指定的服务。</p></li>
-
-<li><p>如果对 <code>supervisor</code> 的操作有有什么疑问的话可以专门搜索一下 <code>supervisor</code> 的基本操作。</p></li>
+</div><ul>
+<li>如果监听的端口小于 1024 以上的 <code>user=nobody</code> 改成 <code>user=root</code>。</li>
+<li><code>service supervisor start</code> 启动 supervisor 的服务。</li>
+<li><code>supervisorctl reload</code> 重载 supervisor 服务的配置。</li>
+<li><code>supervisorctl restart shadowsocks</code> 启动指定的服务。</li>
+<li>如果对 <code>supervisor</code> 的操作有有什么疑问的话可以专门搜索一下 <code>supervisor</code> 的基本操作。</li>
 </ul>
-
 <h4 id="第三种方法-1">第三种方法</h4>
-
 <ul>
 <li>在 ubuntu 和 ArchLinux 的源里有 shadowsocks-libev 的包，直接 <code>sudo apt install shadowsocks-libev</code> 或者 <code>sudo pacman -S shadowsocks-libev</code>。</li>
 <li>如果你在你的 Linux 发行版中没有找到 shadowsocks-libe 相关的包的话，可以考虑从源码开始编译安装。具体编译过程可以参照<a href="https://github.com/shadowsocks/shadowsocks-libev#distribution-specific-guide">这里</a>。</li>
@@ -496,11 +462,8 @@
 <li><code>git config --global http.proxy 'socks5://127.0.0.1:1080'</code></li>
 <li><code>git config --global https.proxy 'socks5://127.0.0.1:1080'</code></li>
 </ul>
-
 <h3 id="linux-server-篇">Linux Server 篇</h3>
-
 <p>为了最快化的安装 Shadowsocks 的 Server，我们采用 Docker 来操作。</p>
-
 <ul>
 <li><code>curl -fsSL get.docker.com -o get-docker.sh</code> 然后 <code>sh get-docker.sh</code> 稍等片刻就会安装完成。具体安装过程遇见的坑，多多搜索一下就好。</li>
 <li><code>curl -sSL https://github.com/shadowsocks/shadowsocks-libev/raw/master/docker/alpine/Dockerfile | docker build -t shadowsocks-libev -</code> 这样直接会编译一个 Docker 镜像根据<a href="https://github.com/shadowsocks/shadowsocks-libev/blob/master/docker/alpine/Dockerfile">这里</a>的 Dockerfile。</li>
@@ -611,7 +574,7 @@
     &copy;
     
       2016 -
-    2019
+    2020
     <span class="heart">
       
       <i class="iconfont">

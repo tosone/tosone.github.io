@@ -33,7 +33,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1" />
+<meta name="generator" content="Hugo 0.63.1" />
 
 
 <link rel="canonical" href="https://tosone.cn/post/cloudify/" />
@@ -54,7 +54,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.af20b78e95c84de86b00a0242a4a77bd2601700e1b250edf27537d957ac0041d.css" integrity="sha256-ryC3jpXITehrAKAkKkp3vSYBcA4bJQ7fJ1N9lXrABB0=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.0995afa14b62cd93e93cfc066b646c4c17a3eddca0e9d52a1d9dcf5d90aaacd3.css" integrity="sha256-CZWvoUtizZPpPPwGa2RsTBej7dyg6dUqHZ3PXZCqrNM=" media="screen" crossorigin="anonymous">
 
 
 
@@ -72,16 +72,13 @@ A single open source, end-to-end platform designed to transform network services
 <meta itemprop="description" content="
 A single open source, end-to-end platform designed to transform network services and applications, connect branches, deploy and manage multi-access edge and IoT devices, break down silos and deliver all services on-demand – automatically, at scale.
 ">
-
-
 <meta itemprop="datePublished" content="2019-07-20T11:22:09&#43;08:00" />
 <meta itemprop="dateModified" content="2019-07-20T11:22:09&#43;08:00" />
 <meta itemprop="wordCount" content="728">
 
 
 
-<meta itemprop="keywords" content="Cloudify,Container," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Cloudify,Container," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Cloudify Tutorial"/>
 <meta name="twitter:description" content="
 A single open source, end-to-end platform designed to transform network services and applications, connect branches, deploy and manage multi-access edge and IoT devices, break down silos and deliver all services on-demand – automatically, at scale.
@@ -333,75 +330,72 @@ A single open source, end-to-end platform designed to transform network services
       <blockquote>
 <p>A single open source, end-to-end platform designed to transform network services and applications, connect branches, deploy and manage multi-access edge and IoT devices, break down silos and deliver all services on-demand – automatically, at scale.</p>
 </blockquote>
-
 <h4 id="文档">文档</h4>
-
 <ul>
-<li><p>首先在 <a href="https://github.com/cloudify-cosmo/cloudify-dev">cloudify-dev</a> 有一个详细的关于 cloudify 的开发说明，包括他们各个模块之间的关系，环境配置，开发流程管理，开发过程中的一些实用脚本。</p></li>
-
-<li><p>Cloudify 最重要的三个仓库为 <a href="https://github.com/cloudify-cosmo/cloudify-cli">cloudify-cli</a> (Cloudify&rsquo;s Command Line Interface), <a href="https://github.com/cloudify-cosmo/cloudify-manager">cloudify-manager</a> (Cloudify&rsquo;s manager REST service, Cloudify system-workflows, Integration tests), <a href="https://github.com/cloudify-cosmo/cloudify-common">cloudify-common</a> (DSL parsing package, DSL Parser, REST Client, Script Plugin)</p></li>
+<li>
+<p>首先在 <a href="https://github.com/cloudify-cosmo/cloudify-dev">cloudify-dev</a> 有一个详细的关于 cloudify 的开发说明，包括他们各个模块之间的关系，环境配置，开发流程管理，开发过程中的一些实用脚本。</p>
+</li>
+<li>
+<p>Cloudify 最重要的三个仓库为 <a href="https://github.com/cloudify-cosmo/cloudify-cli">cloudify-cli</a> (Cloudify&rsquo;s Command Line Interface), <a href="https://github.com/cloudify-cosmo/cloudify-manager">cloudify-manager</a> (Cloudify&rsquo;s manager REST service, Cloudify system-workflows, Integration tests), <a href="https://github.com/cloudify-cosmo/cloudify-common">cloudify-common</a> (DSL parsing package, DSL Parser, REST Client, Script Plugin)</p>
+</li>
 </ul>
-
-<p><img src="https://tc.tosone.cn/20190718110415.png" alt="drawing" width="600"/></p>
-
+<!-- raw HTML omitted -->
 <ul>
-<li><p>Cloudify 的 restful API 的在线地址在<a href="https://docs.cloudify.co/api/v3.1/">这里</a>，文档源码在<a href="https://github.com/cloudify-cosmo/cloudify-rest-docs">这里</a>，文档写的非常详细。文档是用的 <code>Hugo</code> 来生成的，将代码克隆下来之后，直接运行 <code>hugo</code> 就可以看到了。我的<a href="https://tosone.cn">博客</a>也是用这个搭建的，非常好用。</p></li>
-
-<li><p>Cloudify 的 Python API 的在线地址在<a href="https://docs.cloudify.co/cloudify-rest-client/">这里</a>，文档源码在<a href="https://github.com/cloudify-cosmo/cloudify-rest-client">这里</a>。文档是用的 <code>ReadTheDocs</code> 来生成的。在根目录下运行 <code>make dev &amp;&amp; make docs</code> 然后 <code>serve docs/_build/html</code> 就直接可以在本地访问到文档。</p></li>
-
-<li><p>cloudify-plugins-common 的在线地址在<a href="http://cloudify-plugins-common.readthedocs.org/en/latest/">这里</a>，文档源码在<a href="https://github.com/cloudify-cosmo/cloudify-plugins-common/tree/master/docs">这里</a>。文档是用的 <code>ReadTheDocs</code> 来生成的。</p></li>
-
-<li><p><a href="http://docs.getcloudify.org/latest/blueprints/overview/">DSL Specification</a> BluePrint 的语法规则。</p></li>
-
-<li><p><a href="http://docs.getcloudify.org/latest/plugins/script/">Script Plugin</a> The Script plugin can be used to map node life-cycle operations and workflows to scripts that are included in your blueprint. Scripts can be written in Python, bash, ruby, and so on.</p></li>
+<li>
+<p>Cloudify 的 restful API 的在线地址在<a href="https://docs.cloudify.co/api/v3.1/">这里</a>，文档源码在<a href="https://github.com/cloudify-cosmo/cloudify-rest-docs">这里</a>，文档写的非常详细。文档是用的 <code>Hugo</code> 来生成的，将代码克隆下来之后，直接运行 <code>hugo</code> 就可以看到了。我的<a href="https://tosone.cn">博客</a>也是用这个搭建的，非常好用。</p>
+</li>
+<li>
+<p>Cloudify 的 Python API 的在线地址在<a href="https://docs.cloudify.co/cloudify-rest-client/">这里</a>，文档源码在<a href="https://github.com/cloudify-cosmo/cloudify-rest-client">这里</a>。文档是用的 <code>ReadTheDocs</code> 来生成的。在根目录下运行 <code>make dev &amp;&amp; make docs</code> 然后 <code>serve docs/_build/html </code> 就直接可以在本地访问到文档。</p>
+</li>
+<li>
+<p>cloudify-plugins-common 的在线地址在<a href="http://cloudify-plugins-common.readthedocs.org/en/latest/">这里</a>，文档源码在<a href="https://github.com/cloudify-cosmo/cloudify-plugins-common/tree/master/docs">这里</a>。文档是用的 <code>ReadTheDocs</code> 来生成的。</p>
+</li>
+<li>
+<p><a href="http://docs.getcloudify.org/latest/blueprints/overview/">DSL Specification</a> BluePrint 的语法规则。</p>
+</li>
+<li>
+<p><a href="http://docs.getcloudify.org/latest/plugins/script/">Script Plugin</a> The Script plugin can be used to map node life-cycle operations and workflows to scripts that are included in your blueprint. Scripts can be written in Python, bash, ruby, and so on.</p>
+</li>
 </ul>
-
-<h4 id="api-authentication-1">API Authentication<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup></h4>
-
+<h4 id="api-authentication1">API Authentication<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></h4>
 <p>Starting from Cloudify 4.0.0, all restful API communication to the server requires:</p>
-
 <ul>
-<li><p>Authentication using user credentials.</p></li>
-
-<li><p>Tenant name, representing the scope of the request.</p></li>
+<li>
+<p>Authentication using user credentials.</p>
+</li>
+<li>
+<p>Tenant name, representing the scope of the request.</p>
+</li>
 </ul>
-
 <p>Every Cloudify Manager has a default tenant, called <code>default_tenant</code>. The <code>default_tenant</code> tenant is created during bootstrap.</p>
-
 <p>In addition to the <code>default_tenant</code>, every Cloudify Manager includes a bootstrap Admin. The bootstrap Admin is the Admin user that created during the bootstrap.</p>
-
 <p>In addition to the user credentials, every request must also specify a tenant in the header.</p>
-
 <p>In the case of using the Cloudify community edition or if you have not created any new tenant, you can use the <code>default_tenant</code> as the tenant for the request.</p>
-
 <h4 id="资源更新">资源更新</h4>
-
 <p>资源的更新可能会涉及到 <code>Blueprints</code> 的<a href="https://docs.cloudify.co/api/v3.1/#upload-blueprint">更新</a>，<code>Deployment</code> 的<a href="https://docs.cloudify.co/api/v3.1/#update-deployment">更新</a>。</p>
-
 <h4 id="实例">实例</h4>
-
 <p>部署的服务器资源至少是 2C2G 的才不至于会卡。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo docker run --name cfy_manager_local -d --restart unless-stopped -v /sys/fs/cgroup:/sys/fs/cgroup:ro --tmpfs /run --tmpfs /run/lock --security-opt seccomp:unconfined --cap-add SYS_ADMIN -p <span class="m">80</span>:80 -p <span class="m">8000</span>:8000 cloudifyplatform/community:19.01.24</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo docker run --name cfy_manager_local -d --restart unless-stopped -v /sys/fs/cgroup:/sys/fs/cgroup:ro --tmpfs /run --tmpfs /run/lock --security-opt seccomp:unconfined --cap-add SYS_ADMIN -p 80:80 -p 8000:8000 cloudifyplatform/community:19.01.24
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>部署一个 Hello World 的应用进去。</p>
+</div><p>部署一个 Hello World 的应用进去。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">docker <span class="nb">exec</span> -it cfy_manager_local sh -c <span class="s2">&#34;cfy install https://github.com/cloudify-examples/local-simple-python-webserver-blueprint/archive/master.zip&#34;</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">docker <span class="nb">exec</span> -it cfy_manager_local sh -c <span class="s2">&#34;cfy install https://github.com/cloudify-examples/local-simple-python-webserver-blueprint/archive/master.zip&#34;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>访问 <code>http://104.207.134.211:8000/</code> 可以看到一个正确的结果。</p>
+</div><p>访问 <code>http://104.207.134.211:8000/</code> 可以看到一个正确的结果。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -412,11 +406,12 @@ A single open source, end-to-end platform designed to transform network services
 curl -X GET <span class="se">\
 </span><span class="se"></span>    --header <span class="s2">&#34;Tenant: default_tenant&#34;</span> <span class="se">\
 </span><span class="se"></span>    -u admin:admin <span class="se">\
-</span><span class="se"></span>    <span class="s2">&#34;http://104.207.134.211/api/v3.1/tokens&#34;</span></code></pre></td></tr></table>
+</span><span class="se"></span>    <span class="s2">&#34;http://104.207.134.211/api/v3.1/tokens&#34;</span>
+</code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-json" data-lang="json"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -427,11 +422,12 @@ curl -X GET <span class="se">\
   <span class="nt">&#34;username&#34;</span><span class="p">:</span><span class="s2">&#34;admin&#34;</span><span class="p">,</span>
   <span class="nt">&#34;role&#34;</span><span class="p">:</span><span class="s2">&#34;sys_admin&#34;</span><span class="p">,</span>
   <span class="nt">&#34;value&#34;</span><span class="p">:</span><span class="s2">&#34;WyIwIiwiOTY0OGQ3YTM5ZGQ5NzBlZTE0ZGVkNDc1ZWU4MWI1ZTQiXQ.XTAqMA.km04sF50HUfMwID3EWysJNnAlQg&#34;</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -442,11 +438,12 @@ curl -X GET <span class="se">\
 curl -X GET <span class="se">\
 </span><span class="se"></span>    --header <span class="s2">&#34;Tenant: default_tenant&#34;</span> <span class="se">\
 </span><span class="se"></span>    --header <span class="s2">&#34;Authentication-Token: WyIwIiwiOTY0OGQ3YTM5ZGQ5NzBlZTE0ZGVkNDc1ZWU4MWI1ZTQiXQ.XTAqMA.km04sF50HUfMwID3EWysJNnAlQg&#34;</span> <span class="se">\
-</span><span class="se"></span>    <span class="s2">&#34;http://104.207.134.211/api/v3.1/blueprints?_include=id&#34;</span></code></pre></td></tr></table>
+</span><span class="se"></span>    <span class="s2">&#34;http://104.207.134.211/api/v3.1/blueprints?_include=id&#34;</span>
+</code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-json" data-lang="json"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -463,23 +460,24 @@ curl -X GET <span class="se">\
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
-  <span class="nt">&#34;items&#34;</span><span class="p">:[</span>
+  <span class="nt">&#34;items&#34;</span><span class="p">:</span><span class="p">[</span>
     <span class="p">{</span>
       <span class="nt">&#34;id&#34;</span><span class="p">:</span><span class="s2">&#34;local-simple-python-webserver-blueprint-master&#34;</span>
     <span class="p">}</span>
-  <span class="p">],</span>
-  <span class="nt">&#34;metadata&#34;</span><span class="p">:{</span>
-    <span class="nt">&#34;pagination&#34;</span><span class="p">:{</span>
+  <span class="p">]</span><span class="p">,</span>
+  <span class="nt">&#34;metadata&#34;</span><span class="p">:</span><span class="p">{</span>
+    <span class="nt">&#34;pagination&#34;</span><span class="p">:</span><span class="p">{</span>
       <span class="nt">&#34;total&#34;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
       <span class="nt">&#34;offset&#34;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
       <span class="nt">&#34;size&#34;</span><span class="p">:</span><span class="mi">1000</span>
     <span class="p">}</span>
   <span class="p">}</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -490,11 +488,12 @@ curl -X GET <span class="se">\
 curl -X GET <span class="se">\
 </span><span class="se"></span>    --header <span class="s2">&#34;Tenant: default_tenant&#34;</span> <span class="se">\
 </span><span class="se"></span>    --header <span class="s2">&#34;Authentication-Token: WyIwIiwiOTY0OGQ3YTM5ZGQ5NzBlZTE0ZGVkNDc1ZWU4MWI1ZTQiXQ.XTAqMA.km04sF50HUfMwID3EWysJNnAlQg&#34;</span> <span class="se">\
-</span><span class="se"></span>    <span class="s2">&#34;http://104.207.134.211/api/v3.1/blueprints?id=local-simple-python-webserver-blueprint-master&amp;_include=id,description,main_file_name&#34;</span></code></pre></td></tr></table>
+</span><span class="se"></span>    <span class="s2">&#34;http://104.207.134.211/api/v3.1/blueprints?id=local-simple-python-webserver-blueprint-master&amp;_include=id,description,main_file_name&#34;</span>
+</code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-json" data-lang="json"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -513,31 +512,31 @@ curl -X GET <span class="se">\
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
-  <span class="nt">&#34;items&#34;</span><span class="p">:[</span>
+  <span class="nt">&#34;items&#34;</span><span class="p">:</span><span class="p">[</span>
     <span class="p">{</span>
       <span class="nt">&#34;main_file_name&#34;</span><span class="p">:</span><span class="s2">&#34;blueprint.yaml&#34;</span><span class="p">,</span>
       <span class="nt">&#34;description&#34;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
       <span class="nt">&#34;id&#34;</span><span class="p">:</span><span class="s2">&#34;local-simple-python-webserver-blueprint-master&#34;</span>
     <span class="p">}</span>
-  <span class="p">],</span>
-  <span class="nt">&#34;metadata&#34;</span><span class="p">:{</span>
-    <span class="nt">&#34;pagination&#34;</span><span class="p">:{</span>
+  <span class="p">]</span><span class="p">,</span>
+  <span class="nt">&#34;metadata&#34;</span><span class="p">:</span><span class="p">{</span>
+    <span class="nt">&#34;pagination&#34;</span><span class="p">:</span><span class="p">{</span>
       <span class="nt">&#34;total&#34;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
       <span class="nt">&#34;offset&#34;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
       <span class="nt">&#34;size&#34;</span><span class="p">:</span><span class="mi">1000</span>
     <span class="p">}</span>
   <span class="p">}</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div><div class="footnotes">
-
-<hr />
-
+</div><section class="footnotes" role="doc-endnotes">
+<hr>
 <ol>
-<li id="fn:1">Cloudify REST API V3.1 <a href="https://docs.cloudify.co/api/v3.1/#cloudify-rest-api-v3-1">https://docs.cloudify.co/api/v3.1/#cloudify-rest-api-v3-1</a>
- <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+<li id="fn:1" role="doc-endnote">
+<p>Cloudify REST API V3.1 <a href="https://docs.cloudify.co/api/v3.1/#cloudify-rest-api-v3-1">https://docs.cloudify.co/api/v3.1/#cloudify-rest-api-v3-1</a> <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
 </ol>
-</div>
+</section>
     </div>
 
     
@@ -643,7 +642,7 @@ curl -X GET <span class="se">\
     &copy;
     
       2016 -
-    2019
+    2020
     <span class="heart">
       
       <i class="iconfont">

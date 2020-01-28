@@ -33,7 +33,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1" />
+<meta name="generator" content="Hugo 0.63.1" />
 
 
 <link rel="canonical" href="https://tosone.cn/post/coreos-init/" />
@@ -54,7 +54,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.af20b78e95c84de86b00a0242a4a77bd2601700e1b250edf27537d957ac0041d.css" integrity="sha256-ryC3jpXITehrAKAkKkp3vSYBcA4bJQ7fJ1N9lXrABB0=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.0995afa14b62cd93e93cfc066b646c4c17a3eddca0e9d52a1d9dcf5d90aaacd3.css" integrity="sha256-CZWvoUtizZPpPPwGa2RsTBej7dyg6dUqHZ3PXZCqrNM=" media="screen" crossorigin="anonymous">
 
 
 
@@ -72,16 +72,13 @@ Container Linux (formerly CoreOS Linux) is an open-source lightweight operating 
 <meta itemprop="description" content="
 Container Linux (formerly CoreOS Linux) is an open-source lightweight operating system based on the Linux kernel and designed for providing infrastructure to clustered deployments, while focusing on automation, ease of application deployment, security, reliability and scalability. As an operating system, Container Linux provides only the minimal functionality required for deploying applications inside software containers, together with built-in mechanisms for service discovery and configuration sharing.
 ">
-
-
 <meta itemprop="datePublished" content="2019-04-26T10:38:24&#43;00:00" />
 <meta itemprop="dateModified" content="2019-04-26T10:38:24&#43;00:00" />
-<meta itemprop="wordCount" content="1112">
+<meta itemprop="wordCount" content="1110">
 
 
 
-<meta itemprop="keywords" content="Linux," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Linux," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="CoreOS 初始化配置"/>
 <meta name="twitter:description" content="
 Container Linux (formerly CoreOS Linux) is an open-source lightweight operating system based on the Linux kernel and designed for providing infrastructure to clustered deployments, while focusing on automation, ease of application deployment, security, reliability and scalability. As an operating system, Container Linux provides only the minimal functionality required for deploying applications inside software containers, together with built-in mechanisms for service discovery and configuration sharing.
@@ -333,11 +330,10 @@ Container Linux (formerly CoreOS Linux) is an open-source lightweight operating 
       <blockquote>
 <p>Container Linux (formerly CoreOS Linux) is an open-source lightweight operating system based on the Linux kernel and designed for providing infrastructure to clustered deployments, while focusing on automation, ease of application deployment, security, reliability and scalability. As an operating system, Container Linux provides only the minimal functionality required for deploying applications inside software containers, together with built-in mechanisms for service discovery and configuration sharing.</p>
 </blockquote>
-
 <p>各个虚拟主机平台上基本都有 CoreOS 系统，但是 Aliyun 上的 ECS 就是有问题的，在用 <code>docker build</code> 的时候总出问题，在 Docker 的仓库中有这些<a href="https://github.com/coreos/bugs/issues/2340">讨论</a>，最终的解决方法就是：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -350,78 +346,64 @@ Container Linux (formerly CoreOS Linux) is an open-source lightweight operating 
 sudo systemctl restart docker.service
 
 <span class="c1"># fix aliyun buggy selinux</span>
-sudo sed -i <span class="s1">&#39;s/SELINUXTYPE=mcs/SELINUXTYPE=targeted/&#39;</span> /etc/selinux/config</code></pre></td></tr></table>
+sudo sed -i <span class="s1">&#39;s/SELINUXTYPE=mcs/SELINUXTYPE=targeted/&#39;</span> /etc/selinux/config
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="升级通道">升级通道</h3>
-
+</div><h3 id="升级通道">升级通道</h3>
 <p>定义了 CoreOS 每次升级的目标版本号。官方提供了三个升级通道，分别为 Alpha、Beta 和 Stable，简单来说就是每个大版本升级的内测、公测和正式发行版。只不过 CoreOS 目前是采用一个不断增加的数字来表示各个版本号，数字越大则相对版本越高。</p>
-
 <p>各通道发布更新的频率依次为（官方目标数据，实际可能不准时）：
-<br/></p>
-
+<!-- raw HTML omitted --></p>
 <ul>
 <li>Alpha：每周星期四发布</li>
 <li>Beta：每两周发布一次</li>
 <li>Stable：每个月发布一次</li>
 </ul>
-
 <p>每个通道当前的具体版本号可以在<a href="https://coreos.com/releases/">这个网页</a>上查看到。关于升级通道，<a href="https://coreos.com/os/docs/latest/switching-channels.html">这篇文档</a>有更详细的介绍。</p>
-
 <p>如果你想切换系统所在发布通道的话可以修改文件 <code>/etc/coreos/update.conf</code> 中的 <code>GROUP=beta</code>。</p>
-
 <p>然后重启一下 update-engine 服务 <code>systemctl restart update-engine</code></p>
-
 <h3 id="升级策略">升级策略</h3>
-
 <p>关系到系统自动升级后用户是否需要手工重启。它的值可以是 best-effort（默认值）、 etcd-lock、 reboot 和 off。其作用依次解释如下：</p>
-
 <ul>
 <li>best-effort：如果Etcd运行正常则相当于 etcd-lock，否则相当于 reboot</li>
 <li>etcd-lock：自动升级后自动重启，使用 LockSmith 服务调度重启过程</li>
 <li>reboot：自动升级后立即自动重启系统</li>
 <li>off：自动升级后等待用户手工重启</li>
 </ul>
-
 <p>升级通道和升级策略都可以在系统启动时的 cloud-config 中的 coreos.update 中配置，例如：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-yml" data-lang="yml">coreos<span class="p">:</span><span class="w">
-</span><span class="w">  </span>update<span class="p">:</span><span class="w">
-</span><span class="w">    </span>reboot-strategy<span class="p">:</span><span class="w"> </span>best-effort<span class="w">
-</span><span class="w">    </span>group<span class="p">:</span><span class="w"> </span>alpha</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="k">coreos</span><span class="p">:</span><span class="w">
+</span><span class="w"></span><span class="w">  </span><span class="k">update</span><span class="p">:</span><span class="w">
+</span><span class="w"></span><span class="w">    </span><span class="k">reboot-strategy</span><span class="p">:</span><span class="w"> </span>best-effort<span class="w">
+</span><span class="w">    </span><span class="k">group</span><span class="p">:</span><span class="w"> </span>alpha<span class="w">
+</span></code></pre></td></tr></table>
 </div>
-</div>
-<p>对于已经启动的集群，可以在 <code>/etc/coreos/update.conf</code> 配置文件中修改，其内容格式如下：</p>
+</div><p>对于已经启动的集群，可以在 <code>/etc/coreos/update.conf</code> 配置文件中修改，其内容格式如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-conf" data-lang="conf"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-conf" data-lang="conf">GROUP=alpha
-REBOOT_STRATEGY=best-effort</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">GROUP=alpha
+REBOOT_STRATEGY=best-effort
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>修改完成后需要重启一下 update-engine 服务：<code>systemctl restart update-engine</code>。</p>
-
+</div><p>修改完成后需要重启一下 update-engine 服务：<code>systemctl restart update-engine</code>。</p>
 <p>用户手动执行升级一般是没有必要滴。当然如果你非要这么做，也非常简单，命令是 <code>update_engine_client -update</code>。如果只是想查看一下有没有新版本，可以换个参数 <code>update_engine_client -check_for_update</code>。</p>
-
 <h3 id="添加账户">添加账户</h3>
-
 <p><code>useradd -U -m tosone -G sudo</code>，添加一个新的账户，<code>passwd tosone</code>。
 赋予 <code>sudo</code> 权限，<code>visudo -f /etc/sudoers.d/user1</code> 添加这样一行： <code>tosone ALL=(ALL) NOPASSWD: ALL</code>。</p>
-
 <p>验证：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -434,19 +416,20 @@ $ cat /etc/sudoers.d/tosone
 cat: /etc/sudoers.d/tosone: Permission denied
 
 $ sudo cat /etc/sudoers.d/tosone
-tosone <span class="nv">ALL</span><span class="o">=(</span>ALL<span class="o">)</span> NOPASSWD: ALL</code></pre></td></tr></table>
+tosone <span class="nv">ALL</span><span class="o">=</span><span class="o">(</span>ALL<span class="o">)</span> NOPASSWD: ALL
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="toolbox">toolbox</h3>
-
+</div><h3 id="toolbox">toolbox</h3>
 <p>toolbox is a small script that launches a container to let you bring in your favorite debugging or admin tools.
 There are currently two scripts that live within this repository:
-<br/>
-- toolbox: designed for Container Linux, uses rkt and systemd-nspawn
-- rhcos-toolbox: designed for Red Hat CoreOS, uses podman</p>
+<!-- raw HTML omitted --></p>
+<ul>
+<li>toolbox: designed for Container Linux, uses rkt and systemd-nspawn</li>
+<li>rhcos-toolbox: designed for Red Hat CoreOS, uses podman</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -463,22 +446,22 @@ Press ^<span class="o">]</span> three <span class="nb">times</span> within 1s to
 ...
 <span class="o">[</span>root@localhost ~<span class="o">]</span><span class="c1"># tcpdump -i ens3</span>
 tcpdump: verbose output suppressed, use -v or -vv <span class="k">for</span> full protocol decode
-listening on ens3, link-type EN10MB <span class="o">(</span>Ethernet<span class="o">)</span>, capture size <span class="m">65535</span> bytes</code></pre></td></tr></table>
+listening on ens3, link-type EN10MB <span class="o">(</span>Ethernet<span class="o">)</span>, capture size <span class="m">65535</span> bytes
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>Automatically enter toolbox on login. Set an <code>/etc/passwd</code> entry for one of the users to <code>/usr/bin/toolbox</code>:</p>
+</div><p>Automatically enter toolbox on login. Set an <code>/etc/passwd</code> entry for one of the users to <code>/usr/bin/toolbox</code>:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">useradd bob -m -s /usr/bin/toolbox -U -G sudo,docker,rkt</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-sh" data-lang="sh">useradd bob -m -s /usr/bin/toolbox -U -G sudo,docker,rkt
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>Now when SSHing into the system as that user, toolbox will automatically be started:</p>
+</div><p>Now when SSHing into the system as that user, toolbox will automatically be started:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -486,27 +469,28 @@ listening on ens3, link-type EN10MB <span class="o">(</span>Ethernet<span class=
 </span><span class="lnt">6
 </span><span class="lnt">7
 </span><span class="lnt">8
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">$ ssh bob@hostname.example.com
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ ssh bob@hostname.example.com
 Container Linux by CoreOS alpha (1284.0.0)
 ...
 Spawning container bob-fedora-latest on /var/lib/toolbox/bob-fedora-latest.
 Press ^] three times within 1s to kill container.
 [root@localhost ~]# dnf -y install emacs-nox
 ...
-[root@localhost ~]# emacs /media/root/etc/systemd/system/docker.service</pre></td></tr></table>
+[root@localhost ~]# emacs /media/root/etc/systemd/system/docker.service
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="install-docker-compose">Install docker-compose</h3>
+</div><h3 id="install-docker-compose">Install docker-compose</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">mkdir -p /opt/bin
-curl -L <span class="s2">&#34;https://github.com/docker/compose/releases/download/1.24.0/docker-compose-</span><span class="k">$(</span>uname -s<span class="k">)</span><span class="s2">-</span><span class="k">$(</span>uname -m<span class="k">)</span><span class="s2">&#34;</span> -o /opt/bin/docker-compose</code></pre></td></tr></table>
+curl -L <span class="s2">&#34;</span><span class="s2">https://github.com/docker/compose/releases/download/1.24.0/docker-compose-</span><span class="k">$(</span>uname -s<span class="k">)</span><span class="s2">-</span><span class="k">$(</span>uname -m<span class="k">)</span><span class="s2">&#34;</span> -o /opt/bin/docker-compose
+</code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -613,7 +597,7 @@ curl -L <span class="s2">&#34;https://github.com/docker/compose/releases/downloa
     &copy;
     
       2016 -
-    2019
+    2020
     <span class="heart">
       
       <i class="iconfont">

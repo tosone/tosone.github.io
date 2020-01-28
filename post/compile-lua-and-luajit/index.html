@@ -33,7 +33,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1" />
+<meta name="generator" content="Hugo 0.63.1" />
 
 
 <link rel="canonical" href="https://tosone.cn/post/compile-lua-and-luajit/" />
@@ -54,7 +54,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.af20b78e95c84de86b00a0242a4a77bd2601700e1b250edf27537d957ac0041d.css" integrity="sha256-ryC3jpXITehrAKAkKkp3vSYBcA4bJQ7fJ1N9lXrABB0=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.0995afa14b62cd93e93cfc066b646c4c17a3eddca0e9d52a1d9dcf5d90aaacd3.css" integrity="sha256-CZWvoUtizZPpPPwGa2RsTBej7dyg6dUqHZ3PXZCqrNM=" media="screen" crossorigin="anonymous">
 
 
 
@@ -68,16 +68,13 @@
 <meta property="article:modified_time" content="2016-12-31T15:14:28+00:00" />
 <meta itemprop="name" content="Compile Lua and Luajit">
 <meta itemprop="description" content="Lua is a lightweight, multi-paradigm programming language designed primarily for embedded systems and clients. Lua is cross-platform, since the interpreter is written in ANSI C, and has a relatively simple C API.">
-
-
 <meta itemprop="datePublished" content="2016-12-31T15:14:28&#43;00:00" />
 <meta itemprop="dateModified" content="2016-12-31T15:14:28&#43;00:00" />
-<meta itemprop="wordCount" content="1791">
+<meta itemprop="wordCount" content="1789">
 
 
 
-<meta itemprop="keywords" content="Lua,Luajit," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Lua,Luajit," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Compile Lua and Luajit"/>
 <meta name="twitter:description" content="Lua is a lightweight, multi-paradigm programming language designed primarily for embedded systems and clients. Lua is cross-platform, since the interpreter is written in ANSI C, and has a relatively simple C API."/>
 
@@ -325,19 +322,14 @@
     
     <div class="post-content">
       <p>Lua is a lightweight, multi-paradigm programming language designed primarily for embedded systems and clients. Lua is cross-platform, since the interpreter is written in ANSI C, and has a relatively simple C API.</p>
-
 <h3 id="写在前边">写在前边</h3>
-
 <p>Lua 是一个小巧的脚本语言。是巴西里约热内卢天主教大学（Pontifical Catholic University of Rio de Janeiro）里的一个研究小组，由 Roberto Ierusalimschy、Waldemar Celes 和 Luiz Henrique de Figueiredo 所组成并于 1993 年开发。其设计目的是为了嵌入应用程序中，从而为应用程序提供灵活的扩展和定制功能。Lua 由标准 C 编写而成，几乎在所有操作系统和平台上都可以编译，运行。Lua 并没有提供强大的库，这是由它的定位决定的。所以 Lua 不适合作为开发独立应用程序的语言。Lua 有一个同时进行的 JIT 项目，提供在特定平台上的即时编译功能。Lua 脚本可以很容易的被 C/C++ 代码调用，也可以反过来调用 C/C++ 的函数，这使得 Lua 在应用程序中可以被广泛应用。不仅仅作为扩展脚本，也可以作为普通的配置文件，代替 XML，ini 等文件格式，并且更容易理解和维护。Lua 由标准 C 编写而成，代码简洁优美，几乎在所有操作系统和平台上都可以编译，运行。一个完整的 Lua 解释器不过 200k，在目前所有脚本引擎中，Lua 的速度是最快的。这一切都决定了 Lua 是作为嵌入式脚本的最佳选择。</p>
-
-<h3 id="下载源码-安装环境-编译lua">下载源码，安装环境，编译Lua</h3>
-
+<h3 id="下载源码安装环境编译lua">下载源码，安装环境，编译Lua</h3>
 <p>首先下载 Lua 的源代码，官方<a href="http://www.lua.org/download.html">下载地址</a>，下载之后，目录内存在两个文件夹分别是 doc 和 src 的文件夹，doc 是介绍如何编译文件的，但是我要跟你说看了还不如不看，基本看不懂，写的太笼统了，就别看了。</p>
-
 <p>编译源码需要的东西有 GCC 的编译器，在 Windows 上安装这个编译器需要用 MinGw 安装，具体 MinGw 到 GCC 的安装以及配置在这就不说了，网上能找到很多。要说明的一点是在 GCC 的 bin 目录下有一个文件名字是 <code>mingw32-make.exe</code>，复制一份存在相同位置改名为 <code>make.exe</code>。然后把这个路径加入到本机的 Path 环境变量里边。OK，以上就是编译环境的配置过程，进入本机的 Lua 源码的命令行根目录下，直接键入 <code>make mingw</code> 就可以了。然后 src 的根目录下就会生成很多的目标文件，和我们希望看到的 <code>Lua53.dll</code>，<code>lua.exe</code>，<code>Luac.exe</code> 这三个文件。有些童鞋说不想让 <code>Lua.exe</code> 这个文件依赖于 <code>Lua53.dll</code> 文件运行，也可以的。对 src 下的 makefile 文件的 <code>mingw</code> 段写改为如下代码，就可以生成无依赖的 <code>Lua.exe</code> 了。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ini" data-lang="ini"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -346,19 +338,16 @@
 <pre class="chroma"><code class="language-ini" data-lang="ini"><span class="na">$(MAKE) &#34;LUA_A</span><span class="o">=</span><span class="s">lua53.a&#34; &#34;LUA_T=lua.exe&#34; \</span>
 <span class="na">&#34;AR</span><span class="o">=</span><span class="s">$(AR) -o&#34; &#34;RANLIB=strip --strip-unneeded&#34; \</span>
 <span class="na">&#34;SYSCFLAGS</span><span class="o">=</span><span class="s">-static&#34; &#34;SYSLIBS=&#34; &#34;SYSLDFLAGS=-s&#34; lua.exe</span>
-<span class="na">$(MAKE) &#34;LUAC_T</span><span class="o">=</span><span class="s">luac.exe&#34; luac.exe</span></code></pre></td></tr></table>
+<span class="na">$(MAKE) &#34;LUAC_T</span><span class="o">=</span><span class="s">luac.exe&#34; luac.exe</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="编译-luajit">编译 Luajit</h3>
-
+</div><h3 id="编译-luajit">编译 Luajit</h3>
 <p>如果想最小化的编译 Lua 代码为 Lua 的字节码，就需要用到 Luajit 了，有测试结果表明 Luajit 编译出来的字节码速度还要比 C 编译出来的二进制代码还要快，还有难能可贵的一点是 Luajit 的字节码反编译几乎就是不可能的，很安全，还有一个优点就是编译速度比 GCC 要快很多的，毕竟 Lua 的语法也不是很复杂。还有一点是 Luajit 提供了一个 ffi 的库更加容易的让我们用 Lua，使 Lua 和 C 更加的亲密。好了，Luajit 的<a href="http://luajit.org/download.html">下载地址</a>，Luajit 的编译也非常的简单，用 VisualStudio 的命令行工具运行 src 目录下的 <code>msvcbuild.bat</code>，就编译成功了，VisualStudio 的命令行工具分为 64 位和 32 位的，自己想要什么版本的就编译成那个版本的就行了，或者在 src 下运行命令 <code>make</code> 也是可以编译成功。</p>
-
 <h3 id="编译-srlua">编译 srlua</h3>
-
 <p>如果我们想让 Lua 的文件无依赖的运行怎么办？就需要一个东西 srlua（self-run lua），直接把 Lua 的文件转换为可执行的文件。srlua 的编译，首先去 <a href="https://github.com">Github</a> 下载最新版的源代码，搜索 srlua 就可以看到了，在此给出<a href="https://github.com/LuaDist/srlua">链接</a>同样进入文件的根目录下，<code>make</code> 编译发现不通过，很正常，修改 makefile 文件，<code>LUA=</code> 后边写上你的 Lua 的文件路径，就是上边我们进行编译 Lua 源码的那个文件夹所处的位置。再编译，还是不通过，还是很正常，修改 makefile 文件，<code>LIBS=</code> 后边的 <code>-ldl</code> 删除，OK，编译，提示还是有错误，但是编译工作已经完成了，该出现的文件都出现了，不管了，OK。如果你不想自己编译的话，也可以下载 Github 上编译好的版本，<code>srlua</code> 的用法是在命令行下输入：<code>glue srlua.exe Josephus.lua Josephus.exe</code>，<code>Josephus.lua</code> 是要进行编译的文件，<code>Josephus.exe</code> 是要生成的文件，<code>Josephus.lua</code> 的源码如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-lua" data-lang="lua"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -398,10 +387,10 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-lua" data-lang="lua"><span class="kr">function</span> <span class="nf">Josephus</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
-    <span class="kd">local</span> <span class="n">a</span><span class="o">=</span><span class="p">{};</span>
+    <span class="kd">local</span> <span class="n">a</span><span class="o">=</span><span class="p">{</span><span class="p">}</span><span class="p">;</span>
     <span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">y</span> <span class="kr">do</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span> <span class="kr">end</span>
-    <span class="kd">local</span> <span class="n">s</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">out</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&#34;&#34;</span>
-    <span class="kd">local</span> <span class="n">from</span> <span class="o">=</span> <span class="n">os.clock</span><span class="p">()</span>
+    <span class="kd">local</span> <span class="n">s</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">out</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&#34;</span><span class="s2">&#34;</span>
+    <span class="kd">local</span> <span class="n">from</span> <span class="o">=</span> <span class="n">os.clock</span><span class="p">(</span><span class="p">)</span>
     <span class="kr">while</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="kr">do</span>
         <span class="kd">local</span> <span class="n">temp</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="kr">repeat</span>
@@ -410,7 +399,7 @@
             <span class="kr">if</span><span class="p">(</span><span class="n">k</span> <span class="o">%</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="kr">then</span>
                 <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span>
                 <span class="n">s</span> <span class="o">=</span> <span class="n">s</span> <span class="o">+</span> <span class="mi">1</span>
-                <span class="n">out</span> <span class="o">=</span> <span class="n">out</span> <span class="o">..</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">..</span> <span class="s2">&#34; &#34;</span>
+                <span class="n">out</span> <span class="o">=</span> <span class="n">out</span> <span class="o">..</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">..</span> <span class="s2">&#34;</span><span class="s2"> </span><span class="s2">&#34;</span>
                 <span class="kr">if</span><span class="p">(</span><span class="n">s</span> <span class="o">==</span> <span class="n">y</span><span class="p">)</span> <span class="kr">then</span> <span class="n">temp</span> <span class="o">=</span> <span class="mi">1</span> <span class="kr">end</span>
                 <span class="n">a</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
             <span class="kr">end</span>
@@ -418,22 +407,23 @@
         <span class="kr">if</span><span class="p">(</span><span class="n">temp</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="kr">then</span> <span class="kr">break</span> <span class="kr">end</span>
         <span class="n">i</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">y</span>
     <span class="kr">end</span>
-    <span class="kd">local</span> <span class="n">to</span> <span class="o">=</span> <span class="n">os.clock</span><span class="p">()</span>
+    <span class="kd">local</span> <span class="n">to</span> <span class="o">=</span> <span class="n">os.clock</span><span class="p">(</span><span class="p">)</span>
     <span class="kr">return</span> <span class="n">to</span> <span class="o">-</span> <span class="n">from</span>
 <span class="kr">end</span>
 <span class="kr">function</span> <span class="nf">sleep</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="c1">-- seconds</span>
-    <span class="kd">local</span> <span class="n">t0</span> <span class="o">=</span> <span class="n">os.clock</span><span class="p">()</span>
-    <span class="kr">while</span> <span class="n">os.clock</span><span class="p">()</span> <span class="o">-</span> <span class="n">t0</span> <span class="o">&lt;=</span> <span class="n">n</span> <span class="kr">do</span> <span class="kr">end</span>
+    <span class="kd">local</span> <span class="n">t0</span> <span class="o">=</span> <span class="n">os.clock</span><span class="p">(</span><span class="p">)</span>
+    <span class="kr">while</span> <span class="n">os.clock</span><span class="p">(</span><span class="p">)</span> <span class="o">-</span> <span class="n">t0</span> <span class="o">&lt;=</span> <span class="n">n</span> <span class="kr">do</span> <span class="kr">end</span>
 <span class="kr">end</span>
 <span class="kr">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span> <span class="kr">do</span>
-    <span class="n">print</span><span class="p">(</span><span class="s2">&#34;Parameters: </span><span class="se">\t</span><span class="s2">all people: &#34;</span> <span class="o">..</span> <span class="mi">10</span><span class="o">^</span><span class="n">i</span> <span class="o">..</span> <span class="s2">&#34; Every other: 30&#34;</span><span class="p">)</span>
-    <span class="n">print</span><span class="p">(</span><span class="s2">&#34;Josephus has spend &#34;</span> <span class="o">..</span> <span class="n">Josephus</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="mi">10</span><span class="o">^</span><span class="n">i</span><span class="p">)</span> <span class="o">..</span> <span class="s2">&#34;s&#34;</span><span class="p">)</span>
-    <span class="n">print</span><span class="p">(</span><span class="s2">&#34;Program takes up &#34;</span> <span class="o">..</span> <span class="n">collectgarbage</span><span class="p">(</span><span class="s2">&#34;count&#34;</span><span class="p">)</span> <span class="o">..</span> <span class="s2">&#34;b&#34;</span><span class="p">)</span>
+    <span class="n">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="s2">Parameters: </span><span class="se">\t</span><span class="s2">all people: </span><span class="s2">&#34;</span> <span class="o">..</span> <span class="mi">10</span><span class="o">^</span><span class="n">i</span> <span class="o">..</span> <span class="s2">&#34;</span><span class="s2"> Every other: 30</span><span class="s2">&#34;</span><span class="p">)</span>
+    <span class="n">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="s2">Josephus has spend </span><span class="s2">&#34;</span> <span class="o">..</span> <span class="n">Josephus</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="mi">10</span><span class="o">^</span><span class="n">i</span><span class="p">)</span> <span class="o">..</span> <span class="s2">&#34;</span><span class="s2">s</span><span class="s2">&#34;</span><span class="p">)</span>
+    <span class="n">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="s2">Program takes up </span><span class="s2">&#34;</span> <span class="o">..</span> <span class="n">collectgarbage</span><span class="p">(</span><span class="s2">&#34;</span><span class="s2">count</span><span class="s2">&#34;</span><span class="p">)</span> <span class="o">..</span> <span class="s2">&#34;</span><span class="s2">b</span><span class="s2">&#34;</span><span class="p">)</span>
     <span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-    <span class="n">collectgarbage</span><span class="p">(</span><span class="s2">&#34;collect&#34;</span><span class="p">)</span>
-    <span class="n">print</span><span class="p">()</span>
+    <span class="n">collectgarbage</span><span class="p">(</span><span class="s2">&#34;</span><span class="s2">collect</span><span class="s2">&#34;</span><span class="p">)</span>
+    <span class="n">print</span><span class="p">(</span><span class="p">)</span>
 <span class="kr">end</span>
-<span class="n">io.read</span><span class="p">()</span></code></pre></td></tr></table>
+<span class="n">io.read</span><span class="p">(</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -528,7 +518,7 @@
     &copy;
     
       2016 -
-    2019
+    2020
     <span class="heart">
       
       <i class="iconfont">

@@ -33,7 +33,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1" />
+<meta name="generator" content="Hugo 0.63.1" />
 
 
 <link rel="canonical" href="https://tosone.cn/post/leetcode-c-c&#43;&#43;/" />
@@ -54,7 +54,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.af20b78e95c84de86b00a0242a4a77bd2601700e1b250edf27537d957ac0041d.css" integrity="sha256-ryC3jpXITehrAKAkKkp3vSYBcA4bJQ7fJ1N9lXrABB0=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.0995afa14b62cd93e93cfc066b646c4c17a3eddca0e9d52a1d9dcf5d90aaacd3.css" integrity="sha256-CZWvoUtizZPpPPwGa2RsTBej7dyg6dUqHZ3PXZCqrNM=" media="screen" crossorigin="anonymous">
 
 
 
@@ -68,16 +68,13 @@
 <meta property="article:modified_time" content="2019-07-20T12:47:23+08:00" />
 <meta itemprop="name" content="LeetCode C/C&#43;&#43;">
 <meta itemprop="description" content="LeetCode 上做一些 C/C&#43;&#43; 的算法的时候总会出现一些奇奇怪怪的问题。如何在本地的时候把问题解决解决或者 Debug 出来呢？">
-
-
 <meta itemprop="datePublished" content="2019-07-20T12:47:23&#43;08:00" />
 <meta itemprop="dateModified" content="2019-07-20T12:47:23&#43;08:00" />
 <meta itemprop="wordCount" content="775">
 
 
 
-<meta itemprop="keywords" content="LeetCode," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="LeetCode," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="LeetCode C/C&#43;&#43;"/>
 <meta name="twitter:description" content="LeetCode 上做一些 C/C&#43;&#43; 的算法的时候总会出现一些奇奇怪怪的问题。如何在本地的时候把问题解决解决或者 Debug 出来呢？"/>
 
@@ -325,13 +322,11 @@
     
     <div class="post-content">
       <p>LeetCode 上做一些 C/C++ 的算法的时候总会出现一些奇奇怪怪的问题。如何在本地的时候把问题解决解决或者 Debug 出来呢？</p>
-
 <h3 id="index-out-of-bounds">Index out of bounds</h3>
-
 <p>对于 C 语言来说，如果直接访问超出 index 的数组，会报错：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-c" data-lang="c"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -339,33 +334,31 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-c" data-lang="c"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">array</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="o">*</span><span class="n">argv</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">array</span><span class="p">[</span><span class="mi">100</span><span class="p">]</span><span class="p">;</span>
   <span class="n">array</span><span class="p">[</span><span class="mi">101</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">res</span> <span class="o">=</span> <span class="n">array</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">];</span>
+  <span class="kt">int</span> <span class="n">res</span> <span class="o">=</span> <span class="n">array</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="p">;</span>
   <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>报错如下：</p>
+</div><p>报错如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">Runtime Error:
-Line <span class="m">3</span>: Char <span class="m">10</span>: runtime error: index <span class="m">101</span> out of bounds <span class="k">for</span> <span class="nb">type</span> <span class="s1">&#39;int [100]&#39;</span> <span class="o">(</span>solution.c<span class="o">)</span></code></pre></td></tr></table>
+Line 3: Char 10: runtime error: index <span class="m">101</span> out of bounds <span class="k">for</span> <span class="nb">type</span> <span class="s1">&#39;int [100]&#39;</span> <span class="o">(</span>solution.c<span class="o">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>但是如果你使用 malloc 分配空间给 int 数组，index 的越界访问是不会直接报错的。</p>
-
+</div><p>但是如果你使用 malloc 分配空间给 int 数组，index 的越界访问是不会直接报错的。</p>
 <h3 id="heap-buffer-overflow">Heap-buffer-overflow</h3>
-
 <p>LeetCode 使用了 AddressSanitizer 检查是否存在内存非法访问。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-c" data-lang="c"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -374,28 +367,29 @@ Line <span class="m">3</span>: Char <span class="m">10</span>: runtime error: in
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-c" data-lang="c"><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
-</span><span class="cp"></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="o">*</span><span class="n">array</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="mi">100</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="cp">#</span><span class="cp">include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="o">*</span><span class="n">argv</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="o">*</span><span class="n">array</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="mi">100</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="p">)</span><span class="p">;</span>
   <span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">res</span> <span class="o">=</span> <span class="n">array</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">];</span> <span class="c1">// BOOM
+  <span class="kt">int</span> <span class="n">res</span> <span class="o">=</span> <span class="n">array</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="p">;</span> <span class="c1">// BOOM
 </span><span class="c1"></span>  <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">gcc -O -g -fsanitize<span class="o">=</span>address test.c
-./a.out</code></pre></td></tr></table>
+./a.out
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>LeetCode 报错如下：</p>
+</div><p>LeetCode 报错如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -409,42 +403,43 @@ Line <span class="m">3</span>: Char <span class="m">10</span>: runtime error: in
 WRITE of size <span class="m">4</span> at 0x60300000000c thread T0
     <span class="c1">#3 0x7ff2c35d42e0 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x202e0)</span>
 
-0x60300000000c is located <span class="m">4</span> bytes to the left of <span class="m">20</span>-byte region <span class="o">[</span>0x603000000010,0x603000000024<span class="o">)</span>
+0x60300000000c is located <span class="m">4</span> bytes to the left of 20-byte region <span class="o">[</span>0x603000000010,0x603000000024<span class="o">)</span>
 allocated by thread T0 here:
     <span class="c1">#0 0x7ff2c4a5e2b0 in malloc (/usr/local/lib64/libasan.so.5+0xe82b0)</span>
-    <span class="c1">#4 0x7ff2c35d42e0 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x202e0)</span></code></pre></td></tr></table>
+    <span class="c1">#4 0x7ff2c35d42e0 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x202e0)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="heap-use-after-free">Heap-use-after-free</h3>
+</div><h3 id="heap-use-after-free">Heap-use-after-free</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-c" data-lang="c"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-c" data-lang="c"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="o">*</span><span class="n">array</span> <span class="o">=</span> <span class="n">new</span> <span class="kt">int</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
-  <span class="n">delete</span><span class="p">[]</span> <span class="n">array</span><span class="p">;</span>
-  <span class="k">return</span> <span class="n">array</span><span class="p">[</span><span class="n">argc</span><span class="p">];</span> <span class="c1">// BOOM
-</span><span class="c1"></span><span class="p">}</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="o">*</span><span class="n">argv</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="o">*</span><span class="n">array</span> <span class="o">=</span> <span class="n">new</span> <span class="kt">int</span><span class="p">[</span><span class="mi">100</span><span class="p">]</span><span class="p">;</span>
+  <span class="n">delete</span><span class="p">[</span><span class="p">]</span> <span class="n">array</span><span class="p">;</span>
+  <span class="k">return</span> <span class="n">array</span><span class="p">[</span><span class="n">argc</span><span class="p">]</span><span class="p">;</span> <span class="c1">// BOOM
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">g++ -O -g -fsanitize<span class="o">=</span>address test.c
-./a.out</code></pre></td></tr></table>
+./a.out
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>LeetCode 报错如下：</p>
+</div><p>LeetCode 报错如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -466,46 +461,47 @@ READ of size <span class="m">4</span> at 0x61400000fe44 thread T0
     <span class="c1">#1 0x7fabfddb72e0 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x202e0)</span>
     <span class="c1">#2 0x56282de47819 in _start (/root/a.out+0x819)</span>
 
-0x61400000fe44 is located <span class="m">4</span> bytes inside of <span class="m">400</span>-byte region <span class="o">[</span>0x61400000fe40,0x61400000ffd0<span class="o">)</span>
+0x61400000fe44 is located <span class="m">4</span> bytes inside of 400-byte region <span class="o">[</span>0x61400000fe40,0x61400000ffd0<span class="o">)</span>
 freed by thread T0 here:
     <span class="c1">#0 0x7fabfea96370 in operator delete[](void*) (/usr/lib/x86_64-linux-gnu/libasan.so.3+0xc3370)</span>
     <span class="c1">#1 0x56282de47941 in main /root/heap-use-after-free.c:3</span>
 
 previously allocated by thread T0 here:
     <span class="c1">#0 0x7fabfea95d70 in operator new[](unsigned long) (/usr/lib/x86_64-linux-gnu/libasan.so.3+0xc2d70)</span>
-    <span class="c1">#1 0x56282de47931 in main /root/heap-use-after-free.c:2</span></code></pre></td></tr></table>
+    <span class="c1">#1 0x56282de47931 in main /root/heap-use-after-free.c:2</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="stack-buffer-overflow">Stack-buffer-overflow</h3>
+</div><h3 id="stack-buffer-overflow">Stack-buffer-overflow</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-c" data-lang="c"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-c" data-lang="c"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">stack_array</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="o">*</span><span class="n">argv</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">stack_array</span><span class="p">[</span><span class="mi">100</span><span class="p">]</span><span class="p">;</span>
   <span class="n">stack_array</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="k">return</span> <span class="n">stack_array</span><span class="p">[</span><span class="n">argc</span> <span class="o">+</span> <span class="mi">100</span><span class="p">];</span> <span class="c1">// BOOM
-</span><span class="c1"></span><span class="p">}</span></code></pre></td></tr></table>
+  <span class="k">return</span> <span class="n">stack_array</span><span class="p">[</span><span class="n">argc</span> <span class="o">+</span> <span class="mi">100</span><span class="p">]</span><span class="p">;</span> <span class="c1">// BOOM
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">gcc -O -g -fsanitize=address test.c
-./a.out</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">gcc -O -g -fsanitize=address test.c
+./a.out
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>LeetCode 报错如下：</p>
+</div><p>LeetCode 报错如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -522,37 +518,38 @@ READ of size <span class="m">4</span> at 0x7fffe55a7b04 thread T0
     <span class="c1">#2 0x555dec997819 in _start (/root/a.out+0x819)</span>
 
 Address 0x7fffe55a7b04 is located in stack of thread T0 at offset <span class="m">436</span> in frame
-    <span class="c1">#0 0x555dec99792f in main /root/test6.c:1</span></code></pre></td></tr></table>
+    <span class="c1">#0 0x555dec99792f in main /root/test6.c:1</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="global-buffer-overflow">Global-buffer-overflow</h3>
+</div><h3 id="global-buffer-overflow">Global-buffer-overflow</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-c" data-lang="c"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-c" data-lang="c"><span class="kt">int</span> <span class="n">global_array</span><span class="p">[</span><span class="mi">100</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">};</span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="n">global_array</span><span class="p">[</span><span class="n">argc</span> <span class="o">+</span> <span class="mi">100</span><span class="p">];</span> <span class="c1">// BOOM
-</span><span class="c1"></span><span class="p">}</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="kt">int</span> <span class="n">global_array</span><span class="p">[</span><span class="mi">100</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">}</span><span class="p">;</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="o">*</span><span class="n">argv</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">global_array</span><span class="p">[</span><span class="n">argc</span> <span class="o">+</span> <span class="mi">100</span><span class="p">]</span><span class="p">;</span> <span class="c1">// BOOM
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">gcc -O -g -fsanitize<span class="o">=</span>address test.c
-./a.out</code></pre></td></tr></table>
+./a.out
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>LeetCode 报错如下：</p>
+</div><p>LeetCode 报错如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -566,9 +563,9 @@ Address 0x7fffe55a7b04 is located in stack of thread T0 at offset <span class="m
 </span><span class="lnt">12
 </span><span class="lnt">13
 </span><span class="lnt">14
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">AddressSanitizer: global-buffer-overflow /root/test6.c:3 in main
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">AddressSanitizer: global-buffer-overflow /root/test6.c:3 in main
 Shadow bytes around the buggy address:
   0x0ab033158fe0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
   0x0ab033158ff0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
@@ -581,7 +578,8 @@ Shadow bytes around the buggy address:
   0x0ab033159060: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
   0x0ab033159070: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
   0x0ab033159080: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-Shadow byte legend (one shadow byte represents 8 application bytes):</pre></td></tr></table>
+Shadow byte legend (one shadow byte represents 8 application bytes):
+</code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -688,7 +686,7 @@ Shadow byte legend (one shadow byte represents 8 application bytes):</pre></td><
     &copy;
     
       2016 -
-    2019
+    2020
     <span class="heart">
       
       <i class="iconfont">

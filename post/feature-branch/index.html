@@ -33,7 +33,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1" />
+<meta name="generator" content="Hugo 0.63.1" />
 
 
 <link rel="canonical" href="https://tosone.cn/post/feature-branch/" />
@@ -54,7 +54,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.af20b78e95c84de86b00a0242a4a77bd2601700e1b250edf27537d957ac0041d.css" integrity="sha256-ryC3jpXITehrAKAkKkp3vSYBcA4bJQ7fJ1N9lXrABB0=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.0995afa14b62cd93e93cfc066b646c4c17a3eddca0e9d52a1d9dcf5d90aaacd3.css" integrity="sha256-CZWvoUtizZPpPPwGa2RsTBej7dyg6dUqHZ3PXZCqrNM=" media="screen" crossorigin="anonymous">
 
 
 
@@ -68,16 +68,13 @@
 <meta property="article:modified_time" content="2017-04-22T14:23:31+00:00" />
 <meta itemprop="name" content="Feature Branch Workflow 实践">
 <meta itemprop="description" content="这只是一份关于 Feature Branch Workflow 实践的建议。">
-
-
 <meta itemprop="datePublished" content="2017-04-22T14:23:31&#43;00:00" />
 <meta itemprop="dateModified" content="2017-04-22T14:23:31&#43;00:00" />
 <meta itemprop="wordCount" content="1922">
 
 
 
-<meta itemprop="keywords" content="Git," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Git," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Feature Branch Workflow 实践"/>
 <meta name="twitter:description" content="这只是一份关于 Feature Branch Workflow 实践的建议。"/>
 
@@ -325,11 +322,8 @@
     
     <div class="post-content">
       <p>这只是一份关于 Feature Branch Workflow 实践的建议。</p>
-
 <h3 id="feature-branch-命名规则">Feature Branch 命名规则</h3>
-
 <p>采用 <code>^(feature|bugfix|hotfix)/\d+-[\w-]+$</code> 来命名分支，其中：</p>
-
 <ul>
 <li><code>feature</code> 新功能</li>
 <li><code>bugfix</code> 针对 <code>master</code> 主分支的 bug 修正</li>
@@ -337,101 +331,64 @@
 <li><code>\d+</code> Coding.net 上的项目讨论 id</li>
 <li><code>[\w-]+</code> 具体的分支名</li>
 </ul>
-
 <p>示例：</p>
-
 <ul>
 <li><code>feature/123-new-user</code> 一个新功能，讨论 id 是 <code>123</code>，功能是新用户；feature 理论上是相互独立的</li>
 <li><code>bugfix/456-user-name</code> 一个 bug 修正，讨论 id 是 <code>456</code>，修正用户名称相关的问题；bug 也会影响到其他 feature 分支</li>
 <li><code>hotfix/789-server-config</code> 一个热修复，讨论 id 是 <code>789</code>，修正服务器配置问题；需要优先处理</li>
 </ul>
-
 <p>当团队出现超过十个并发分支进行开发时，规范的命名分支名称方便团队有效使用分支。
 分支名以 <code>hotfix</code> 和 <code>bugfix</code> 开头更能提示团队成员优先处理（评审）相关分支，并且建议团队成员将其合并到各自当前工作的 feature 分支进行测试反馈。
 分支名中的讨论 id 便于团队成员了解变更内容，具体的分支名需要简明扼要的描述变更。</p>
-
 <h3 id="使用-tag-标签发布正式版本">使用 tag 标签发布正式版本</h3>
-
 <p><code>master</code> 主分支默认使用 CI 部署到 staging 预发布服务器，以供内部人员（产品/测试）审阅。
 正式的 production 生产服务器只部署 git tag 发布的版本。</p>
-
 <p>正常的发布流程是在 <code>master</code> 上验收之后，使用 <code>git tag</code> 命令或在 Coding.net 网站增加标签。
 标签使用 <code>^\d{4}\.\d{1,2}\.\d{1,2}(\.\d+)?$</code> 命名，其中前三个数字是当前发布时间的年、月、日，最后一个数字当天发布的累计次数，默认不需要。
 如 <code>2017.4.11</code>、<code>2017.4.11.1</code>。</p>
-
 <p>一般来说，中小型网站应用只需要维护一个生产版本。但实际的需要，如因为产品验收导致的预发布与生产环境分离，或者无法让使用者有效确认当前发布的版本等等。
 就需要正式发布采用 git 增加标签来发布，并指明版本。</p>
-
 <p>同时，若非必要，指明版本还可以支持生产环境发布的撤回与切换。</p>
-
 <h3 id="hotfix-热修复">Hotfix 热修复</h3>
-
 <p>Hotfix 热修复与普通的 bugfix 不一样，bugfix 是针对 <code>master</code> 主分支，而 hotfix 是针对 git 标签。Hotfix 分支是从指定 tag 上检出。
 虽然也需要提交合并请求到 <code>master</code> 主分支，但其在合并操作之前，评审通过之后，在其分支上直接增加 git 标签。</p>
-
 <p>这样做的目的是避免 <code>master</code> 主分支上未正式发布的代码污染生产环境。</p>
-
 <h3 id="避免大的合并请求">避免大的合并请求</h3>
-
 <p>项目的所有代码都需要经过合并请求中评审 review 过程。
 最保守的方案也需要团队中有人对所有代码负责以便需要时能有人来解决问题。</p>
-
 <p>激进的方案是团队中所有人都参与到评审中，各负其责，每个人评审的目的是不同的。
 有的人可以通盘掌控，有的人需要仔细审查项目中的部分代码，有的人只需要检查代码注释与文档。</p>
-
 <p>所以，要避免大的合并请求，代码、注释、讨论、合并请求说明乃至 git 提交日志都需要方便审核。</p>
-
 <p>一般来说，Bugfix 分支的目的是解决问题，Hotfix 分支更为激进，甚至可以直接了当的通过删除代码来解决问题。
 Feature 分支会相对复杂，但也不能过分复杂。</p>
-
 <p>对于复杂或庞大的新需求，需要合理的拆解成多个小需求，转换成多个 feature 分支，多个合并请求。
 因为 <code>master</code> 主分支已经与生产环境脱钩，所以每个小的 feature 分支都需要尽快建立合并请求，
 尽快进行团队评审，尽快合并到 <code>master</code>，尽快发布给内部人员审阅。</p>
-
 <h3 id="团队协作">团队协作</h3>
-
 <p>团队协作加快开发速度的关键在于合理的拆分需求到不同的 feature 分支，理想境地是不同分支互不干扰，齐头并进。但这几乎是不可能的。</p>
-
 <p>基于避免大的合并请求理念，团队中每个人实际上分配到的都是多个小需求。
 这其中包括一个完整功能开发的不同阶段分成多个 feature 分支，这些分支存在先后顺序，分别由团队中不同角色的成员去开启，去完成。</p>
-
 <p>这些更加考校团队成员对需求的理解与相互之间沟通的能力。还好，我们有很好的评审渠道去加强沟通。</p>
-
 <p>所以，增加团队成员是可以提高生产力，但不是绝对。但可以确定的是，一群好的团队成员不仅能提高生产力，更能带来更好的质量。</p>
-
 <p>团队协作更注重于团队中成员的互补性，相互之间的配合。</p>
-
 <h3 id="实现大规模需求与重构">实现大规模需求与重构</h3>
-
 <p>项目中很多时候都不得不迎来很大的新功能实现、变更甚至整个项目的重构。
 这时候，我们需要一个新的主开发分支甚至一个新仓库。</p>
-
 <p>有资源的团队最好是从主仓库派生一个新仓库来实现大的变更。</p>
-
 <p>当然，也可以采用从 <code>master</code> 分支检出一个新的开发主分支。
 这个分支既不是 feature 分支也不是 bugfix 或 hotfix 分支，
 而是与 <code>master</code> 同等地位，直到它能通过合并请求合并进 <code>master</code>。</p>
-
 <p>所以，该分支可以直接命名，比如 <code>new-structure</code>。</p>
-
 <p>在合并进 <code>master</code> 分支之前，此分支和 <code>master</code> 一样也可以接受来自 feature 分支和 bugfix 分支的合并请求。
 仍然使用我们已有的工作流，只不过换了对象。</p>
-
 <p>需要注意的是，同时维持多个 feature 分支向两个不同的主分支提交合并请求是很危险的事情。
 它会加大新的开发主分支回到 <code>master</code> 的风险。</p>
-
 <p>在回到 <code>master</code> 之前，只对 <code>master</code> 分支做有限维护，比如 hotfix 是最好的。</p>
-
 <h3 id="一个人的评审">一个人的评审</h3>
-
 <p>大多数项目实际都只有一个开发成员，但此时，评审仍然不可或缺。</p>
-
 <p>所以，即使是一个人的项目，也要采用本工作流，老老实实的在合并请求中自己做评审。</p>
-
 <p>你可以交替多个 feature 分支，分别开发，然后评审上一个提交的 feature 分支。</p>
-
 <p>良好的评审习惯，会很快提高自己的代码质量。</p>
-
 <p>而且，不管是对于个人还是项目来说，都是和团队开发一样的开发模式。</p>
     </div>
 
@@ -537,7 +494,7 @@ Feature 分支会相对复杂，但也不能过分复杂。</p>
     &copy;
     
       2016 -
-    2019
+    2020
     <span class="heart">
       
       <i class="iconfont">

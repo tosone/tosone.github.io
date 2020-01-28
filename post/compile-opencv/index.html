@@ -33,7 +33,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1" />
+<meta name="generator" content="Hugo 0.63.1" />
 
 
 <link rel="canonical" href="https://tosone.cn/post/compile-opencv/" />
@@ -54,7 +54,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.af20b78e95c84de86b00a0242a4a77bd2601700e1b250edf27537d957ac0041d.css" integrity="sha256-ryC3jpXITehrAKAkKkp3vSYBcA4bJQ7fJ1N9lXrABB0=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.0995afa14b62cd93e93cfc066b646c4c17a3eddca0e9d52a1d9dcf5d90aaacd3.css" integrity="sha256-CZWvoUtizZPpPPwGa2RsTBej7dyg6dUqHZ3PXZCqrNM=" media="screen" crossorigin="anonymous">
 
 
 
@@ -68,16 +68,13 @@
 <meta property="article:modified_time" content="2017-04-15T14:22:24+00:00" />
 <meta itemprop="name" content="Compile Opencv">
 <meta itemprop="description" content="OpenCV is released under a BSD license and hence it’s free for both academic and commercial use. It has C&#43;&#43;, C, Python and Java interfaces and supports Windows, Linux, Mac OS, iOS and Android. OpenCV was designed for computational efficiency and with a strong focus on real-time applications. Written in optimized C/C&#43;&#43;, the library can take advantage of multi-core processing. Enabled with OpenCL, it can take advantage of the hardware acceleration of the underlying heterogeneous compute platform.">
-
-
 <meta itemprop="datePublished" content="2017-04-15T14:22:24&#43;00:00" />
 <meta itemprop="dateModified" content="2017-04-15T14:22:24&#43;00:00" />
 <meta itemprop="wordCount" content="238">
 
 
 
-<meta itemprop="keywords" content="OpenCV,C&#43;&#43;," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="OpenCV,C&#43;&#43;," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Compile Opencv"/>
 <meta name="twitter:description" content="OpenCV is released under a BSD license and hence it’s free for both academic and commercial use. It has C&#43;&#43;, C, Python and Java interfaces and supports Windows, Linux, Mac OS, iOS and Android. OpenCV was designed for computational efficiency and with a strong focus on real-time applications. Written in optimized C/C&#43;&#43;, the library can take advantage of multi-core processing. Enabled with OpenCL, it can take advantage of the hardware acceleration of the underlying heterogeneous compute platform."/>
 
@@ -325,13 +322,11 @@
     
     <div class="post-content">
       <p>OpenCV is released under a BSD license and hence it’s free for both academic and commercial use. It has C++, C, Python and Java interfaces and supports Windows, Linux, Mac OS, iOS and Android. OpenCV was designed for computational efficiency and with a strong focus on real-time applications. Written in optimized C/C++, the library can take advantage of multi-core processing. Enabled with OpenCL, it can take advantage of the hardware acceleration of the underlying heterogeneous compute platform.</p>
-
 <h3 id="step-1">STEP 1</h3>
-
 <p>To install the dependencies required for OpenCV, just run the following command:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -348,65 +343,60 @@
 </span><span class="se"></span>                        libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libv4l-dev <span class="se">\
 </span><span class="se"></span>                        libtbb-dev libqt4-dev libfaac-dev libmp3lame-dev libopencore-amrnb-dev <span class="se">\
 </span><span class="se"></span>                        libopencore-amrwb-dev libtheora-dev libvorbis-dev libxvidcore-dev x264 <span class="se">\
-</span><span class="se"></span>                        v4l-utils unzip</code></pre></td></tr></table>
+</span><span class="se"></span>                        v4l-utils unzip
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="step-2">STEP 2</h3>
-
+</div><h3 id="step-2">STEP 2</h3>
 <p>Download the latest version of <a href="https://github.com/opencv/opencv">OpenCV</a>. Or from <a href="https://share.weiyun.com/c01ee33744d180629d3ae779b75b8d43">here</a>.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">wget https://github.com/opencv/opencv/archive/<span class="si">${</span><span class="nv">version</span><span class="si">}</span>.zip
-unzip <span class="si">${</span><span class="nv">version</span><span class="si">}</span>.zip</code></pre></td></tr></table>
+unzip <span class="si">${</span><span class="nv">version</span><span class="si">}</span>.zip
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="step-3">STEP 3</h3>
-
+</div><h3 id="step-3">STEP 3</h3>
 <p>Sometimes compile opencv will get an error that cannot downlaod ippicv.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">mkdir 3rdparty/ippicv/downloads/linux-808b791a6eac9ed78d32a7666804320e</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">mkdir 3rdparty/ippicv/downloads/linux-808b791a6eac9ed78d32a7666804320e
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>Then copy the ippicv file in that directory.</p>
+</div><p>Then copy the ippicv file in that directory.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">mkdir build
 <span class="nb">cd</span> build
-cmake -D <span class="nv">CMAKE_BUILD_TYPE</span><span class="o">=</span>RELEASE -D <span class="nv">CMAKE_INSTALL_PREFIX</span><span class="o">=</span>/usr/local ..</code></pre></td></tr></table>
+cmake -D <span class="nv">CMAKE_BUILD_TYPE</span><span class="o">=</span>RELEASE -D <span class="nv">CMAKE_INSTALL_PREFIX</span><span class="o">=</span>/usr/local ..
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="step-4">STEP 4</h3>
-
+</div><h3 id="step-4">STEP 4</h3>
 <p>Finishing compile.</p>
-
 <p>Now some final touches:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">sudo /bin/bash -c <span class="s1">&#39;echo &#34;/usr/local/lib&#34; &gt; /etc/ld.so.conf.d/opencv.conf&#39;</span>
 sudo ldconfig
-sudo apt-get update</code></pre></td></tr></table>
+sudo apt-get update
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>After the complete process execute reboot your system.</p>
-
+</div><p>After the complete process execute reboot your system.</p>
 <p>Now you have a working installation of OpenCV.</p>
     </div>
 
@@ -513,7 +503,7 @@ sudo apt-get update</code></pre></td></tr></table>
     &copy;
     
       2016 -
-    2019
+    2020
     <span class="heart">
       
       <i class="iconfont">

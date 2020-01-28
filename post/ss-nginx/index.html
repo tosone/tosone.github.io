@@ -33,7 +33,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1" />
+<meta name="generator" content="Hugo 0.63.1" />
 
 
 <link rel="canonical" href="https://tosone.cn/post/ss-nginx/" />
@@ -54,7 +54,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.af20b78e95c84de86b00a0242a4a77bd2601700e1b250edf27537d957ac0041d.css" integrity="sha256-ryC3jpXITehrAKAkKkp3vSYBcA4bJQ7fJ1N9lXrABB0=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.0995afa14b62cd93e93cfc066b646c4c17a3eddca0e9d52a1d9dcf5d90aaacd3.css" integrity="sha256-CZWvoUtizZPpPPwGa2RsTBej7dyg6dUqHZ3PXZCqrNM=" media="screen" crossorigin="anonymous">
 
 
 
@@ -68,16 +68,13 @@
 <meta property="article:modified_time" content="2019-10-23T19:38:03+08:00" />
 <meta itemprop="name" content="High available shadowsocks">
 <meta itemprop="description" content="我们都知道国内总有一些 404 的网站，但是某些有技术的人总能访问到一些不存在的网站，这个在之前的文章中有说，有这一篇，也有这一篇，但是每到一些关键节日，某些技术比较不是特别强的人只能等比较严格的网络封锁过去之后才能再去访问那些网站，但是有没有一种永远可用特别高级的方式呢？答案是有的。快看！">
-
-
 <meta itemprop="datePublished" content="2019-10-23T19:38:03&#43;08:00" />
 <meta itemprop="dateModified" content="2019-10-23T19:38:03&#43;08:00" />
-<meta itemprop="wordCount" content="1404">
+<meta itemprop="wordCount" content="1409">
 
 
 
-<meta itemprop="keywords" content="Shadowsocks," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Shadowsocks," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="High available shadowsocks"/>
 <meta name="twitter:description" content="我们都知道国内总有一些 404 的网站，但是某些有技术的人总能访问到一些不存在的网站，这个在之前的文章中有说，有这一篇，也有这一篇，但是每到一些关键节日，某些技术比较不是特别强的人只能等比较严格的网络封锁过去之后才能再去访问那些网站，但是有没有一种永远可用特别高级的方式呢？答案是有的。快看！"/>
 
@@ -325,19 +322,16 @@
     
     <div class="post-content">
       <p>我们都知道国内总有一些 404 的网站，但是某些有技术的人总能访问到一些不存在的网站，这个在之前的文章中有说，有这<a href="https://tosone.cn/post/shadowsocks-ppt/">一篇</a>，也有这<a href="https://tosone.cn/post/shadowsocks/">一篇</a>，但是每到一些关键节日，某些技术比较不是特别强的人只能等比较严格的网络封锁过去之后才能再去访问那些网站，但是有没有一种永远可用特别高级的方式呢？答案是有的。快看！</p>
-
 <p>首先你看这个短文的时候默认你已经会了一下几个东西：</p>
-
 <ul>
 <li>Docker</li>
 <li>docker-compose</li>
 <li>Makefile</li>
 </ul>
-
 <p>我们注意到 Docker Hub 里边有一些关于 Shadowsocks 的镜像，有一个名叫 <code>shadowsocks/shadowsocks-libev</code> 是 Shadowsocks 官方的镜像，功能比较单一，但是完全够用。另外一个镜像 <code>mritd/shadowsocks</code>，这个镜像功能比较丰富，提供了 kcp 和 obfs 的功能，但是我比较懒得研究，其实官方的那个镜像就挺好。说到这里，镜像解决了，下边来一个 Shadowsocks 的 docker-compose 的启动配置。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-YAML" data-lang="YAML"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -360,50 +354,48 @@
 </span><span class="lnt">21
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-YAML" data-lang="YAML">version<span class="p">:</span><span class="w"> </span><span class="s2">&#34;3.7&#34;</span><span class="w">
+<pre class="chroma"><code class="language-YAML" data-lang="YAML"><span class="k">version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;3.7&#34;</span><span class="w">
 </span><span class="w">
-</span><span class="w"></span>services<span class="p">:</span><span class="w">
-</span><span class="w">  </span>shadowsocks-proxy<span class="p">:</span><span class="w">
-</span><span class="w">    </span>image<span class="p">:</span><span class="w"> </span>nginx<span class="p">:</span>dev<span class="w">
-</span><span class="w">    </span>container_name<span class="p">:</span><span class="w"> </span>shadowsocks<span class="w">
-</span><span class="w">    </span>restart<span class="p">:</span><span class="w"> </span>always<span class="w">
-</span><span class="w">    </span>hostname<span class="p">:</span><span class="w"> </span>shadowsocks<span class="w">
-</span><span class="w">    </span>build<span class="p">:</span><span class="w"> </span>$PWD/shadowsocks-proxy<span class="w">
-</span><span class="w">    </span>ports<span class="p">:</span><span class="w">
-</span><span class="w">      </span>-<span class="w"> </span>${SHADOWSOCKS_PORT}<span class="p">:</span>${SHADOWSOCKS_PORT}<span class="w">
-</span><span class="w">  </span>shadowsocks<span class="p">:</span><span class="w">
-</span><span class="w">    </span>image<span class="p">:</span><span class="w"> </span>shadowsocks/shadowsocks-libev<span class="p">:</span>latest<span class="w">
-</span><span class="w">    </span>container_name<span class="p">:</span><span class="w"> </span>shadowsocks<span class="w">
-</span><span class="w">    </span>restart<span class="p">:</span><span class="w"> </span>always<span class="w">
-</span><span class="w">    </span>hostname<span class="p">:</span><span class="w"> </span>shadowsocks<span class="w">
-</span><span class="w">    </span>environment<span class="p">:</span><span class="w">
-</span><span class="w">      </span>-<span class="w"> </span>METHOD=chacha20-ietf-poly1305<span class="w">
-</span><span class="w">      </span>-<span class="w"> </span>PASSWORD=${SECRETPERSONAL}<span class="w">
-</span><span class="w">    </span>ports<span class="p">:</span><span class="w">
-</span><span class="w">      </span>-<span class="w"> </span>${SHADOWSOCKS_PORT}<span class="p">:</span><span class="m">8388</span></code></pre></td></tr></table>
+</span><span class="w"></span><span class="k">services</span><span class="p">:</span><span class="w">
+</span><span class="w"></span><span class="w">  </span><span class="k">shadowsocks-proxy</span><span class="p">:</span><span class="w">
+</span><span class="w"></span><span class="w">    </span><span class="k">image</span><span class="p">:</span><span class="w"> </span>nginx<span class="p">:</span>dev<span class="w">
+</span><span class="w">    </span><span class="k">container_name</span><span class="p">:</span><span class="w"> </span>shadowsocks<span class="w">
+</span><span class="w">    </span><span class="k">restart</span><span class="p">:</span><span class="w"> </span>always<span class="w">
+</span><span class="w">    </span><span class="k">hostname</span><span class="p">:</span><span class="w"> </span>shadowsocks<span class="w">
+</span><span class="w">    </span><span class="k">build</span><span class="p">:</span><span class="w"> </span>$PWD/shadowsocks-proxy<span class="w">
+</span><span class="w">    </span><span class="k">ports</span><span class="p">:</span><span class="w">
+</span><span class="w"></span><span class="w">      </span>- ${SHADOWSOCKS_PORT}<span class="p">:</span>${SHADOWSOCKS_PORT}<span class="w">
+</span><span class="w">  </span><span class="k">shadowsocks</span><span class="p">:</span><span class="w">
+</span><span class="w"></span><span class="w">    </span><span class="k">image</span><span class="p">:</span><span class="w"> </span>shadowsocks/shadowsocks-libev<span class="p">:</span>latest<span class="w">
+</span><span class="w">    </span><span class="k">container_name</span><span class="p">:</span><span class="w"> </span>shadowsocks<span class="w">
+</span><span class="w">    </span><span class="k">restart</span><span class="p">:</span><span class="w"> </span>always<span class="w">
+</span><span class="w">    </span><span class="k">hostname</span><span class="p">:</span><span class="w"> </span>shadowsocks<span class="w">
+</span><span class="w">    </span><span class="k">environment</span><span class="p">:</span><span class="w">
+</span><span class="w"></span><span class="w">      </span>- METHOD=chacha20-ietf-poly1305<span class="w">
+</span><span class="w">      </span>- PASSWORD=${SECRETPERSONAL}<span class="w">
+</span><span class="w">    </span><span class="k">ports</span><span class="p">:</span><span class="w">
+</span><span class="w"></span><span class="w">      </span>- ${SHADOWSOCKS_PORT}<span class="p">:</span><span class="m">8388</span><span class="w">
+</span></code></pre></td></tr></table>
 </div>
-</div>
-<p>OK，解释一下上边的配置，<code>shadowsocks-proxy</code> 这个 service 的配置先不用管，下边有解释。<code>shadowsocks</code> 这个 service 的配置仅仅定义了加密方法和秘钥，还有对外映射的 8388 端口。里边有一些环境变量的东西，暂时先不管，下边讲。如果配置完了的话，直接运行 <code>docker-compose up -d shadowsocks</code> 就完了，你的 Shadowsocks 就启动完了，就能用了。</p>
-
+</div><p>OK，解释一下上边的配置，<code>shadowsocks-proxy</code> 这个 service 的配置先不用管，下边有解释。<code>shadowsocks</code> 这个 service 的配置仅仅定义了加密方法和秘钥，还有对外映射的 8388 端口。里边有一些环境变量的东西，暂时先不管，下边讲。如果配置完了的话，直接运行 <code>docker-compose up -d shadowsocks</code> 就完了，你的 Shadowsocks 就启动完了，就能用了。</p>
 <p>然后看一眼环境变量的文件内容，如下，保存内容为 <code>.env</code>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">SHADOWSOCKS_SERVER</span><span class="o">=</span>us.tosone.cn china.tosone.cn
 <span class="nv">SHADOWSOCKS_PORT</span><span class="o">=</span><span class="m">8388</span>
-<span class="nv">SECRETPERSONAL</span><span class="o">=</span>my_secret_you_dont_know</code></pre></td></tr></table>
+<span class="nv">SECRETPERSONAL</span><span class="o">=</span>my_secret_you_dont_know
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>上边 <code>SHADOWSOCKS_PORT</code> 设置成了 8388 但是你千万不要这么做，8388，这个数字很危险，希望看到这篇短文的人都能懂。<code>SHADOWSOCKS_SERVER</code> 这个在下文有用，先别着急。</p>
-
+</div><p>上边 <code>SHADOWSOCKS_PORT</code> 设置成了 8388 但是你千万不要这么做，8388，这个数字很危险，希望看到这篇短文的人都能懂。<code>SHADOWSOCKS_SERVER</code> 这个在下文有用，先别着急。</p>
 <p>最后就剩下最重要的一个文件了，<code>Makefile</code> 如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-makefile" data-lang="makefile"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -426,10 +418,11 @@
 </span><span class="lnt">21
 </span><span class="lnt">22
 </span><span class="lnt">23
+</span><span class="lnt">24
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-makefile" data-lang="makefile"><span class="err">include</span> <span class="err">.env</span>
-<span class="k">export $(</span><span class="nv">shell</span> <span class="nv">sed</span> &#39;<span class="nv">s</span>/=.*//&#39; .<span class="nv">env</span><span class="k">)</span>
+<pre class="chroma"><code class="language-makefile" data-lang="makefile"><span class="err">i</span><span class="err">n</span><span class="err">c</span><span class="err">l</span><span class="err">u</span><span class="err">d</span><span class="err">e</span> <span class="err">.</span><span class="err">e</span><span class="err">n</span><span class="err">v</span>
+<span class="k">export </span><span class="k">$(</span><span class="nv">shell</span> <span class="nv">sed</span> &#39;<span class="nv">s</span>/=.*//&#39; .<span class="nv">env</span><span class="k">)</span>
 
 <span class="nf">.PHONY</span><span class="o">:</span> <span class="n">install</span>-<span class="n">docker</span>
 <span class="nf">install-docker</span><span class="o">:</span>
@@ -451,19 +444,16 @@
 <span class="nf">.PHONY</span><span class="o">:</span> <span class="n">upgrade</span>
 <span class="nf">upgrade</span><span class="o">:</span>
 	docker-compose pull
+
 </code></pre></td></tr></table>
 </div>
-</div>
-<p><code>Makefile</code> 的前两行是将 .env 中的环境变量导入到 Makefile 执行的环境变量中，这里需要注意的一点是，Makefile 执行的环境变量和你当前在的 bash 环境变量不是一个东西，需要特别注意，这一点很重要，一定要记住。</p>
-
+</div><p><code>Makefile</code> 的前两行是将 .env 中的环境变量导入到 Makefile 执行的环境变量中，这里需要注意的一点是，Makefile 执行的环境变量和你当前在的 bash 环境变量不是一个东西，需要特别注意，这一点很重要，一定要记住。</p>
 <p><code>Makefile</code> 的 target <code>install-docker</code> 是在你的环境里边安装 Docker 和 docker-compose，但是如果你是国内的环境的话，这个命令执行的时间长度将会比你的一辈子都要长，安装这两个东西不过多深入，反正这样安装的是最正统的。哈哈哈。</p>
-
 <p><code>Makefile</code> 的 target <code>shadowsocks</code> 是将 shadowsocks server 运行起来，需要找个能访问那些 404 网站的服务器上运行。</p>
-
 <p><code>Makefile</code> 的 target <code>shadowsocks-proxy</code> 是运行起来一个对于 Shadowsocks server 的透明代理。里边写的比较复杂，里边主要做的是可以对多个 Shadowsocks server 做反向代理的负载均衡，哈哈哈，会将 <code>SHADOWSOCKS_SERVER</code> 中的配置写到 nginx 的配置中作为代理用。主要的魔法在 <code>shadowsocks-proxy/gen.sh</code> 这个文件里边，内容如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -508,29 +498,25 @@ cat <span class="s">&lt;&lt; EOF
 </span><span class="s">		proxy_pass group;
 </span><span class="s">	}
 </span><span class="s">}
-</span><span class="s">EOF</span></code></pre></td></tr></table>
+</span><span class="s">EOF</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>So easy，是不是。</p>
-
+</div><p>So easy，是不是。</p>
 <p><code>SHADOWSOCKS_PORT</code> 这个变量在代理中的配置，在 Shadowsocks server 中的外部地址都是一样的，这就可以只改一个地方的配置，其他同步配置只执行一条命令就完成了服务的更新。</p>
-
 <h3 id="总结">总结</h3>
-
 <p>说到这里其实该说的都已经说完了，但是怎么个高可用呢？首先一个国外的服务器作为 Shadowsocks server，如果国内把这个 IP 在某些地区封掉呢？（经验发现 IP 被封，是某些区域可用，某些区域不可以用，全国区域都被封，那真的是神仙难救）那么就需要在国内找个能访问这个 IP 的国内主机做一次代理，有时候一层代理还不够，那就多来几层，有时候国外的主机一台不稳定，那就多台负载均衡。反正可以尽情发挥。</p>
-
 <p>有了这些配置整个过程中你需要执行的命令只有两条：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">make shadowsocks
-make shadowsocks-proxy</code></pre></td></tr></table>
+make shadowsocks-proxy
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>以上零零散散的有一些配置，不适合学习，完整的所有配置下载在<a href="https://tc.tosone.cn/high-available-shadowsocks.tar.gz">这里</a>。</p>
+</div><p>以上零零散散的有一些配置，不适合学习，完整的所有配置下载在<a href="https://tc.tosone.cn/high-available-shadowsocks.tar.gz">这里</a>。</p>
     </div>
 
     
@@ -635,7 +621,7 @@ make shadowsocks-proxy</code></pre></td></tr></table>
     &copy;
     
       2016 -
-    2019
+    2020
     <span class="heart">
       
       <i class="iconfont">

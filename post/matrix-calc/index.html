@@ -33,7 +33,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1" />
+<meta name="generator" content="Hugo 0.63.1" />
 
 
 <link rel="canonical" href="https://tosone.cn/post/matrix-calc/" />
@@ -54,7 +54,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.af20b78e95c84de86b00a0242a4a77bd2601700e1b250edf27537d957ac0041d.css" integrity="sha256-ryC3jpXITehrAKAkKkp3vSYBcA4bJQ7fJ1N9lXrABB0=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.0995afa14b62cd93e93cfc066b646c4c17a3eddca0e9d52a1d9dcf5d90aaacd3.css" integrity="sha256-CZWvoUtizZPpPPwGa2RsTBej7dyg6dUqHZ3PXZCqrNM=" media="screen" crossorigin="anonymous">
 
 
 
@@ -68,16 +68,13 @@
 <meta property="article:modified_time" content="2017-02-24T22:09:45+00:00" />
 <meta itemprop="name" content="N 阶行列式求解">
 <meta itemprop="description" content="用递归的方式求解 N 阶行列式的值。">
-
-
 <meta itemprop="datePublished" content="2017-02-24T22:09:45&#43;00:00" />
 <meta itemprop="dateModified" content="2017-02-24T22:09:45&#43;00:00" />
-<meta itemprop="wordCount" content="1452">
+<meta itemprop="wordCount" content="1450">
 
 
 
-<meta itemprop="keywords" content="Algorithm,C," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Algorithm,C," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="N 阶行列式求解"/>
 <meta name="twitter:description" content="用递归的方式求解 N 阶行列式的值。"/>
 
@@ -325,10 +322,9 @@
     
     <div class="post-content">
       <p>用递归的方式求解 N 阶行列式的值。</p>
-
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-c" data-lang="c"><span class="lnt">  1
+<pre class="chroma"><code><span class="lnt">  1
 </span><span class="lnt">  2
 </span><span class="lnt">  3
 </span><span class="lnt">  4
@@ -449,14 +445,14 @@
 </span><span class="lnt">119
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-c" data-lang="c"><span class="cp">#include</span> <span class="cpf">&lt;malloc.h&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt; // 包含的头文件不解释</span><span class="cp">
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="cp">#</span><span class="cp">include</span> <span class="cpf">&lt;malloc.h&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="cp">#</span><span class="cp">include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="cp">#</span><span class="cp">include</span> <span class="cpf">&lt;stdlib.h&gt; // 包含的头文件不解释</span><span class="cp">
 </span><span class="cp"></span><span class="k">typedef</span> <span class="kt">bool</span> <span class="kt">int</span>    <span class="c1">// 因为标准c里边没有bool类型才这么做
 </span><span class="c1"></span>
-<span class="cp">#define false 0
+<span class="cp">#</span><span class="cp">define false 0</span><span class="cp">
 </span><span class="cp"></span>
-<span class="cp">#define true 1
+<span class="cp">#</span><span class="cp">define true 1</span><span class="cp">
 </span><span class="cp"></span>    <span class="kt">int</span> <span class="o">*</span><span class="n">c</span><span class="p">,</span>   <span class="c1">// 将整个行列式的值存到c指向的空间里
 </span><span class="c1"></span>    <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>    <span class="c1">// 记录当前的行列式计算进行了多少步
 </span><span class="c1"></span>    <span class="n">a</span><span class="p">,</span>        <span class="c1">// 方便传递行列式的阶数
@@ -465,8 +461,8 @@
 <span class="c1">// 计算阶乘的函数
 </span><span class="c1"></span><span class="kt">int</span> <span class="nf">aq</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">)</span> <span class="p">{</span>
   <span class="kt">int</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">a</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
-    <span class="n">s</span> <span class="o">*=</span> <span class="n">i</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span><span class="o">=</span> <span class="n">a</span><span class="p">;</span> <span class="n">i</span><span class="o">+</span><span class="o">+</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">*</span><span class="o">=</span> <span class="n">i</span><span class="p">;</span>
   <span class="k">return</span> <span class="n">s</span><span class="p">;</span>
 <span class="p">}</span>
 
@@ -479,11 +475,11 @@
 <span class="c1">// 计算在行列式计算过程中每一项前边的符号是正还是负
 </span><span class="c1"></span><span class="kt">bool</span> <span class="nf">sa</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">l</span><span class="p">)</span> <span class="p">{</span>
   <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// n为行列式展开式每一项的逆序数
-</span><span class="c1"></span>  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">a</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">a</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
-      <span class="k">if</span> <span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">l</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
-        <span class="n">n</span><span class="o">++</span><span class="p">;</span> <span class="c1">// 不断通过条件判断累加逆序数得出最终的逆序数
-</span><span class="c1"></span>  <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+</span><span class="c1"></span>  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">a</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">+</span><span class="o">+</span><span class="p">)</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">a</span><span class="p">;</span> <span class="n">j</span><span class="o">+</span><span class="o">+</span><span class="p">)</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">l</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="p">)</span>
+        <span class="n">n</span><span class="o">+</span><span class="o">+</span><span class="p">;</span> <span class="c1">// 不断通过条件判断累加逆序数得出最终的逆序数
+</span><span class="c1"></span>  <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">=</span><span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
     <span class="k">return</span> <span class="nb">false</span><span class="p">;</span> <span class="c1">// 若为正，则返回false
 </span><span class="c1"></span>  <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>    <span class="c1">// 否则返回true
 </span><span class="c1"></span><span class="p">}</span>
@@ -492,82 +488,83 @@
 </span><span class="c1"></span><span class="kt">void</span> <span class="nf">perm</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">k</span><span class="p">,</span> <span class="kt">int</span> <span class="n">m</span><span class="p">)</span> <span class="p">{</span>
   <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
   <span class="k">if</span> <span class="p">(</span><span class="n">k</span> <span class="o">&gt;</span> <span class="n">m</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">n</span><span class="o">++</span><span class="p">;</span> <span class="c1">// 每递归回来一次，将记录运行次数加一
-</span><span class="c1"></span>    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">a</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
-      <span class="n">s</span> <span class="o">*=</span> <span class="n">c</span><span class="p">[</span><span class="n">l</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">a</span> <span class="o">*</span> <span class="n">j</span><span class="p">];</span> <span class="c1">// 算出此次行列式展开式的这项的值
-</span><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="n">sa</span><span class="p">(</span><span class="n">l</span><span class="p">))</span>
+    <span class="n">n</span><span class="o">+</span><span class="o">+</span><span class="p">;</span> <span class="c1">// 每递归回来一次，将记录运行次数加一
+</span><span class="c1"></span>    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">a</span><span class="p">;</span> <span class="n">j</span><span class="o">+</span><span class="o">+</span><span class="p">)</span>
+      <span class="n">s</span> <span class="o">*</span><span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="n">l</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">a</span> <span class="o">*</span> <span class="n">j</span><span class="p">]</span><span class="p">;</span> <span class="c1">// 算出此次行列式展开式的这项的值
+</span><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="n">sa</span><span class="p">(</span><span class="n">l</span><span class="p">)</span><span class="p">)</span>
       <span class="n">s</span> <span class="o">*</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="c1">// 确定这一项的符号
 </span><span class="c1"></span>    <span class="c1">// 输出当前sum内的值（即到当前为止所得到的结果是多少）
 </span><span class="c1"></span>    <span class="c1">// 输出运行的完成程度（即当前运行的次数除以总次数）
-</span><span class="c1"></span>    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%5d      完成度：%2.2f%%</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">sum</span> <span class="o">+</span> <span class="o">=</span> <span class="n">s</span><span class="p">,</span> <span class="n">n</span> <span class="o">/</span> <span class="p">(</span><span class="n">aq</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">10</span><span class="p">);</span>
+</span><span class="c1"></span>    <span class="n">printf</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">%5d      完成度：%2.2f%%</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">sum</span> <span class="o">+</span> <span class="o">=</span> <span class="n">s</span><span class="p">,</span> <span class="n">n</span> <span class="o">/</span> <span class="p">(</span><span class="n">aq</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">10</span><span class="p">)</span><span class="p">;</span>
   <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">k</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">m</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n">swap</span><span class="p">(</span><span class="n">l</span> <span class="o">+</span> <span class="n">k</span><span class="p">,</span> <span class="n">l</span> <span class="o">+</span> <span class="n">i</span><span class="p">);</span>
-      <span class="n">perm</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">m</span><span class="p">);</span>
-      <span class="n">swap</span><span class="p">(</span><span class="n">l</span> <span class="o">+</span> <span class="n">k</span><span class="p">,</span> <span class="n">l</span> <span class="o">+</span> <span class="n">i</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">k</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span><span class="o">=</span> <span class="n">m</span><span class="p">;</span> <span class="n">i</span><span class="o">+</span><span class="o">+</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">swap</span><span class="p">(</span><span class="n">l</span> <span class="o">+</span> <span class="n">k</span><span class="p">,</span> <span class="n">l</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span><span class="p">;</span>
+      <span class="n">perm</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span><span class="p">;</span>
+      <span class="n">swap</span><span class="p">(</span><span class="n">l</span> <span class="o">+</span> <span class="n">k</span><span class="p">,</span> <span class="n">l</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span><span class="p">;</span>
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kt">void</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="p">)</span>
 <span class="p">{</span>
   <span class="kt">int</span> <span class="o">*</span>
       <span class="n">b</span><span class="p">,</span>              <span class="c1">// 一个辅助变量，在递归函数中将b指向的空间内的值进行全排列，也即行列式展开式不同组合的下标
 </span><span class="c1"></span>      <span class="n">i</span><span class="p">,</span>              <span class="c1">// 循环中的辅助变量
 </span><span class="c1"></span>      <span class="n">f</span><span class="p">,</span>              <span class="c1">// 在格式化输出行列式的辅助变量
 </span><span class="c1"></span>      <span class="n">e</span><span class="p">;</span>              <span class="c1">// 判断是否退出程序的标志位
-</span><span class="c1"></span>  <span class="n">system</span><span class="p">(</span><span class="s">&#34;color 3e&#34;</span><span class="p">);</span> <span class="c1">// 设置程序运行的前景色和背景色
+</span><span class="c1"></span>  <span class="n">system</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">color 3e</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span> <span class="c1">// 设置程序运行的前景色和背景色
 </span><span class="c1"></span><span class="nl">u</span><span class="p">:</span>
-  <span class="n">system</span><span class="p">(</span><span class="s">&#34;cls&#34;</span><span class="p">);</span> <span class="c1">// 清空屏幕
-</span><span class="c1"></span>  <span class="n">printf</span><span class="p">(</span><span class="s">&#34;请输入行列式的阶数：</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
-  <span class="n">scanf</span><span class="p">(</span><span class="s">&#34;%d&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">);</span>                    <span class="c1">// 获取行列式的阶数
-</span><span class="c1"></span>  <span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="o">*</span> <span class="n">a</span><span class="p">);</span> <span class="c1">// 为变量申请空间
-</span><span class="c1"></span>  <span class="n">c</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="o">*</span> <span class="n">a</span> <span class="o">*</span> <span class="n">a</span><span class="p">);</span>
-  <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">a</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+  <span class="n">system</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">cls</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span> <span class="c1">// 清空屏幕
+</span><span class="c1"></span>  <span class="n">printf</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">请输入行列式的阶数：</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
+  <span class="n">scanf</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">%d</span><span class="s">&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">)</span><span class="p">;</span>                    <span class="c1">// 获取行列式的阶数
+</span><span class="c1"></span>  <span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="o">*</span> <span class="n">a</span><span class="p">)</span><span class="p">;</span> <span class="c1">// 为变量申请空间
+</span><span class="c1"></span>  <span class="n">c</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="o">*</span> <span class="n">a</span> <span class="o">*</span> <span class="n">a</span><span class="p">)</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">a</span><span class="p">;</span> <span class="n">i</span><span class="o">+</span><span class="o">+</span><span class="p">)</span>
     <span class="o">*</span><span class="p">(</span><span class="n">b</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span> <span class="c1">// 为辅助变量也即行列式下标逐个赋值
-</span><span class="c1"></span>  <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">a</span> <span class="o">*</span> <span class="n">a</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
-      <span class="n">printf</span><span class="p">(</span><span class="s">&#34;请依次输入行列式中第%d行的值（以空格分隔）：</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span>
-             <span class="n">i</span> <span class="o">/</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span> <span class="c1">// 提示输入行列式的值
-</span><span class="c1"></span>    <span class="n">scanf</span><span class="p">(</span><span class="s">&#34;%d&#34;</span><span class="p">,</span> <span class="n">c</span> <span class="o">+</span> <span class="n">i</span><span class="p">);</span>
+</span><span class="c1"></span>  <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">a</span> <span class="o">*</span> <span class="n">a</span><span class="p">;</span> <span class="n">i</span><span class="o">+</span><span class="o">+</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="n">a</span> <span class="o">=</span><span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+      <span class="n">printf</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">请依次输入行列式中第%d行的值（以空格分隔）：</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span>
+             <span class="n">i</span> <span class="o">/</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="p">;</span> <span class="c1">// 提示输入行列式的值
+</span><span class="c1"></span>    <span class="n">scanf</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">%d</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">c</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span><span class="p">;</span>
   <span class="p">}</span>
-  <span class="n">printf</span><span class="p">(</span><span class="s">&#34;</span><span class="se">\n\n</span><span class="s">&#34;</span><span class="p">);</span>
-  <span class="n">perm</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">a</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>                         <span class="c1">// 计算行列式的值
-</span><span class="c1"></span>  <span class="n">printf</span><span class="p">(</span><span class="s">&#34;</span><span class="se">\n</span><span class="s">行列式展开式共有%d项</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">aq</span><span class="p">(</span><span class="n">a</span><span class="p">));</span> <span class="c1">// 打印出来行列式的各种信息
-</span><span class="c1"></span>  <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
+  <span class="n">printf</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="se">\n</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
+  <span class="n">perm</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">a</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="p">;</span>                         <span class="c1">// 计算行列式的值
+</span><span class="c1"></span>  <span class="n">printf</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="se">\n</span><span class="s">行列式展开式共有%d项</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">aq</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="p">)</span><span class="p">;</span> <span class="c1">// 打印出来行列式的各种信息
+</span><span class="c1"></span>  <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!</span><span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
     <span class="n">f</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// 判断当前的行列式是偶数行还是奇数行
 </span><span class="c1"></span>  <span class="k">else</span>
     <span class="n">f</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
-  <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">a</span> <span class="o">*</span> <span class="n">a</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">/</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">==</span> <span class="n">f</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">&amp;&amp;</span> <span class="n">i</span> <span class="o">%</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">// 判断是否达到行列式中间的一行行首
-</span><span class="c1"></span>      <span class="n">printf</span><span class="p">(</span><span class="s">&#34;D = &#34;</span><span class="p">);</span>                     <span class="c1">// 输出“D = ”
-</span><span class="c1"></span>    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="n">a</span> <span class="o">==</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">a</span> <span class="o">*</span> <span class="n">a</span><span class="p">;</span> <span class="n">i</span><span class="o">+</span><span class="o">+</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">/</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">=</span><span class="o">=</span> <span class="n">f</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">&amp;</span><span class="o">&amp;</span> <span class="n">i</span> <span class="o">%</span> <span class="n">a</span> <span class="o">=</span><span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">// 判断是否达到行列式中间的一行行首
+</span><span class="c1"></span>      <span class="n">printf</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">D = </span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>                     <span class="c1">// 输出“D = ”
+</span><span class="c1"></span>    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="n">a</span> <span class="o">=</span><span class="o">=</span>
              <span class="mi">0</span><span class="p">)</span> <span class="c1">// 判断是否是每一行的行首，若是则输出四个空格，保证输出的格式优美
-</span><span class="c1"></span>      <span class="n">printf</span><span class="p">(</span><span class="s">&#34;    &#34;</span><span class="p">);</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">// 判断是否是行首，若是输出制表符竖线，可与上一句写到一块儿
-</span><span class="c1"></span>      <span class="n">printf</span><span class="p">(</span><span class="s">&#34;┃&#34;</span><span class="p">);</span>
-    <span class="k">if</span> <span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">// 判断是否是行列式某一行的最后一个数
-</span><span class="c1"></span>      <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%2d&#34;</span><span class="p">,</span> <span class="o">*</span><span class="p">(</span><span class="n">c</span> <span class="o">+</span> <span class="n">i</span><span class="p">));</span>
+</span><span class="c1"></span>      <span class="n">printf</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">    </span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="n">a</span> <span class="o">=</span><span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">// 判断是否是行首，若是输出制表符竖线，可与上一句写到一块儿
+</span><span class="c1"></span>      <span class="n">printf</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">┃</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">a</span> <span class="o">=</span><span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">// 判断是否是行列式某一行的最后一个数
+</span><span class="c1"></span>      <span class="n">printf</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">%2d</span><span class="s">&#34;</span><span class="p">,</span> <span class="o">*</span><span class="p">(</span><span class="n">c</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span><span class="p">)</span><span class="p">;</span>
     <span class="k">else</span>
-      <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%2d &#34;</span><span class="p">,</span>
-             <span class="o">*</span><span class="p">(</span><span class="n">c</span> <span class="o">+</span> <span class="n">i</span><span class="p">));</span> <span class="c1">// 若不是行列式某一行的最后一个数则在数字后边加一个空格
-</span><span class="c1"></span>    <span class="k">if</span> <span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">// 判断是否到达一行的行末
-</span><span class="c1"></span>      <span class="n">printf</span><span class="p">(</span><span class="s">&#34;┃&#34;</span><span class="p">);</span>
-    <span class="k">if</span> <span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">a</span> <span class="o">==</span> <span class="n">f</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">&amp;&amp;</span>
-        <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">// 判断是否达到行列式中间一行的行末，输出整个行列式的值
-</span><span class="c1"></span>      <span class="n">printf</span><span class="p">(</span><span class="s">&#34; = %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">sum</span><span class="p">);</span>
-    <span class="k">else</span> <span class="k">if</span> <span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">// 判断是否到达行末输出换行
-</span><span class="c1"></span>      <span class="n">printf</span><span class="p">(</span><span class="s">&#34;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+      <span class="n">printf</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">%2d </span><span class="s">&#34;</span><span class="p">,</span>
+             <span class="o">*</span><span class="p">(</span><span class="n">c</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span><span class="p">)</span><span class="p">;</span> <span class="c1">// 若不是行列式某一行的最后一个数则在数字后边加一个空格
+</span><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">a</span> <span class="o">=</span><span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">// 判断是否到达一行的行末
+</span><span class="c1"></span>      <span class="n">printf</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">┃</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">a</span> <span class="o">=</span><span class="o">=</span> <span class="n">f</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">&amp;</span><span class="o">&amp;</span>
+        <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">a</span> <span class="o">=</span><span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">// 判断是否达到行列式中间一行的行末，输出整个行列式的值
+</span><span class="c1"></span>      <span class="n">printf</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s"> = %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">sum</span><span class="p">)</span><span class="p">;</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">a</span> <span class="o">=</span><span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">// 判断是否到达行末输出换行
+</span><span class="c1"></span>      <span class="n">printf</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
   <span class="p">}</span>
-  <span class="n">printf</span><span class="p">(</span><span class="s">&#34;</span><span class="se">\n\n</span><span class="s">&#34;</span><span class="p">);</span>
-  <span class="n">printf</span><span class="p">(</span><span class="s">&#34;是否继续？（ 1 / 0 ）</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span> <span class="c1">// 提示是否退出
-</span><span class="c1"></span>  <span class="n">scanf</span><span class="p">(</span><span class="s">&#34;%d&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">e</span><span class="p">);</span>
+  <span class="n">printf</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="se">\n</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
+  <span class="n">printf</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">是否继续？（ 1 / 0 ）</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span> <span class="c1">// 提示是否退出
+</span><span class="c1"></span>  <span class="n">scanf</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">%d</span><span class="s">&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">e</span><span class="p">)</span><span class="p">;</span>
   <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// 每次都将都将上一次的运行记录消除
-</span><span class="c1"></span>  <span class="k">if</span> <span class="p">(</span><span class="n">e</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+</span><span class="c1"></span>  <span class="k">if</span> <span class="p">(</span><span class="n">e</span> <span class="o">=</span><span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
     <span class="k">goto</span> <span class="n">u</span><span class="p">;</span> <span class="c1">// 判断是否推出
-</span><span class="c1"></span>  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">e</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
-    <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-<span class="p">}</span></code></pre></td></tr></table>
+</span><span class="c1"></span>  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">e</span> <span class="o">=</span><span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -675,7 +672,7 @@
     &copy;
     
       2016 -
-    2019
+    2020
     <span class="heart">
       
       <i class="iconfont">
