@@ -33,7 +33,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.63.2" />
+<meta name="generator" content="Hugo 0.67.1" />
 
 
 <link rel="canonical" href="https://tosone.cn/post/compile-lua-and-luajit/" />
@@ -54,7 +54,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.0995afa14b62cd93e93cfc066b646c4c17a3eddca0e9d52a1d9dcf5d90aaacd3.css" integrity="sha256-CZWvoUtizZPpPPwGa2RsTBej7dyg6dUqHZ3PXZCqrNM=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.fa3d941d1d0e0ddc985804227feabffea55c89883eb0af34e0532a7ae9135151.css" integrity="sha256-&#43;j2UHR0ODdyYWAQif&#43;q//qVciYg&#43;sK804FMqeukTUVE=" media="screen" crossorigin="anonymous">
 
 
 
@@ -70,7 +70,7 @@
 <meta itemprop="description" content="Lua is a lightweight, multi-paradigm programming language designed primarily for embedded systems and clients. Lua is cross-platform, since the interpreter is written in ANSI C, and has a relatively simple C API.">
 <meta itemprop="datePublished" content="2016-12-31T15:14:28&#43;00:00" />
 <meta itemprop="dateModified" content="2016-12-31T15:14:28&#43;00:00" />
-<meta itemprop="wordCount" content="1789">
+<meta itemprop="wordCount" content="1791">
 
 
 
@@ -387,10 +387,10 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-lua" data-lang="lua"><span class="kr">function</span> <span class="nf">Josephus</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
-    <span class="kd">local</span> <span class="n">a</span><span class="o">=</span><span class="p">{</span><span class="p">}</span><span class="p">;</span>
+    <span class="kd">local</span> <span class="n">a</span><span class="o">=</span><span class="p">{};</span>
     <span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">y</span> <span class="kr">do</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span> <span class="kr">end</span>
-    <span class="kd">local</span> <span class="n">s</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">out</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&#34;</span><span class="s2">&#34;</span>
-    <span class="kd">local</span> <span class="n">from</span> <span class="o">=</span> <span class="n">os.clock</span><span class="p">(</span><span class="p">)</span>
+    <span class="kd">local</span> <span class="n">s</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">out</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&#34;&#34;</span>
+    <span class="kd">local</span> <span class="n">from</span> <span class="o">=</span> <span class="n">os.clock</span><span class="p">()</span>
     <span class="kr">while</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="kr">do</span>
         <span class="kd">local</span> <span class="n">temp</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="kr">repeat</span>
@@ -399,7 +399,7 @@
             <span class="kr">if</span><span class="p">(</span><span class="n">k</span> <span class="o">%</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="kr">then</span>
                 <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span>
                 <span class="n">s</span> <span class="o">=</span> <span class="n">s</span> <span class="o">+</span> <span class="mi">1</span>
-                <span class="n">out</span> <span class="o">=</span> <span class="n">out</span> <span class="o">..</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">..</span> <span class="s2">&#34;</span><span class="s2"> </span><span class="s2">&#34;</span>
+                <span class="n">out</span> <span class="o">=</span> <span class="n">out</span> <span class="o">..</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">..</span> <span class="s2">&#34; &#34;</span>
                 <span class="kr">if</span><span class="p">(</span><span class="n">s</span> <span class="o">==</span> <span class="n">y</span><span class="p">)</span> <span class="kr">then</span> <span class="n">temp</span> <span class="o">=</span> <span class="mi">1</span> <span class="kr">end</span>
                 <span class="n">a</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
             <span class="kr">end</span>
@@ -407,22 +407,22 @@
         <span class="kr">if</span><span class="p">(</span><span class="n">temp</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="kr">then</span> <span class="kr">break</span> <span class="kr">end</span>
         <span class="n">i</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">y</span>
     <span class="kr">end</span>
-    <span class="kd">local</span> <span class="n">to</span> <span class="o">=</span> <span class="n">os.clock</span><span class="p">(</span><span class="p">)</span>
+    <span class="kd">local</span> <span class="n">to</span> <span class="o">=</span> <span class="n">os.clock</span><span class="p">()</span>
     <span class="kr">return</span> <span class="n">to</span> <span class="o">-</span> <span class="n">from</span>
 <span class="kr">end</span>
 <span class="kr">function</span> <span class="nf">sleep</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="c1">-- seconds</span>
-    <span class="kd">local</span> <span class="n">t0</span> <span class="o">=</span> <span class="n">os.clock</span><span class="p">(</span><span class="p">)</span>
-    <span class="kr">while</span> <span class="n">os.clock</span><span class="p">(</span><span class="p">)</span> <span class="o">-</span> <span class="n">t0</span> <span class="o">&lt;=</span> <span class="n">n</span> <span class="kr">do</span> <span class="kr">end</span>
+    <span class="kd">local</span> <span class="n">t0</span> <span class="o">=</span> <span class="n">os.clock</span><span class="p">()</span>
+    <span class="kr">while</span> <span class="n">os.clock</span><span class="p">()</span> <span class="o">-</span> <span class="n">t0</span> <span class="o">&lt;=</span> <span class="n">n</span> <span class="kr">do</span> <span class="kr">end</span>
 <span class="kr">end</span>
 <span class="kr">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span> <span class="kr">do</span>
-    <span class="n">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="s2">Parameters: </span><span class="se">\t</span><span class="s2">all people: </span><span class="s2">&#34;</span> <span class="o">..</span> <span class="mi">10</span><span class="o">^</span><span class="n">i</span> <span class="o">..</span> <span class="s2">&#34;</span><span class="s2"> Every other: 30</span><span class="s2">&#34;</span><span class="p">)</span>
-    <span class="n">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="s2">Josephus has spend </span><span class="s2">&#34;</span> <span class="o">..</span> <span class="n">Josephus</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="mi">10</span><span class="o">^</span><span class="n">i</span><span class="p">)</span> <span class="o">..</span> <span class="s2">&#34;</span><span class="s2">s</span><span class="s2">&#34;</span><span class="p">)</span>
-    <span class="n">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="s2">Program takes up </span><span class="s2">&#34;</span> <span class="o">..</span> <span class="n">collectgarbage</span><span class="p">(</span><span class="s2">&#34;</span><span class="s2">count</span><span class="s2">&#34;</span><span class="p">)</span> <span class="o">..</span> <span class="s2">&#34;</span><span class="s2">b</span><span class="s2">&#34;</span><span class="p">)</span>
+    <span class="n">print</span><span class="p">(</span><span class="s2">&#34;Parameters: </span><span class="se">\t</span><span class="s2">all people: &#34;</span> <span class="o">..</span> <span class="mi">10</span><span class="o">^</span><span class="n">i</span> <span class="o">..</span> <span class="s2">&#34; Every other: 30&#34;</span><span class="p">)</span>
+    <span class="n">print</span><span class="p">(</span><span class="s2">&#34;Josephus has spend &#34;</span> <span class="o">..</span> <span class="n">Josephus</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="mi">10</span><span class="o">^</span><span class="n">i</span><span class="p">)</span> <span class="o">..</span> <span class="s2">&#34;s&#34;</span><span class="p">)</span>
+    <span class="n">print</span><span class="p">(</span><span class="s2">&#34;Program takes up &#34;</span> <span class="o">..</span> <span class="n">collectgarbage</span><span class="p">(</span><span class="s2">&#34;count&#34;</span><span class="p">)</span> <span class="o">..</span> <span class="s2">&#34;b&#34;</span><span class="p">)</span>
     <span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-    <span class="n">collectgarbage</span><span class="p">(</span><span class="s2">&#34;</span><span class="s2">collect</span><span class="s2">&#34;</span><span class="p">)</span>
-    <span class="n">print</span><span class="p">(</span><span class="p">)</span>
+    <span class="n">collectgarbage</span><span class="p">(</span><span class="s2">&#34;collect&#34;</span><span class="p">)</span>
+    <span class="n">print</span><span class="p">()</span>
 <span class="kr">end</span>
-<span class="n">io.read</span><span class="p">(</span><span class="p">)</span>
+<span class="n">io.read</span><span class="p">()</span>
 </code></pre></td></tr></table>
 </div>
 </div>

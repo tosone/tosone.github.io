@@ -33,7 +33,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.63.2" />
+<meta name="generator" content="Hugo 0.67.1" />
 
 
 <link rel="canonical" href="https://tosone.cn/post/cgo/" />
@@ -54,7 +54,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.0995afa14b62cd93e93cfc066b646c4c17a3eddca0e9d52a1d9dcf5d90aaacd3.css" integrity="sha256-CZWvoUtizZPpPPwGa2RsTBej7dyg6dUqHZ3PXZCqrNM=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.fa3d941d1d0e0ddc985804227feabffea55c89883eb0af34e0532a7ae9135151.css" integrity="sha256-&#43;j2UHR0ODdyYWAQif&#43;q//qVciYg&#43;sK804FMqeukTUVE=" media="screen" crossorigin="anonymous">
 
 
 
@@ -369,10 +369,10 @@
 
 <span class="kn">import</span> <span class="s">&#34;unsafe&#34;</span>
 
-<span class="kd">func</span> <span class="nf">Example</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+<span class="kd">func</span> <span class="nf">Example</span><span class="p">()</span> <span class="p">{</span>
     <span class="nx">cs</span> <span class="o">:=</span> <span class="nx">C</span><span class="p">.</span><span class="nf">CString</span><span class="p">(</span><span class="s">&#34;Hello from stdio\n&#34;</span><span class="p">)</span>
     <span class="nx">C</span><span class="p">.</span><span class="nf">myprint</span><span class="p">(</span><span class="nx">cs</span><span class="p">)</span>
-    <span class="nx">C</span><span class="p">.</span><span class="nf">free</span><span class="p">(</span><span class="nx">unsafe</span><span class="p">.</span><span class="nf">Pointer</span><span class="p">(</span><span class="nx">cs</span><span class="p">)</span><span class="p">)</span>
+    <span class="nx">C</span><span class="p">.</span><span class="nf">free</span><span class="p">(</span><span class="nx">unsafe</span><span class="p">.</span><span class="nf">Pointer</span><span class="p">(</span><span class="nx">cs</span><span class="p">))</span>
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
@@ -415,12 +415,12 @@
 <span class="kn">import</span> <span class="s">&#34;C&#34;</span>
 
 <span class="c1">//export AGoFunction
-</span><span class="c1"></span><span class="kd">func</span> <span class="nf">AGoFunction</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">AGoFunction</span><span class="p">()</span> <span class="p">{</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;AGoFunction()&#34;</span><span class="p">)</span>
 <span class="p">}</span>
 
-<span class="kd">func</span> <span class="nf">Example</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">C</span><span class="p">.</span><span class="nf">ACFunction</span><span class="p">(</span><span class="p">)</span>
+<span class="kd">func</span> <span class="nf">Example</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">C</span><span class="p">.</span><span class="nf">ACFunction</span><span class="p">()</span>
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
@@ -434,10 +434,10 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-c" data-lang="c"><span class="cp">#</span><span class="cp">include</span> <span class="cpf">&#34;_cgo_export.h&#34;</span><span class="cp">
-</span><span class="cp"></span><span class="kt">void</span> <span class="nf">ACFunction</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">ACFunction()</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
-    <span class="n">AGoFunction</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="cp">#include</span> <span class="cpf">&#34;_cgo_export.h&#34;</span><span class="cp">
+</span><span class="cp"></span><span class="kt">void</span> <span class="nf">ACFunction</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;ACFunction()</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+    <span class="n">AGoFunction</span><span class="p">();</span>
 <span class="p">}</span> 
 </code></pre></td></tr></table>
 </div>
@@ -531,7 +531,7 @@
 
 <span class="c1">//export go_callback_int
 </span><span class="c1"></span><span class="kd">func</span> <span class="nf">go_callback_int</span><span class="p">(</span><span class="nx">foo</span> <span class="nx">C</span><span class="p">.</span><span class="kt">int</span><span class="p">,</span> <span class="nx">p1</span> <span class="nx">C</span><span class="p">.</span><span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">fn</span> <span class="o">:=</span> <span class="nf">lookup</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nx">foo</span><span class="p">)</span><span class="p">)</span>
+    <span class="nx">fn</span> <span class="o">:=</span> <span class="nf">lookup</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nx">foo</span><span class="p">))</span>
     <span class="nf">fn</span><span class="p">(</span><span class="nx">p1</span><span class="p">)</span>
 <span class="p">}</span>
 
@@ -539,19 +539,19 @@
     <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;callback with&#34;</span><span class="p">,</span> <span class="nx">x</span><span class="p">)</span>
 <span class="p">}</span>
 
-<span class="kd">func</span> <span class="nf">Example</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+<span class="kd">func</span> <span class="nf">Example</span><span class="p">()</span> <span class="p">{</span>
     <span class="nx">i</span> <span class="o">:=</span> <span class="nf">register</span><span class="p">(</span><span class="nx">MyCallback</span><span class="p">)</span>
-    <span class="nx">C</span><span class="p">.</span><span class="nf">CallMyFunction</span><span class="p">(</span><span class="nx">C</span><span class="p">.</span><span class="nb">int</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span><span class="p">)</span>
+    <span class="nx">C</span><span class="p">.</span><span class="nf">CallMyFunction</span><span class="p">(</span><span class="nx">C</span><span class="p">.</span><span class="nb">int</span><span class="p">(</span><span class="nx">i</span><span class="p">))</span>
     <span class="nf">unregister</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
 <span class="p">}</span>
 
 <span class="kd">var</span> <span class="nx">mu</span> <span class="nx">sync</span><span class="p">.</span><span class="nx">Mutex</span>
 <span class="kd">var</span> <span class="nx">index</span> <span class="kt">int</span>
-<span class="kd">var</span> <span class="nx">fns</span> <span class="p">=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span><span class="kd">func</span><span class="p">(</span><span class="nx">C</span><span class="p">.</span><span class="kt">int</span><span class="p">)</span><span class="p">)</span>
+<span class="kd">var</span> <span class="nx">fns</span> <span class="p">=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span><span class="kd">func</span><span class="p">(</span><span class="nx">C</span><span class="p">.</span><span class="kt">int</span><span class="p">))</span>
 
-<span class="kd">func</span> <span class="nf">register</span><span class="p">(</span><span class="nx">fn</span> <span class="kd">func</span><span class="p">(</span><span class="nx">C</span><span class="p">.</span><span class="kt">int</span><span class="p">)</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
-    <span class="nx">mu</span><span class="p">.</span><span class="nf">Lock</span><span class="p">(</span><span class="p">)</span>
-    <span class="k">defer</span> <span class="nx">mu</span><span class="p">.</span><span class="nf">Unlock</span><span class="p">(</span><span class="p">)</span>
+<span class="kd">func</span> <span class="nf">register</span><span class="p">(</span><span class="nx">fn</span> <span class="kd">func</span><span class="p">(</span><span class="nx">C</span><span class="p">.</span><span class="kt">int</span><span class="p">))</span> <span class="kt">int</span> <span class="p">{</span>
+    <span class="nx">mu</span><span class="p">.</span><span class="nf">Lock</span><span class="p">()</span>
+    <span class="k">defer</span> <span class="nx">mu</span><span class="p">.</span><span class="nf">Unlock</span><span class="p">()</span>
     <span class="nx">index</span><span class="o">++</span>
     <span class="k">for</span> <span class="nx">fns</span><span class="p">[</span><span class="nx">index</span><span class="p">]</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
         <span class="nx">index</span><span class="o">++</span>
@@ -561,14 +561,14 @@
 <span class="p">}</span>
 
 <span class="kd">func</span> <span class="nf">lookup</span><span class="p">(</span><span class="nx">i</span> <span class="kt">int</span><span class="p">)</span> <span class="kd">func</span><span class="p">(</span><span class="nx">C</span><span class="p">.</span><span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">mu</span><span class="p">.</span><span class="nf">Lock</span><span class="p">(</span><span class="p">)</span>
-    <span class="k">defer</span> <span class="nx">mu</span><span class="p">.</span><span class="nf">Unlock</span><span class="p">(</span><span class="p">)</span>
+    <span class="nx">mu</span><span class="p">.</span><span class="nf">Lock</span><span class="p">()</span>
+    <span class="k">defer</span> <span class="nx">mu</span><span class="p">.</span><span class="nf">Unlock</span><span class="p">()</span>
     <span class="k">return</span> <span class="nx">fns</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span>
 <span class="p">}</span>
 
 <span class="kd">func</span> <span class="nf">unregister</span><span class="p">(</span><span class="nx">i</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">mu</span><span class="p">.</span><span class="nf">Lock</span><span class="p">(</span><span class="p">)</span>
-    <span class="k">defer</span> <span class="nx">mu</span><span class="p">.</span><span class="nf">Unlock</span><span class="p">(</span><span class="p">)</span>
+    <span class="nx">mu</span><span class="p">.</span><span class="nf">Lock</span><span class="p">()</span>
+    <span class="k">defer</span> <span class="nx">mu</span><span class="p">.</span><span class="nf">Unlock</span><span class="p">()</span>
     <span class="nb">delete</span><span class="p">(</span><span class="nx">fns</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></td></tr></table>

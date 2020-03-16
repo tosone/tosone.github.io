@@ -33,7 +33,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.63.2" />
+<meta name="generator" content="Hugo 0.67.1" />
 
 
 <link rel="canonical" href="https://tosone.cn/post/ss-nginx/" />
@@ -54,7 +54,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.0995afa14b62cd93e93cfc066b646c4c17a3eddca0e9d52a1d9dcf5d90aaacd3.css" integrity="sha256-CZWvoUtizZPpPPwGa2RsTBej7dyg6dUqHZ3PXZCqrNM=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.fa3d941d1d0e0ddc985804227feabffea55c89883eb0af34e0532a7ae9135151.css" integrity="sha256-&#43;j2UHR0ODdyYWAQif&#43;q//qVciYg&#43;sK804FMqeukTUVE=" media="screen" crossorigin="anonymous">
 
 
 
@@ -357,24 +357,24 @@
 <pre class="chroma"><code class="language-YAML" data-lang="YAML"><span class="k">version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;3.7&#34;</span><span class="w">
 </span><span class="w">
 </span><span class="w"></span><span class="k">services</span><span class="p">:</span><span class="w">
-</span><span class="w"></span><span class="w">  </span><span class="k">shadowsocks-proxy</span><span class="p">:</span><span class="w">
-</span><span class="w"></span><span class="w">    </span><span class="k">image</span><span class="p">:</span><span class="w"> </span>nginx<span class="p">:</span>dev<span class="w">
+</span><span class="w">  </span><span class="k">shadowsocks-proxy</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="k">image</span><span class="p">:</span><span class="w"> </span>nginx<span class="p">:</span>dev<span class="w">
 </span><span class="w">    </span><span class="k">container_name</span><span class="p">:</span><span class="w"> </span>shadowsocks<span class="w">
 </span><span class="w">    </span><span class="k">restart</span><span class="p">:</span><span class="w"> </span>always<span class="w">
 </span><span class="w">    </span><span class="k">hostname</span><span class="p">:</span><span class="w"> </span>shadowsocks<span class="w">
 </span><span class="w">    </span><span class="k">build</span><span class="p">:</span><span class="w"> </span>$PWD/shadowsocks-proxy<span class="w">
 </span><span class="w">    </span><span class="k">ports</span><span class="p">:</span><span class="w">
-</span><span class="w"></span><span class="w">      </span>- ${SHADOWSOCKS_PORT}<span class="p">:</span>${SHADOWSOCKS_PORT}<span class="w">
+</span><span class="w">      </span>- ${SHADOWSOCKS_PORT}<span class="p">:</span>${SHADOWSOCKS_PORT}<span class="w">
 </span><span class="w">  </span><span class="k">shadowsocks</span><span class="p">:</span><span class="w">
-</span><span class="w"></span><span class="w">    </span><span class="k">image</span><span class="p">:</span><span class="w"> </span>shadowsocks/shadowsocks-libev<span class="p">:</span>latest<span class="w">
+</span><span class="w">    </span><span class="k">image</span><span class="p">:</span><span class="w"> </span>shadowsocks/shadowsocks-libev<span class="p">:</span>latest<span class="w">
 </span><span class="w">    </span><span class="k">container_name</span><span class="p">:</span><span class="w"> </span>shadowsocks<span class="w">
 </span><span class="w">    </span><span class="k">restart</span><span class="p">:</span><span class="w"> </span>always<span class="w">
 </span><span class="w">    </span><span class="k">hostname</span><span class="p">:</span><span class="w"> </span>shadowsocks<span class="w">
 </span><span class="w">    </span><span class="k">environment</span><span class="p">:</span><span class="w">
-</span><span class="w"></span><span class="w">      </span>- METHOD=chacha20-ietf-poly1305<span class="w">
+</span><span class="w">      </span>- METHOD=chacha20-ietf-poly1305<span class="w">
 </span><span class="w">      </span>- PASSWORD=${SECRETPERSONAL}<span class="w">
 </span><span class="w">    </span><span class="k">ports</span><span class="p">:</span><span class="w">
-</span><span class="w"></span><span class="w">      </span>- ${SHADOWSOCKS_PORT}<span class="p">:</span><span class="m">8388</span><span class="w">
+</span><span class="w">      </span>- ${SHADOWSOCKS_PORT}<span class="p">:</span><span class="m">8388</span><span class="w">
 </span></code></pre></td></tr></table>
 </div>
 </div><p>OK，解释一下上边的配置，<code>shadowsocks-proxy</code> 这个 service 的配置先不用管，下边有解释。<code>shadowsocks</code> 这个 service 的配置仅仅定义了加密方法和秘钥，还有对外映射的 8388 端口。里边有一些环境变量的东西，暂时先不管，下边讲。如果配置完了的话，直接运行 <code>docker-compose up -d shadowsocks</code> 就完了，你的 Shadowsocks 就启动完了，就能用了。</p>
@@ -421,8 +421,8 @@
 </span><span class="lnt">24
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-makefile" data-lang="makefile"><span class="err">i</span><span class="err">n</span><span class="err">c</span><span class="err">l</span><span class="err">u</span><span class="err">d</span><span class="err">e</span> <span class="err">.</span><span class="err">e</span><span class="err">n</span><span class="err">v</span>
-<span class="k">export </span><span class="k">$(</span><span class="nv">shell</span> <span class="nv">sed</span> &#39;<span class="nv">s</span>/=.*//&#39; .<span class="nv">env</span><span class="k">)</span>
+<pre class="chroma"><code class="language-makefile" data-lang="makefile"><span class="err">include</span> <span class="err">.env</span>
+<span class="k">export $(</span><span class="nv">shell</span> <span class="nv">sed</span> &#39;<span class="nv">s</span>/=.*//&#39; .<span class="nv">env</span><span class="k">)</span>
 
 <span class="nf">.PHONY</span><span class="o">:</span> <span class="n">install</span>-<span class="n">docker</span>
 <span class="nf">install-docker</span><span class="o">:</span>

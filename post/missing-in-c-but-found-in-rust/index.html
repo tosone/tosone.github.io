@@ -33,7 +33,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.63.2" />
+<meta name="generator" content="Hugo 0.67.1" />
 
 
 <link rel="canonical" href="https://tosone.cn/post/missing-in-c-but-found-in-rust/" />
@@ -54,7 +54,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.0995afa14b62cd93e93cfc066b646c4c17a3eddca0e9d52a1d9dcf5d90aaacd3.css" integrity="sha256-CZWvoUtizZPpPPwGa2RsTBej7dyg6dUqHZ3PXZCqrNM=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.fa3d941d1d0e0ddc985804227feabffea55c89883eb0af34e0532a7ae9135151.css" integrity="sha256-&#43;j2UHR0ODdyYWAQif&#43;q//qVciYg&#43;sK804FMqeukTUVE=" media="screen" crossorigin="anonymous">
 
 
 
@@ -371,8 +371,8 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-rust" data-lang="rust"><span class="k">pub</span><span class="w"> </span><span class="k">trait</span><span class="w"> </span><span class="nb">Iterator</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="w"></span><span class="w">  </span><span class="k">type</span> <span class="nc">Item</span><span class="p">;</span><span class="w">
-</span><span class="w"></span><span class="w">  </span><span class="k">fn</span> <span class="nf">next</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="bp">self</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nb">Option</span><span class="o">&lt;</span><span class="n">Self</span>::<span class="n">Item</span><span class="o">&gt;</span><span class="p">;</span><span class="w">
+</span><span class="w">  </span><span class="k">type</span> <span class="nc">Item</span><span class="p">;</span><span class="w">
+</span><span class="w">  </span><span class="k">fn</span> <span class="nf">next</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="bp">self</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nb">Option</span><span class="o">&lt;</span><span class="n">Self</span>::<span class="n">Item</span><span class="o">&gt;</span><span class="p">;</span><span class="w">
 </span><span class="w"></span><span class="p">}</span><span class="w">
 </span></code></pre></td></tr></table>
 </div>
@@ -390,10 +390,10 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-rust" data-lang="rust"><span class="k">pub</span><span class="w"> </span><span class="k">trait</span><span class="w"> </span><span class="nb">IntoIterator</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="w"></span><span class="w">  </span><span class="sd">/// 被遍历元素的类型
+</span><span class="w">  </span><span class="sd">/// 被遍历元素的类型
 </span><span class="sd"></span><span class="w">  </span><span class="k">type</span> <span class="nc">Item</span><span class="p">;</span><span class="w">
-</span><span class="w"></span><span class="w">  </span><span class="k">type</span> <span class="nc">IntoIter</span>: <span class="nb">Iterator</span><span class="o">&lt;</span><span class="n">Item</span><span class="o">=</span><span class="n">Self</span>::<span class="n">Item</span><span class="o">&gt;</span><span class="p">;</span><span class="w">
-</span><span class="w"></span><span class="w">  </span><span class="k">fn</span> <span class="nf">into_iter</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">Self</span>::<span class="n">IntoIter</span><span class="p">;</span><span class="w">
+</span><span class="w">  </span><span class="k">type</span> <span class="nc">IntoIter</span>: <span class="nb">Iterator</span><span class="o">&lt;</span><span class="n">Item</span><span class="o">=</span><span class="n">Self</span>::<span class="n">Item</span><span class="o">&gt;</span><span class="p">;</span><span class="w">
+</span><span class="w">  </span><span class="k">fn</span> <span class="nf">into_iter</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">Self</span>::<span class="n">IntoIter</span><span class="p">;</span><span class="w">
 </span><span class="w"></span><span class="p">}</span><span class="w">
 </span></code></pre></td></tr></table>
 </div>
@@ -421,9 +421,9 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-rust" data-lang="rust"><span class="cp">#[</span><span class="cp">test</span><span class="cp">]</span><span class="w">
-</span><span class="w"></span><span class="k">fn</span> <span class="nf">test_that_foo_works</span><span class="p">(</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="w"></span><span class="w">  </span><span class="n">assert</span><span class="o">!</span><span class="p">(</span><span class="n">foo</span><span class="p">(</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="o">=</span><span class="w"> </span><span class="n">expected_result</span><span class="p">)</span><span class="p">;</span><span class="w">
+<pre class="chroma"><code class="language-rust" data-lang="rust"><span class="cp">#[test]</span><span class="w">
+</span><span class="w"></span><span class="k">fn</span> <span class="nf">test_that_foo_works</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">  </span><span class="n">assert</span><span class="o">!</span><span class="p">(</span><span class="n">foo</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">expected_result</span><span class="p">);</span><span class="w">
 </span><span class="w"></span><span class="p">}</span><span class="w">
 </span></code></pre></td></tr></table>
 </div>
@@ -444,12 +444,12 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-rust" data-lang="rust"><span class="sd">/// Multiples the specified number by two
-</span><span class="sd"></span><span class="sd">///
-</span><span class="sd"></span><span class="sd">/// ```
-</span><span class="sd"></span><span class="sd">/// assert_eq!(multiply_by_two(5), 10);
-</span><span class="sd"></span><span class="sd">/// ```
+</span><span class="sd">///
+</span><span class="sd">/// ```
+</span><span class="sd">/// assert_eq!(multiply_by_two(5), 10);
+</span><span class="sd">/// ```
 </span><span class="sd"></span><span class="k">fn</span> <span class="nf">multiply_by_two</span><span class="p">(</span><span class="n">x</span>: <span class="kt">i32</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">i32</span> <span class="p">{</span><span class="w">
-</span><span class="w"></span><span class="w">  </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="w">
+</span><span class="w">  </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="w">
 </span><span class="w"></span><span class="p">}</span><span class="w">
 </span></code></pre></td></tr></table>
 </div>
@@ -476,11 +476,11 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-rust" data-lang="rust"><span class="k">impl</span><span class="w"> </span><span class="kt">f64</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="w"></span><span class="w">  </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">sin_cos</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="p">(</span><span class="kt">f64</span><span class="p">,</span><span class="w"> </span><span class="kt">f64</span><span class="p">)</span><span class="p">;</span><span class="w">
+</span><span class="w">  </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">sin_cos</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="p">(</span><span class="kt">f64</span><span class="p">,</span><span class="w"> </span><span class="kt">f64</span><span class="p">);</span><span class="w">
 </span><span class="w"></span><span class="p">}</span><span class="w">
-</span><span class="w"></span><span class="w">
+</span><span class="w">
 </span><span class="w"></span><span class="kd">let</span><span class="w"> </span><span class="n">angle</span>: <span class="kt">f64</span> <span class="o">=</span><span class="w"> </span><span class="mf">42.0</span><span class="p">;</span><span class="w">
-</span><span class="w"></span><span class="kd">let</span><span class="w"> </span><span class="p">(</span><span class="n">sin_angle</span><span class="p">,</span><span class="w"> </span><span class="n">cos_angle</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">angle</span><span class="p">.</span><span class="n">sin_cos</span><span class="p">(</span><span class="p">)</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="kd">let</span><span class="w"> </span><span class="p">(</span><span class="n">sin_angle</span><span class="p">,</span><span class="w"> </span><span class="n">cos_angle</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">angle</span><span class="p">.</span><span class="n">sin_cos</span><span class="p">();</span><span class="w">
 </span></code></pre></td></tr></table>
 </div>
 </div><p>match 表达式也可以用在字符串上。是的，字符串。</p>
@@ -496,11 +496,11 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-rust" data-lang="rust"><span class="kd">let</span><span class="w"> </span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;green&#34;</span><span class="p">;</span><span class="w">
-</span><span class="w"></span><span class="w">
+</span><span class="w">
 </span><span class="w"></span><span class="k">match</span><span class="w"> </span><span class="n">color</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="w"></span><span class="w">  </span><span class="s">&#34;red&#34;</span><span class="w">  </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&#34;it&#39;s red&#34;</span><span class="p">)</span><span class="p">,</span><span class="w">
-</span><span class="w"></span><span class="w">  </span><span class="s">&#34;green&#34;</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&#34;it&#39;s green&#34;</span><span class="p">)</span><span class="p">,</span><span class="w">
-</span><span class="w"></span><span class="w">  </span><span class="n">_</span><span class="w">    </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&#34;it&#39;s something else&#34;</span><span class="p">)</span><span class="p">,</span><span class="w">
+</span><span class="w">  </span><span class="s">&#34;red&#34;</span><span class="w">  </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&#34;it&#39;s red&#34;</span><span class="p">),</span><span class="w">
+</span><span class="w">  </span><span class="s">&#34;green&#34;</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&#34;it&#39;s green&#34;</span><span class="p">),</span><span class="w">
+</span><span class="w">  </span><span class="n">_</span><span class="w">    </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&#34;it&#39;s something else&#34;</span><span class="p">),</span><span class="w">
 </span><span class="w"></span><span class="p">}</span><span class="w">
 </span></code></pre></td></tr></table>
 </div>
@@ -537,25 +537,25 @@
 </span><span class="lnt">19
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-rust" data-lang="rust"><span class="k">pub</span><span class="w"> </span><span class="k">struct</span> <span class="nc">Fubarize</span><span class="p">(</span><span class="k">pub</span><span class="w"> </span><span class="kt">bool</span><span class="p">)</span><span class="p">;</span><span class="w">
-</span><span class="w"></span><span class="k">pub</span><span class="w"> </span><span class="k">struct</span> <span class="nc">Frobnify</span><span class="p">(</span><span class="k">pub</span><span class="w"> </span><span class="kt">bool</span><span class="p">)</span><span class="p">;</span><span class="w">
-</span><span class="w"></span><span class="k">pub</span><span class="w"> </span><span class="k">struct</span> <span class="nc">Bazificate</span><span class="p">(</span><span class="k">pub</span><span class="w"> </span><span class="kt">bool</span><span class="p">)</span><span class="p">;</span><span class="w">
-</span><span class="w"></span><span class="w">
+<pre class="chroma"><code class="language-rust" data-lang="rust"><span class="k">pub</span><span class="w"> </span><span class="k">struct</span> <span class="nc">Fubarize</span><span class="p">(</span><span class="k">pub</span><span class="w"> </span><span class="kt">bool</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="k">pub</span><span class="w"> </span><span class="k">struct</span> <span class="nc">Frobnify</span><span class="p">(</span><span class="k">pub</span><span class="w"> </span><span class="kt">bool</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="k">pub</span><span class="w"> </span><span class="k">struct</span> <span class="nc">Bazificate</span><span class="p">(</span><span class="k">pub</span><span class="w"> </span><span class="kt">bool</span><span class="p">);</span><span class="w">
+</span><span class="w">
 </span><span class="w"></span><span class="k">fn</span> <span class="nf">my_func</span><span class="p">(</span><span class="n">Fubarize</span><span class="p">(</span><span class="n">fub</span><span class="p">)</span>: <span class="nc">Fubarize</span><span class="p">,</span><span class="w">
-</span><span class="w"></span><span class="w">      </span><span class="n">Frobnify</span><span class="p">(</span><span class="n">frob</span><span class="p">)</span>: <span class="nc">Frobnify</span><span class="p">,</span><span class="w">
-</span><span class="w"></span><span class="w">      </span><span class="n">Bazificate</span><span class="p">(</span><span class="n">baz</span><span class="p">)</span>: <span class="nc">Bazificate</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="w"></span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="n">fub</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="w"></span><span class="w">    </span><span class="p">.</span><span class="p">.</span><span class="p">.</span><span class="p">;</span><span class="w">
-</span><span class="w"></span><span class="w">  </span><span class="p">}</span><span class="w">
-</span><span class="w"></span><span class="w">
-</span><span class="w"></span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="n">frob</span><span class="w"> </span><span class="o">&amp;</span><span class="o">&amp;</span><span class="w"> </span><span class="n">baz</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="w"></span><span class="w">    </span><span class="p">.</span><span class="p">.</span><span class="p">.</span><span class="p">;</span><span class="w">
-</span><span class="w"></span><span class="w">  </span><span class="p">}</span><span class="w">
+</span><span class="w">      </span><span class="n">Frobnify</span><span class="p">(</span><span class="n">frob</span><span class="p">)</span>: <span class="nc">Frobnify</span><span class="p">,</span><span class="w">
+</span><span class="w">      </span><span class="n">Bazificate</span><span class="p">(</span><span class="n">baz</span><span class="p">)</span>: <span class="nc">Bazificate</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="n">fub</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">    </span><span class="p">...;</span><span class="w">
+</span><span class="w">  </span><span class="p">}</span><span class="w">
+</span><span class="w">
+</span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="n">frob</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">baz</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">    </span><span class="p">...;</span><span class="w">
+</span><span class="w">  </span><span class="p">}</span><span class="w">
 </span><span class="w"></span><span class="p">}</span><span class="w">
-</span><span class="w"></span><span class="w">
-</span><span class="w"></span><span class="p">.</span><span class="p">.</span><span class="p">.</span><span class="w">
-</span><span class="w"></span><span class="w">
-</span><span class="w"></span><span class="n">my_func</span><span class="p">(</span><span class="n">Fubarize</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="p">,</span><span class="w"> </span><span class="n">Frobnify</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span><span class="p">,</span><span class="w"> </span><span class="n">Bazificate</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="p">)</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="p">...</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="n">my_func</span><span class="p">(</span><span class="n">Fubarize</span><span class="p">(</span><span class="kc">true</span><span class="p">),</span><span class="w"> </span><span class="n">Frobnify</span><span class="p">(</span><span class="kc">false</span><span class="p">),</span><span class="w"> </span><span class="n">Bazificate</span><span class="p">(</span><span class="kc">true</span><span class="p">));</span><span class="w">
 </span></code></pre></td></tr></table>
 </div>
 </div><h3 id="标准的错误处理">标准的错误处理</h3>
