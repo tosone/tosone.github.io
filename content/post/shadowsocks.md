@@ -113,7 +113,7 @@ autorestart=true
 user=nobody
 ```
 
-- 如果监听的端口小于 1024 以上的 `user=nobody` 改成 `user=root`。
+- 如果监听的端口小于 1024 以下的 `user=nobody` 改成 `user=root`。
 - `service supervisor start` 启动 supervisor 的服务。
 - `supervisorctl reload` 重载 supervisor 服务的配置。
 - `supervisorctl restart shadowsocks` 启动指定的服务。
@@ -122,7 +122,7 @@ user=nobody
 #### 第三种方法
 
 - 在 ubuntu 和 ArchLinux 的源里有 shadowsocks-libev 的包，直接 `sudo apt install shadowsocks-libev` 或者 `sudo pacman -S shadowsocks-libev`。
-- 如果你在你的 Linux 发行版中没有找到 shadowsocks-libe 相关的包的话，可以考虑从源码开始编译安装。具体编译过程可以参照[这里](https://github.com/shadowsocks/shadowsocks-libev#distribution-specific-guide)。
+- 如果你在你的 Linux 发行版中没有找到 shadowsocks-libev 相关的包的话，可以考虑从源码开始编译安装。具体编译过程可以参照[这里](https://github.com/shadowsocks/shadowsocks-libev#distribution-specific-guide)。
 - 安装好之后在系统的 `/lib/systemd/system/shadowsocks-local@.service` 的文件，不尽相同，大多是这样 `shadowsocks-local@.service` 的名字，这个文件就是 `systemd` 所需要的启动文件。
 - `sudo systemctl enable shadowsocks-local@config.service` 看见和那个文件名有什么不同了么？多了一个 config，指的是在这个服务启动的时候传入参数 config。看一眼这个文件的内容你就理解了。
 - 编辑好 `/etc/shadowsocks-libev/config.json` 也可能是 `/etc/shadowsocks/config.json` 具体是哪个文件以这个文件为准 `/lib/systemd/system/shadowsocks-local@.service`。
