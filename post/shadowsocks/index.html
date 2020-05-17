@@ -443,7 +443,7 @@
 </code></pre></td></tr></table>
 </div>
 </div><ul>
-<li>如果监听的端口小于 1024 以上的 <code>user=nobody</code> 改成 <code>user=root</code>。</li>
+<li>如果监听的端口小于 1024 以下的 <code>user=nobody</code> 改成 <code>user=root</code>。</li>
 <li><code>service supervisor start</code> 启动 supervisor 的服务。</li>
 <li><code>supervisorctl reload</code> 重载 supervisor 服务的配置。</li>
 <li><code>supervisorctl restart shadowsocks</code> 启动指定的服务。</li>
@@ -452,7 +452,7 @@
 <h4 id="第三种方法-1">第三种方法</h4>
 <ul>
 <li>在 ubuntu 和 ArchLinux 的源里有 shadowsocks-libev 的包，直接 <code>sudo apt install shadowsocks-libev</code> 或者 <code>sudo pacman -S shadowsocks-libev</code>。</li>
-<li>如果你在你的 Linux 发行版中没有找到 shadowsocks-libe 相关的包的话，可以考虑从源码开始编译安装。具体编译过程可以参照<a href="https://github.com/shadowsocks/shadowsocks-libev#distribution-specific-guide">这里</a>。</li>
+<li>如果你在你的 Linux 发行版中没有找到 shadowsocks-libev 相关的包的话，可以考虑从源码开始编译安装。具体编译过程可以参照<a href="https://github.com/shadowsocks/shadowsocks-libev#distribution-specific-guide">这里</a>。</li>
 <li>安装好之后在系统的 <code>/lib/systemd/system/shadowsocks-local@.service</code> 的文件，不尽相同，大多是这样 <code>shadowsocks-local@.service</code> 的名字，这个文件就是 <code>systemd</code> 所需要的启动文件。</li>
 <li><code>sudo systemctl enable shadowsocks-local@config.service</code> 看见和那个文件名有什么不同了么？多了一个 config，指的是在这个服务启动的时候传入参数 config。看一眼这个文件的内容你就理解了。</li>
 <li>编辑好 <code>/etc/shadowsocks-libev/config.json</code> 也可能是 <code>/etc/shadowsocks/config.json</code> 具体是哪个文件以这个文件为准 <code>/lib/systemd/system/shadowsocks-local@.service</code>。</li>
