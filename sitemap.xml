@@ -128,13 +128,6 @@
   </url>
   
   <url>
-    <loc>https://tosone.cn/tags/c/</loc>
-    <lastmod>2019-07-20T11:22:09+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://tosone.cn/tags/cloudify/</loc>
     <lastmod>2019-07-20T11:22:09+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -186,6 +179,13 @@
   <url>
     <loc>https://tosone.cn/tags/linux/</loc>
     <lastmod>2019-04-26T10:38:24+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://tosone.cn/tags/c/</loc>
+    <lastmod>2018-11-05T20:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
