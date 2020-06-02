@@ -33,7 +33,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.71.1" />
+<meta name="generator" content="Hugo 0.72.0" />
 
 
 <link rel="canonical" href="https://tosone.cn/post/webrtc/" />
@@ -397,7 +397,7 @@ response.end();
 }
 let server = http.createServer((request, response) =&gt; {
 let realPath = path.join(__dirname, dist, url.parse(request.url).pathname);
-if (url.parse(request.url).pathname == &ldquo;/&rdquo; || url.parse(request.url).pathname.split(&quot;/&quot;)[url.parse(request.url).pathname.split(&quot;/&quot;).length - 1].indexOf(&quot;.&quot;) == -1) { //访问目录为 &ldquo;/&rdquo;
+if (url.parse(request.url).pathname == &ldquo;/&rdquo; || url.parse(request.url).pathname.split(&quot;/&quot;)[url.parse(request.url).pathname.split(&quot;/&quot;).length - 1].indexOf(&rdquo;.&quot;) == -1) { //访问目录为 &ldquo;/&rdquo;
 default_visit(request, response, default_visit_list, 0);
 } else { //指定路径
 let ext = path.extname(realPath);
