@@ -49,11 +49,11 @@ defaultContentLanguage = "en"           # Default language to use
   weight = 40
   identifier = "categories"
   url = "/categories/"
-[[menu.main]]
-  name = "About"
-  weight = 50
-  identifier = "about"
-  url = "about.html"
+# [[menu.main]]
+#   name = "About"
+#   weight = 50
+#   identifier = "about"
+#   url = "about.html"
 
 [params]
   since = "2016"            # Site creation time          # 站点建立时间
@@ -81,9 +81,9 @@ defaultContentLanguage = "en"           # Default language to use
   customCSS = []            # if ['custom.css'], load '/static/css/custom.css' file
   customJS = []             # if ['custom.js'], load '/static/js/custom.js' file
 
-  # [params.social]                                         # 社交链接
-  #   a-email = "mailto:i@tosone.cn"
-  #   g-github = "https://github.com/tosone"
-  #   h-weibo = "http://weibo.com/gyguoyu"
+  [params.social]                                         # 社交链接
+    a-email = "mailto:i@tosone.cn"
+    g-github = "https://github.com/tosone"
+    h-weibo = "http://weibo.com/gyguoyu"
   [params.counter.busuanzi]  # a Chinese visitor counter  # 不蒜子计数器
     enable = false
