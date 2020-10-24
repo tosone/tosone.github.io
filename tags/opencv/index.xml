@@ -6,11 +6,7 @@
     <description>Recent content in OpenCV on Tosone&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 15 Apr 2017 14:22:24 +0000</lastBuildDate>
-    
-	<atom:link href="https://tosone.cn/tags/opencv/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 15 Apr 2017 14:22:24 +0000</lastBuildDate><atom:link href="https://tosone.cn/tags/opencv/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Compile Opencv</title>
       <link>https://tosone.cn/post/compile-opencv/</link>

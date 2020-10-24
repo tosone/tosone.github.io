@@ -6,11 +6,7 @@
     <description>Recent content in Docker on Tosone&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 07 May 2017 10:59:43 +0000</lastBuildDate>
-    
-	<atom:link href="https://tosone.cn/tags/docker/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 07 May 2017 10:59:43 +0000</lastBuildDate><atom:link href="https://tosone.cn/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Docker Tutorial</title>
       <link>https://tosone.cn/post/docker-tutorial/</link>

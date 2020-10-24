@@ -6,11 +6,7 @@
     <description>Recent content in Golang on Tosone&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 05 Nov 2018 20:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://tosone.cn/tags/golang/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 05 Nov 2018 20:00:00 +0000</lastBuildDate><atom:link href="https://tosone.cn/tags/golang/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Golang 中如何用 CGO 与 C 之间做一个缓存 Buffer</title>
       <link>https://tosone.cn/post/golang-cgo-buffer/</link>

@@ -6,11 +6,7 @@
     <description>Recent content in Linux on Tosone&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 26 Apr 2019 10:38:24 +0000</lastBuildDate>
-    
-	<atom:link href="https://tosone.cn/tags/linux/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 26 Apr 2019 10:38:24 +0000</lastBuildDate><atom:link href="https://tosone.cn/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CoreOS 初始化配置</title>
       <link>https://tosone.cn/post/coreos-init/</link>

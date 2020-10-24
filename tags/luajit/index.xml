@@ -6,11 +6,7 @@
     <description>Recent content in Luajit on Tosone&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 31 Dec 2016 15:14:28 +0000</lastBuildDate>
-    
-	<atom:link href="https://tosone.cn/tags/luajit/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 31 Dec 2016 15:14:28 +0000</lastBuildDate><atom:link href="https://tosone.cn/tags/luajit/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Compile Lua and Luajit</title>
       <link>https://tosone.cn/post/compile-lua-and-luajit/</link>
