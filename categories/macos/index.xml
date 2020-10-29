@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Macos on Tosone&#39;s Blog</title>
-    <link>https://tosone.cn/categories/macos/</link>
+    <link>https://www.tosone.cn/categories/macos/</link>
     <description>Recent content in Macos on Tosone&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 20 Jul 2019 12:09:17 +0800</lastBuildDate><atom:link href="https://tosone.cn/categories/macos/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 20 Jul 2019 12:09:17 +0800</lastBuildDate><atom:link href="https://www.tosone.cn/categories/macos/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mac 下更换 Homebrew 镜像源</title>
-      <link>https://tosone.cn/post/homebrew/</link>
+      <link>https://www.tosone.cn/post/homebrew/</link>
       <pubDate>Sat, 20 Jul 2019 12:09:17 +0800</pubDate>
       
-      <guid>https://tosone.cn/post/homebrew/</guid>
+      <guid>https://www.tosone.cn/post/homebrew/</guid>
       <description>&lt;p&gt;Mac 下更换 Homebrew 镜像源，加速软件的更新以及下载。&lt;/p&gt;</description>
     </item>
     
