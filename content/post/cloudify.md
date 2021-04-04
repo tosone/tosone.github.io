@@ -21,7 +21,7 @@ categories: [ "Tutorial" ]
 
 - Cloudify 的 restful API 的在线地址在[这里](https://docs.cloudify.co/api/v3.1/)，文档源码在[这里](https://github.com/cloudify-cosmo/cloudify-rest-docs)，文档写的非常详细。文档是用的 `Hugo` 来生成的，将代码克隆下来之后，直接运行 `hugo` 就可以看到了。我的[博客](https://tosone.cn)也是用这个搭建的，非常好用。
 
-- Cloudify 的 Python API 的在线地址在[这里](https://docs.cloudify.co/cloudify-rest-client/)，文档源码在[这里](https://github.com/cloudify-cosmo/cloudify-rest-client)。文档是用的 `ReadTheDocs` 来生成的。在根目录下运行 `make dev && make docs` 然后 `serve docs/_build/html ` 就直接可以在本地访问到文档。
+- Cloudify 的 Python API 的在线地址在[这里](https://docs.cloudify.co/cloudify-rest-client/)，文档源码在[这里](https://github.com/cloudify-cosmo/cloudify-rest-client)。文档是用的 `ReadTheDocs` 来生成的。在根目录下运行 `make dev && make docs` 然后 `serve docs/_build/html` 就直接可以在本地访问到文档。
 
 - cloudify-plugins-common 的在线地址在[这里](http://cloudify-plugins-common.readthedocs.org/en/latest/)，文档源码在[这里](https://github.com/cloudify-cosmo/cloudify-plugins-common/tree/master/docs)。文档是用的 `ReadTheDocs` 来生成的。
 

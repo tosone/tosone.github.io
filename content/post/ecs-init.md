@@ -12,6 +12,7 @@ ECS 新购主机 Ubuntu 初始化的一些操作。
 <!--more-->
 
 ### 重置主机名
+
 - 修改你的自己的个性化主机名 `vi /etc/hostname`。
 - 完事之后还需要修改 `vi /etc/hosts` [原因请看](https://askubuntu.com/questions/59458/error-message-when-i-run-sudo-unable-to-resolve-host-none)。
 - 最后 `apt update`。

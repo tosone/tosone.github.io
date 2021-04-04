@@ -190,6 +190,7 @@ func fetchDataMap(readonly bool) *tlsData {
 获取 goroutine id 是一条不归路，目前也没有完美的获取它的方式。如果你一定要使用 goroutine id，先想清楚你要解决的问题是什么，如果没有必要，建议你不要走上这条不归路。尽早在团队中推广使用 context, 越早使用越早脱离对 goroutine id 的留恋和挣扎。
 
 ### Credit
+
 - [Goroutine IDs](https://blog.sgmansfield.com/2015/12/goroutine-ids/)
 - [faq: document why there is no way to get a goroutine ID](https://github.com/golang/go/issues/22770)
 - [获取 Goroutine Id 的最佳实践](https://www.jianshu.com/p/85a08d8e7af3)

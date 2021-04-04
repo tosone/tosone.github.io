@@ -233,4 +233,4 @@ end
 
 ### 访问Demo
 
-打开 `Apache`，访问 http://127.0.0.1/info.php 就能看到
+打开 `Apache`，访问 <http://127.0.0.1/info.php> 就能看到

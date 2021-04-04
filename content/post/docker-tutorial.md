@@ -31,7 +31,6 @@ docker-compose --help
 
 ### 镜像与容器
 
-docker-machine start 
+docker-machine start
 
-
-[^description]: Enterprise Container Platform for High-Velocity Innovation https://www.docker.com/
+[^description]: Enterprise Container Platform for High-Velocity Innovation <https://www.docker.com/>
