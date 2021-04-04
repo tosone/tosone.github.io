@@ -7,7 +7,7 @@
   
 
 <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
 
 <meta name="MobileOptimized" content="width"/>
 <meta name="HandheldFriendly" content="true"/>
@@ -33,7 +33,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.76.5" />
+<meta name="generator" content="Hugo 0.82.0" />
 
 
 <link rel="canonical" href="https://www.tosone.cn/post/git-useful-command/" />
@@ -54,7 +54,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.f1e506a781bf25d33ffc18aa6b4e972a965c58049d27d4f92b7db2e9bf28e4bf.css" integrity="sha256-8eUGp4G/JdM//Biqa06XKpZcWASdJ9T5K32y6b8o5L8=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.f7440b5c0d223f47a09bf5853465434e6f91d80a591c2f8d2d5e8220e5db0580.css" integrity="sha256-90QLXA0iP0egm/WFNGVDTm&#43;R2ApZHC&#43;NLV6CIOXbBYA=" media="screen" crossorigin="anonymous">
 
 
 
@@ -65,21 +65,17 @@
 Git 是一个开源的分布式版本控制系统，可以有效、高速的处理从很小到非常大的项目版本管理。Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。
 Torvalds 开始着手开发 Git 是为了作为一种过渡方案来替代 BitKeeper，后者之前一直是 Linux 内核开发人员在全球使用的主要源代码工具。开放源码社区中的有些人觉得 BitKeeper 的许可证并不适合开放源码社区的工作，因此 Torvalds 决定着手研究许可证更为灵活的版本控制系统。尽管最初 Git 的开发是为了辅助 Linux 内核开发的过程，但是我们已经发现在很多其他自由软件项目中也使用了 Git。例如很多 Freedesktop 的项目迁移到了 Git 上。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://www.tosone.cn/post/git-useful-command/" />
-<meta property="article:published_time" content="2017-01-03T00:20:20+00:00" />
-<meta property="article:modified_time" content="2017-01-03T00:20:20+00:00" />
+<meta property="og:url" content="https://www.tosone.cn/post/git-useful-command/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2017-01-03T00:20:20&#43;00:00" />
+<meta property="article:modified_time" content="2017-01-03T00:20:20&#43;00:00" />
+
 <meta itemprop="name" content="Git 基本操作">
 <meta itemprop="description" content="Git 是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。Git 的读音为 /gɪt/。
 Git 是一个开源的分布式版本控制系统，可以有效、高速的处理从很小到非常大的项目版本管理。Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。
-Torvalds 开始着手开发 Git 是为了作为一种过渡方案来替代 BitKeeper，后者之前一直是 Linux 内核开发人员在全球使用的主要源代码工具。开放源码社区中的有些人觉得 BitKeeper 的许可证并不适合开放源码社区的工作，因此 Torvalds 决定着手研究许可证更为灵活的版本控制系统。尽管最初 Git 的开发是为了辅助 Linux 内核开发的过程，但是我们已经发现在很多其他自由软件项目中也使用了 Git。例如很多 Freedesktop 的项目迁移到了 Git 上。">
-<meta itemprop="datePublished" content="2017-01-03T00:20:20+00:00" />
-<meta itemprop="dateModified" content="2017-01-03T00:20:20+00:00" />
+Torvalds 开始着手开发 Git 是为了作为一种过渡方案来替代 BitKeeper，后者之前一直是 Linux 内核开发人员在全球使用的主要源代码工具。开放源码社区中的有些人觉得 BitKeeper 的许可证并不适合开放源码社区的工作，因此 Torvalds 决定着手研究许可证更为灵活的版本控制系统。尽管最初 Git 的开发是为了辅助 Linux 内核开发的过程，但是我们已经发现在很多其他自由软件项目中也使用了 Git。例如很多 Freedesktop 的项目迁移到了 Git 上。"><meta itemprop="datePublished" content="2017-01-03T00:20:20&#43;00:00" />
+<meta itemprop="dateModified" content="2017-01-03T00:20:20&#43;00:00" />
 <meta itemprop="wordCount" content="1895">
-
-
-
-<meta itemprop="keywords" content="Git," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Git," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Git 基本操作"/>
 <meta name="twitter:description" content="Git 是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。Git 的读音为 /gɪt/。
 Git 是一个开源的分布式版本控制系统，可以有效、高速的处理从很小到非常大的项目版本管理。Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。
@@ -577,7 +573,7 @@ Torvalds 开始着手开发 Git 是为了作为一种过渡方案来替代 BitKe
     &copy;
     
       2016 -
-    2020
+    2021
     <span class="heart">
       
       <i class="iconfont">
