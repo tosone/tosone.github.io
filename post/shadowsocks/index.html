@@ -70,7 +70,7 @@
 <meta itemprop="name" content="优雅的翻墙">
 <meta itemprop="description" content="Long long ago, 在一个叫 v2ex 的地方，有一位叫做 clowwindy 的用户。他为了避免网络流量分类技术和 ssh tunnel 的低效，自己写了一个用于加密流量的协议，并自用了一年多. 后来，由于这个协议非常高效，而且使用json 作为配置文件，配置起来非常方便，所以迅速赢得了很多用户，并在 v2ex 上有了一个专属的节点。shadowsocks 迅速被移植到各种平台、各种语言，用户也急剧上升，并且有了专门经营 shadowsocks 服务的商家。"><meta itemprop="datePublished" content="2017-02-24T15:14:28&#43;00:00" />
 <meta itemprop="dateModified" content="2017-02-24T15:14:28&#43;00:00" />
-<meta itemprop="wordCount" content="4335">
+<meta itemprop="wordCount" content="4329">
 <meta itemprop="keywords" content="Shadowsocks," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="优雅的翻墙"/>
 <meta name="twitter:description" content="Long long ago, 在一个叫 v2ex 的地方，有一位叫做 clowwindy 的用户。他为了避免网络流量分类技术和 ssh tunnel 的低效，自己写了一个用于加密流量的协议，并自用了一年多. 后来，由于这个协议非常高效，而且使用json 作为配置文件，配置起来非常方便，所以迅速赢得了很多用户，并在 v2ex 上有了一个专属的节点。shadowsocks 迅速被移植到各种平台、各种语言，用户也急剧上升，并且有了专门经营 shadowsocks 服务的商家。"/>
@@ -361,12 +361,12 @@
 <ul>
 <li>首先，这里说的 Linux 发行版适用于 Ubuntu Archlinux，有几个方案都可以用。</li>
 </ul>
-<h4 id="第一种方法-1">第一种方法</h4>
+<h4 id="方法一">方法一</h4>
 <ul>
 <li>从<a href="https://github.com/shadowsocks/shadowsocks-qt5">这里</a>下载一个 QT 版本的 Shadowsocks，但是这个版本貌似更新有点不太频繁，最新的稳定版本支持的加密算法也不太多。但是用是没有任何问题的。他们提供了一种后缀名叫 <code>.AppImage</code> 的文件，这种文件是支持常见的 Linux 发行版的。下载后只需要给其加上可执行权限就能直接运行，简单的配置和 Windows 的一模一样。</li>
 <li>每次需要科学上网的时候需要将这个软件打开，在浏览器上配置好 SwitchOmega，就可以了。请注意端口一致！</li>
 </ul>
-<h4 id="第二种方法-1">第二种方法</h4>
+<h4 id="方法二">方法二</h4>
 <ul>
 <li>一般 Linux 都会有默认安装 Python，但是可能没有默认安装 pip，执行命令 <code>sudo apt install python-pip</code> 或 <code>sudo pacman -S python-pip</code>, 安装完成之后，就可以直接安装 Shadowsocks 的 Python 版本了，执行命令 <code>sudo -H pip install shadowsocks</code>，或者你担心不是装的最新版本的 Shadowsocks，可以执行命令 <code>pip install git+https://github.com/shadowsocks/shadowsocks.git@master</code>。</li>
 <li>安装完成之后系统里边会多出来一个命令 sslocal，sslocal 可以接受命令行参数或者文件配置。</li>
@@ -428,7 +428,7 @@
 <li><code>supervisorctl restart shadowsocks</code> 启动指定的服务。</li>
 <li>如果对 <code>supervisor</code> 的操作有有什么疑问的话可以专门搜索一下 <code>supervisor</code> 的基本操作。</li>
 </ul>
-<h4 id="第三种方法-1">第三种方法</h4>
+<h4 id="方法三">方法三</h4>
 <ul>
 <li>在 ubuntu 和 ArchLinux 的源里有 shadowsocks-libev 的包，直接 <code>sudo apt install shadowsocks-libev</code> 或者 <code>sudo pacman -S shadowsocks-libev</code>。</li>
 <li>如果你在你的 Linux 发行版中没有找到 shadowsocks-libev 相关的包的话，可以考虑从源码开始编译安装。具体编译过程可以参照<a href="https://github.com/shadowsocks/shadowsocks-libev#distribution-specific-guide">这里</a>。</li>

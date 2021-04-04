@@ -70,7 +70,7 @@
 <meta itemprop="name" content="Generate SSH key and GPG key">
 <meta itemprop="description" content="2012年3月4号，GitHub 的公钥安全漏洞被一个叫 Egor Homakov 的俄国人利用了。这个漏洞允许他向 GitHub 上的 Ruby on Rails 框架的主分支上提交代码。Git 使用中的教训：签名提交确保代码完整可信"><meta itemprop="datePublished" content="2017-04-22T13:16:42&#43;00:00" />
 <meta itemprop="dateModified" content="2017-04-22T13:16:42&#43;00:00" />
-<meta itemprop="wordCount" content="248">
+<meta itemprop="wordCount" content="266">
 <meta itemprop="keywords" content="Git," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Generate SSH key and GPG key"/>
 <meta name="twitter:description" content="2012年3月4号，GitHub 的公钥安全漏洞被一个叫 Egor Homakov 的俄国人利用了。这个漏洞允许他向 GitHub 上的 Ruby on Rails 框架的主分支上提交代码。Git 使用中的教训：签名提交确保代码完整可信"/>
@@ -303,13 +303,28 @@
       <p>2012年3月4号，GitHub 的<a href="https://github.com/blog/1068-public-key-security-vulnerability-and-mitigationhttp://">公钥安全漏洞</a>被一个叫 Egor Homakov 的俄国人利用了。这个漏洞允许他向 GitHub 上的 Ruby on Rails 框架的主分支上提交代码。<a href="http://www.oschina.net/translate/git-horror-story">Git 使用中的教训：签名提交确保代码完整可信</a></p>
 <h3 id="ssh-key-的生成及使用">SSH key 的生成及使用</h3>
 <ul>
-<li>生成一个 SSH key <code>ssh-keygen -t rsa -b 4096 -C &quot;i@tosone.cn&quot;</code>。</li>
-<li>将生成的 SSH key 复制至剪切板 <code>pbcopy &lt; ~/.ssh/id_rsa.pub</code>。</li>
+<li>生成一个 SSH key <code>ssh-keygen -t ed25519 -C &quot;i@tosone.cn&quot;</code>。</li>
 <li>在 GitHub 中这个<a href="https://github.com/settings/keys">页面</a>添加 SSH key。</li>
 </ul>
-<h3 id="gpg-key-的生成及使用">GPG key 的生成及使用</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Host *
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentityFile ~/.ssh/id_ed25519
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="gpg-key-的生成及使用">GPG key 的生成及使用</h3>
 <ul>
-<li>生成一个 GPG key <code>gpg --gen-key</code>。</li>
+<li>安装 gpg2 <code>brew install gpg2</code>。</li>
+<li>生成一个 GPG key <code>gpg --full-generate-key</code>。</li>
+<li>列出所有的 GPG key <code>gpg --list-keys</code>。</li>
 <li>配置将要使用的 GPG key <code>git config --global user.signingkey 0A46826A</code>。</li>
 <li>配置 GIT <code>git config --global commit.gpgsign true</code>。</li>
 <li>在 GitHub 中这个<a href="https://github.com/settings/keys">页面</a>添加 GPG key。</li>

@@ -394,13 +394,6 @@
   </url>
   
   <url>
-    <loc>https://www.tosone.cn/post/webrtc/</loc>
-    <lastmod>2017-02-26T09:56:03+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://www.tosone.cn/tags/algorithm/</loc>
     <lastmod>2017-02-24T22:09:45+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -438,20 +431,6 @@
   <url>
     <loc>https://www.tosone.cn/post/git-useful-command/</loc>
     <lastmod>2017-01-03T00:20:20+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.tosone.cn/tags/sublime/</loc>
-    <lastmod>2017-01-03T00:11:19+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.tosone.cn/post/sublime-exploit-code/</loc>
-    <lastmod>2017-01-03T00:11:19+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

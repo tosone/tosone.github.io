@@ -330,8 +330,7 @@ sudo sed -i <span class="s1">&#39;s/SELINUXTYPE=mcs/SELINUXTYPE=targeted/&#39;</
 </div>
 </div><h3 id="升级通道">升级通道</h3>
 <p>定义了 CoreOS 每次升级的目标版本号。官方提供了三个升级通道，分别为 Alpha、Beta 和 Stable，简单来说就是每个大版本升级的内测、公测和正式发行版。只不过 CoreOS 目前是采用一个不断增加的数字来表示各个版本号，数字越大则相对版本越高。</p>
-<p>各通道发布更新的频率依次为（官方目标数据，实际可能不准时）：
-<!-- raw HTML omitted --></p>
+<p>各通道发布更新的频率依次为（官方目标数据，实际可能不准时）：</p>
 <ul>
 <li>Alpha：每周星期四发布</li>
 <li>Beta：每两周发布一次</li>
@@ -400,8 +399,7 @@ tosone <span class="nv">ALL</span><span class="o">=(</span>ALL<span class="o">)<
 </div>
 </div><h3 id="toolbox">toolbox</h3>
 <p>toolbox is a small script that launches a container to let you bring in your favorite debugging or admin tools.
-There are currently two scripts that live within this repository:
-<!-- raw HTML omitted --></p>
+There are currently two scripts that live within this repository:</p>
 <ul>
 <li>toolbox: designed for Container Linux, uses rkt and systemd-nspawn</li>
 <li>rhcos-toolbox: designed for Red Hat CoreOS, uses podman</li>
@@ -450,14 +448,14 @@ listening on ens3, link-type EN10MB <span class="o">(</span>Ethernet<span class=
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ ssh bob@hostname.example.com
-Container Linux by CoreOS alpha (1284.0.0)
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ ssh bob@hostname.example.com
+Container Linux by CoreOS alpha <span class="o">(</span>1284.0.0<span class="o">)</span>
 ...
 Spawning container bob-fedora-latest on /var/lib/toolbox/bob-fedora-latest.
-Press ^] three times within 1s to kill container.
-[root@localhost ~]# dnf -y install emacs-nox
+Press ^<span class="o">]</span> three <span class="nb">times</span> within 1s to <span class="nb">kill</span> container.
+<span class="o">[</span>root@localhost ~<span class="o">]</span><span class="c1"># dnf -y install emacs-nox</span>
 ...
-[root@localhost ~]# emacs /media/root/etc/systemd/system/docker.service
+<span class="o">[</span>root@localhost ~<span class="o">]</span><span class="c1"># emacs /media/root/etc/systemd/system/docker.service</span>
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="install-docker-compose">Install docker-compose</h3>

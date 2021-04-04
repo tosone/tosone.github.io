@@ -473,7 +473,7 @@ previously allocated by thread T0 here:
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">gcc -O -g -fsanitize=address test.c
+<pre class="chroma"><code class="language-bash" data-lang="bash">gcc -O -g -fsanitize<span class="o">=</span>address test.c
 ./a.out
 </code></pre></td></tr></table>
 </div>
@@ -544,20 +544,20 @@ Address 0x7fffe55a7b04 is located in stack of thread T0 at offset <span class="m
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">AddressSanitizer: global-buffer-overflow /root/test6.c:3 in main
+<pre class="chroma"><code class="language-bash" data-lang="bash">AddressSanitizer: global-buffer-overflow /root/test6.c:3 in main
 Shadow bytes around the buggy address:
-  0x0ab033158fe0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-  0x0ab033158ff0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-  0x0ab033159000: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-  0x0ab033159010: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-  0x0ab033159020: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-=&gt;0x0ab033159030: 00 00 00 00 00 00 00 00 00 00 00 00 00 00[f9]f9
-  0x0ab033159040: f9 f9 f9 f9 00 00 00 00 00 00 00 00 00 00 00 00
-  0x0ab033159050: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-  0x0ab033159060: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-  0x0ab033159070: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-  0x0ab033159080: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-Shadow byte legend (one shadow byte represents 8 application bytes):
+  0x0ab033158fe0: <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span>
+  0x0ab033158ff0: <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span>
+  0x0ab033159000: <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span>
+  0x0ab033159010: <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span>
+  0x0ab033159020: <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="nv">00</span>
+<span class="o">=</span>&gt;0x0ab033159030: <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> 00<span class="o">[</span>f9<span class="o">]</span>f9
+  0x0ab033159040: f9 f9 f9 f9 <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span>
+  0x0ab033159050: <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span>
+  0x0ab033159060: <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span>
+  0x0ab033159070: <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span>
+  0x0ab033159080: <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span>
+Shadow byte legend <span class="o">(</span>one shadow byte represents <span class="m">8</span> application bytes<span class="o">)</span>:
 </code></pre></td></tr></table>
 </div>
 </div>
