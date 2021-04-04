@@ -161,27 +161,3 @@ func unregister(i int) {
 ```
 
 The following code shows an example of invoking a Go callback from C code. Because of the pointer passing rules Go code can not pass a function value directly to C. Instead it is necessary to use an indirection. This example uses a registry with a mutex, but there are many other ways to map from a value that can be passed to C to a Go function.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

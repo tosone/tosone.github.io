@@ -13,13 +13,21 @@ contentCopyright: false
 
 ### SSH key 的生成及使用
 
-- 生成一个 SSH key `ssh-keygen -t rsa -b 4096 -C "i@tosone.cn"`。
-- 将生成的 SSH key 复制至剪切板 `pbcopy < ~/.ssh/id_rsa.pub`。
+- 生成一个 SSH key `ssh-keygen -t ed25519 -C "i@tosone.cn"`。
 - 在 GitHub 中这个[页面](https://github.com/settings/keys)添加 SSH key。
+
+``` conf
+Host *
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentityFile ~/.ssh/id_ed25519
+```
 
 ### GPG key 的生成及使用
 
-- 生成一个 GPG key `gpg --gen-key`。
+- 安装 gpg2 `brew install gpg2`。
+- 生成一个 GPG key `gpg --full-generate-key`。
+- 列出所有的 GPG key `gpg --list-keys`。
 - 配置将要使用的 GPG key `git config --global user.signingkey 0A46826A`。
 - 配置 GIT `git config --global commit.gpgsign true`。
 - 在 GitHub 中这个[页面](https://github.com/settings/keys)添加 GPG key。

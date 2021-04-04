@@ -19,6 +19,8 @@ Torvalds 开始着手开发 Git 是为了作为一种过渡方案来替代 BitKe
 - `git config --global user.name "Tosone"`
 - `git config --global credential.helper store`
 - `git config --global push.default simple`
+- `git config --global init.defaultBranch main`
+
 - `git config --global color.ui true`
 - `git config --global alias.co checkout`
 - `git config --global alias.ci commit`
@@ -118,7 +120,7 @@ Torvalds 开始着手开发 Git 是为了作为一种过渡方案来替代 BitKe
 - `git push -u origin master` 将本地主分支推到远程(如无远程主分支则创建，用于初始化远程仓库)
 - `git push origin <local_branch>` 创建远程分支， origin是远程仓库名
 - `git push origin <local_branch>:<remote_branch>` 创建远程分支
-- `git push origin :<remote_branch>` 先删除本地分支(git br -d <branch>)，然后再push删除远程分支
+- `git push origin :<remote_branch>` 先删除本地分支(git br -d branch)，然后再push删除远程分支
 - `git remote -v` 查看远程服务器地址和仓库名称
 - `git remote show origin` 查看远程服务器仓库状态
 - `git remote add origin git@github:robbin/robbin_site.git` 添加远程仓库地址
@@ -139,4 +141,4 @@ Torvalds 开始着手开发 Git 是为了作为一种过渡方案来替代 BitKe
 - `git push origin --tags` 提交所有标签
 - `git push origin v1.0:v1.5` 推送本地的1.0到远端的1.5版本
 - `git archive -o ../updated.zip HEAD $(git diff --name-only HEAD^)` 将本地未提交的修改打包出来
-- `git archive develop $(git diff v1.1.8_beta13..v1.1.8_beta14 --name-only)|gzip >aaa.zip` 两个版本的不同将不同的地方打包出来
+- `git archive develop $(git diff v1.1.8_beta13..v1.1.8_beta14 --name-only) | gzip >aaa.zip` 两个版本的不同将不同的地方打包出来

@@ -27,7 +27,6 @@ sudo sed -i 's/SELINUXTYPE=mcs/SELINUXTYPE=targeted/' /etc/selinux/config
 定义了 CoreOS 每次升级的目标版本号。官方提供了三个升级通道，分别为 Alpha、Beta 和 Stable，简单来说就是每个大版本升级的内测、公测和正式发行版。只不过 CoreOS 目前是采用一个不断增加的数字来表示各个版本号，数字越大则相对版本越高。
 
 各通道发布更新的频率依次为（官方目标数据，实际可能不准时）：
-<br/>
 
 - Alpha：每周星期四发布
 - Beta：每两周发布一次
@@ -74,6 +73,7 @@ REBOOT_STRATEGY=best-effort
 赋予 `sudo` 权限，`visudo -f /etc/sudoers.d/user1` 添加这样一行： `tosone ALL=(ALL) NOPASSWD: ALL`。
 
 验证：
+
 ``` bash
 # su tosone
 $ cat /etc/sudoers.d/tosone
@@ -87,7 +87,7 @@ tosone ALL=(ALL) NOPASSWD: ALL
 
 toolbox is a small script that launches a container to let you bring in your favorite debugging or admin tools.
 There are currently two scripts that live within this repository:
-<br/>
+
 - toolbox: designed for Container Linux, uses rkt and systemd-nspawn
 - rhcos-toolbox: designed for Red Hat CoreOS, uses podman
 
@@ -110,7 +110,7 @@ useradd bob -m -s /usr/bin/toolbox -U -G sudo,docker,rkt
 
 Now when SSHing into the system as that user, toolbox will automatically be started:
 
-```
+``` bash
 $ ssh bob@hostname.example.com
 Container Linux by CoreOS alpha (1284.0.0)
 ...

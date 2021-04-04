@@ -97,7 +97,7 @@ freed by thread T0 here:
 previously allocated by thread T0 here:
     #0 0x7fabfea95d70 in operator new[](unsigned long) (/usr/lib/x86_64-linux-gnu/libasan.so.3+0xc2d70)
     #1 0x56282de47931 in main /root/heap-use-after-free.c:2
-``` 
+```
 
 ### Stack-buffer-overflow
 
@@ -109,7 +109,7 @@ int main(int argc, char **argv) {
 }
 ```
 
-```
+``` bash
 gcc -O -g -fsanitize=address test.c
 ./a.out
 ```
@@ -143,7 +143,7 @@ gcc -O -g -fsanitize=address test.c
 
 LeetCode 报错如下：
 
-```
+``` bash
 AddressSanitizer: global-buffer-overflow /root/test6.c:3 in main
 Shadow bytes around the buggy address:
   0x0ab033158fe0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00

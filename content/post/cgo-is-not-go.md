@@ -87,6 +87,7 @@ Go code and C code have to agree on how resources like address space, signal han
 You’re not writing a Go program that uses some logic from a C library, instead you’re writing a Go program that has to coexist with a belligerent piece of C code that is hard to replace, has the upper hand negotiations, and doesn’t care about your problems.
 
 ### Deployment gets more complicated
+
 Any presentation on Go to a general audience will contain at least one slide with these words:
 
 > Single, static binary
@@ -101,7 +102,7 @@ Depending on your environment, it’s probably possible to build your Go project
 
 To be clear, I am not saying that you should not use cgo. But before you make that Faustian bargain, please consider carefully the qualities of Go that you’ll be giving up in return.
 
-### Related Posts:
+### Related Posts
 
 - [An introduction to cross compilation with Go 1.1](https://dave.cheney.net/2013/07/09/an-introduction-to-cross-compilation-with-go-1-1)
 - [Cross compilation with Go 1.5](https://dave.cheney.net/2015/08/22/cross-compilation-with-go-1-5)

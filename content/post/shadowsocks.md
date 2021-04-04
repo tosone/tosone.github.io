@@ -12,6 +12,7 @@ Long long ago, 在一个叫 v2ex 的地方，有一位叫做 clowwindy 的用户
 <!--more-->
 
 ### 关于翻墙
+
 ---
 
 > 不会翻墙的程序员是没有走在正确的康庄大道上，不会翻墙的民众就不是明事理的民众，翻墙是你的必备技能。
@@ -48,10 +49,10 @@ Long long ago, 在一个叫 v2ex 的地方，有一位叫做 clowwindy 的用户
 - 之后 SwitchyOmega 会引导你怎么用。可以看一眼，没什么坏处。
 - 首先选择到右侧的 `proxy` 选项。代理协议选择 `SOCKS5`，代理服务器填写 `127.0.0.1`，代理端口填写上边设置好的 `1880`。
 - SwitchyOmega 是有几种模式的：
-	- proxy：全部都翻墙，显然是不合理的，对于国内的网站是不需要翻墙的。
-	- auto switch：自动选择，这是本人非常推荐的，选择不能访问的页面翻墙。
-	- 系统代理：选择系统上的代理，这种一般用不到。
-	- 直接连接：就是没有做任何的代理。
+  - proxy：全部都翻墙，显然是不合理的，对于国内的网站是不需要翻墙的。
+  - auto switch：自动选择，这是本人非常推荐的，选择不能访问的页面翻墙。
+  - 系统代理：选择系统上的代理，这种一般用不到。
+  - 直接连接：就是没有做任何的代理。
 - 当有资源未加载的话，在 Chrome 浏览器有右上角有个圆圈，那是 SwitchyOmega 的图标，然后图标上会有带有数字的感叹号。点击图标，会有显示多少资源未加载的菜单。之后会让你选择那些未加载的资源是否选择 proxy，选择之后那个资源就永远的加载到了 SwitchyOmega 的翻墙列表中了。不需要再次设置，除非浏览器卸载或者 SwitchyOmega 重装。之所以有时候某个资源明明已经选择翻墙了，但是下次还是会有显示那个资源未被加载，原因在于这个资源可能不稳定或者网络情况不太好，请给它足够的时间的时间，而不是一直点加入我的翻墙列表中。
 - 当用了一段时间 SwitchyOmega 之后，翻墙列表会越来越丰富，这是一个习惯培养的过程。
 
@@ -76,12 +77,12 @@ Long long ago, 在一个叫 v2ex 的地方，有一位叫做 clowwindy 的用户
 
 - 首先，这里说的 Linux 发行版适用于 Ubuntu Archlinux，有几个方案都可以用。
 
-#### 第一种方法
+#### 方法一
 
 - 从[这里](https://github.com/shadowsocks/shadowsocks-qt5)下载一个 QT 版本的 Shadowsocks，但是这个版本貌似更新有点不太频繁，最新的稳定版本支持的加密算法也不太多。但是用是没有任何问题的。他们提供了一种后缀名叫 `.AppImage` 的文件，这种文件是支持常见的 Linux 发行版的。下载后只需要给其加上可执行权限就能直接运行，简单的配置和 Windows 的一模一样。
 - 每次需要科学上网的时候需要将这个软件打开，在浏览器上配置好 SwitchOmega，就可以了。请注意端口一致！
 
-#### 第二种方法
+#### 方法二
 
 - 一般 Linux 都会有默认安装 Python，但是可能没有默认安装 pip，执行命令 `sudo apt install python-pip` 或 `sudo pacman -S python-pip`, 安装完成之后，就可以直接安装 Shadowsocks 的 Python 版本了，执行命令 `sudo -H pip install shadowsocks`，或者你担心不是装的最新版本的 Shadowsocks，可以执行命令 `pip install git+https://github.com/shadowsocks/shadowsocks.git@master`。
 - 安装完成之后系统里边会多出来一个命令 sslocal，sslocal 可以接受命令行参数或者文件配置。
@@ -119,7 +120,7 @@ user=nobody
 - `supervisorctl restart shadowsocks` 启动指定的服务。
 - 如果对 `supervisor` 的操作有有什么疑问的话可以专门搜索一下 `supervisor` 的基本操作。
 
-#### 第三种方法
+#### 方法三
 
 - 在 ubuntu 和 ArchLinux 的源里有 shadowsocks-libev 的包，直接 `sudo apt install shadowsocks-libev` 或者 `sudo pacman -S shadowsocks-libev`。
 - 如果你在你的 Linux 发行版中没有找到 shadowsocks-libev 相关的包的话，可以考虑从源码开始编译安装。具体编译过程可以参照[这里](https://github.com/shadowsocks/shadowsocks-libev#distribution-specific-guide)。

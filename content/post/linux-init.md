@@ -21,7 +21,7 @@ yarn config set registry https://registry.npm.taobao.org # set yarn registry to 
 apm config set registry https://registry.npm.taobao.org # set atom registry to taobao
 ```
 
-### shadowsocks 
+### shadowsocks
 
 ``` bash
 apt-get install shadowsocks-libev

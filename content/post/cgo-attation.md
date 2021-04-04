@@ -15,7 +15,7 @@ Golang 和 C 之间相互调用存在一些局限性。
 
 我们知道 C 语言中 stdarg.h 这个头文件提供了可变参数的实现，但是 cgo 中暂未实现对这个特性的支持，这并不意味着 Golang 不支持可变参数，仅仅是 cgo 不支持而已。具体可以看这个 [issue](https://github.com/golang/go/issues/975) 和这个 [commit](https://github.com/golang/go/commit/67d276c57cda9e05faa84c332ba52791d4713f65)。
 
-![](https://tc.tosone.cn/20190703180522.png)
+![params](https://tc.tosone.cn/20190703180522.png)
 
 ### 其次不支持带参数的宏定义
 
