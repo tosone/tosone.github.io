@@ -7,7 +7,7 @@
   
 
 <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
 
 <meta name="MobileOptimized" content="width"/>
 <meta name="HandheldFriendly" content="true"/>
@@ -33,10 +33,10 @@
 
 
 
-<meta name="generator" content="Hugo 0.76.5" />
+<meta name="generator" content="Hugo 0.93.2" />
 
 
-<link rel="canonical" href="https://tosone.cn/post/golang-auto-build-versioning/" />
+<link rel="canonical" href="https://www.tosone.cn/post/golang-auto-build-versioning/" />
 
 
 
@@ -54,7 +54,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.f1e506a781bf25d33ffc18aa6b4e972a965c58049d27d4f92b7db2e9bf28e4bf.css" integrity="sha256-8eUGp4G/JdM//Biqa06XKpZcWASdJ9T5K32y6b8o5L8=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.fa4b2b9f31b5c6d0b683db81157a9226e17b06e61911791ab547242a4a0556f2.css" integrity="sha256-&#43;ksrnzG1xtC2g9uBFXqSJuF7BuYZEXkatUckKkoFVvI=" media="screen" crossorigin="anonymous">
 
 
 
@@ -63,19 +63,15 @@
 <meta property="og:title" content="Golang auto build version" />
 <meta property="og:description" content="We needed a version number to find whether the binary was from yesterday or today’s source. Then we decided that for all our golang applications we should have a way to find out the version number, so that we can always query and find out which version it is, there by which source is running." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://tosone.cn/post/golang-auto-build-versioning/" />
+<meta property="og:url" content="https://www.tosone.cn/post/golang-auto-build-versioning/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2017-04-11T20:26:54+00:00" />
 <meta property="article:modified_time" content="2017-04-11T20:26:54+00:00" />
+
 <meta itemprop="name" content="Golang auto build version">
-<meta itemprop="description" content="We needed a version number to find whether the binary was from yesterday or today’s source. Then we decided that for all our golang applications we should have a way to find out the version number, so that we can always query and find out which version it is, there by which source is running.">
-<meta itemprop="datePublished" content="2017-04-11T20:26:54+00:00" />
+<meta itemprop="description" content="We needed a version number to find whether the binary was from yesterday or today’s source. Then we decided that for all our golang applications we should have a way to find out the version number, so that we can always query and find out which version it is, there by which source is running."><meta itemprop="datePublished" content="2017-04-11T20:26:54+00:00" />
 <meta itemprop="dateModified" content="2017-04-11T20:26:54+00:00" />
 <meta itemprop="wordCount" content="132">
-
-
-
-<meta itemprop="keywords" content="Golang," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Golang," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Golang auto build version"/>
 <meta name="twitter:description" content="We needed a version number to find whether the binary was from yesterday or today’s source. Then we decided that for all our golang applications we should have a way to find out the version number, so that we can always query and find out which version it is, there by which source is running."/>
 
@@ -109,28 +105,28 @@
         
           
           
-            <a class="menu-item-link" href="https://tosone.cn/">This is Home</a>
+            <a class="menu-item-link" href="https://www.tosone.cn/">This is Home</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://tosone.cn/post/">Archives</a>
+            <a class="menu-item-link" href="https://www.tosone.cn/post/">Archives</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://tosone.cn/tags/">Tags</a>
+            <a class="menu-item-link" href="https://www.tosone.cn/tags/">Tags</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://tosone.cn/categories/">Categories</a>
+            <a class="menu-item-link" href="https://www.tosone.cn/categories/">Categories</a>
           
         
       </li>
@@ -222,7 +218,7 @@
         
           
           
-            <a class="menu-item-link" href="https://tosone.cn/">This is Home</a>
+            <a class="menu-item-link" href="https://www.tosone.cn/">This is Home</a>
           
 
         
@@ -233,7 +229,7 @@
         
           
           
-            <a class="menu-item-link" href="https://tosone.cn/post/">Archives</a>
+            <a class="menu-item-link" href="https://www.tosone.cn/post/">Archives</a>
           
 
         
@@ -244,7 +240,7 @@
         
           
           
-            <a class="menu-item-link" href="https://tosone.cn/tags/">Tags</a>
+            <a class="menu-item-link" href="https://www.tosone.cn/tags/">Tags</a>
           
 
         
@@ -255,7 +251,7 @@
         
           
           
-            <a class="menu-item-link" href="https://tosone.cn/categories/">Categories</a>
+            <a class="menu-item-link" href="https://www.tosone.cn/categories/">Categories</a>
           
 
         
@@ -286,8 +282,8 @@
           2017-04-11
         </time>
         <div class="post-category">
-            <a href="https://tosone.cn/categories/develop/"> Develop </a>
-            <a href="https://tosone.cn/categories/config/"> Config </a>
+            <a href="https://www.tosone.cn/categories/develop/"> Develop </a>
+            <a href="https://www.tosone.cn/categories/config/"> Config </a>
             
           </div>
         
@@ -308,7 +304,7 @@
       <p>We needed a version number to find whether the binary was from yesterday or today’s source. Then we decided that for all our golang applications we should have a way to find out the version number, so that we can always query and find out which version it is, there by which source is running.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -323,31 +319,31 @@
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
-
-<span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
-
-<span class="kd">var</span> <span class="p">(</span>
-    <span class="nx">BuildStamp</span> <span class="p">=</span> <span class="s">&#34;Nothing Provided.&#34;</span>
-    <span class="nx">GitHash</span>   <span class="p">=</span> <span class="s">&#34;Nothing Provided.&#34;</span>
-<span class="p">)</span>
-
-<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;Git Commit Hash: %s\n&#34;</span><span class="p">,</span> <span class="nx">GitHash</span><span class="p">)</span>
-    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;UTC Build Time: %s\n&#34;</span><span class="p">,</span> <span class="nx">BuildStamp</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">BuildStamp</span> <span class="p">=</span> <span class="s">&#34;Nothing Provided.&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">GitHash</span>   <span class="p">=</span> <span class="s">&#34;Nothing Provided.&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;Git Commit Hash: %s\n&#34;</span><span class="p">,</span> <span class="nx">GitHash</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;UTC Build Time: %s\n&#34;</span><span class="p">,</span> <span class="nx">BuildStamp</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>现在只需要，这样 build 这个文件：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">go build -ldflags <span class="s2">&#34;-X main.GitHash=`git rev-parse HEAD` \
-</span><span class="s2">                   -X main.BuildStamp=`date -u &#39;+%Y-%m-%d_%I:%M:%S%p&#39;`&#34;</span> main.go
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">go build -ldflags <span class="s2">&#34;-X main.GitHash=`git rev-parse HEAD` \
+</span></span></span><span class="line"><span class="cl"><span class="s2">                   -X main.BuildStamp=`date -u &#39;+%Y-%m-%d_%I:%M:%S%p&#39;`&#34;</span> main.go
+</span></span></code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -361,7 +357,7 @@
 
     <footer class="post-footer">
       <div class="post-tags">
-          <a href="https://tosone.cn/tags/golang/">Golang</a>
+          <a href="https://www.tosone.cn/tags/golang/">Golang</a>
           
         </div>
 
@@ -461,7 +457,7 @@
     </a>
 
 
-<a href="https://tosone.cn/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+<a href="https://www.tosone.cn/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
     class="iconfont" title="rss" target="_blank">
     <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -486,7 +482,7 @@
     &copy;
     
       2016 -
-    2020
+    2022
     <span class="heart">
       
       <i class="iconfont">
@@ -506,6 +502,10 @@
   
   
 
+  
+    <span>
+      <a href="http://beian.miit.gov.cn" target="_blank">豫ICP备16023221号</a>
+    </span>
   
 </div>
 

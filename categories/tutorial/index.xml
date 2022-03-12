@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tutorial on Tosone&#39;s Blog</title>
-    <link>https://tosone.cn/categories/tutorial/</link>
+    <link>https://www.tosone.cn/categories/tutorial/</link>
     <description>Recent content in Tutorial on Tosone&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 20 Jul 2019 11:22:09 +0800</lastBuildDate><atom:link href="https://tosone.cn/categories/tutorial/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 20 Jul 2019 11:22:09 +0800</lastBuildDate><atom:link href="https://www.tosone.cn/categories/tutorial/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cloudify Tutorial</title>
-      <link>https://tosone.cn/post/cloudify/</link>
+      <link>https://www.tosone.cn/post/cloudify/</link>
       <pubDate>Sat, 20 Jul 2019 11:22:09 +0800</pubDate>
       
-      <guid>https://tosone.cn/post/cloudify/</guid>
+      <guid>https://www.tosone.cn/post/cloudify/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;A single open source, end-to-end platform designed to transform network services and applications, connect branches, deploy and manage multi-access edge and IoT devices, break down silos and deliver all services on-demand – automatically, at scale.&lt;/p&gt;
 &lt;/blockquote&gt;</description>
@@ -20,10 +20,10 @@
     
     <item>
       <title>Kubernetes Tutorial</title>
-      <link>https://tosone.cn/post/kubernetes-tutorial/</link>
+      <link>https://www.tosone.cn/post/kubernetes-tutorial/</link>
       <pubDate>Thu, 27 Jun 2019 23:03:09 +0800</pubDate>
       
-      <guid>https://tosone.cn/post/kubernetes-tutorial/</guid>
+      <guid>https://www.tosone.cn/post/kubernetes-tutorial/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Kubernetes&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; is an open-source system for automating deployment, scaling, and management of containerized applications.&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -34,48 +34,39 @@
     
     <item>
       <title>RaspberryPi 上手</title>
-      <link>https://tosone.cn/post/raspberry-tutorial/</link>
+      <link>https://www.tosone.cn/post/raspberry-tutorial/</link>
       <pubDate>Sat, 25 Nov 2017 18:27:37 +0000</pubDate>
       
-      <guid>https://tosone.cn/post/raspberry-tutorial/</guid>
+      <guid>https://www.tosone.cn/post/raspberry-tutorial/</guid>
       <description>&lt;p&gt;当你花 35 美元买到一部树莓派（Raspberry Pi）计算机的时候，机器里面是没有预装操作系统（OS）的。这个时候你要自己下载一个 OS 到 SD 卡，插到树莓派上重启完成 OS 的安装。这一切看起来很简便，但你考虑过这个跟树莓派兼容的OS是哪里来的吗？&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Docker Tutorial</title>
-      <link>https://tosone.cn/post/docker-tutorial/</link>
+      <link>https://www.tosone.cn/post/docker-tutorial/</link>
       <pubDate>Sun, 07 May 2017 10:59:43 +0000</pubDate>
       
-      <guid>https://tosone.cn/post/docker-tutorial/</guid>
+      <guid>https://www.tosone.cn/post/docker-tutorial/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Securely build, share and run any application, anywhere.&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 &lt;/blockquote&gt;</description>
     </item>
     
     <item>
-      <title>Web RTC Demo</title>
-      <link>https://tosone.cn/post/webrtc/</link>
-      <pubDate>Sun, 26 Feb 2017 09:56:03 +0000</pubDate>
-      
-      <guid>https://tosone.cn/post/webrtc/</guid>
-      <description>&lt;p&gt;WebRTC 项目的最终目的主要是让 Web 开发者能够基于浏览器轻易快捷开发出丰富的实时多媒体应用，而无需下载安装任何插件，Web 开发者也无需关注多媒体的数字信号处理过程，只需编写简单的 Javascript 程序即可实现。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
       <title>Nginx 搭建直播</title>
-      <link>https://tosone.cn/post/live-nginx/</link>
+      <link>https://www.tosone.cn/post/live-nginx/</link>
       <pubDate>Fri, 24 Feb 2017 21:45:11 +0000</pubDate>
       
-      <guid>https://tosone.cn/post/live-nginx/</guid>
+      <guid>https://www.tosone.cn/post/live-nginx/</guid>
       <description>&lt;p&gt;相关行业数据显示，2015 年至今，全国在线直播平台数量超过 200 家。截止 2016 年 10 月，网络直播行业除孕育出欢聚时代、9158 两家上市公司外，斗鱼和映客也已跻身独角兽行列，在方正证券的预测中，2020 年网络直播市场规模将达到 600 亿，有研究甚至认为 2020 年网络直播及周边行业将撬动千亿级资金。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Git 基本操作</title>
-      <link>https://tosone.cn/post/git-useful-command/</link>
+      <link>https://www.tosone.cn/post/git-useful-command/</link>
       <pubDate>Tue, 03 Jan 2017 00:20:20 +0000</pubDate>
       
-      <guid>https://tosone.cn/post/git-useful-command/</guid>
+      <guid>https://www.tosone.cn/post/git-useful-command/</guid>
       <description>&lt;p&gt;Git 是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。Git 的读音为 /gɪt/。
 Git 是一个开源的分布式版本控制系统，可以有效、高速的处理从很小到非常大的项目版本管理。Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。
 Torvalds 开始着手开发 Git 是为了作为一种过渡方案来替代 BitKeeper，后者之前一直是 Linux 内核开发人员在全球使用的主要源代码工具。开放源码社区中的有些人觉得 BitKeeper 的许可证并不适合开放源码社区的工作，因此 Torvalds 决定着手研究许可证更为灵活的版本控制系统。尽管最初 Git 的开发是为了辅助 Linux 内核开发的过程，但是我们已经发现在很多其他自由软件项目中也使用了 Git。例如很多 Freedesktop 的项目迁移到了 Git 上。&lt;/p&gt;</description>

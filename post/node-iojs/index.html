@@ -7,7 +7,7 @@
   
 
 <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
 
 <meta name="MobileOptimized" content="width"/>
 <meta name="HandheldFriendly" content="true"/>
@@ -33,10 +33,10 @@
 
 
 
-<meta name="generator" content="Hugo 0.76.5" />
+<meta name="generator" content="Hugo 0.93.2" />
 
 
-<link rel="canonical" href="https://tosone.cn/post/node-iojs/" />
+<link rel="canonical" href="https://www.tosone.cn/post/node-iojs/" />
 
 
 
@@ -54,7 +54,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.f1e506a781bf25d33ffc18aa6b4e972a965c58049d27d4f92b7db2e9bf28e4bf.css" integrity="sha256-8eUGp4G/JdM//Biqa06XKpZcWASdJ9T5K32y6b8o5L8=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.fa4b2b9f31b5c6d0b683db81157a9226e17b06e61911791ab547242a4a0556f2.css" integrity="sha256-&#43;ksrnzG1xtC2g9uBFXqSJuF7BuYZEXkatUckKkoFVvI=" media="screen" crossorigin="anonymous">
 
 
 
@@ -63,19 +63,15 @@
 <meta property="og:title" content="[转] NodeJs 的那点历史" />
 <meta property="og:description" content="2014 年 12 月，多位重量级 Node.js 开发者不满 Joyent 对 Node.js 的管理，自立门户创建了 io.js。io.js 的发展速度非常快，先是于 2015 年 1 月份发布了 1.0 版本，并且很快就达到了 2.0 版本，社区非常活跃。而最近 io.js 社区又宣布，这两个项目将合并到 Node 基金会下，并暂时由 Node.js 和 io.js 核心技术团队联合监督”运营。本文将聊一聊Node.js 项目的一些历史情况，与 io.js 项目之间的恩怨纠葛，他们将来的发展去向。希望能从历史的层面去了解这个开源项目在运营模式上是如何演变和发展的。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://tosone.cn/post/node-iojs/" />
+<meta property="og:url" content="https://www.tosone.cn/post/node-iojs/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2019-11-12T22:01:55+08:00" />
 <meta property="article:modified_time" content="2019-11-12T22:01:55+08:00" />
+
 <meta itemprop="name" content="[转] NodeJs 的那点历史">
-<meta itemprop="description" content="2014 年 12 月，多位重量级 Node.js 开发者不满 Joyent 对 Node.js 的管理，自立门户创建了 io.js。io.js 的发展速度非常快，先是于 2015 年 1 月份发布了 1.0 版本，并且很快就达到了 2.0 版本，社区非常活跃。而最近 io.js 社区又宣布，这两个项目将合并到 Node 基金会下，并暂时由 Node.js 和 io.js 核心技术团队联合监督”运营。本文将聊一聊Node.js 项目的一些历史情况，与 io.js 项目之间的恩怨纠葛，他们将来的发展去向。希望能从历史的层面去了解这个开源项目在运营模式上是如何演变和发展的。">
-<meta itemprop="datePublished" content="2019-11-12T22:01:55+08:00" />
+<meta itemprop="description" content="2014 年 12 月，多位重量级 Node.js 开发者不满 Joyent 对 Node.js 的管理，自立门户创建了 io.js。io.js 的发展速度非常快，先是于 2015 年 1 月份发布了 1.0 版本，并且很快就达到了 2.0 版本，社区非常活跃。而最近 io.js 社区又宣布，这两个项目将合并到 Node 基金会下，并暂时由 Node.js 和 io.js 核心技术团队联合监督”运营。本文将聊一聊Node.js 项目的一些历史情况，与 io.js 项目之间的恩怨纠葛，他们将来的发展去向。希望能从历史的层面去了解这个开源项目在运营模式上是如何演变和发展的。"><meta itemprop="datePublished" content="2019-11-12T22:01:55+08:00" />
 <meta itemprop="dateModified" content="2019-11-12T22:01:55+08:00" />
 <meta itemprop="wordCount" content="6055">
-
-
-
-<meta itemprop="keywords" content="NodeJs," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="NodeJs," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="[转] NodeJs 的那点历史"/>
 <meta name="twitter:description" content="2014 年 12 月，多位重量级 Node.js 开发者不满 Joyent 对 Node.js 的管理，自立门户创建了 io.js。io.js 的发展速度非常快，先是于 2015 年 1 月份发布了 1.0 版本，并且很快就达到了 2.0 版本，社区非常活跃。而最近 io.js 社区又宣布，这两个项目将合并到 Node 基金会下，并暂时由 Node.js 和 io.js 核心技术团队联合监督”运营。本文将聊一聊Node.js 项目的一些历史情况，与 io.js 项目之间的恩怨纠葛，他们将来的发展去向。希望能从历史的层面去了解这个开源项目在运营模式上是如何演变和发展的。"/>
 
@@ -109,28 +105,28 @@
         
           
           
-            <a class="menu-item-link" href="https://tosone.cn/">This is Home</a>
+            <a class="menu-item-link" href="https://www.tosone.cn/">This is Home</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://tosone.cn/post/">Archives</a>
+            <a class="menu-item-link" href="https://www.tosone.cn/post/">Archives</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://tosone.cn/tags/">Tags</a>
+            <a class="menu-item-link" href="https://www.tosone.cn/tags/">Tags</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://tosone.cn/categories/">Categories</a>
+            <a class="menu-item-link" href="https://www.tosone.cn/categories/">Categories</a>
           
         
       </li>
@@ -222,7 +218,7 @@
         
           
           
-            <a class="menu-item-link" href="https://tosone.cn/">This is Home</a>
+            <a class="menu-item-link" href="https://www.tosone.cn/">This is Home</a>
           
 
         
@@ -233,7 +229,7 @@
         
           
           
-            <a class="menu-item-link" href="https://tosone.cn/post/">Archives</a>
+            <a class="menu-item-link" href="https://www.tosone.cn/post/">Archives</a>
           
 
         
@@ -244,7 +240,7 @@
         
           
           
-            <a class="menu-item-link" href="https://tosone.cn/tags/">Tags</a>
+            <a class="menu-item-link" href="https://www.tosone.cn/tags/">Tags</a>
           
 
         
@@ -255,7 +251,7 @@
         
           
           
-            <a class="menu-item-link" href="https://tosone.cn/categories/">Categories</a>
+            <a class="menu-item-link" href="https://www.tosone.cn/categories/">Categories</a>
           
 
         
@@ -286,7 +282,7 @@
           2019-11-12
         </time>
         <div class="post-category">
-            <a href="https://tosone.cn/categories/coding/"> Coding </a>
+            <a href="https://www.tosone.cn/categories/coding/"> Coding </a>
             
           </div>
         
@@ -403,13 +399,26 @@
 
     <footer class="post-footer">
       <div class="post-tags">
-          <a href="https://tosone.cn/tags/nodejs/">NodeJs</a>
+          <a href="https://www.tosone.cn/tags/nodejs/">NodeJs</a>
           
         </div>
 
       
       <nav class="post-nav">
         
+          <a class="prev" href="/post/golang-mem-align/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">Golang Memory Align</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
         
           <a class="next" href="/post/gitea/">
             <span class="next-text nav-default">Gitea</span>
@@ -490,7 +499,7 @@
     </a>
 
 
-<a href="https://tosone.cn/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+<a href="https://www.tosone.cn/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
     class="iconfont" title="rss" target="_blank">
     <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -515,7 +524,7 @@
     &copy;
     
       2016 -
-    2020
+    2022
     <span class="heart">
       
       <i class="iconfont">
@@ -535,6 +544,10 @@
   
   
 
+  
+    <span>
+      <a href="http://beian.miit.gov.cn" target="_blank">豫ICP备16023221号</a>
+    </span>
   
 </div>
 

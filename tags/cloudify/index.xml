@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Cloudify on Tosone&#39;s Blog</title>
-    <link>https://tosone.cn/tags/cloudify/</link>
+    <link>https://www.tosone.cn/tags/cloudify/</link>
     <description>Recent content in Cloudify on Tosone&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 20 Jul 2019 11:22:09 +0800</lastBuildDate><atom:link href="https://tosone.cn/tags/cloudify/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 20 Jul 2019 11:22:09 +0800</lastBuildDate><atom:link href="https://www.tosone.cn/tags/cloudify/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cloudify Tutorial</title>
-      <link>https://tosone.cn/post/cloudify/</link>
+      <link>https://www.tosone.cn/post/cloudify/</link>
       <pubDate>Sat, 20 Jul 2019 11:22:09 +0800</pubDate>
       
-      <guid>https://tosone.cn/post/cloudify/</guid>
+      <guid>https://www.tosone.cn/post/cloudify/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;A single open source, end-to-end platform designed to transform network services and applications, connect branches, deploy and manage multi-access edge and IoT devices, break down silos and deliver all services on-demand – automatically, at scale.&lt;/p&gt;
 &lt;/blockquote&gt;</description>

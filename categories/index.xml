@@ -2,80 +2,80 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Tosone&#39;s Blog</title>
-    <link>https://tosone.cn/categories/</link>
+    <link>https://www.tosone.cn/categories/</link>
     <description>Recent content in Categories on Tosone&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 12 Nov 2019 22:01:55 +0800</lastBuildDate><atom:link href="https://tosone.cn/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 24 Oct 2020 15:53:21 +0800</lastBuildDate><atom:link href="https://www.tosone.cn/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Develop</title>
+      <link>https://www.tosone.cn/categories/develop/</link>
+      <pubDate>Sat, 24 Oct 2020 15:53:21 +0800</pubDate>
+      
+      <guid>https://www.tosone.cn/categories/develop/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Coding</title>
-      <link>https://tosone.cn/categories/coding/</link>
+      <link>https://www.tosone.cn/categories/coding/</link>
       <pubDate>Tue, 12 Nov 2019 22:01:55 +0800</pubDate>
       
-      <guid>https://tosone.cn/categories/coding/</guid>
+      <guid>https://www.tosone.cn/categories/coding/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Config</title>
-      <link>https://tosone.cn/categories/config/</link>
+      <link>https://www.tosone.cn/categories/config/</link>
       <pubDate>Wed, 23 Oct 2019 21:03:15 +0800</pubDate>
       
-      <guid>https://tosone.cn/categories/config/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Develop</title>
-      <link>https://tosone.cn/categories/develop/</link>
-      <pubDate>Sat, 20 Jul 2019 12:47:23 +0800</pubDate>
-      
-      <guid>https://tosone.cn/categories/develop/</guid>
+      <guid>https://www.tosone.cn/categories/config/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Macos</title>
-      <link>https://tosone.cn/categories/macos/</link>
+      <link>https://www.tosone.cn/categories/macos/</link>
       <pubDate>Sat, 20 Jul 2019 12:09:17 +0800</pubDate>
       
-      <guid>https://tosone.cn/categories/macos/</guid>
+      <guid>https://www.tosone.cn/categories/macos/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Tutorial</title>
-      <link>https://tosone.cn/categories/tutorial/</link>
+      <link>https://www.tosone.cn/categories/tutorial/</link>
       <pubDate>Sat, 20 Jul 2019 11:22:09 +0800</pubDate>
       
-      <guid>https://tosone.cn/categories/tutorial/</guid>
+      <guid>https://www.tosone.cn/categories/tutorial/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Artical</title>
-      <link>https://tosone.cn/categories/artical/</link>
+      <link>https://www.tosone.cn/categories/artical/</link>
       <pubDate>Fri, 05 May 2017 12:48:41 +0000</pubDate>
       
-      <guid>https://tosone.cn/categories/artical/</guid>
+      <guid>https://www.tosone.cn/categories/artical/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Tips</title>
-      <link>https://tosone.cn/categories/tips/</link>
+      <link>https://www.tosone.cn/categories/tips/</link>
       <pubDate>Sat, 22 Apr 2017 14:23:31 +0000</pubDate>
       
-      <guid>https://tosone.cn/categories/tips/</guid>
+      <guid>https://www.tosone.cn/categories/tips/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Travel</title>
-      <link>https://tosone.cn/categories/travel/</link>
+      <link>https://www.tosone.cn/categories/travel/</link>
       <pubDate>Sat, 04 Mar 2017 16:57:15 +0000</pubDate>
       
-      <guid>https://tosone.cn/categories/travel/</guid>
+      <guid>https://www.tosone.cn/categories/travel/</guid>
       <description></description>
     </item>
     

@@ -7,7 +7,7 @@
   
 
 <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
 
 <meta name="MobileOptimized" content="width"/>
 <meta name="HandheldFriendly" content="true"/>
@@ -33,10 +33,10 @@
 
 
 
-<meta name="generator" content="Hugo 0.76.5" />
+<meta name="generator" content="Hugo 0.93.2" />
 
 
-<link rel="canonical" href="https://tosone.cn/post/compile-opencv/" />
+<link rel="canonical" href="https://www.tosone.cn/post/compile-opencv/" />
 
 
 
@@ -54,7 +54,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.f1e506a781bf25d33ffc18aa6b4e972a965c58049d27d4f92b7db2e9bf28e4bf.css" integrity="sha256-8eUGp4G/JdM//Biqa06XKpZcWASdJ9T5K32y6b8o5L8=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.fa4b2b9f31b5c6d0b683db81157a9226e17b06e61911791ab547242a4a0556f2.css" integrity="sha256-&#43;ksrnzG1xtC2g9uBFXqSJuF7BuYZEXkatUckKkoFVvI=" media="screen" crossorigin="anonymous">
 
 
 
@@ -63,19 +63,15 @@
 <meta property="og:title" content="Compile Opencv" />
 <meta property="og:description" content="OpenCV is released under a BSD license and hence it’s free for both academic and commercial use. It has C&#43;&#43;, C, Python and Java interfaces and supports Windows, Linux, Mac OS, iOS and Android. OpenCV was designed for computational efficiency and with a strong focus on real-time applications. Written in optimized C/C&#43;&#43;, the library can take advantage of multi-core processing. Enabled with OpenCL, it can take advantage of the hardware acceleration of the underlying heterogeneous compute platform." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://tosone.cn/post/compile-opencv/" />
+<meta property="og:url" content="https://www.tosone.cn/post/compile-opencv/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2017-04-15T14:22:24+00:00" />
 <meta property="article:modified_time" content="2017-04-15T14:22:24+00:00" />
+
 <meta itemprop="name" content="Compile Opencv">
-<meta itemprop="description" content="OpenCV is released under a BSD license and hence it’s free for both academic and commercial use. It has C&#43;&#43;, C, Python and Java interfaces and supports Windows, Linux, Mac OS, iOS and Android. OpenCV was designed for computational efficiency and with a strong focus on real-time applications. Written in optimized C/C&#43;&#43;, the library can take advantage of multi-core processing. Enabled with OpenCL, it can take advantage of the hardware acceleration of the underlying heterogeneous compute platform.">
-<meta itemprop="datePublished" content="2017-04-15T14:22:24+00:00" />
+<meta itemprop="description" content="OpenCV is released under a BSD license and hence it’s free for both academic and commercial use. It has C&#43;&#43;, C, Python and Java interfaces and supports Windows, Linux, Mac OS, iOS and Android. OpenCV was designed for computational efficiency and with a strong focus on real-time applications. Written in optimized C/C&#43;&#43;, the library can take advantage of multi-core processing. Enabled with OpenCL, it can take advantage of the hardware acceleration of the underlying heterogeneous compute platform."><meta itemprop="datePublished" content="2017-04-15T14:22:24+00:00" />
 <meta itemprop="dateModified" content="2017-04-15T14:22:24+00:00" />
 <meta itemprop="wordCount" content="238">
-
-
-
-<meta itemprop="keywords" content="OpenCV,C&#43;&#43;," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="OpenCV,C&#43;&#43;," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Compile Opencv"/>
 <meta name="twitter:description" content="OpenCV is released under a BSD license and hence it’s free for both academic and commercial use. It has C&#43;&#43;, C, Python and Java interfaces and supports Windows, Linux, Mac OS, iOS and Android. OpenCV was designed for computational efficiency and with a strong focus on real-time applications. Written in optimized C/C&#43;&#43;, the library can take advantage of multi-core processing. Enabled with OpenCL, it can take advantage of the hardware acceleration of the underlying heterogeneous compute platform."/>
 
@@ -109,28 +105,28 @@
         
           
           
-            <a class="menu-item-link" href="https://tosone.cn/">This is Home</a>
+            <a class="menu-item-link" href="https://www.tosone.cn/">This is Home</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://tosone.cn/post/">Archives</a>
+            <a class="menu-item-link" href="https://www.tosone.cn/post/">Archives</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://tosone.cn/tags/">Tags</a>
+            <a class="menu-item-link" href="https://www.tosone.cn/tags/">Tags</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://tosone.cn/categories/">Categories</a>
+            <a class="menu-item-link" href="https://www.tosone.cn/categories/">Categories</a>
           
         
       </li>
@@ -222,7 +218,7 @@
         
           
           
-            <a class="menu-item-link" href="https://tosone.cn/">This is Home</a>
+            <a class="menu-item-link" href="https://www.tosone.cn/">This is Home</a>
           
 
         
@@ -233,7 +229,7 @@
         
           
           
-            <a class="menu-item-link" href="https://tosone.cn/post/">Archives</a>
+            <a class="menu-item-link" href="https://www.tosone.cn/post/">Archives</a>
           
 
         
@@ -244,7 +240,7 @@
         
           
           
-            <a class="menu-item-link" href="https://tosone.cn/tags/">Tags</a>
+            <a class="menu-item-link" href="https://www.tosone.cn/tags/">Tags</a>
           
 
         
@@ -255,7 +251,7 @@
         
           
           
-            <a class="menu-item-link" href="https://tosone.cn/categories/">Categories</a>
+            <a class="menu-item-link" href="https://www.tosone.cn/categories/">Categories</a>
           
 
         
@@ -286,7 +282,7 @@
           2017-04-15
         </time>
         <div class="post-category">
-            <a href="https://tosone.cn/categories/develop/"> Develop </a>
+            <a href="https://www.tosone.cn/categories/develop/"> Develop </a>
             
           </div>
         
@@ -309,7 +305,7 @@
 <p>To install the dependencies required for OpenCV, just run the following command:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -319,65 +315,65 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo apt-get -y install libopencv-dev build-essential cmake git libgtk2.0-dev libgtk-3-dev <span class="se">\
-</span><span class="se"></span>                        pkg-config python-dev python-numpy libdc1394-22 libdc1394-22-dev <span class="se">\
-</span><span class="se"></span>                        libjpeg-dev libpng-dev libpnglite-dev libpng++-dev libtiff5-dev <span class="se">\
-</span><span class="se"></span>                        libavcodec-dev libavformat-dev libswscale-dev libxine2-dev <span class="se">\
-</span><span class="se"></span>                        libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libv4l-dev <span class="se">\
-</span><span class="se"></span>                        libtbb-dev libqt4-dev libfaac-dev libmp3lame-dev libopencore-amrnb-dev <span class="se">\
-</span><span class="se"></span>                        libopencore-amrwb-dev libtheora-dev libvorbis-dev libxvidcore-dev x264 <span class="se">\
-</span><span class="se"></span>                        v4l-utils unzip
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt-get -y install libopencv-dev build-essential cmake git libgtk2.0-dev libgtk-3-dev <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>                        pkg-config python-dev python-numpy libdc1394-22 libdc1394-22-dev <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>                        libjpeg-dev libpng-dev libpnglite-dev libpng++-dev libtiff5-dev <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>                        libavcodec-dev libavformat-dev libswscale-dev libxine2-dev <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>                        libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libv4l-dev <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>                        libtbb-dev libqt4-dev libfaac-dev libmp3lame-dev libopencore-amrnb-dev <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>                        libopencore-amrwb-dev libtheora-dev libvorbis-dev libxvidcore-dev x264 <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>                        v4l-utils unzip
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="step-2">STEP 2</h3>
 <p>Download the latest version of <a href="https://github.com/opencv/opencv">OpenCV</a>. Or from <a href="https://share.weiyun.com/c01ee33744d180629d3ae779b75b8d43">here</a>.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">wget https://github.com/opencv/opencv/archive/<span class="si">${</span><span class="nv">version</span><span class="si">}</span>.zip
-unzip <span class="si">${</span><span class="nv">version</span><span class="si">}</span>.zip
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wget https://github.com/opencv/opencv/archive/<span class="si">${</span><span class="nv">version</span><span class="si">}</span>.zip
+</span></span><span class="line"><span class="cl">unzip <span class="si">${</span><span class="nv">version</span><span class="si">}</span>.zip
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="step-3">STEP 3</h3>
 <p>Sometimes compile opencv will get an error that cannot downlaod ippicv.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">mkdir 3rdparty/ippicv/downloads/linux-808b791a6eac9ed78d32a7666804320e
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mkdir 3rdparty/ippicv/downloads/linux-808b791a6eac9ed78d32a7666804320e
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Then copy the ippicv file in that directory.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">mkdir build
-<span class="nb">cd</span> build
-cmake -D <span class="nv">CMAKE_BUILD_TYPE</span><span class="o">=</span>RELEASE -D <span class="nv">CMAKE_INSTALL_PREFIX</span><span class="o">=</span>/usr/local ..
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mkdir build
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> build
+</span></span><span class="line"><span class="cl">cmake -D <span class="nv">CMAKE_BUILD_TYPE</span><span class="o">=</span>RELEASE -D <span class="nv">CMAKE_INSTALL_PREFIX</span><span class="o">=</span>/usr/local ..
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="step-4">STEP 4</h3>
 <p>Finishing compile.</p>
 <p>Now some final touches:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo /bin/bash -c <span class="s1">&#39;echo &#34;/usr/local/lib&#34; &gt; /etc/ld.so.conf.d/opencv.conf&#39;</span>
-sudo ldconfig
-sudo apt-get update
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo /bin/bash -c <span class="s1">&#39;echo &#34;/usr/local/lib&#34; &gt; /etc/ld.so.conf.d/opencv.conf&#39;</span>
+</span></span><span class="line"><span class="cl">sudo ldconfig
+</span></span><span class="line"><span class="cl">sudo apt-get update
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>After the complete process execute reboot your system.</p>
 <p>Now you have a working installation of OpenCV.</p>
@@ -392,8 +388,8 @@ sudo apt-get update
 
     <footer class="post-footer">
       <div class="post-tags">
-          <a href="https://tosone.cn/tags/opencv/">OpenCV</a>
-          <a href="https://tosone.cn/tags/c&#43;&#43;/">C&#43;&#43;</a>
+          <a href="https://www.tosone.cn/tags/opencv/">OpenCV</a>
+          <a href="https://www.tosone.cn/tags/c&#43;&#43;/">C&#43;&#43;</a>
           
         </div>
 
@@ -493,7 +489,7 @@ sudo apt-get update
     </a>
 
 
-<a href="https://tosone.cn/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+<a href="https://www.tosone.cn/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
     class="iconfont" title="rss" target="_blank">
     <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -518,7 +514,7 @@ sudo apt-get update
     &copy;
     
       2016 -
-    2020
+    2022
     <span class="heart">
       
       <i class="iconfont">
@@ -538,6 +534,10 @@ sudo apt-get update
   
   
 
+  
+    <span>
+      <a href="http://beian.miit.gov.cn" target="_blank">豫ICP备16023221号</a>
+    </span>
   
 </div>
 

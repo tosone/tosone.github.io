@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Luajit on Tosone&#39;s Blog</title>
-    <link>https://tosone.cn/tags/luajit/</link>
+    <link>https://www.tosone.cn/tags/luajit/</link>
     <description>Recent content in Luajit on Tosone&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 31 Dec 2016 15:14:28 +0000</lastBuildDate><atom:link href="https://tosone.cn/tags/luajit/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 31 Dec 2016 15:14:28 +0000</lastBuildDate><atom:link href="https://www.tosone.cn/tags/luajit/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Compile Lua and Luajit</title>
-      <link>https://tosone.cn/post/compile-lua-and-luajit/</link>
+      <link>https://www.tosone.cn/post/compile-lua-and-luajit/</link>
       <pubDate>Sat, 31 Dec 2016 15:14:28 +0000</pubDate>
       
-      <guid>https://tosone.cn/post/compile-lua-and-luajit/</guid>
+      <guid>https://www.tosone.cn/post/compile-lua-and-luajit/</guid>
       <description>&lt;p&gt;Lua is a lightweight, multi-paradigm programming language designed primarily for embedded systems and clients. Lua is cross-platform, since the interpreter is written in ANSI C, and has a relatively simple C API.&lt;/p&gt;</description>
     </item>
     

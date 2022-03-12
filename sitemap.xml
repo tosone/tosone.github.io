@@ -1,491 +1,477 @@
-<?xml-stylesheet type="text/xsl" href="https://tosone.cn/sitemap.xsl"?>
+<?xml-stylesheet type="text/xsl" href="https://www.tosone.cn/sitemap.xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://tosone.cn/post/node-iojs/</loc>
+    <loc>https://www.tosone.cn/categories/</loc>
+    <lastmod>2020-10-24T15:53:21+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.tosone.cn/categories/develop/</loc>
+    <lastmod>2020-10-24T15:53:21+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.tosone.cn/tags/golang/</loc>
+    <lastmod>2020-10-24T15:53:21+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.tosone.cn/post/golang-mem-align/</loc>
+    <lastmod>2020-10-24T15:53:21+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.tosone.cn/post/</loc>
+    <lastmod>2020-10-24T15:53:21+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.tosone.cn/tags/</loc>
+    <lastmod>2020-10-24T15:53:21+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.tosone.cn/</loc>
+    <lastmod>2020-10-24T15:53:21+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.tosone.cn/post/node-iojs/</loc>
     <lastmod>2019-11-12T22:01:55+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/categories/</loc>
+    <loc>https://www.tosone.cn/categories/coding/</loc>
     <lastmod>2019-11-12T22:01:55+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/categories/coding/</loc>
+    <loc>https://www.tosone.cn/tags/nodejs/</loc>
     <lastmod>2019-11-12T22:01:55+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/tags/nodejs/</loc>
-    <lastmod>2019-11-12T22:01:55+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://tosone.cn/post/</loc>
-    <lastmod>2019-11-12T22:01:55+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://tosone.cn/tags/</loc>
-    <lastmod>2019-11-12T22:01:55+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://tosone.cn/</loc>
-    <lastmod>2019-11-12T22:01:55+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://tosone.cn/categories/config/</loc>
+    <loc>https://www.tosone.cn/categories/config/</loc>
     <lastmod>2019-10-23T21:03:15+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/tags/git/</loc>
+    <loc>https://www.tosone.cn/tags/git/</loc>
     <lastmod>2019-10-23T21:03:15+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/post/gitea/</loc>
+    <loc>https://www.tosone.cn/post/gitea/</loc>
     <lastmod>2019-10-23T21:03:15+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/post/ss-nginx/</loc>
+    <loc>https://www.tosone.cn/post/ss-nginx/</loc>
     <lastmod>2019-10-23T19:38:03+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/tags/shadowsocks/</loc>
+    <loc>https://www.tosone.cn/tags/shadowsocks/</loc>
     <lastmod>2019-10-23T19:38:03+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/categories/develop/</loc>
+    <loc>https://www.tosone.cn/tags/leetcode/</loc>
     <lastmod>2019-07-20T12:47:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/tags/leetcode/</loc>
+    <loc>https://www.tosone.cn/post/leetcode-c-c&#43;&#43;/</loc>
     <lastmod>2019-07-20T12:47:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/post/leetcode-c-c&#43;&#43;/</loc>
-    <lastmod>2019-07-20T12:47:23+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://tosone.cn/post/homebrew/</loc>
+    <loc>https://www.tosone.cn/post/homebrew/</loc>
     <lastmod>2019-07-20T12:09:17+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/categories/macos/</loc>
+    <loc>https://www.tosone.cn/categories/macos/</loc>
     <lastmod>2019-07-20T12:09:17+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/tags/tips/</loc>
+    <loc>https://www.tosone.cn/tags/tips/</loc>
     <lastmod>2019-07-20T12:09:17+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/tags/cloudify/</loc>
+    <loc>https://www.tosone.cn/tags/cloudify/</loc>
     <lastmod>2019-07-20T11:22:09+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/post/cloudify/</loc>
+    <loc>https://www.tosone.cn/post/cloudify/</loc>
     <lastmod>2019-07-20T11:22:09+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/tags/container/</loc>
+    <loc>https://www.tosone.cn/tags/container/</loc>
     <lastmod>2019-07-20T11:22:09+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/categories/tutorial/</loc>
+    <loc>https://www.tosone.cn/categories/tutorial/</loc>
     <lastmod>2019-07-20T11:22:09+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/tags/kubernetes/</loc>
+    <loc>https://www.tosone.cn/tags/kubernetes/</loc>
     <lastmod>2019-06-27T23:03:09+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/post/kubernetes-tutorial/</loc>
+    <loc>https://www.tosone.cn/post/kubernetes-tutorial/</loc>
     <lastmod>2019-06-27T23:03:09+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/post/coreos-init/</loc>
+    <loc>https://www.tosone.cn/post/coreos-init/</loc>
     <lastmod>2019-04-26T10:38:24+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/tags/linux/</loc>
+    <loc>https://www.tosone.cn/tags/linux/</loc>
     <lastmod>2019-04-26T10:38:24+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/tags/c/</loc>
+    <loc>https://www.tosone.cn/tags/c/</loc>
     <lastmod>2018-11-05T20:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/tags/cgo/</loc>
+    <loc>https://www.tosone.cn/tags/cgo/</loc>
     <lastmod>2018-11-05T20:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/tags/golang/</loc>
+    <loc>https://www.tosone.cn/post/golang-cgo-buffer/</loc>
     <lastmod>2018-11-05T20:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/post/golang-cgo-buffer/</loc>
-    <lastmod>2018-11-05T20:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://tosone.cn/post/cgo-attation/</loc>
+    <loc>https://www.tosone.cn/post/cgo-attation/</loc>
     <lastmod>2018-09-12T10:14:28+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/post/linux-init/</loc>
+    <loc>https://www.tosone.cn/post/linux-init/</loc>
     <lastmod>2018-09-11T12:53:15+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/post/cgo/</loc>
+    <loc>https://www.tosone.cn/post/cgo/</loc>
     <lastmod>2018-07-10T21:14:28+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/post/missing-in-c-but-found-in-rust/</loc>
+    <loc>https://www.tosone.cn/post/missing-in-c-but-found-in-rust/</loc>
     <lastmod>2018-03-11T20:14:28+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/tags/rust/</loc>
+    <loc>https://www.tosone.cn/tags/rust/</loc>
     <lastmod>2018-03-11T20:14:28+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/post/cgo-is-not-go/</loc>
+    <loc>https://www.tosone.cn/post/cgo-is-not-go/</loc>
     <lastmod>2018-03-10T21:14:28+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/post/golang-get-goroutine-id/</loc>
+    <loc>https://www.tosone.cn/post/golang-get-goroutine-id/</loc>
     <lastmod>2018-03-09T21:14:28+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/tags/makefile/</loc>
+    <loc>https://www.tosone.cn/tags/makefile/</loc>
     <lastmod>2018-03-08T21:14:28+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/post/phony-target/</loc>
+    <loc>https://www.tosone.cn/post/phony-target/</loc>
     <lastmod>2018-03-08T21:14:28+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/tags/raspberry/</loc>
+    <loc>https://www.tosone.cn/tags/raspberry/</loc>
     <lastmod>2017-11-25T18:27:37+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/post/raspberry-tutorial/</loc>
+    <loc>https://www.tosone.cn/post/raspberry-tutorial/</loc>
     <lastmod>2017-11-25T18:27:37+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/tags/docker/</loc>
+    <loc>https://www.tosone.cn/tags/docker/</loc>
     <lastmod>2017-05-07T10:59:43+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/post/docker-tutorial/</loc>
+    <loc>https://www.tosone.cn/post/docker-tutorial/</loc>
     <lastmod>2017-05-07T10:59:43+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/categories/artical/</loc>
+    <loc>https://www.tosone.cn/categories/artical/</loc>
     <lastmod>2017-05-05T12:48:41+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/post/shadowsocks-ppt/</loc>
+    <loc>https://www.tosone.cn/post/shadowsocks-ppt/</loc>
     <lastmod>2017-05-05T12:48:41+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/post/feature-branch/</loc>
+    <loc>https://www.tosone.cn/post/feature-branch/</loc>
     <lastmod>2017-04-22T14:23:31+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/categories/tips/</loc>
+    <loc>https://www.tosone.cn/categories/tips/</loc>
     <lastmod>2017-04-22T14:23:31+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/post/ssh-gpg-keys/</loc>
+    <loc>https://www.tosone.cn/post/ssh-gpg-keys/</loc>
     <lastmod>2017-04-22T13:16:42+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/post/ecs-init/</loc>
+    <loc>https://www.tosone.cn/post/ecs-init/</loc>
     <lastmod>2017-04-17T21:38:24+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/tags/c&#43;&#43;/</loc>
+    <loc>https://www.tosone.cn/tags/c&#43;&#43;/</loc>
     <lastmod>2017-04-15T14:22:24+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/post/compile-opencv/</loc>
+    <loc>https://www.tosone.cn/post/compile-opencv/</loc>
     <lastmod>2017-04-15T14:22:24+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/tags/opencv/</loc>
+    <loc>https://www.tosone.cn/tags/opencv/</loc>
     <lastmod>2017-04-15T14:22:24+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/post/golang-auto-build-versioning/</loc>
+    <loc>https://www.tosone.cn/post/golang-auto-build-versioning/</loc>
     <lastmod>2017-04-11T20:26:54+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/tags/travel/</loc>
+    <loc>https://www.tosone.cn/tags/travel/</loc>
     <lastmod>2017-03-04T16:57:15+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/categories/travel/</loc>
+    <loc>https://www.tosone.cn/categories/travel/</loc>
     <lastmod>2017-03-04T16:57:15+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/post/mount-tai-reference/</loc>
+    <loc>https://www.tosone.cn/post/mount-tai-reference/</loc>
     <lastmod>2017-03-04T16:57:15+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/post/webrtc/</loc>
-    <lastmod>2017-02-26T09:56:03+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://tosone.cn/tags/algorithm/</loc>
+    <loc>https://www.tosone.cn/tags/algorithm/</loc>
     <lastmod>2017-02-24T22:09:45+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/post/matrix-calc/</loc>
+    <loc>https://www.tosone.cn/post/matrix-calc/</loc>
     <lastmod>2017-02-24T22:09:45+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/tags/nginx/</loc>
+    <loc>https://www.tosone.cn/tags/nginx/</loc>
     <lastmod>2017-02-24T21:45:11+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/post/live-nginx/</loc>
+    <loc>https://www.tosone.cn/post/live-nginx/</loc>
     <lastmod>2017-02-24T21:45:11+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/post/shadowsocks/</loc>
+    <loc>https://www.tosone.cn/post/shadowsocks/</loc>
     <lastmod>2017-02-24T15:14:28+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/post/git-useful-command/</loc>
+    <loc>https://www.tosone.cn/post/git-useful-command/</loc>
     <lastmod>2017-01-03T00:20:20+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/tags/sublime/</loc>
-    <lastmod>2017-01-03T00:11:19+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://tosone.cn/post/sublime-exploit-code/</loc>
-    <lastmod>2017-01-03T00:11:19+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://tosone.cn/tags/apache/</loc>
+    <loc>https://www.tosone.cn/tags/apache/</loc>
     <lastmod>2017-01-02T18:32:08+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/post/config-for-lua-in-apache/</loc>
+    <loc>https://www.tosone.cn/post/config-for-lua-in-apache/</loc>
     <lastmod>2017-01-02T18:32:08+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/tags/lua/</loc>
+    <loc>https://www.tosone.cn/tags/lua/</loc>
     <lastmod>2017-01-02T18:32:08+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/post/compile-lua-and-luajit/</loc>
+    <loc>https://www.tosone.cn/post/compile-lua-and-luajit/</loc>
     <lastmod>2016-12-31T15:14:28+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://tosone.cn/tags/luajit/</loc>
+    <loc>https://www.tosone.cn/tags/luajit/</loc>
     <lastmod>2016-12-31T15:14:28+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

@@ -7,7 +7,7 @@
   
 
 <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
 
 <meta name="MobileOptimized" content="width"/>
 <meta name="HandheldFriendly" content="true"/>
@@ -33,10 +33,10 @@
 
 
 
-<meta name="generator" content="Hugo 0.76.5" />
+<meta name="generator" content="Hugo 0.93.2" />
 
 
-<link rel="canonical" href="https://tosone.cn/post/cgo-is-not-go/" />
+<link rel="canonical" href="https://www.tosone.cn/post/cgo-is-not-go/" />
 
 
 
@@ -54,7 +54,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.f1e506a781bf25d33ffc18aa6b4e972a965c58049d27d4f92b7db2e9bf28e4bf.css" integrity="sha256-8eUGp4G/JdM//Biqa06XKpZcWASdJ9T5K32y6b8o5L8=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.fa4b2b9f31b5c6d0b683db81157a9226e17b06e61911791ab547242a4a0556f2.css" integrity="sha256-&#43;ksrnzG1xtC2g9uBFXqSJuF7BuYZEXkatUckKkoFVvI=" media="screen" crossorigin="anonymous">
 
 
 
@@ -63,19 +63,15 @@
 <meta property="og:title" content="CGO is not Go" />
 <meta property="og:description" content="Some people, when confronted with a problem, think &ldquo;I know, I’ll use cgo.&rdquo; Now they have two problems." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://tosone.cn/post/cgo-is-not-go/" />
+<meta property="og:url" content="https://www.tosone.cn/post/cgo-is-not-go/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2018-03-10T21:14:28+00:00" />
 <meta property="article:modified_time" content="2018-03-10T21:14:28+00:00" />
+
 <meta itemprop="name" content="CGO is not Go">
-<meta itemprop="description" content="Some people, when confronted with a problem, think &ldquo;I know, I’ll use cgo.&rdquo; Now they have two problems.">
-<meta itemprop="datePublished" content="2018-03-10T21:14:28+00:00" />
+<meta itemprop="description" content="Some people, when confronted with a problem, think &ldquo;I know, I’ll use cgo.&rdquo; Now they have two problems."><meta itemprop="datePublished" content="2018-03-10T21:14:28+00:00" />
 <meta itemprop="dateModified" content="2018-03-10T21:14:28+00:00" />
 <meta itemprop="wordCount" content="1939">
-
-
-
-<meta itemprop="keywords" content="Golang,C,CGO," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Golang,C,CGO," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="CGO is not Go"/>
 <meta name="twitter:description" content="Some people, when confronted with a problem, think &ldquo;I know, I’ll use cgo.&rdquo; Now they have two problems."/>
 
@@ -109,28 +105,28 @@
         
           
           
-            <a class="menu-item-link" href="https://tosone.cn/">This is Home</a>
+            <a class="menu-item-link" href="https://www.tosone.cn/">This is Home</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://tosone.cn/post/">Archives</a>
+            <a class="menu-item-link" href="https://www.tosone.cn/post/">Archives</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://tosone.cn/tags/">Tags</a>
+            <a class="menu-item-link" href="https://www.tosone.cn/tags/">Tags</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://tosone.cn/categories/">Categories</a>
+            <a class="menu-item-link" href="https://www.tosone.cn/categories/">Categories</a>
           
         
       </li>
@@ -222,7 +218,7 @@
         
           
           
-            <a class="menu-item-link" href="https://tosone.cn/">This is Home</a>
+            <a class="menu-item-link" href="https://www.tosone.cn/">This is Home</a>
           
 
         
@@ -233,7 +229,7 @@
         
           
           
-            <a class="menu-item-link" href="https://tosone.cn/post/">Archives</a>
+            <a class="menu-item-link" href="https://www.tosone.cn/post/">Archives</a>
           
 
         
@@ -244,7 +240,7 @@
         
           
           
-            <a class="menu-item-link" href="https://tosone.cn/tags/">Tags</a>
+            <a class="menu-item-link" href="https://www.tosone.cn/tags/">Tags</a>
           
 
         
@@ -255,7 +251,7 @@
         
           
           
-            <a class="menu-item-link" href="https://tosone.cn/categories/">Categories</a>
+            <a class="menu-item-link" href="https://www.tosone.cn/categories/">Categories</a>
           
 
         
@@ -286,7 +282,7 @@
           2018-03-10
         </time>
         <div class="post-category">
-            <a href="https://tosone.cn/categories/develop/"> Develop </a>
+            <a href="https://www.tosone.cn/categories/develop/"> Develop </a>
             
           </div>
         
@@ -358,7 +354,7 @@
 <p><a href="http://dominik.honnef.co/posts/2015/06/statically_compiled_go_programs__always__even_with_cgo__using_musl/">It is possible to compile a Go program entirely statically</a>, but it is by no means simple and shows that the ramifications of including cgo in your project will ripple through your entire build and deploy life cycle.</p>
 <h3 id="choose-wisely">Choose wisely</h3>
 <p>To be clear, I am not saying that you should not use cgo. But before you make that Faustian bargain, please consider carefully the qualities of Go that you’ll be giving up in return.</p>
-<h3 id="related-posts">Related Posts:</h3>
+<h3 id="related-posts">Related Posts</h3>
 <ul>
 <li><a href="https://dave.cheney.net/2013/07/09/an-introduction-to-cross-compilation-with-go-1-1">An introduction to cross compilation with Go 1.1</a></li>
 <li><a href="https://dave.cheney.net/2015/08/22/cross-compilation-with-go-1-5">Cross compilation with Go 1.5</a></li>
@@ -376,9 +372,9 @@
 
     <footer class="post-footer">
       <div class="post-tags">
-          <a href="https://tosone.cn/tags/golang/">Golang</a>
-          <a href="https://tosone.cn/tags/c/">C</a>
-          <a href="https://tosone.cn/tags/cgo/">CGO</a>
+          <a href="https://www.tosone.cn/tags/golang/">Golang</a>
+          <a href="https://www.tosone.cn/tags/c/">C</a>
+          <a href="https://www.tosone.cn/tags/cgo/">CGO</a>
           
         </div>
 
@@ -478,7 +474,7 @@
     </a>
 
 
-<a href="https://tosone.cn/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+<a href="https://www.tosone.cn/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
     class="iconfont" title="rss" target="_blank">
     <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -503,7 +499,7 @@
     &copy;
     
       2016 -
-    2020
+    2022
     <span class="heart">
       
       <i class="iconfont">
@@ -523,6 +519,10 @@
   
   
 
+  
+    <span>
+      <a href="http://beian.miit.gov.cn" target="_blank">豫ICP备16023221号</a>
+    </span>
   
 </div>
 

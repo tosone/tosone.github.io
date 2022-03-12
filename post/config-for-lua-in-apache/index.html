@@ -7,7 +7,7 @@
   
 
 <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
 
 <meta name="MobileOptimized" content="width"/>
 <meta name="HandheldFriendly" content="true"/>
@@ -34,10 +34,10 @@ Apache 关于 Lua 我不知道是哪一个版本编译进去了的，但是最�
 
 
 
-<meta name="generator" content="Hugo 0.76.5" />
+<meta name="generator" content="Hugo 0.93.2" />
 
 
-<link rel="canonical" href="https://tosone.cn/post/config-for-lua-in-apache/" />
+<link rel="canonical" href="https://www.tosone.cn/post/config-for-lua-in-apache/" />
 
 
 
@@ -55,7 +55,7 @@ Apache 关于 Lua 我不知道是哪一个版本编译进去了的，但是最�
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.f1e506a781bf25d33ffc18aa6b4e972a965c58049d27d4f92b7db2e9bf28e4bf.css" integrity="sha256-8eUGp4G/JdM//Biqa06XKpZcWASdJ9T5K32y6b8o5L8=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.fa4b2b9f31b5c6d0b683db81157a9226e17b06e61911791ab547242a4a0556f2.css" integrity="sha256-&#43;ksrnzG1xtC2g9uBFXqSJuF7BuYZEXkatUckKkoFVvI=" media="screen" crossorigin="anonymous">
 
 
 
@@ -65,20 +65,16 @@ Apache 关于 Lua 我不知道是哪一个版本编译进去了的，但是最�
 <meta property="og:description" content="对于 Apache 这个东西，绝大多数人都是非常熟悉的。很多人都会诟病这个 Apache，说它效率不高而且非常消耗资源，然后会建议用 Nginx。这些不能否认，但是我还是很喜欢 Apache，因为它比较稳定。
 Apache 关于 Lua 我不知道是哪一个版本编译进去了的，但是最新版的是有的。在 Apache 的 bin 目录下有一个 lua51.dll 很明显，这个是 Lua5.1 版本的，目前 Lua 已经到了 5.3 版本了，如果你想追求新的版本的话，你可以自己把 Apache 编译一次。然后还有，在 Apache 的 modules 目录下有一个 mod_lua.so 是开启 Apache 和 Lua 通信桥梁的文件。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://tosone.cn/post/config-for-lua-in-apache/" />
+<meta property="og:url" content="https://www.tosone.cn/post/config-for-lua-in-apache/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2017-01-02T18:32:08+00:00" />
 <meta property="article:modified_time" content="2017-01-02T18:32:08+00:00" />
+
 <meta itemprop="name" content="Apache 下的 Lua 的配置">
 <meta itemprop="description" content="对于 Apache 这个东西，绝大多数人都是非常熟悉的。很多人都会诟病这个 Apache，说它效率不高而且非常消耗资源，然后会建议用 Nginx。这些不能否认，但是我还是很喜欢 Apache，因为它比较稳定。
-Apache 关于 Lua 我不知道是哪一个版本编译进去了的，但是最新版的是有的。在 Apache 的 bin 目录下有一个 lua51.dll 很明显，这个是 Lua5.1 版本的，目前 Lua 已经到了 5.3 版本了，如果你想追求新的版本的话，你可以自己把 Apache 编译一次。然后还有，在 Apache 的 modules 目录下有一个 mod_lua.so 是开启 Apache 和 Lua 通信桥梁的文件。">
-<meta itemprop="datePublished" content="2017-01-02T18:32:08+00:00" />
+Apache 关于 Lua 我不知道是哪一个版本编译进去了的，但是最新版的是有的。在 Apache 的 bin 目录下有一个 lua51.dll 很明显，这个是 Lua5.1 版本的，目前 Lua 已经到了 5.3 版本了，如果你想追求新的版本的话，你可以自己把 Apache 编译一次。然后还有，在 Apache 的 modules 目录下有一个 mod_lua.so 是开启 Apache 和 Lua 通信桥梁的文件。"><meta itemprop="datePublished" content="2017-01-02T18:32:08+00:00" />
 <meta itemprop="dateModified" content="2017-01-02T18:32:08+00:00" />
 <meta itemprop="wordCount" content="1277">
-
-
-
-<meta itemprop="keywords" content="Lua,Apache," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Lua,Apache," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Apache 下的 Lua 的配置"/>
 <meta name="twitter:description" content="对于 Apache 这个东西，绝大多数人都是非常熟悉的。很多人都会诟病这个 Apache，说它效率不高而且非常消耗资源，然后会建议用 Nginx。这些不能否认，但是我还是很喜欢 Apache，因为它比较稳定。
 Apache 关于 Lua 我不知道是哪一个版本编译进去了的，但是最新版的是有的。在 Apache 的 bin 目录下有一个 lua51.dll 很明显，这个是 Lua5.1 版本的，目前 Lua 已经到了 5.3 版本了，如果你想追求新的版本的话，你可以自己把 Apache 编译一次。然后还有，在 Apache 的 modules 目录下有一个 mod_lua.so 是开启 Apache 和 Lua 通信桥梁的文件。"/>
@@ -113,28 +109,28 @@ Apache 关于 Lua 我不知道是哪一个版本编译进去了的，但是最�
         
           
           
-            <a class="menu-item-link" href="https://tosone.cn/">This is Home</a>
+            <a class="menu-item-link" href="https://www.tosone.cn/">This is Home</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://tosone.cn/post/">Archives</a>
+            <a class="menu-item-link" href="https://www.tosone.cn/post/">Archives</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://tosone.cn/tags/">Tags</a>
+            <a class="menu-item-link" href="https://www.tosone.cn/tags/">Tags</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://tosone.cn/categories/">Categories</a>
+            <a class="menu-item-link" href="https://www.tosone.cn/categories/">Categories</a>
           
         
       </li>
@@ -226,7 +222,7 @@ Apache 关于 Lua 我不知道是哪一个版本编译进去了的，但是最�
         
           
           
-            <a class="menu-item-link" href="https://tosone.cn/">This is Home</a>
+            <a class="menu-item-link" href="https://www.tosone.cn/">This is Home</a>
           
 
         
@@ -237,7 +233,7 @@ Apache 关于 Lua 我不知道是哪一个版本编译进去了的，但是最�
         
           
           
-            <a class="menu-item-link" href="https://tosone.cn/post/">Archives</a>
+            <a class="menu-item-link" href="https://www.tosone.cn/post/">Archives</a>
           
 
         
@@ -248,7 +244,7 @@ Apache 关于 Lua 我不知道是哪一个版本编译进去了的，但是最�
         
           
           
-            <a class="menu-item-link" href="https://tosone.cn/tags/">Tags</a>
+            <a class="menu-item-link" href="https://www.tosone.cn/tags/">Tags</a>
           
 
         
@@ -259,7 +255,7 @@ Apache 关于 Lua 我不知道是哪一个版本编译进去了的，但是最�
         
           
           
-            <a class="menu-item-link" href="https://tosone.cn/categories/">Categories</a>
+            <a class="menu-item-link" href="https://www.tosone.cn/categories/">Categories</a>
           
 
         
@@ -290,7 +286,7 @@ Apache 关于 Lua 我不知道是哪一个版本编译进去了的，但是最�
           2017-01-02
         </time>
         <div class="post-category">
-            <a href="https://tosone.cn/categories/develop/"> Develop </a>
+            <a href="https://www.tosone.cn/categories/develop/"> Develop </a>
             
           </div>
         
@@ -323,22 +319,22 @@ Apache 关于 Lua 我不知道是哪一个版本编译进去了的，但是最�
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-ini" data-lang="ini"><span class="na">RewriteEngine on</span>
-<span class="na">RewriteCond %{REQUEST_FILENAME} info</span>
-<span class="na">RewriteRule (.*).php $1.lua [NC]</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="cl"><span class="na">RewriteEngine on</span>
+</span></span><span class="line"><span class="cl"><span class="na">RewriteCond %{REQUEST_FILENAME} info</span>
+</span></span><span class="line"><span class="cl"><span class="na">RewriteRule (.*).php $1.lua [NC]</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>新建一个 <code>info.lua</code>，写入内容如下：</li>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">  1
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
 </span><span class="lnt">  2
 </span><span class="lnt">  3
 </span><span class="lnt">  4
@@ -537,207 +533,207 @@ Apache 关于 Lua 我不知道是哪一个版本编译进去了的，但是最�
 </span><span class="lnt">197
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-lua" data-lang="lua"><span class="c1">-- Extend tostring to report function type (C or Lua)</span>
-<span class="kr">do</span>
-  <span class="kd">local</span> <span class="n">type</span><span class="p">,</span> <span class="n">tostr</span> <span class="o">=</span> <span class="n">type</span><span class="p">,</span> <span class="n">tostring</span>
-  <span class="kr">function</span> <span class="nf">tostring</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
-    <span class="kd">local</span> <span class="n">type</span><span class="p">,</span> <span class="n">val</span> <span class="o">=</span> <span class="n">type</span><span class="p">(</span><span class="n">obj</span><span class="p">),</span> <span class="n">tostr</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
-    <span class="kr">if</span> <span class="n">type</span> <span class="o">==</span> <span class="s2">&#34;function&#34;</span> <span class="kr">then</span>
-      <span class="n">type</span> <span class="o">=</span> <span class="n">pcall</span><span class="p">(</span><span class="n">coroutine.create</span><span class="p">,</span> <span class="n">obj</span><span class="p">)</span> <span class="ow">and</span> <span class="s2">&#34;Lua &#34;</span> <span class="ow">or</span> <span class="s2">&#34;C &#34;</span> <span class="c1">-- coroutines cannot start at a C function</span>
-      <span class="kr">return</span> <span class="n">type</span> <span class="o">..</span> <span class="n">val</span>
-    <span class="kr">else</span>
-      <span class="kr">return</span> <span class="n">val</span>
-    <span class="kr">end</span>
-  <span class="kr">end</span>
-<span class="kr">end</span>
-
-<span class="kd">local</span> <span class="n">safe_replacements</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="p">[</span><span class="s2">&#34;&lt;&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&#34;&amp;lt;&#34;</span><span class="p">,</span>
-  <span class="p">[</span><span class="s2">&#34;&gt;&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&#34;&amp;gt;&#34;</span><span class="p">,</span>
-  <span class="p">[</span><span class="s2">&#34;&amp;&#34;</span><span class="p">]</span> <span class="o">=</span><span class="s2">&#34;&amp;amp;&#34;</span><span class="p">,</span>
-<span class="p">}</span>
-<span class="kd">local</span> <span class="kr">function</span> <span class="nf">safestring</span><span class="p">(...)</span>
-  <span class="kr">return</span> <span class="n">tostring</span><span class="p">(...):</span><span class="n">gsub</span><span class="p">(</span><span class="s2">&#34;[&lt;&gt;&amp;]&#34;</span><span class="p">,</span> <span class="n">safe_replacements</span><span class="p">):</span><span class="n">gsub</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">,</span> <span class="s2">&#34;&lt;br/&gt;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)</span>
-<span class="kr">end</span>
-<span class="kd">local</span> <span class="kr">function</span> <span class="nf">emstring</span><span class="p">(...)</span>
-  <span class="kr">return</span> <span class="s2">&#34;&amp;quot;&lt;em&gt;&#34;</span><span class="o">..</span> <span class="n">safestring</span><span class="p">(...)</span> <span class="o">..</span><span class="s2">&#34;&lt;/em&gt;&amp;quot;&#34;</span>
-<span class="kr">end</span>
-
-<span class="kd">local</span> <span class="kr">function</span> <span class="nf">print_info</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
-  <span class="n">print</span> <span class="s">[[
-</span><span class="s">&lt;!DOCTYPE html PUBLIC &#34;-//W3C//DTD XHTML 1.0 Strict//EN&#34;
-</span><span class="s">&#34;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&#34;&gt;
-</span><span class="s">&lt;html&gt;
-</span><span class="s">  &lt;head&gt;
-</span><span class="s">    &lt;title&gt;mod_lua info&lt;/title&gt;
-</span><span class="s">    &lt;style type=&#34;text/css&#34;&gt;
-</span><span class="s">      body {
-</span><span class="s">        background-color: #eef;
-</span><span class="s">	color: black;
-</span><span class="s">	font-family: sans-serif;
-</span><span class="s">      }
-</span><span class="s">      table {
-</span><span class="s">        border-collapse: collapse;
-</span><span class="s">	text-align: left;
-</span><span class="s">	margin-left: auto;
-</span><span class="s">	margin-right: auto;
-</span><span class="s">      }
-</span><span class="s">      table.head th {
-</span><span class="s">        vertical-align: middle;
-</span><span class="s">	background-color: #99c;
-</span><span class="s">      }
-</span><span class="s">      div.center {
-</span><span class="s">        text-align: center;
-</span><span class="s">      }
-</span><span class="s">      h1 {
-</span><span class="s">        margin: 0;
-</span><span class="s">	padding: 0.3em 0;
-</span><span class="s">      }
-</span><span class="s">      td, th {
-</span><span class="s">        border: 1px black solid;
-</span><span class="s">	vertical-align: baseline;
-</span><span class="s">	font-size: 75%;
-</span><span class="s">      }
-</span><span class="s">      th {
-</span><span class="s">        background-color: #ccf;
-</span><span class="s">      }
-</span><span class="s">      td {
-</span><span class="s">        background-color: #ccc;
-</span><span class="s">      }
-</span><span class="s">      ul {
-</span><span class="s">        list-style: square;
-</span><span class="s">	margin: 0;
-</span><span class="s">	padding-left: 2em;
-</span><span class="s">      }
-</span><span class="s">    &lt;/style&gt;
-</span><span class="s">  &lt;/head&gt;
-</span><span class="s">  &lt;body&gt;
-</span><span class="s">    &lt;div class=&#34;center&#34;&gt;
-</span><span class="s">      &lt;table class=&#34;head&#34; width=&#34;600&#34;&gt;
-</span><span class="s">        &lt;tr&gt; &lt;th&gt;&lt;h1&gt;mod_lua&lt;/h1&gt;&lt;/th&gt; &lt;/tr&gt;
-</span><span class="s">      &lt;/table&gt;
-</span><span class="s">]]</span>
-  <span class="kr">for</span> <span class="n">group</span><span class="p">,</span> <span class="n">settings</span> <span class="kr">in</span> <span class="n">pairs</span><span class="p">(</span><span class="n">info</span><span class="p">)</span> <span class="kr">do</span>
-    <span class="n">print</span><span class="p">(</span><span class="s1">&#39;&lt;h2&gt;&lt;a name=&#34;&#39;</span><span class="o">..</span> <span class="n">group</span><span class="p">:</span><span class="n">gsub</span><span class="p">(</span><span class="s2">&#34;[^a-zA-Z]&#34;</span><span class="p">,</span> <span class="s2">&#34;&#34;</span><span class="p">)</span> <span class="o">..</span><span class="s1">&#39;&#34;&gt;&#39;</span><span class="o">..</span> <span class="n">group</span> <span class="o">..</span> <span class="s2">&#34;&lt;/a&gt;&lt;/h2&gt;&#34;</span><span class="p">)</span>
-    <span class="n">print</span> <span class="s">[[
-</span><span class="s">      &lt;table width=&#34;600&#34;&gt;
-</span><span class="s">]]</span>
-    <span class="kr">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="kr">in</span> <span class="n">pairs</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span> <span class="kr">do</span>
-      <span class="n">print</span><span class="p">(</span><span class="s2">&#34;&lt;tr&gt; &lt;th&gt;&#34;</span><span class="o">..</span> <span class="n">key</span> <span class="o">..</span><span class="s2">&#34;&lt;/th&gt; &lt;td&gt;&#34;</span><span class="o">..</span> <span class="n">value</span> <span class="o">..</span><span class="s2">&#34;&lt;/td&gt; &lt;/tr&gt;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)</span>
-    <span class="kr">end</span>
-    <span class="n">print</span> <span class="s2">&#34;&lt;/table&gt;</span><span class="se">\n</span><span class="s2">&#34;</span>
-  <span class="kr">end</span>
-  <span class="n">print</span> <span class="s">[[
-</span><span class="s">    &lt;/div&gt;
-</span><span class="s">  &lt;/body&gt;
-</span><span class="s">&lt;/html&gt;
-</span><span class="s">]]</span>
-<span class="kr">end</span>
-
-<span class="kd">local</span> <span class="kr">function</span> <span class="nf">compile_info</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
-  <span class="kd">local</span> <span class="n">info</span> <span class="o">=</span> <span class="p">{}</span>
-  <span class="kr">do</span> <span class="c1">-- Lua compile options</span>
-    <span class="kd">local</span> <span class="n">dump</span> <span class="o">=</span> <span class="n">string.dump</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span> <span class="kr">end</span><span class="p">)</span>
-    <span class="kd">local</span> <span class="n">gc_pause</span> <span class="o">=</span> <span class="n">collectgarbage</span><span class="p">(</span><span class="s2">&#34;setpause&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span> <span class="n">collectgarbage</span><span class="p">(</span><span class="s2">&#34;setpause&#34;</span><span class="p">,</span> <span class="n">gc_pause</span><span class="p">)</span>
-    <span class="kd">local</span> <span class="n">gc_stepmul</span> <span class="o">=</span> <span class="n">collectgarbage</span><span class="p">(</span><span class="s2">&#34;setstepmul&#34;</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span> <span class="n">collectgarbage</span><span class="p">(</span><span class="s2">&#34;setstepmul&#34;</span><span class="p">,</span> <span class="n">gc_stepmul</span><span class="p">)</span>
-    <span class="n">info</span><span class="p">[</span><span class="s2">&#34;Lua configuration&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
-      <span class="c1">-- Bytecode header is undocumented, see luaU_header in lundump.c</span>
-      <span class="n">Version</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&#34;%i.%i&#34;</span><span class="p">):</span><span class="n">format</span><span class="p">(</span><span class="n">math.floor</span><span class="p">(</span><span class="n">dump</span><span class="p">:</span><span class="n">byte</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">/</span> <span class="mi">16</span><span class="p">),</span> <span class="n">dump</span><span class="p">:</span><span class="n">byte</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">%</span> <span class="mi">16</span><span class="p">),</span>
-      <span class="n">Endianness</span> <span class="o">=</span> <span class="n">dump</span><span class="p">:</span><span class="n">byte</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="s2">&#34;little&#34;</span> <span class="ow">or</span> <span class="s2">&#34;big&#34;</span><span class="p">,</span>
-      <span class="n">int</span> <span class="o">=</span> <span class="n">dump</span><span class="p">:</span><span class="n">byte</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="o">*</span><span class="mi">8</span> <span class="o">..</span> <span class="s2">&#34; bit integer&#34;</span><span class="p">,</span>
-      <span class="n">size_t</span> <span class="o">=</span> <span class="n">dump</span><span class="p">:</span><span class="n">byte</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="o">*</span><span class="mi">8</span> <span class="o">..</span> <span class="s2">&#34; bit integer&#34;</span><span class="p">,</span>
-      <span class="p">[</span><span class="s2">&#34;VM instruction&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dump</span><span class="p">:</span><span class="n">byte</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">*</span><span class="mi">8</span> <span class="o">..</span> <span class="s2">&#34; bit integer&#34;</span><span class="p">,</span>
-      <span class="n">Number</span> <span class="o">=</span> <span class="n">dump</span><span class="p">:</span><span class="n">byte</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span><span class="o">*</span><span class="mi">8</span> <span class="o">..</span> <span class="s2">&#34; bit &#34;</span> <span class="o">..</span> <span class="p">(</span><span class="n">dump</span><span class="p">:</span><span class="n">byte</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="s2">&#34;integer&#34;</span> <span class="ow">or</span> <span class="s2">&#34;float&#34;</span><span class="p">),</span>
-      <span class="c1">-- package.config is undocumented, see luaopen_package in loadlib.c</span>
-      <span class="p">[</span><span class="s2">&#34;Path seperator&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="n">safestring</span><span class="p">(</span><span class="n">package.config</span><span class="p">:</span><span class="n">sub</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)),</span>
-      <span class="p">[</span><span class="s2">&#34;Lua package path&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="n">safestring</span><span class="p">(</span><span class="n">package.path</span><span class="p">:</span><span class="n">gsub</span><span class="p">(</span><span class="n">package.config</span><span class="p">:</span><span class="n">sub</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)),</span>
-      <span class="p">[</span><span class="s2">&#34;C package path&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="n">safestring</span><span class="p">(</span><span class="n">package.cpath</span><span class="p">:</span><span class="n">gsub</span><span class="p">(</span><span class="n">package.config</span><span class="p">:</span><span class="n">sub</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)),</span>
-      <span class="c1">-- Garbage collection values _are_ documented :)</span>
-      <span class="p">[</span><span class="s2">&#34;GC count&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&#34;%.0f bytes&#34;</span><span class="p">):</span><span class="n">format</span><span class="p">(</span><span class="n">collectgarbage</span><span class="s2">&#34;count&#34;</span> <span class="o">*</span> <span class="mi">1024</span><span class="p">),</span>
-      <span class="p">[</span><span class="s2">&#34;GC pause&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&#34;%.0f%%&#34;</span><span class="p">):</span><span class="n">format</span><span class="p">(</span><span class="n">gc_pause</span><span class="p">),</span>
-      <span class="p">[</span><span class="s2">&#34;GC step multiplier&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&#34;%.0f%%&#34;</span><span class="p">):</span><span class="n">format</span><span class="p">(</span><span class="n">gc_stepmul</span><span class="p">),</span>
-    <span class="p">}</span>
-  <span class="kr">end</span>
-  <span class="kr">do</span> <span class="c1">-- Globals</span>
-    <span class="kd">local</span> <span class="n">g</span> <span class="o">=</span> <span class="p">{}</span>
-    <span class="kr">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="kr">in</span> <span class="n">pairs</span><span class="p">(</span><span class="n">getfenv</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span> <span class="kr">do</span>
-      <span class="kd">local</span> <span class="n">typev</span> <span class="o">=</span> <span class="n">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-      <span class="kd">local</span> <span class="n">str</span>
-      <span class="kr">if</span> <span class="n">typev</span> <span class="o">==</span> <span class="s2">&#34;table&#34;</span> <span class="kr">then</span>
-        <span class="n">str</span> <span class="o">=</span> <span class="n">safestring</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-        <span class="kr">if</span> <span class="n">value</span> <span class="o">~=</span> <span class="n">getfenv</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="kr">then</span> <span class="c1">-- don&#39;t recursively follow _G</span>
-          <span class="n">str</span> <span class="o">=</span> <span class="n">str</span> <span class="o">..</span> <span class="s2">&#34;&lt;ul&gt;&#34;</span>
-            <span class="kr">for</span> <span class="n">field</span><span class="p">,</span> <span class="n">v</span> <span class="kr">in</span> <span class="n">pairs</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="kr">do</span>
-              <span class="n">str</span> <span class="o">=</span> <span class="n">str</span> <span class="o">..</span> <span class="s2">&#34;&lt;li&gt;&#34;</span> <span class="o">..</span> <span class="n">safestring</span><span class="p">(</span><span class="n">field</span><span class="p">)</span> <span class="o">..</span> <span class="s2">&#34; (&#34;</span>
-              <span class="kr">if</span> <span class="n">type</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&#34;string&#34;</span> <span class="kr">then</span>
-                <span class="n">str</span> <span class="o">=</span> <span class="n">str</span> <span class="o">..</span> <span class="n">emstring</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
-              <span class="kr">else</span>
-                <span class="n">str</span> <span class="o">=</span> <span class="n">str</span> <span class="o">..</span> <span class="n">safestring</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
-              <span class="kr">end</span>
-              <span class="n">str</span> <span class="o">=</span> <span class="n">str</span> <span class="o">..</span> <span class="s2">&#34;)&lt;/li&gt;&#34;</span>
-            <span class="kr">end</span>
-          <span class="n">str</span> <span class="o">=</span> <span class="n">str</span> <span class="o">..</span> <span class="s2">&#34;&lt;/ul&gt;&#34;</span>
-        <span class="kr">end</span>
-      <span class="kr">elseif</span> <span class="n">typev</span> <span class="o">==</span> <span class="s2">&#34;string&#34;</span> <span class="kr">then</span>
-        <span class="n">str</span> <span class="o">=</span> <span class="n">emstring</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-      <span class="kr">else</span>
-        <span class="n">str</span> <span class="o">=</span> <span class="n">safestring</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-      <span class="kr">end</span>
-      <span class="n">g</span><span class="p">[</span><span class="n">safestring</span><span class="p">(</span><span class="n">key</span><span class="p">)]</span> <span class="o">=</span> <span class="n">str</span>
-    <span class="kr">end</span>
-    <span class="n">info.Globals</span> <span class="o">=</span> <span class="n">g</span>
-  <span class="kr">end</span>
-  <span class="kr">do</span> <span class="c1">-- Request object</span>
-    <span class="kd">local</span> <span class="n">rinfo</span> <span class="o">=</span> <span class="p">{}</span>
-    <span class="kr">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">field</span> <span class="kr">in</span> <span class="n">pairs</span><span class="p">{</span><span class="s2">&#34;puts&#34;</span><span class="p">,</span> <span class="s2">&#34;write&#34;</span><span class="p">,</span> <span class="s2">&#34;document_root&#34;</span><span class="p">,</span> <span class="s2">&#34;parseargs&#34;</span><span class="p">,</span> <span class="s2">&#34;parsebody&#34;</span><span class="p">,</span> <span class="s2">&#34;debug&#34;</span><span class="p">,</span> <span class="s2">&#34;info&#34;</span><span class="p">,</span> <span class="s2">&#34;notice&#34;</span><span class="p">,</span>
-    <span class="s2">&#34;warn&#34;</span><span class="p">,</span> <span class="s2">&#34;err&#34;</span><span class="p">,</span> <span class="s2">&#34;crit&#34;</span><span class="p">,</span> <span class="s2">&#34;alert&#34;</span><span class="p">,</span> <span class="s2">&#34;emerg&#34;</span><span class="p">,</span> <span class="s2">&#34;add_output_filter&#34;</span><span class="p">,</span> <span class="s2">&#34;assbackwards&#34;</span><span class="p">,</span> <span class="s2">&#34;status&#34;</span><span class="p">,</span> <span class="s2">&#34;protocol&#34;</span><span class="p">,</span> <span class="s2">&#34;range&#34;</span><span class="p">,</span>
-    <span class="s2">&#34;content_type&#34;</span><span class="p">,</span> <span class="s2">&#34;content_encoding&#34;</span><span class="p">,</span> <span class="s2">&#34;ap_auth_type&#34;</span><span class="p">,</span> <span class="s2">&#34;unparsed_uri&#34;</span><span class="p">,</span> <span class="s2">&#34;user&#34;</span><span class="p">,</span> <span class="s2">&#34;filename&#34;</span><span class="p">,</span> <span class="s2">&#34;canonical_filename&#34;</span><span class="p">,</span>
-    <span class="s2">&#34;path_info&#34;</span><span class="p">,</span> <span class="s2">&#34;args&#34;</span><span class="p">,</span> <span class="s2">&#34;hostname&#34;</span><span class="p">,</span> <span class="s2">&#34;uri&#34;</span><span class="p">,</span> <span class="s2">&#34;the_request&#34;</span><span class="p">,</span> <span class="s2">&#34;method&#34;</span><span class="p">,</span> <span class="s2">&#34;headers_in&#34;</span><span class="p">,</span> <span class="s2">&#34;headers_out&#34;</span><span class="p">}</span> <span class="kr">do</span>
-      <span class="kd">local</span> <span class="n">value</span> <span class="o">=</span> <span class="n">req</span><span class="p">[</span><span class="n">field</span><span class="p">]</span>
-      <span class="kr">if</span> <span class="n">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&#34;userdata&#34;</span> <span class="ow">and</span> <span class="n">apr_table</span> <span class="ow">and</span> <span class="n">apr_table.pairs</span> <span class="kr">then</span>
-        <span class="kd">local</span> <span class="n">list</span> <span class="o">=</span> <span class="s2">&#34;&lt;ul&gt;&#34;</span>
-        <span class="kr">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="kr">in</span> <span class="n">apr_table.pairs</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="kr">do</span>
-          <span class="n">list</span> <span class="o">=</span> <span class="n">list</span> <span class="o">..</span> <span class="s2">&#34;&lt;li&gt;&#34;</span> <span class="o">..</span> <span class="n">safestring</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="o">..</span> <span class="s2">&#34; (&#34;</span> <span class="o">..</span> <span class="n">emstring</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">..</span> <span class="s2">&#34;)&lt;/li&gt;&#34;</span>
-        <span class="kr">end</span>
-        <span class="n">rinfo</span><span class="p">[</span><span class="n">field</span><span class="p">]</span> <span class="o">=</span> <span class="n">tostring</span><span class="p">(</span><span class="n">req</span><span class="p">[</span><span class="n">field</span><span class="p">])</span> <span class="o">..</span> <span class="n">list</span> <span class="o">..</span> <span class="s2">&#34;&lt;/ul&gt;&#34;</span>
-      <span class="kr">elseif</span> <span class="n">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&#34;string&#34;</span> <span class="kr">then</span>
-        <span class="n">rinfo</span><span class="p">[</span><span class="n">field</span><span class="p">]</span> <span class="o">=</span> <span class="n">emstring</span><span class="p">(</span><span class="n">req</span><span class="p">[</span><span class="n">field</span><span class="p">])</span>
-      <span class="kr">else</span>
-        <span class="n">rinfo</span><span class="p">[</span><span class="n">field</span><span class="p">]</span> <span class="o">=</span> <span class="n">safestring</span><span class="p">(</span><span class="n">req</span><span class="p">[</span><span class="n">field</span><span class="p">])</span>
-      <span class="kr">end</span>
-    <span class="kr">end</span>
-    <span class="n">info.Request</span> <span class="o">=</span> <span class="n">rinfo</span>
-  <span class="kr">end</span>
-  <span class="kr">do</span> <span class="c1">-- Arguments (query string)</span>
-    <span class="kd">local</span> <span class="n">args</span> <span class="o">=</span> <span class="n">req</span><span class="p">:</span><span class="n">parseargs</span><span class="p">()</span>
-    <span class="kd">local</span> <span class="n">args_clean</span> <span class="o">=</span> <span class="p">{}</span>
-    <span class="kr">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="kr">in</span> <span class="n">pairs</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="kr">do</span>
-      <span class="n">args_clean</span><span class="p">[</span><span class="n">safestring</span><span class="p">(</span><span class="n">key</span><span class="p">)]</span> <span class="o">=</span> <span class="n">emstring</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-    <span class="kr">end</span>
-    <span class="kr">if</span> <span class="n">next</span><span class="p">(</span><span class="n">args_clean</span><span class="p">)</span> <span class="kr">then</span>
-      <span class="n">info</span><span class="p">[</span><span class="s2">&#34;Query string&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="n">args_clean</span>
-    <span class="kr">end</span>
-  <span class="kr">end</span>
-  <span class="kr">return</span> <span class="n">info</span>
-<span class="kr">end</span>
-
-<span class="kr">function</span> <span class="nf">handle</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
-  <span class="c1">-- setup the environment</span>
-  <span class="n">r.content_type</span> <span class="o">=</span> <span class="s2">&#34;text/html&#34;</span>
-  <span class="n">r.headers_out</span><span class="p">[</span><span class="s2">&#34;X-Powered-By&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&#34;mod_lua; &#34;</span> <span class="o">..</span> <span class="n">_VERSION</span>
-  <span class="n">print</span> <span class="o">=</span> <span class="kr">function</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="kr">return</span> <span class="n">r</span><span class="p">:</span><span class="n">write</span><span class="p">(</span><span class="n">tostring</span><span class="p">(</span><span class="n">s</span><span class="p">))</span> <span class="kr">end</span>
-
-  <span class="c1">-- run the main script</span>
-  <span class="kd">local</span> <span class="n">info</span> <span class="o">=</span> <span class="n">compile_info</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
-  <span class="n">print_info</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
-
-  <span class="c1">-- finish</span>
-  <span class="kr">return</span> <span class="n">apache2.OK</span>
-<span class="kr">end</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-lua" data-lang="lua"><span class="line"><span class="cl"><span class="c1">-- Extend tostring to report function type (C or Lua)</span>
+</span></span><span class="line"><span class="cl"><span class="kr">do</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">local</span> <span class="n">type</span><span class="p">,</span> <span class="n">tostr</span> <span class="o">=</span> <span class="n">type</span><span class="p">,</span> <span class="n">tostring</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">function</span> <span class="nf">tostring</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">local</span> <span class="n">type</span><span class="p">,</span> <span class="n">val</span> <span class="o">=</span> <span class="n">type</span><span class="p">(</span><span class="n">obj</span><span class="p">),</span> <span class="n">tostr</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">if</span> <span class="n">type</span> <span class="o">==</span> <span class="s2">&#34;function&#34;</span> <span class="kr">then</span>
+</span></span><span class="line"><span class="cl">      <span class="n">type</span> <span class="o">=</span> <span class="n">pcall</span><span class="p">(</span><span class="n">coroutine.create</span><span class="p">,</span> <span class="n">obj</span><span class="p">)</span> <span class="ow">and</span> <span class="s2">&#34;Lua &#34;</span> <span class="ow">or</span> <span class="s2">&#34;C &#34;</span> <span class="c1">-- coroutines cannot start at a C function</span>
+</span></span><span class="line"><span class="cl">      <span class="kr">return</span> <span class="n">type</span> <span class="o">..</span> <span class="n">val</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">else</span>
+</span></span><span class="line"><span class="cl">      <span class="kr">return</span> <span class="n">val</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">end</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">end</span>
+</span></span><span class="line"><span class="cl"><span class="kr">end</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">local</span> <span class="n">safe_replacements</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="s2">&#34;&lt;&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&#34;&amp;lt;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="s2">&#34;&gt;&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&#34;&amp;gt;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="s2">&#34;&amp;&#34;</span><span class="p">]</span> <span class="o">=</span><span class="s2">&#34;&amp;amp;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">local</span> <span class="kr">function</span> <span class="nf">safestring</span><span class="p">(...)</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">return</span> <span class="n">tostring</span><span class="p">(...):</span><span class="n">gsub</span><span class="p">(</span><span class="s2">&#34;[&lt;&gt;&amp;]&#34;</span><span class="p">,</span> <span class="n">safe_replacements</span><span class="p">):</span><span class="n">gsub</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">,</span> <span class="s2">&#34;&lt;br/&gt;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="kr">end</span>
+</span></span><span class="line"><span class="cl"><span class="kd">local</span> <span class="kr">function</span> <span class="nf">emstring</span><span class="p">(...)</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">return</span> <span class="s2">&#34;&amp;quot;&lt;em&gt;&#34;</span><span class="o">..</span> <span class="n">safestring</span><span class="p">(...)</span> <span class="o">..</span><span class="s2">&#34;&lt;/em&gt;&amp;quot;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">end</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">local</span> <span class="kr">function</span> <span class="nf">print_info</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="n">print</span> <span class="s">[[
+</span></span></span><span class="line"><span class="cl"><span class="s">&lt;!DOCTYPE html PUBLIC &#34;-//W3C//DTD XHTML 1.0 Strict//EN&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">&#34;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&#34;&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">&lt;html&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">  &lt;head&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">    &lt;title&gt;mod_lua info&lt;/title&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">    &lt;style type=&#34;text/css&#34;&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">      body {
+</span></span></span><span class="line"><span class="cl"><span class="s">        background-color: #eef;
+</span></span></span><span class="line"><span class="cl"><span class="s">	color: black;
+</span></span></span><span class="line"><span class="cl"><span class="s">	font-family: sans-serif;
+</span></span></span><span class="line"><span class="cl"><span class="s">      }
+</span></span></span><span class="line"><span class="cl"><span class="s">      table {
+</span></span></span><span class="line"><span class="cl"><span class="s">        border-collapse: collapse;
+</span></span></span><span class="line"><span class="cl"><span class="s">	text-align: left;
+</span></span></span><span class="line"><span class="cl"><span class="s">	margin-left: auto;
+</span></span></span><span class="line"><span class="cl"><span class="s">	margin-right: auto;
+</span></span></span><span class="line"><span class="cl"><span class="s">      }
+</span></span></span><span class="line"><span class="cl"><span class="s">      table.head th {
+</span></span></span><span class="line"><span class="cl"><span class="s">        vertical-align: middle;
+</span></span></span><span class="line"><span class="cl"><span class="s">	background-color: #99c;
+</span></span></span><span class="line"><span class="cl"><span class="s">      }
+</span></span></span><span class="line"><span class="cl"><span class="s">      div.center {
+</span></span></span><span class="line"><span class="cl"><span class="s">        text-align: center;
+</span></span></span><span class="line"><span class="cl"><span class="s">      }
+</span></span></span><span class="line"><span class="cl"><span class="s">      h1 {
+</span></span></span><span class="line"><span class="cl"><span class="s">        margin: 0;
+</span></span></span><span class="line"><span class="cl"><span class="s">	padding: 0.3em 0;
+</span></span></span><span class="line"><span class="cl"><span class="s">      }
+</span></span></span><span class="line"><span class="cl"><span class="s">      td, th {
+</span></span></span><span class="line"><span class="cl"><span class="s">        border: 1px black solid;
+</span></span></span><span class="line"><span class="cl"><span class="s">	vertical-align: baseline;
+</span></span></span><span class="line"><span class="cl"><span class="s">	font-size: 75%;
+</span></span></span><span class="line"><span class="cl"><span class="s">      }
+</span></span></span><span class="line"><span class="cl"><span class="s">      th {
+</span></span></span><span class="line"><span class="cl"><span class="s">        background-color: #ccf;
+</span></span></span><span class="line"><span class="cl"><span class="s">      }
+</span></span></span><span class="line"><span class="cl"><span class="s">      td {
+</span></span></span><span class="line"><span class="cl"><span class="s">        background-color: #ccc;
+</span></span></span><span class="line"><span class="cl"><span class="s">      }
+</span></span></span><span class="line"><span class="cl"><span class="s">      ul {
+</span></span></span><span class="line"><span class="cl"><span class="s">        list-style: square;
+</span></span></span><span class="line"><span class="cl"><span class="s">	margin: 0;
+</span></span></span><span class="line"><span class="cl"><span class="s">	padding-left: 2em;
+</span></span></span><span class="line"><span class="cl"><span class="s">      }
+</span></span></span><span class="line"><span class="cl"><span class="s">    &lt;/style&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">  &lt;/head&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">  &lt;body&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">    &lt;div class=&#34;center&#34;&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">      &lt;table class=&#34;head&#34; width=&#34;600&#34;&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">        &lt;tr&gt; &lt;th&gt;&lt;h1&gt;mod_lua&lt;/h1&gt;&lt;/th&gt; &lt;/tr&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">      &lt;/table&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">]]</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">for</span> <span class="n">group</span><span class="p">,</span> <span class="n">settings</span> <span class="kr">in</span> <span class="n">pairs</span><span class="p">(</span><span class="n">info</span><span class="p">)</span> <span class="kr">do</span>
+</span></span><span class="line"><span class="cl">    <span class="n">print</span><span class="p">(</span><span class="s1">&#39;&lt;h2&gt;&lt;a name=&#34;&#39;</span><span class="o">..</span> <span class="n">group</span><span class="p">:</span><span class="n">gsub</span><span class="p">(</span><span class="s2">&#34;[^a-zA-Z]&#34;</span><span class="p">,</span> <span class="s2">&#34;&#34;</span><span class="p">)</span> <span class="o">..</span><span class="s1">&#39;&#34;&gt;&#39;</span><span class="o">..</span> <span class="n">group</span> <span class="o">..</span> <span class="s2">&#34;&lt;/a&gt;&lt;/h2&gt;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">print</span> <span class="s">[[
+</span></span></span><span class="line"><span class="cl"><span class="s">      &lt;table width=&#34;600&#34;&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">]]</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="kr">in</span> <span class="n">pairs</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span> <span class="kr">do</span>
+</span></span><span class="line"><span class="cl">      <span class="n">print</span><span class="p">(</span><span class="s2">&#34;&lt;tr&gt; &lt;th&gt;&#34;</span><span class="o">..</span> <span class="n">key</span> <span class="o">..</span><span class="s2">&#34;&lt;/th&gt; &lt;td&gt;&#34;</span><span class="o">..</span> <span class="n">value</span> <span class="o">..</span><span class="s2">&#34;&lt;/td&gt; &lt;/tr&gt;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">end</span>
+</span></span><span class="line"><span class="cl">    <span class="n">print</span> <span class="s2">&#34;&lt;/table&gt;</span><span class="se">\n</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">end</span>
+</span></span><span class="line"><span class="cl">  <span class="n">print</span> <span class="s">[[
+</span></span></span><span class="line"><span class="cl"><span class="s">    &lt;/div&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">  &lt;/body&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">&lt;/html&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">]]</span>
+</span></span><span class="line"><span class="cl"><span class="kr">end</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">local</span> <span class="kr">function</span> <span class="nf">compile_info</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">local</span> <span class="n">info</span> <span class="o">=</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">do</span> <span class="c1">-- Lua compile options</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">local</span> <span class="n">dump</span> <span class="o">=</span> <span class="n">string.dump</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span> <span class="kr">end</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">local</span> <span class="n">gc_pause</span> <span class="o">=</span> <span class="n">collectgarbage</span><span class="p">(</span><span class="s2">&#34;setpause&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span> <span class="n">collectgarbage</span><span class="p">(</span><span class="s2">&#34;setpause&#34;</span><span class="p">,</span> <span class="n">gc_pause</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">local</span> <span class="n">gc_stepmul</span> <span class="o">=</span> <span class="n">collectgarbage</span><span class="p">(</span><span class="s2">&#34;setstepmul&#34;</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span> <span class="n">collectgarbage</span><span class="p">(</span><span class="s2">&#34;setstepmul&#34;</span><span class="p">,</span> <span class="n">gc_stepmul</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">info</span><span class="p">[</span><span class="s2">&#34;Lua configuration&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">-- Bytecode header is undocumented, see luaU_header in lundump.c</span>
+</span></span><span class="line"><span class="cl">      <span class="n">Version</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&#34;%i.%i&#34;</span><span class="p">):</span><span class="n">format</span><span class="p">(</span><span class="n">math.floor</span><span class="p">(</span><span class="n">dump</span><span class="p">:</span><span class="n">byte</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">/</span> <span class="mi">16</span><span class="p">),</span> <span class="n">dump</span><span class="p">:</span><span class="n">byte</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">%</span> <span class="mi">16</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">      <span class="n">Endianness</span> <span class="o">=</span> <span class="n">dump</span><span class="p">:</span><span class="n">byte</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="s2">&#34;little&#34;</span> <span class="ow">or</span> <span class="s2">&#34;big&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="n">int</span> <span class="o">=</span> <span class="n">dump</span><span class="p">:</span><span class="n">byte</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="o">*</span><span class="mi">8</span> <span class="o">..</span> <span class="s2">&#34; bit integer&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="n">size_t</span> <span class="o">=</span> <span class="n">dump</span><span class="p">:</span><span class="n">byte</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="o">*</span><span class="mi">8</span> <span class="o">..</span> <span class="s2">&#34; bit integer&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="p">[</span><span class="s2">&#34;VM instruction&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dump</span><span class="p">:</span><span class="n">byte</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">*</span><span class="mi">8</span> <span class="o">..</span> <span class="s2">&#34; bit integer&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="n">Number</span> <span class="o">=</span> <span class="n">dump</span><span class="p">:</span><span class="n">byte</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span><span class="o">*</span><span class="mi">8</span> <span class="o">..</span> <span class="s2">&#34; bit &#34;</span> <span class="o">..</span> <span class="p">(</span><span class="n">dump</span><span class="p">:</span><span class="n">byte</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="s2">&#34;integer&#34;</span> <span class="ow">or</span> <span class="s2">&#34;float&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">-- package.config is undocumented, see luaopen_package in loadlib.c</span>
+</span></span><span class="line"><span class="cl">      <span class="p">[</span><span class="s2">&#34;Path seperator&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="n">safestring</span><span class="p">(</span><span class="n">package.config</span><span class="p">:</span><span class="n">sub</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)),</span>
+</span></span><span class="line"><span class="cl">      <span class="p">[</span><span class="s2">&#34;Lua package path&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="n">safestring</span><span class="p">(</span><span class="n">package.path</span><span class="p">:</span><span class="n">gsub</span><span class="p">(</span><span class="n">package.config</span><span class="p">:</span><span class="n">sub</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)),</span>
+</span></span><span class="line"><span class="cl">      <span class="p">[</span><span class="s2">&#34;C package path&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="n">safestring</span><span class="p">(</span><span class="n">package.cpath</span><span class="p">:</span><span class="n">gsub</span><span class="p">(</span><span class="n">package.config</span><span class="p">:</span><span class="n">sub</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)),</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">-- Garbage collection values _are_ documented :)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">[</span><span class="s2">&#34;GC count&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&#34;%.0f bytes&#34;</span><span class="p">):</span><span class="n">format</span><span class="p">(</span><span class="n">collectgarbage</span><span class="s2">&#34;count&#34;</span> <span class="o">*</span> <span class="mi">1024</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">      <span class="p">[</span><span class="s2">&#34;GC pause&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&#34;%.0f%%&#34;</span><span class="p">):</span><span class="n">format</span><span class="p">(</span><span class="n">gc_pause</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">      <span class="p">[</span><span class="s2">&#34;GC step multiplier&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&#34;%.0f%%&#34;</span><span class="p">):</span><span class="n">format</span><span class="p">(</span><span class="n">gc_stepmul</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">end</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">do</span> <span class="c1">-- Globals</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">local</span> <span class="n">g</span> <span class="o">=</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="kr">in</span> <span class="n">pairs</span><span class="p">(</span><span class="n">getfenv</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span> <span class="kr">do</span>
+</span></span><span class="line"><span class="cl">      <span class="kd">local</span> <span class="n">typev</span> <span class="o">=</span> <span class="n">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="kd">local</span> <span class="n">str</span>
+</span></span><span class="line"><span class="cl">      <span class="kr">if</span> <span class="n">typev</span> <span class="o">==</span> <span class="s2">&#34;table&#34;</span> <span class="kr">then</span>
+</span></span><span class="line"><span class="cl">        <span class="n">str</span> <span class="o">=</span> <span class="n">safestring</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">if</span> <span class="n">value</span> <span class="o">~=</span> <span class="n">getfenv</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="kr">then</span> <span class="c1">-- don&#39;t recursively follow _G</span>
+</span></span><span class="line"><span class="cl">          <span class="n">str</span> <span class="o">=</span> <span class="n">str</span> <span class="o">..</span> <span class="s2">&#34;&lt;ul&gt;&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="kr">for</span> <span class="n">field</span><span class="p">,</span> <span class="n">v</span> <span class="kr">in</span> <span class="n">pairs</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="kr">do</span>
+</span></span><span class="line"><span class="cl">              <span class="n">str</span> <span class="o">=</span> <span class="n">str</span> <span class="o">..</span> <span class="s2">&#34;&lt;li&gt;&#34;</span> <span class="o">..</span> <span class="n">safestring</span><span class="p">(</span><span class="n">field</span><span class="p">)</span> <span class="o">..</span> <span class="s2">&#34; (&#34;</span>
+</span></span><span class="line"><span class="cl">              <span class="kr">if</span> <span class="n">type</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&#34;string&#34;</span> <span class="kr">then</span>
+</span></span><span class="line"><span class="cl">                <span class="n">str</span> <span class="o">=</span> <span class="n">str</span> <span class="o">..</span> <span class="n">emstring</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">              <span class="kr">else</span>
+</span></span><span class="line"><span class="cl">                <span class="n">str</span> <span class="o">=</span> <span class="n">str</span> <span class="o">..</span> <span class="n">safestring</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">              <span class="kr">end</span>
+</span></span><span class="line"><span class="cl">              <span class="n">str</span> <span class="o">=</span> <span class="n">str</span> <span class="o">..</span> <span class="s2">&#34;)&lt;/li&gt;&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="kr">end</span>
+</span></span><span class="line"><span class="cl">          <span class="n">str</span> <span class="o">=</span> <span class="n">str</span> <span class="o">..</span> <span class="s2">&#34;&lt;/ul&gt;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">end</span>
+</span></span><span class="line"><span class="cl">      <span class="kr">elseif</span> <span class="n">typev</span> <span class="o">==</span> <span class="s2">&#34;string&#34;</span> <span class="kr">then</span>
+</span></span><span class="line"><span class="cl">        <span class="n">str</span> <span class="o">=</span> <span class="n">emstring</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="kr">else</span>
+</span></span><span class="line"><span class="cl">        <span class="n">str</span> <span class="o">=</span> <span class="n">safestring</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="kr">end</span>
+</span></span><span class="line"><span class="cl">      <span class="n">g</span><span class="p">[</span><span class="n">safestring</span><span class="p">(</span><span class="n">key</span><span class="p">)]</span> <span class="o">=</span> <span class="n">str</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">end</span>
+</span></span><span class="line"><span class="cl">    <span class="n">info.Globals</span> <span class="o">=</span> <span class="n">g</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">end</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">do</span> <span class="c1">-- Request object</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">local</span> <span class="n">rinfo</span> <span class="o">=</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">field</span> <span class="kr">in</span> <span class="n">pairs</span><span class="p">{</span><span class="s2">&#34;puts&#34;</span><span class="p">,</span> <span class="s2">&#34;write&#34;</span><span class="p">,</span> <span class="s2">&#34;document_root&#34;</span><span class="p">,</span> <span class="s2">&#34;parseargs&#34;</span><span class="p">,</span> <span class="s2">&#34;parsebody&#34;</span><span class="p">,</span> <span class="s2">&#34;debug&#34;</span><span class="p">,</span> <span class="s2">&#34;info&#34;</span><span class="p">,</span> <span class="s2">&#34;notice&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;warn&#34;</span><span class="p">,</span> <span class="s2">&#34;err&#34;</span><span class="p">,</span> <span class="s2">&#34;crit&#34;</span><span class="p">,</span> <span class="s2">&#34;alert&#34;</span><span class="p">,</span> <span class="s2">&#34;emerg&#34;</span><span class="p">,</span> <span class="s2">&#34;add_output_filter&#34;</span><span class="p">,</span> <span class="s2">&#34;assbackwards&#34;</span><span class="p">,</span> <span class="s2">&#34;status&#34;</span><span class="p">,</span> <span class="s2">&#34;protocol&#34;</span><span class="p">,</span> <span class="s2">&#34;range&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;content_type&#34;</span><span class="p">,</span> <span class="s2">&#34;content_encoding&#34;</span><span class="p">,</span> <span class="s2">&#34;ap_auth_type&#34;</span><span class="p">,</span> <span class="s2">&#34;unparsed_uri&#34;</span><span class="p">,</span> <span class="s2">&#34;user&#34;</span><span class="p">,</span> <span class="s2">&#34;filename&#34;</span><span class="p">,</span> <span class="s2">&#34;canonical_filename&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;path_info&#34;</span><span class="p">,</span> <span class="s2">&#34;args&#34;</span><span class="p">,</span> <span class="s2">&#34;hostname&#34;</span><span class="p">,</span> <span class="s2">&#34;uri&#34;</span><span class="p">,</span> <span class="s2">&#34;the_request&#34;</span><span class="p">,</span> <span class="s2">&#34;method&#34;</span><span class="p">,</span> <span class="s2">&#34;headers_in&#34;</span><span class="p">,</span> <span class="s2">&#34;headers_out&#34;</span><span class="p">}</span> <span class="kr">do</span>
+</span></span><span class="line"><span class="cl">      <span class="kd">local</span> <span class="n">value</span> <span class="o">=</span> <span class="n">req</span><span class="p">[</span><span class="n">field</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">      <span class="kr">if</span> <span class="n">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&#34;userdata&#34;</span> <span class="ow">and</span> <span class="n">apr_table</span> <span class="ow">and</span> <span class="n">apr_table.pairs</span> <span class="kr">then</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">local</span> <span class="n">list</span> <span class="o">=</span> <span class="s2">&#34;&lt;ul&gt;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="kr">in</span> <span class="n">apr_table.pairs</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="kr">do</span>
+</span></span><span class="line"><span class="cl">          <span class="n">list</span> <span class="o">=</span> <span class="n">list</span> <span class="o">..</span> <span class="s2">&#34;&lt;li&gt;&#34;</span> <span class="o">..</span> <span class="n">safestring</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="o">..</span> <span class="s2">&#34; (&#34;</span> <span class="o">..</span> <span class="n">emstring</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">..</span> <span class="s2">&#34;)&lt;/li&gt;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">end</span>
+</span></span><span class="line"><span class="cl">        <span class="n">rinfo</span><span class="p">[</span><span class="n">field</span><span class="p">]</span> <span class="o">=</span> <span class="n">tostring</span><span class="p">(</span><span class="n">req</span><span class="p">[</span><span class="n">field</span><span class="p">])</span> <span class="o">..</span> <span class="n">list</span> <span class="o">..</span> <span class="s2">&#34;&lt;/ul&gt;&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="kr">elseif</span> <span class="n">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&#34;string&#34;</span> <span class="kr">then</span>
+</span></span><span class="line"><span class="cl">        <span class="n">rinfo</span><span class="p">[</span><span class="n">field</span><span class="p">]</span> <span class="o">=</span> <span class="n">emstring</span><span class="p">(</span><span class="n">req</span><span class="p">[</span><span class="n">field</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">      <span class="kr">else</span>
+</span></span><span class="line"><span class="cl">        <span class="n">rinfo</span><span class="p">[</span><span class="n">field</span><span class="p">]</span> <span class="o">=</span> <span class="n">safestring</span><span class="p">(</span><span class="n">req</span><span class="p">[</span><span class="n">field</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">      <span class="kr">end</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">end</span>
+</span></span><span class="line"><span class="cl">    <span class="n">info.Request</span> <span class="o">=</span> <span class="n">rinfo</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">end</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">do</span> <span class="c1">-- Arguments (query string)</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">local</span> <span class="n">args</span> <span class="o">=</span> <span class="n">req</span><span class="p">:</span><span class="n">parseargs</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">local</span> <span class="n">args_clean</span> <span class="o">=</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="kr">in</span> <span class="n">pairs</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="kr">do</span>
+</span></span><span class="line"><span class="cl">      <span class="n">args_clean</span><span class="p">[</span><span class="n">safestring</span><span class="p">(</span><span class="n">key</span><span class="p">)]</span> <span class="o">=</span> <span class="n">emstring</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">end</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">if</span> <span class="n">next</span><span class="p">(</span><span class="n">args_clean</span><span class="p">)</span> <span class="kr">then</span>
+</span></span><span class="line"><span class="cl">      <span class="n">info</span><span class="p">[</span><span class="s2">&#34;Query string&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="n">args_clean</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">end</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">end</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">return</span> <span class="n">info</span>
+</span></span><span class="line"><span class="cl"><span class="kr">end</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">function</span> <span class="nf">handle</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">-- setup the environment</span>
+</span></span><span class="line"><span class="cl">  <span class="n">r.content_type</span> <span class="o">=</span> <span class="s2">&#34;text/html&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">r.headers_out</span><span class="p">[</span><span class="s2">&#34;X-Powered-By&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&#34;mod_lua; &#34;</span> <span class="o">..</span> <span class="n">_VERSION</span>
+</span></span><span class="line"><span class="cl">  <span class="n">print</span> <span class="o">=</span> <span class="kr">function</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="kr">return</span> <span class="n">r</span><span class="p">:</span><span class="n">write</span><span class="p">(</span><span class="n">tostring</span><span class="p">(</span><span class="n">s</span><span class="p">))</span> <span class="kr">end</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">-- run the main script</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">local</span> <span class="n">info</span> <span class="o">=</span> <span class="n">compile_info</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="n">print_info</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">-- finish</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">return</span> <span class="n">apache2.OK</span>
+</span></span><span class="line"><span class="cl"><span class="kr">end</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="访问demo">访问Demo</h3>
-<p>打开 <code>Apache</code>，访问 http://127.0.0.1/info.php 就能看到</p>
+<p>打开 <code>Apache</code>，访问 <a href="http://127.0.0.1/info.php">http://127.0.0.1/info.php</a> 就能看到</p>
     </div>
 
     
@@ -749,15 +745,15 @@ Apache 关于 Lua 我不知道是哪一个版本编译进去了的，但是最�
 
     <footer class="post-footer">
       <div class="post-tags">
-          <a href="https://tosone.cn/tags/lua/">Lua</a>
-          <a href="https://tosone.cn/tags/apache/">Apache</a>
+          <a href="https://www.tosone.cn/tags/lua/">Lua</a>
+          <a href="https://www.tosone.cn/tags/apache/">Apache</a>
           
         </div>
 
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/sublime-exploit-code/">
+          <a class="prev" href="/post/git-useful-command/">
             
             <i class="iconfont">
               <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
@@ -767,7 +763,7 @@ Apache 关于 Lua 我不知道是哪一个版本编译进去了的，但是最�
 </svg>
 
             </i>
-            <span class="prev-text nav-default">SublimeText3 注册码</span>
+            <span class="prev-text nav-default">Git 基本操作</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
         
@@ -850,7 +846,7 @@ Apache 关于 Lua 我不知道是哪一个版本编译进去了的，但是最�
     </a>
 
 
-<a href="https://tosone.cn/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+<a href="https://www.tosone.cn/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
     class="iconfont" title="rss" target="_blank">
     <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -875,7 +871,7 @@ Apache 关于 Lua 我不知道是哪一个版本编译进去了的，但是最�
     &copy;
     
       2016 -
-    2020
+    2022
     <span class="heart">
       
       <i class="iconfont">
@@ -895,6 +891,10 @@ Apache 关于 Lua 我不知道是哪一个版本编译进去了的，但是最�
   
   
 
+  
+    <span>
+      <a href="http://beian.miit.gov.cn" target="_blank">豫ICP备16023221号</a>
+    </span>
   
 </div>
 

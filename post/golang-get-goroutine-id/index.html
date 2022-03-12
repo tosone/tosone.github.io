@@ -7,7 +7,7 @@
   
 
 <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
 
 <meta name="MobileOptimized" content="width"/>
 <meta name="HandheldFriendly" content="true"/>
@@ -33,10 +33,10 @@
 
 
 
-<meta name="generator" content="Hugo 0.76.5" />
+<meta name="generator" content="Hugo 0.93.2" />
 
 
-<link rel="canonical" href="https://tosone.cn/post/golang-get-goroutine-id/" />
+<link rel="canonical" href="https://www.tosone.cn/post/golang-get-goroutine-id/" />
 
 
 
@@ -54,7 +54,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.f1e506a781bf25d33ffc18aa6b4e972a965c58049d27d4f92b7db2e9bf28e4bf.css" integrity="sha256-8eUGp4G/JdM//Biqa06XKpZcWASdJ9T5K32y6b8o5L8=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.fa4b2b9f31b5c6d0b683db81157a9226e17b06e61911791ab547242a4a0556f2.css" integrity="sha256-&#43;ksrnzG1xtC2g9uBFXqSJuF7BuYZEXkatUckKkoFVvI=" media="screen" crossorigin="anonymous">
 
 
 
@@ -63,19 +63,15 @@
 <meta property="og:title" content="Golang 获取 goroutine id 完全指南" />
 <meta property="og:description" content="在 Golang 中，每个 goroutine 协程都有一个 goroutine id (goid)，该goid没有向应用层暴露。但是，在很多场景下，开发者又希望使用 goid 作为唯一标识，将一个 goroutine 中的函数层级调用串联起来。比如，希望在一个 http handler 中将这个请求的每行日志都加上对应的 goid 以便于对这个请求处理过程进行跟踪和分析。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://tosone.cn/post/golang-get-goroutine-id/" />
+<meta property="og:url" content="https://www.tosone.cn/post/golang-get-goroutine-id/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2018-03-09T21:14:28+00:00" />
 <meta property="article:modified_time" content="2018-03-09T21:14:28+00:00" />
+
 <meta itemprop="name" content="Golang 获取 goroutine id 完全指南">
-<meta itemprop="description" content="在 Golang 中，每个 goroutine 协程都有一个 goroutine id (goid)，该goid没有向应用层暴露。但是，在很多场景下，开发者又希望使用 goid 作为唯一标识，将一个 goroutine 中的函数层级调用串联起来。比如，希望在一个 http handler 中将这个请求的每行日志都加上对应的 goid 以便于对这个请求处理过程进行跟踪和分析。">
-<meta itemprop="datePublished" content="2018-03-09T21:14:28+00:00" />
+<meta itemprop="description" content="在 Golang 中，每个 goroutine 协程都有一个 goroutine id (goid)，该goid没有向应用层暴露。但是，在很多场景下，开发者又希望使用 goid 作为唯一标识，将一个 goroutine 中的函数层级调用串联起来。比如，希望在一个 http handler 中将这个请求的每行日志都加上对应的 goid 以便于对这个请求处理过程进行跟踪和分析。"><meta itemprop="datePublished" content="2018-03-09T21:14:28+00:00" />
 <meta itemprop="dateModified" content="2018-03-09T21:14:28+00:00" />
 <meta itemprop="wordCount" content="2293">
-
-
-
-<meta itemprop="keywords" content="Golang," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Golang," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Golang 获取 goroutine id 完全指南"/>
 <meta name="twitter:description" content="在 Golang 中，每个 goroutine 协程都有一个 goroutine id (goid)，该goid没有向应用层暴露。但是，在很多场景下，开发者又希望使用 goid 作为唯一标识，将一个 goroutine 中的函数层级调用串联起来。比如，希望在一个 http handler 中将这个请求的每行日志都加上对应的 goid 以便于对这个请求处理过程进行跟踪和分析。"/>
 
@@ -109,28 +105,28 @@
         
           
           
-            <a class="menu-item-link" href="https://tosone.cn/">This is Home</a>
+            <a class="menu-item-link" href="https://www.tosone.cn/">This is Home</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://tosone.cn/post/">Archives</a>
+            <a class="menu-item-link" href="https://www.tosone.cn/post/">Archives</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://tosone.cn/tags/">Tags</a>
+            <a class="menu-item-link" href="https://www.tosone.cn/tags/">Tags</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://tosone.cn/categories/">Categories</a>
+            <a class="menu-item-link" href="https://www.tosone.cn/categories/">Categories</a>
           
         
       </li>
@@ -222,7 +218,7 @@
         
           
           
-            <a class="menu-item-link" href="https://tosone.cn/">This is Home</a>
+            <a class="menu-item-link" href="https://www.tosone.cn/">This is Home</a>
           
 
         
@@ -233,7 +229,7 @@
         
           
           
-            <a class="menu-item-link" href="https://tosone.cn/post/">Archives</a>
+            <a class="menu-item-link" href="https://www.tosone.cn/post/">Archives</a>
           
 
         
@@ -244,7 +240,7 @@
         
           
           
-            <a class="menu-item-link" href="https://tosone.cn/tags/">Tags</a>
+            <a class="menu-item-link" href="https://www.tosone.cn/tags/">Tags</a>
           
 
         
@@ -255,7 +251,7 @@
         
           
           
-            <a class="menu-item-link" href="https://tosone.cn/categories/">Categories</a>
+            <a class="menu-item-link" href="https://www.tosone.cn/categories/">Categories</a>
           
 
         
@@ -286,7 +282,7 @@
           2018-03-09
         </time>
         <div class="post-category">
-            <a href="https://tosone.cn/categories/develop/"> Develop </a>
+            <a href="https://www.tosone.cn/categories/develop/"> Develop </a>
             
           </div>
         
@@ -322,7 +318,7 @@
 <p>在开始介绍各种方法前，先看一下定义在 <code>src/runtime/runtime2.go</code> 中保存 goroutine 状态的g结构：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -348,37 +344,37 @@
 </span><span class="lnt">24
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">g</span> <span class="kd">struct</span> <span class="p">{</span>
-    <span class="c1">// Stack parameters.
-</span><span class="c1"></span>    <span class="c1">// stack describes the actual stack memory: [stack.lo, stack.hi).
-</span><span class="c1"></span>    <span class="c1">// stackguard0 is the stack pointer compared in the Go stack growth prologue.
-</span><span class="c1"></span>    <span class="c1">// It is stack.lo+StackGuard normally, but can be StackPreempt to trigger a preemption.
-</span><span class="c1"></span>    <span class="c1">// stackguard1 is the stack pointer compared in the C stack growth prologue.
-</span><span class="c1"></span>    <span class="c1">// It is stack.lo+StackGuard on g0 and gsignal stacks.
-</span><span class="c1"></span>    <span class="c1">// It is ~0 on other goroutine stacks, to trigger a call to morestackc (and crash).
-</span><span class="c1"></span>    <span class="nx">stack</span>       <span class="nx">stack</span>   <span class="c1">// offset known to runtime/cgo
-</span><span class="c1"></span>    <span class="nx">stackguard0</span> <span class="kt">uintptr</span> <span class="c1">// offset known to liblink
-</span><span class="c1"></span>    <span class="nx">stackguard1</span> <span class="kt">uintptr</span> <span class="c1">// offset known to liblink
-</span><span class="c1"></span>
-    <span class="nx">_panic</span>         <span class="o">*</span><span class="nx">_panic</span> <span class="c1">// innermost panic - offset known to liblink
-</span><span class="c1"></span>    <span class="nx">_defer</span>         <span class="o">*</span><span class="nx">_defer</span> <span class="c1">// innermost defer
-</span><span class="c1"></span>    <span class="nx">m</span>              <span class="o">*</span><span class="nx">m</span>      <span class="c1">// current m; offset known to arm liblink
-</span><span class="c1"></span>    <span class="nx">sched</span>          <span class="nx">gobuf</span>
-    <span class="nx">syscallsp</span>      <span class="kt">uintptr</span>        <span class="c1">// if status==Gsyscall, syscallsp = sched.sp to use during gc
-</span><span class="c1"></span>    <span class="nx">syscallpc</span>      <span class="kt">uintptr</span>        <span class="c1">// if status==Gsyscall, syscallpc = sched.pc to use during gc
-</span><span class="c1"></span>    <span class="nx">stktopsp</span>       <span class="kt">uintptr</span>        <span class="c1">// expected sp at top of stack, to check in traceback
-</span><span class="c1"></span>    <span class="nx">param</span>          <span class="nx">unsafe</span><span class="p">.</span><span class="nx">Pointer</span> <span class="c1">// passed parameter on wakeup
-</span><span class="c1"></span>    <span class="nx">atomicstatus</span>   <span class="kt">uint32</span>
-    <span class="nx">stackLock</span>      <span class="kt">uint32</span> <span class="c1">// sigprof/scang lock; TODO: fold in to atomicstatus
-</span><span class="c1"></span>    <span class="nx">goid</span>           <span class="kt">int64</span> <span class="c1">// goroutine id
-</span><span class="c1"></span>    <span class="o">...</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">g</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// Stack parameters.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// stack describes the actual stack memory: [stack.lo, stack.hi).
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// stackguard0 is the stack pointer compared in the Go stack growth prologue.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// It is stack.lo+StackGuard normally, but can be StackPreempt to trigger a preemption.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// stackguard1 is the stack pointer compared in the C stack growth prologue.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// It is stack.lo+StackGuard on g0 and gsignal stacks.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// It is ~0 on other goroutine stacks, to trigger a call to morestackc (and crash).
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">stack</span>       <span class="nx">stack</span>   <span class="c1">// offset known to runtime/cgo
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">stackguard0</span> <span class="kt">uintptr</span> <span class="c1">// offset known to liblink
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">stackguard1</span> <span class="kt">uintptr</span> <span class="c1">// offset known to liblink
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="nx">_panic</span>         <span class="o">*</span><span class="nx">_panic</span> <span class="c1">// innermost panic - offset known to liblink
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">_defer</span>         <span class="o">*</span><span class="nx">_defer</span> <span class="c1">// innermost defer
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">m</span>              <span class="o">*</span><span class="nx">m</span>      <span class="c1">// current m; offset known to arm liblink
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">sched</span>          <span class="nx">gobuf</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">syscallsp</span>      <span class="kt">uintptr</span>        <span class="c1">// if status==Gsyscall, syscallsp = sched.sp to use during gc
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">syscallpc</span>      <span class="kt">uintptr</span>        <span class="c1">// if status==Gsyscall, syscallpc = sched.pc to use during gc
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">stktopsp</span>       <span class="kt">uintptr</span>        <span class="c1">// expected sp at top of stack, to check in traceback
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">param</span>          <span class="nx">unsafe</span><span class="p">.</span><span class="nx">Pointer</span> <span class="c1">// passed parameter on wakeup
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">atomicstatus</span>   <span class="kt">uint32</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">stackLock</span>      <span class="kt">uint32</span> <span class="c1">// sigprof/scang lock; TODO: fold in to atomicstatus
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">goid</span>           <span class="kt">int64</span> <span class="c1">// goroutine id
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="o">...</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>其中 goid int64 字段即为当前 goroutine 的 id。</p>
 <h3 id="1-通过-stack-信息获取-goroutine-id">1. 通过 stack 信息获取 goroutine id</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -401,28 +397,28 @@
 </span><span class="lnt">21
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
-
-<span class="kn">import</span> <span class="p">(</span>
-    <span class="s">&#34;bytes&#34;</span>
-    <span class="s">&#34;fmt&#34;</span>
-    <span class="s">&#34;runtime&#34;</span>
-    <span class="s">&#34;strconv&#34;</span>
-<span class="p">)</span>
-
-<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nf">GetGID</span><span class="p">())</span>
-<span class="p">}</span>
-
-<span class="kd">func</span> <span class="nf">GetGID</span><span class="p">()</span> <span class="kt">uint64</span> <span class="p">{</span>
-    <span class="nx">b</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">byte</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>
-    <span class="nx">b</span> <span class="p">=</span> <span class="nx">b</span><span class="p">[:</span><span class="nx">runtime</span><span class="p">.</span><span class="nf">Stack</span><span class="p">(</span><span class="nx">b</span><span class="p">,</span> <span class="kc">false</span><span class="p">)]</span>
-    <span class="nx">b</span> <span class="p">=</span> <span class="nx">bytes</span><span class="p">.</span><span class="nf">TrimPrefix</span><span class="p">(</span><span class="nx">b</span><span class="p">,</span> <span class="p">[]</span><span class="nb">byte</span><span class="p">(</span><span class="s">&#34;goroutine &#34;</span><span class="p">))</span>
-    <span class="nx">b</span> <span class="p">=</span> <span class="nx">b</span><span class="p">[:</span><span class="nx">bytes</span><span class="p">.</span><span class="nf">IndexByte</span><span class="p">(</span><span class="nx">b</span><span class="p">,</span> <span class="sc">&#39; &#39;</span><span class="p">)]</span>
-    <span class="nx">n</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">strconv</span><span class="p">.</span><span class="nf">ParseUint</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">b</span><span class="p">),</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>
-    <span class="k">return</span> <span class="nx">n</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;bytes&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;runtime&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;strconv&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nf">GetGID</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">GetGID</span><span class="p">()</span> <span class="kt">uint64</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">b</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">byte</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">b</span> <span class="p">=</span> <span class="nx">b</span><span class="p">[:</span><span class="nx">runtime</span><span class="p">.</span><span class="nf">Stack</span><span class="p">(</span><span class="nx">b</span><span class="p">,</span> <span class="kc">false</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">b</span> <span class="p">=</span> <span class="nx">bytes</span><span class="p">.</span><span class="nf">TrimPrefix</span><span class="p">(</span><span class="nx">b</span><span class="p">,</span> <span class="p">[]</span><span class="nb">byte</span><span class="p">(</span><span class="s">&#34;goroutine &#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">b</span> <span class="p">=</span> <span class="nx">b</span><span class="p">[:</span><span class="nx">bytes</span><span class="p">.</span><span class="nf">IndexByte</span><span class="p">(</span><span class="nx">b</span><span class="p">,</span> <span class="sc">&#39; &#39;</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">n</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">strconv</span><span class="p">.</span><span class="nf">ParseUint</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">b</span><span class="p">),</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">n</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>原理非常简单，将 stack 中的文本信息 &ldquo;goroutine 1234&rdquo; 匹配出来。但是这种方式有两个问题：</p>
 <p>stack 信息的格式随版本更新可能变化，甚至不再提供 goroutine id，可靠性差。
@@ -432,17 +428,17 @@
 <p>既然方法 1 效率较低，且不可靠，那么我们可以尝试直接修改源代码 <code>src/runtime/runtime2.go</code> 中添加 Goid 函数，将 goid 暴露给应用层：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">Goid</span><span class="p">()</span> <span class="kt">int64</span> <span class="p">{</span>
-    <span class="nx">_g_</span> <span class="o">:=</span> <span class="nf">getg</span><span class="p">()</span>
-    <span class="k">return</span> <span class="nx">_g_</span><span class="p">.</span><span class="nx">goid</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">Goid</span><span class="p">()</span> <span class="kt">int64</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">_g_</span> <span class="o">:=</span> <span class="nf">getg</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">_g_</span><span class="p">.</span><span class="nx">goid</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这个方式能解决法 1 的两个问题，但是会导致你的程序只能在修改了源代码的机器上才能编译，没有移植性，并且每次 go 版本升级以后，都需要重新修改源代码，维护成本较高。</p>
 <h3 id="3-通过-cgo-获取-goroutine-id">3. 通过 CGo 获取 goroutine id</h3>
@@ -450,32 +446,32 @@
 <p>文件 id.c：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="err">#</span><span class="nx">include</span> <span class="s">&#34;runtime.h&#34;</span>
-
-<span class="kt">int64</span> <span class="err">·</span><span class="nf">Id</span><span class="p">(</span><span class="nx">void</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="nx">g</span><span class="o">-</span><span class="p">&gt;</span><span class="nx">goid</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="err">#</span><span class="nx">include</span> <span class="s">&#34;runtime.h&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int64</span> <span class="err">·</span><span class="nf">Id</span><span class="p">(</span><span class="nx">void</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">g</span><span class="o">-</span><span class="p">&gt;</span><span class="nx">goid</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>文件 id.go:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">id</span>
-
-<span class="kd">func</span> <span class="nf">Id</span><span class="p">()</span> <span class="kt">int64</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">id</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">Id</span><span class="p">()</span> <span class="kt">int64</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>完整代码参见 <a href="https://github.com/davecheney/junk/blob/master/id/id.c">junk/id</a>.</p>
 <p>这种方法的问题在于你需要开启 CGo, CGo 存在一些缺点，具体可以参见这个大牛的 <a href="https://dave.cheney.net/2016/01/18/cgo-is-not-go">cgo is not Go</a>. 我相信在你绝大部分的工程项目中，你是不希望开启CGo的。</p>
@@ -488,7 +484,7 @@
 <p>显然，上面作者也想清楚了这个问题。他新开了一个库 <a href="https://github.com/huandu/go-tls">go-tls</a>, 这个库实现了 goroutine local storage，其中获取 goroutine id 的方式是：用方法4的汇编获取 goroutine 的地址，然后自己管理和分配 goroutine id。由于它获取到的并不是真正的 goroutine id，因此我将之称为伪 goroutine id。其实现的核心代码如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -525,42 +521,42 @@
 </span><span class="lnt">35
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">var</span> <span class="p">(</span>
-    <span class="nx">tlsDataMap</span>  <span class="p">=</span> <span class="kd">map</span><span class="p">[</span><span class="nx">unsafe</span><span class="p">.</span><span class="nx">Pointer</span><span class="p">]</span><span class="o">*</span><span class="nx">tlsData</span><span class="p">{}</span>
-    <span class="nx">tlsMu</span>       <span class="nx">sync</span><span class="p">.</span><span class="nx">Mutex</span>
-    <span class="nx">tlsUniqueID</span> <span class="kt">int64</span>
-<span class="p">)</span>
-<span class="o">...</span>
-
-<span class="kd">func</span> <span class="nf">fetchDataMap</span><span class="p">(</span><span class="nx">readonly</span> <span class="kt">bool</span><span class="p">)</span> <span class="o">*</span><span class="nx">tlsData</span> <span class="p">{</span>
-    <span class="nx">gp</span> <span class="o">:=</span> <span class="nx">g</span><span class="p">.</span><span class="nf">G</span><span class="p">()</span> <span class="c1">// 1. 获取g结构地址
-</span><span class="c1"></span>    <span class="k">if</span> <span class="nx">gp</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="kc">nil</span>
-    <span class="p">}</span>
-    <span class="c1">// Try to find saved data.
-</span><span class="c1"></span>    <span class="nx">needHack</span> <span class="o">:=</span> <span class="kc">false</span>
-    <span class="nx">tlsMu</span><span class="p">.</span><span class="nf">Lock</span><span class="p">()</span>
-    <span class="nx">dm</span> <span class="o">:=</span> <span class="nx">tlsDataMap</span><span class="p">[</span><span class="nx">gp</span><span class="p">]</span>
-    <span class="k">if</span> <span class="nx">dm</span> <span class="o">==</span> <span class="kc">nil</span> <span class="o">&amp;&amp;</span> <span class="p">!</span><span class="nx">readonly</span> <span class="p">{</span>
-        <span class="nx">needHack</span> <span class="p">=</span> <span class="kc">true</span>
-        <span class="nx">dm</span> <span class="p">=</span> <span class="o">&amp;</span><span class="nx">tlsData</span><span class="p">{</span>
-            <span class="nx">id</span><span class="p">:</span>   <span class="nx">atomic</span><span class="p">.</span><span class="nf">AddInt64</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">tlsUniqueID</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="c1">// 2. 分配伪goroutine id
-</span><span class="c1"></span>            <span class="nx">data</span><span class="p">:</span> <span class="nx">dataMap</span><span class="p">{},</span>
-        <span class="p">}</span>
-        <span class="nx">tlsDataMap</span><span class="p">[</span><span class="nx">gp</span><span class="p">]</span> <span class="p">=</span> <span class="nx">dm</span>
-    <span class="p">}</span>
-    <span class="nx">tlsMu</span><span class="p">.</span><span class="nf">Unlock</span><span class="p">()</span>
-    <span class="c1">// Current goroutine is not hacked. Hack it.
-</span><span class="c1"></span>    <span class="k">if</span> <span class="nx">needHack</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">!</span><span class="nf">hack</span><span class="p">(</span><span class="nx">gp</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nx">tlsMu</span><span class="p">.</span><span class="nf">Lock</span><span class="p">()</span>
-            <span class="nb">delete</span><span class="p">(</span><span class="nx">tlsDataMap</span><span class="p">,</span> <span class="nx">gp</span><span class="p">)</span>
-            <span class="nx">tlsMu</span><span class="p">.</span><span class="nf">Unlock</span><span class="p">()</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="nx">dm</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">var</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">tlsDataMap</span>  <span class="p">=</span> <span class="kd">map</span><span class="p">[</span><span class="nx">unsafe</span><span class="p">.</span><span class="nx">Pointer</span><span class="p">]</span><span class="o">*</span><span class="nx">tlsData</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">tlsMu</span>       <span class="nx">sync</span><span class="p">.</span><span class="nx">Mutex</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">tlsUniqueID</span> <span class="kt">int64</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">fetchDataMap</span><span class="p">(</span><span class="nx">readonly</span> <span class="kt">bool</span><span class="p">)</span> <span class="o">*</span><span class="nx">tlsData</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">gp</span> <span class="o">:=</span> <span class="nx">g</span><span class="p">.</span><span class="nf">G</span><span class="p">()</span> <span class="c1">// 1. 获取g结构地址
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="nx">gp</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// Try to find saved data.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">needHack</span> <span class="o">:=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">tlsMu</span><span class="p">.</span><span class="nf">Lock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">dm</span> <span class="o">:=</span> <span class="nx">tlsDataMap</span><span class="p">[</span><span class="nx">gp</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nx">dm</span> <span class="o">==</span> <span class="kc">nil</span> <span class="o">&amp;&amp;</span> <span class="p">!</span><span class="nx">readonly</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">needHack</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">dm</span> <span class="p">=</span> <span class="o">&amp;</span><span class="nx">tlsData</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">id</span><span class="p">:</span>   <span class="nx">atomic</span><span class="p">.</span><span class="nf">AddInt64</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">tlsUniqueID</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="c1">// 2. 分配伪goroutine id
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nx">data</span><span class="p">:</span> <span class="nx">dataMap</span><span class="p">{},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">tlsDataMap</span><span class="p">[</span><span class="nx">gp</span><span class="p">]</span> <span class="p">=</span> <span class="nx">dm</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">tlsMu</span><span class="p">.</span><span class="nf">Unlock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// Current goroutine is not hacked. Hack it.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="nx">needHack</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">!</span><span class="nf">hack</span><span class="p">(</span><span class="nx">gp</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">tlsMu</span><span class="p">.</span><span class="nf">Lock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">delete</span><span class="p">(</span><span class="nx">tlsDataMap</span><span class="p">,</span> <span class="nx">gp</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">tlsMu</span><span class="p">.</span><span class="nf">Unlock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">dm</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>获取 g 结构地址。</li>
@@ -586,7 +582,7 @@
 
     <footer class="post-footer">
       <div class="post-tags">
-          <a href="https://tosone.cn/tags/golang/">Golang</a>
+          <a href="https://www.tosone.cn/tags/golang/">Golang</a>
           
         </div>
 
@@ -686,7 +682,7 @@
     </a>
 
 
-<a href="https://tosone.cn/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+<a href="https://www.tosone.cn/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
     class="iconfont" title="rss" target="_blank">
     <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -711,7 +707,7 @@
     &copy;
     
       2016 -
-    2020
+    2022
     <span class="heart">
       
       <i class="iconfont">
@@ -731,6 +727,10 @@
   
   
 
+  
+    <span>
+      <a href="http://beian.miit.gov.cn" target="_blank">豫ICP备16023221号</a>
+    </span>
   
 </div>
 

@@ -2,27 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Lua on Tosone&#39;s Blog</title>
-    <link>https://tosone.cn/tags/lua/</link>
+    <link>https://www.tosone.cn/tags/lua/</link>
     <description>Recent content in Lua on Tosone&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 02 Jan 2017 18:32:08 +0000</lastBuildDate><atom:link href="https://tosone.cn/tags/lua/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 02 Jan 2017 18:32:08 +0000</lastBuildDate><atom:link href="https://www.tosone.cn/tags/lua/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Apache 下的 Lua 的配置</title>
-      <link>https://tosone.cn/post/config-for-lua-in-apache/</link>
+      <link>https://www.tosone.cn/post/config-for-lua-in-apache/</link>
       <pubDate>Mon, 02 Jan 2017 18:32:08 +0000</pubDate>
       
-      <guid>https://tosone.cn/post/config-for-lua-in-apache/</guid>
+      <guid>https://www.tosone.cn/post/config-for-lua-in-apache/</guid>
       <description>&lt;p&gt;对于 Apache 这个东西，绝大多数人都是非常熟悉的。很多人都会诟病这个 Apache，说它效率不高而且非常消耗资源，然后会建议用 Nginx。这些不能否认，但是我还是很喜欢 Apache，因为它比较稳定。&lt;/p&gt;
 &lt;p&gt;Apache 关于 Lua 我不知道是哪一个版本编译进去了的，但是最新版的是有的。在 Apache 的 bin 目录下有一个 &lt;code&gt;lua51.dll&lt;/code&gt; 很明显，这个是 Lua5.1 版本的，目前 Lua 已经到了 5.3 版本了，如果你想追求新的版本的话，你可以自己把 Apache 编译一次。然后还有，在 Apache 的 modules 目录下有一个 &lt;code&gt;mod_lua.so&lt;/code&gt; 是开启 Apache 和 Lua 通信桥梁的文件。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Compile Lua and Luajit</title>
-      <link>https://tosone.cn/post/compile-lua-and-luajit/</link>
+      <link>https://www.tosone.cn/post/compile-lua-and-luajit/</link>
       <pubDate>Sat, 31 Dec 2016 15:14:28 +0000</pubDate>
       
-      <guid>https://tosone.cn/post/compile-lua-and-luajit/</guid>
+      <guid>https://www.tosone.cn/post/compile-lua-and-luajit/</guid>
       <description>&lt;p&gt;Lua is a lightweight, multi-paradigm programming language designed primarily for embedded systems and clients. Lua is cross-platform, since the interpreter is written in ANSI C, and has a relatively simple C API.&lt;/p&gt;</description>
     </item>
     

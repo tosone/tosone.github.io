@@ -7,7 +7,7 @@
   
 
 <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
 
 <meta name="MobileOptimized" content="width"/>
 <meta name="HandheldFriendly" content="true"/>
@@ -33,10 +33,10 @@
 
 
 
-<meta name="generator" content="Hugo 0.76.5" />
+<meta name="generator" content="Hugo 0.93.2" />
 
 
-<link rel="canonical" href="https://tosone.cn/post/coreos-init/" />
+<link rel="canonical" href="https://www.tosone.cn/post/coreos-init/" />
 
 
 
@@ -54,7 +54,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.f1e506a781bf25d33ffc18aa6b4e972a965c58049d27d4f92b7db2e9bf28e4bf.css" integrity="sha256-8eUGp4G/JdM//Biqa06XKpZcWASdJ9T5K32y6b8o5L8=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.fa4b2b9f31b5c6d0b683db81157a9226e17b06e61911791ab547242a4a0556f2.css" integrity="sha256-&#43;ksrnzG1xtC2g9uBFXqSJuF7BuYZEXkatUckKkoFVvI=" media="screen" crossorigin="anonymous">
 
 
 
@@ -65,21 +65,17 @@
 Container Linux (formerly CoreOS Linux) is an open-source lightweight operating system based on the Linux kernel and designed for providing infrastructure to clustered deployments, while focusing on automation, ease of application deployment, security, reliability and scalability. As an operating system, Container Linux provides only the minimal functionality required for deploying applications inside software containers, together with built-in mechanisms for service discovery and configuration sharing.
 " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://tosone.cn/post/coreos-init/" />
+<meta property="og:url" content="https://www.tosone.cn/post/coreos-init/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2019-04-26T10:38:24+00:00" />
 <meta property="article:modified_time" content="2019-04-26T10:38:24+00:00" />
+
 <meta itemprop="name" content="CoreOS 初始化配置">
 <meta itemprop="description" content="
 Container Linux (formerly CoreOS Linux) is an open-source lightweight operating system based on the Linux kernel and designed for providing infrastructure to clustered deployments, while focusing on automation, ease of application deployment, security, reliability and scalability. As an operating system, Container Linux provides only the minimal functionality required for deploying applications inside software containers, together with built-in mechanisms for service discovery and configuration sharing.
-">
-<meta itemprop="datePublished" content="2019-04-26T10:38:24+00:00" />
+"><meta itemprop="datePublished" content="2019-04-26T10:38:24+00:00" />
 <meta itemprop="dateModified" content="2019-04-26T10:38:24+00:00" />
 <meta itemprop="wordCount" content="1110">
-
-
-
-<meta itemprop="keywords" content="Linux," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Linux," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="CoreOS 初始化配置"/>
 <meta name="twitter:description" content="
 Container Linux (formerly CoreOS Linux) is an open-source lightweight operating system based on the Linux kernel and designed for providing infrastructure to clustered deployments, while focusing on automation, ease of application deployment, security, reliability and scalability. As an operating system, Container Linux provides only the minimal functionality required for deploying applications inside software containers, together with built-in mechanisms for service discovery and configuration sharing.
@@ -115,28 +111,28 @@ Container Linux (formerly CoreOS Linux) is an open-source lightweight operating 
         
           
           
-            <a class="menu-item-link" href="https://tosone.cn/">This is Home</a>
+            <a class="menu-item-link" href="https://www.tosone.cn/">This is Home</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://tosone.cn/post/">Archives</a>
+            <a class="menu-item-link" href="https://www.tosone.cn/post/">Archives</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://tosone.cn/tags/">Tags</a>
+            <a class="menu-item-link" href="https://www.tosone.cn/tags/">Tags</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://tosone.cn/categories/">Categories</a>
+            <a class="menu-item-link" href="https://www.tosone.cn/categories/">Categories</a>
           
         
       </li>
@@ -228,7 +224,7 @@ Container Linux (formerly CoreOS Linux) is an open-source lightweight operating 
         
           
           
-            <a class="menu-item-link" href="https://tosone.cn/">This is Home</a>
+            <a class="menu-item-link" href="https://www.tosone.cn/">This is Home</a>
           
 
         
@@ -239,7 +235,7 @@ Container Linux (formerly CoreOS Linux) is an open-source lightweight operating 
         
           
           
-            <a class="menu-item-link" href="https://tosone.cn/post/">Archives</a>
+            <a class="menu-item-link" href="https://www.tosone.cn/post/">Archives</a>
           
 
         
@@ -250,7 +246,7 @@ Container Linux (formerly CoreOS Linux) is an open-source lightweight operating 
         
           
           
-            <a class="menu-item-link" href="https://tosone.cn/tags/">Tags</a>
+            <a class="menu-item-link" href="https://www.tosone.cn/tags/">Tags</a>
           
 
         
@@ -261,7 +257,7 @@ Container Linux (formerly CoreOS Linux) is an open-source lightweight operating 
         
           
           
-            <a class="menu-item-link" href="https://tosone.cn/categories/">Categories</a>
+            <a class="menu-item-link" href="https://www.tosone.cn/categories/">Categories</a>
           
 
         
@@ -292,7 +288,7 @@ Container Linux (formerly CoreOS Linux) is an open-source lightweight operating 
           2019-04-26
         </time>
         <div class="post-category">
-            <a href="https://tosone.cn/categories/config/"> Config </a>
+            <a href="https://www.tosone.cn/categories/config/"> Config </a>
             
           </div>
         
@@ -316,7 +312,7 @@ Container Linux (formerly CoreOS Linux) is an open-source lightweight operating 
 <p>各个虚拟主机平台上基本都有 CoreOS 系统，但是 Aliyun 上的 ECS 就是有问题的，在用 <code>docker build</code> 的时候总出问题，在 Docker 的仓库中有这些<a href="https://github.com/coreos/bugs/issues/2340">讨论</a>，最终的解决方法就是：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -324,18 +320,17 @@ Container Linux (formerly CoreOS Linux) is an open-source lightweight operating 
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># fix wrong driver</span>
-<span class="nb">echo</span> <span class="s1">&#39;{ &#34;storage-driver&#34;: &#34;devicemapper&#34; }&#39;</span> <span class="p">|</span> sudo tee /etc/docker/daemon.json
-sudo systemctl restart docker.service
-
-<span class="c1"># fix aliyun buggy selinux</span>
-sudo sed -i <span class="s1">&#39;s/SELINUXTYPE=mcs/SELINUXTYPE=targeted/&#39;</span> /etc/selinux/config
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># fix wrong driver</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;{ &#34;storage-driver&#34;: &#34;devicemapper&#34; }&#39;</span> <span class="p">|</span> sudo tee /etc/docker/daemon.json
+</span></span><span class="line"><span class="cl">sudo systemctl restart docker.service
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># fix aliyun buggy selinux</span>
+</span></span><span class="line"><span class="cl">sudo sed -i <span class="s1">&#39;s/SELINUXTYPE=mcs/SELINUXTYPE=targeted/&#39;</span> /etc/selinux/config
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="升级通道">升级通道</h3>
 <p>定义了 CoreOS 每次升级的目标版本号。官方提供了三个升级通道，分别为 Alpha、Beta 和 Stable，简单来说就是每个大版本升级的内测、公测和正式发行版。只不过 CoreOS 目前是采用一个不断增加的数字来表示各个版本号，数字越大则相对版本越高。</p>
-<p>各通道发布更新的频率依次为（官方目标数据，实际可能不准时）：
-<!-- raw HTML omitted --></p>
+<p>各通道发布更新的频率依次为（官方目标数据，实际可能不准时）：</p>
 <ul>
 <li>Alpha：每周星期四发布</li>
 <li>Beta：每两周发布一次</li>
@@ -355,28 +350,28 @@ sudo sed -i <span class="s1">&#39;s/SELINUXTYPE=mcs/SELINUXTYPE=targeted/&#39;</
 <p>升级通道和升级策略都可以在系统启动时的 cloud-config 中的 coreos.update 中配置，例如：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="nt">coreos</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="nt">update</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="nt">reboot-strategy</span><span class="p">:</span><span class="w"> </span><span class="l">best-effort</span><span class="w">
-</span><span class="w">    </span><span class="nt">group</span><span class="p">:</span><span class="w"> </span><span class="l">alpha</span><span class="w">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">coreos</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">update</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">reboot-strategy</span><span class="p">:</span><span class="w"> </span><span class="l">best-effort</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">group</span><span class="p">:</span><span class="w"> </span><span class="l">alpha</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>对于已经启动的集群，可以在 <code>/etc/coreos/update.conf</code> 配置文件中修改，其内容格式如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">GROUP=alpha
-REBOOT_STRATEGY=best-effort
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">GROUP=alpha
+</span></span><span class="line"><span class="cl">REBOOT_STRATEGY=best-effort
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>修改完成后需要重启一下 update-engine 服务：<code>systemctl restart update-engine</code>。</p>
 <p>用户手动执行升级一般是没有必要滴。当然如果你非要这么做，也非常简单，命令是 <code>update_engine_client -update</code>。如果只是想查看一下有没有新版本，可以换个参数 <code>update_engine_client -check_for_update</code>。</p>
@@ -386,7 +381,7 @@ REBOOT_STRATEGY=best-effort
 <p>验证：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -394,25 +389,24 @@ REBOOT_STRATEGY=best-effort
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># su tosone</span>
-$ cat /etc/sudoers.d/tosone
-cat: /etc/sudoers.d/tosone: Permission denied
-
-$ sudo cat /etc/sudoers.d/tosone
-tosone <span class="nv">ALL</span><span class="o">=(</span>ALL<span class="o">)</span> NOPASSWD: ALL
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># su tosone</span>
+</span></span><span class="line"><span class="cl">$ cat /etc/sudoers.d/tosone
+</span></span><span class="line"><span class="cl">cat: /etc/sudoers.d/tosone: Permission denied
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ sudo cat /etc/sudoers.d/tosone
+</span></span><span class="line"><span class="cl">tosone <span class="nv">ALL</span><span class="o">=(</span>ALL<span class="o">)</span> NOPASSWD: ALL
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="toolbox">toolbox</h3>
 <p>toolbox is a small script that launches a container to let you bring in your favorite debugging or admin tools.
-There are currently two scripts that live within this repository:
-<!-- raw HTML omitted --></p>
+There are currently two scripts that live within this repository:</p>
 <ul>
 <li>toolbox: designed for Container Linux, uses rkt and systemd-nspawn</li>
 <li>rhcos-toolbox: designed for Red Hat CoreOS, uses podman</li>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -422,29 +416,29 @@ There are currently two scripts that live within this repository:
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ /usr/bin/toolbox
-Spawning container core-fedora-latest on /var/lib/toolbox/core-fedora-latest.
-Press ^<span class="o">]</span> three <span class="nb">times</span> within 1s to <span class="nb">kill</span> container.
-<span class="o">[</span>root@localhost ~<span class="o">]</span><span class="c1"># dnf -y install tcpdump</span>
-...
-<span class="o">[</span>root@localhost ~<span class="o">]</span><span class="c1"># tcpdump -i ens3</span>
-tcpdump: verbose output suppressed, use -v or -vv <span class="k">for</span> full protocol decode
-listening on ens3, link-type EN10MB <span class="o">(</span>Ethernet<span class="o">)</span>, capture size <span class="m">65535</span> bytes
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ /usr/bin/toolbox
+</span></span><span class="line"><span class="cl">Spawning container core-fedora-latest on /var/lib/toolbox/core-fedora-latest.
+</span></span><span class="line"><span class="cl">Press ^<span class="o">]</span> three <span class="nb">times</span> within 1s to <span class="nb">kill</span> container.
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@localhost ~<span class="o">]</span><span class="c1"># dnf -y install tcpdump</span>
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@localhost ~<span class="o">]</span><span class="c1"># tcpdump -i ens3</span>
+</span></span><span class="line"><span class="cl">tcpdump: verbose output suppressed, use -v or -vv <span class="k">for</span> full protocol decode
+</span></span><span class="line"><span class="cl">listening on ens3, link-type EN10MB <span class="o">(</span>Ethernet<span class="o">)</span>, capture size <span class="m">65535</span> bytes
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Automatically enter toolbox on login. Set an <code>/etc/passwd</code> entry for one of the users to <code>/usr/bin/toolbox</code>:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">useradd bob -m -s /usr/bin/toolbox -U -G sudo,docker,rkt
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">useradd bob -m -s /usr/bin/toolbox -U -G sudo,docker,rkt
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Now when SSHing into the system as that user, toolbox will automatically be started:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -454,26 +448,26 @@ listening on ens3, link-type EN10MB <span class="o">(</span>Ethernet<span class=
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ ssh bob@hostname.example.com
-Container Linux by CoreOS alpha (1284.0.0)
-...
-Spawning container bob-fedora-latest on /var/lib/toolbox/bob-fedora-latest.
-Press ^] three times within 1s to kill container.
-[root@localhost ~]# dnf -y install emacs-nox
-...
-[root@localhost ~]# emacs /media/root/etc/systemd/system/docker.service
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ ssh bob@hostname.example.com
+</span></span><span class="line"><span class="cl">Container Linux by CoreOS alpha <span class="o">(</span>1284.0.0<span class="o">)</span>
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl">Spawning container bob-fedora-latest on /var/lib/toolbox/bob-fedora-latest.
+</span></span><span class="line"><span class="cl">Press ^<span class="o">]</span> three <span class="nb">times</span> within 1s to <span class="nb">kill</span> container.
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@localhost ~<span class="o">]</span><span class="c1"># dnf -y install emacs-nox</span>
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@localhost ~<span class="o">]</span><span class="c1"># emacs /media/root/etc/systemd/system/docker.service</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="install-docker-compose">Install docker-compose</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">mkdir -p /opt/bin
-curl -L <span class="s2">&#34;https://github.com/docker/compose/releases/download/1.24.0/docker-compose-</span><span class="k">$(</span>uname -s<span class="k">)</span><span class="s2">-</span><span class="k">$(</span>uname -m<span class="k">)</span><span class="s2">&#34;</span> -o /opt/bin/docker-compose
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mkdir -p /opt/bin
+</span></span><span class="line"><span class="cl">curl -L <span class="s2">&#34;https://github.com/docker/compose/releases/download/1.24.0/docker-compose-</span><span class="k">$(</span>uname -s<span class="k">)</span><span class="s2">-</span><span class="k">$(</span>uname -m<span class="k">)</span><span class="s2">&#34;</span> -o /opt/bin/docker-compose
+</span></span></code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -487,7 +481,7 @@ curl -L <span class="s2">&#34;https://github.com/docker/compose/releases/downloa
 
     <footer class="post-footer">
       <div class="post-tags">
-          <a href="https://tosone.cn/tags/linux/">Linux</a>
+          <a href="https://www.tosone.cn/tags/linux/">Linux</a>
           
         </div>
 
@@ -587,7 +581,7 @@ curl -L <span class="s2">&#34;https://github.com/docker/compose/releases/downloa
     </a>
 
 
-<a href="https://tosone.cn/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+<a href="https://www.tosone.cn/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
     class="iconfont" title="rss" target="_blank">
     <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -612,7 +606,7 @@ curl -L <span class="s2">&#34;https://github.com/docker/compose/releases/downloa
     &copy;
     
       2016 -
-    2020
+    2022
     <span class="heart">
       
       <i class="iconfont">
@@ -632,6 +626,10 @@ curl -L <span class="s2">&#34;https://github.com/docker/compose/releases/downloa
   
   
 
+  
+    <span>
+      <a href="http://beian.miit.gov.cn" target="_blank">豫ICP备16023221号</a>
+    </span>
   
 </div>
 
