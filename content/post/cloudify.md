@@ -133,4 +133,4 @@ curl -X GET \
 }
 ```
 
-[^1]: Cloudify REST API V3.1 https://docs.cloudify.co/api/v3.1/#cloudify-rest-api-v3-1
+[^1]: Cloudify REST API V3.1 <https://docs.cloudify.co/api/v3.1/#cloudify-rest-api-v3-1>
