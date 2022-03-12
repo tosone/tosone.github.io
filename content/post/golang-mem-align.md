@@ -16,8 +16,6 @@ author: "Tosone"
 
 数据结构应该尽可能地在自然边界上对齐。如果访问未对齐的内存，CPU需要做两次内存访问。
 
-> 原文链接：[https://xie.infoq.cn/article/594a7f54c639accb53796cfc7](https://xie.infoq.cn/article/594a7f54c639accb53796cfc7)
-
 <!--more-->
 
 下面是腾讯的面试题：

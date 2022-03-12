@@ -1,5 +1,5 @@
 ---
-title: "[转] NodeJs 的那点历史"
+title: "NodeJs 的那点历史"
 date: 2019-11-12T22:01:55+08:00
 draft: false
 contentCopyright: false
@@ -11,21 +11,19 @@ tags: [ "NodeJs" ]
 
 <!--more-->
 
-> 原文链接: [https://www.infoq.cn/article/node-js-and-io-js/](https://www.infoq.cn/article/node-js-and-io-js/)
-
 自从 JavaScript 被 Brendan Eich 创造出来后，除了应用在浏览器中作为重要的补充外，人类从来就没有放弃过将 JavaScript 应用到服务端的想法。这些努力从 livewired 项目（1994 年 12 月）开始，就从来没有停止过。如果你不知道 livewired，那应该知道 ASP 中可以使用 JScript 语言（1996 年），或者 Rhino。但直到 2009 年，这些服务端 JavaScript 技术与同样应用在服务端的 Java、PHP 相比，显得相对失色。
 
 谈到 Node.js 的由来，不可避免要聊到它的创始人 Ryan Dahl。在 2009 年时，服务端 JavaScript 迎来了它的拐点，因为 Ryan Dahl 带来了 Node.js，在那之后 Node.js 将服务端 JavaScript 带入了新的境地，大量的 JavaScript 在 GitHub 上被贡献出来，大量的 JavaScript 模块出现，出现了真正的繁荣。
 
 Node.js 不是凭空出现的项目，也不是某个 Web 前端工程师为了完成将 JavaScript 应用到服务端的理想而在实验室里捣鼓出来的。它的出现主要归功于 Ryan Dahl 历时多年的研究，以及一个恰到好处的节点。2008 年 V8 随着 Chrome 浏览器的出世，JavaScript 脚本语言的执行效率得到质的提升，这给 Ryan Dahl 带来新的启示，他原本的研究工作与 V8 之间碰撞出火花，于是带来了一个基于事件的高性能 Web 服务器。
 
-![](https://tc.tosone.cn/20191112221504.png)
+![img](https://tc.tosone.cn/20191112221504.png)
 
 上图为 Node.js 创始人 Ryan Dahl。
 
 Ryan Dahl 的经历比较奇特，他并非科班出身的开发者，在 2004 年的时候他还在纽约的罗彻斯特大学数学系读博士，期间有研究一些分形、分类以及 p-adic 分析，这些都跟开源和编程没啥关系。2006 年，也许是厌倦了读博的无聊，他产生了『世界那么大，我想去看看』的念头，做出了退学的决定，然后一个人来到智利的 Valparaiso 小镇。那时候他尚不知道找一个什么样的工作来糊口，期间他曾熬夜做了一些不切实际的研究，如如何通过云进行通信。下面是这个阶段他产出的中间产物，与后来苹果发布的 iCloud 似乎有那么点相似。
 
-![](https://tc.tosone.cn/20191112221520.png)
+![img](https://tc.tosone.cn/20191112221520.png)
 
 从那起，Ryan Dahl 不知道是否因为生活的关系，他开始学习网站开发了，走上了码农的道路。那时候 Ruby on Rails 很火，他也不例外的学习了它。从那时候开始，Ryan Dahl 的生活方式就是接项目，然后去客户的地方工作，在他眼中，拿工资和上班其实就是去那里旅行。此后他去过很多地方，如阿根廷的布宜诺斯艾利斯、德国的科隆、奥地利的维也纳。
 
@@ -69,7 +67,7 @@ Node.js 成为 Joyent 公司的项目后，Joyent 公司对该项目的贡献非
 
 在 2014 年 8 月，以 Mikeal Rogers 为首，几个重要 core contributor 一起发起了一个叫做“Node forword”的组织。该组织致力于发起一个由社区自己驱动来提升 Node、JavaScript 和整个生态的项目。
 
-![](https://tc.tosone.cn/20191112221727.png)
+![img](https://tc.tosone.cn/20191112221727.png)
 
 “Node forword”可以视作是 io.js 的前身。这些 core contributor 们在“Node forword”上工作了一段时间，后来因为可能涉及到 Node 这个商标问题，Fedor Indutny 愤而 fork 了 Node.js，改名为 io.js，宣告了 Node.js 社区的正式分裂。
 
@@ -79,7 +77,7 @@ Node.js 成为 Joyent 公司的项目后，Joyent 公司对该项目的贡献非
 
 在“Node Forward”的进展期间，社区成员们一起沟通出了一个基本的开放的管理模式。这个模式在 io.js 期间得到体现。
 
-![](https://tc.tosone.cn/20191112221815.png)
+![img](https://tc.tosone.cn/20191112221815.png)
 
 io.js 的开放管理模式主要体现在以下方面：
 
@@ -96,7 +94,7 @@ io.js 项目从 fork 之后，于 2015-01-14 发布了 v1.0.0 版本。自此 io
 
 基本上而言原本应该属于 Node.js 项目的活力现在都在 io.js 项目这里。如果没有其他事情的发生，io.js 可以算作社区驱动开源项目的成功案例了。
 
-当然，尽管在 Node.js 这边进展缓慢，但 Joyent 方面还是做出了他们的努力。在“Node Forward”讨论期间，Joyent 成立了临时的 Node.js 顾问委员会 https://nodejs.org/about/advisory-board/ 。顾问委员会的主要目标与“Node Forward”的想法比较类似，想借助顾问委员会的形式来产出打造一个更加开放的管理模式，以找到办法来平衡所有成员的需要，为各方提供一个平台来投入资源到 Node.js 项目。
+当然，尽管在 Node.js 这边进展缓慢，但 Joyent 方面还是做出了他们的努力。在“Node Forward”讨论期间，Joyent 成立了临时的 Node.js 顾问委员会 <https://nodejs.org/about/advisory-board/> 。顾问委员会的主要目标与“Node Forward”的想法比较类似，想借助顾问委员会的形式来产出打造一个更加开放的管理模式，以找到办法来平衡所有成员的需要，为各方提供一个平台来投入资源到 Node.js 项目。
 
 顾问委员会中邀请了很多重要的 Contributor 和一些 Node.js 重度用户的参与。开了几次会议来进行探讨和制定新的管理模式。于是就出现了一边是 io.js 如火如荼发布版本，Joyent 这边则是开会讨论的情况。顾问委员会调研了 IBM（Eclipse）、Linux 基金会、Apache 等，决定成立 Node.js 基金会的形式。
 
@@ -110,7 +108,7 @@ io.js 项目从 fork 之后，于 2015-01-14 发布了 v1.0.0 版本。自此 io
 
 io.js 项目在技术方面的成熟度显然要比最初的 Gatekeeper 时代要更为先进，给予贡献者更多的管理权利。然而在市场和法律方面，还略显幼稚。最终无论是顾问委员会，还是 io.js 都选定以基金会的形式存在。这个基金会参考 Linux 基金会的形式，由董事会和技术委员会组成，董事会负责市场和法律方面的事务，技术委员会负责技术方向。
 
-![](https://tc.tosone.cn/20191112222041.png)
+![img](https://tc.tosone.cn/20191112222041.png)
 
 就像《三国演义》所述：天下大势，合久必分，分久必合。Node.js 项目也从 Joyent 公司的怀里走出来，成长为基金会的形式，进入这个项目生命周期里第三个阶段。
 
@@ -120,7 +118,7 @@ io.js 项目在技术方面的成熟度显然要比最初的 Gatekeeper 时代�
 
 Node.js 处于停滞状态的开发和 io.js 的活跃情况之间，目前免不了大量的 Merge 工作。作为和解的条件之一，Node.js 基金会之后 Node 版本的发布将基于目前 io.js 的进展来进行。后续的合并工作示意如下：
 
-![](https://tc.tosone.cn/20191112222140.jpg)
+![img](https://tc.tosone.cn/20191112222140.jpg)
 
 在未完成合并之前，io.js 会继续保持发布。Node.js 的下个大版本跨过 1.0，直接到 2.0。
 
@@ -134,15 +132,15 @@ io.js 项目的 TC 将被邀请加入 Node.js 基金会的 TC，毕竟两者在�
 
 ### 参考文档
 
-- https://github.com/joyent/node/issues/9295
-- https://github.com/iojs/io.js/issues/978
-- https://github.com/iojs/io.js/issues/1336
-- https://github.com/iojs/io.js/issues/1416
-- https://github.com/iojs/io.js/labels/meta
-- http://blog.nodejs.org/2015/05/08/transitions/
-- http://blog.nodejs.org/2015/05/08/next-chapter/
-- https://github.com/iojs/io.js/issues/1664
-- http://tinyclouds.org/nodeconf2012.pdf
-- https://www.joyent.com/blog/introducing-the-nodejs-foundation
-- http://blog.nodejs.org/2015/05/15/node-leaders-are-building-an-open-foundation/
-- https://medium.com/node-js-javascript/growing-up-27d6cc8b7c53
+- <https://github.com/joyent/node/issues/9295>
+- <https://github.com/iojs/io.js/issues/978>
+- <https://github.com/iojs/io.js/issues/1336>
+- <https://github.com/iojs/io.js/issues/1416>
+- <https://github.com/iojs/io.js/labels/meta>
+- <http://blog.nodejs.org/2015/05/08/transitions/>
+- <http://blog.nodejs.org/2015/05/08/next-chapter/>
+- <https://github.com/iojs/io.js/issues/1664>
+- <http://tinyclouds.org/nodeconf2012.pdf>
+- <https://www.joyent.com/blog/introducing-the-nodejs-foundation>
+- <http://blog.nodejs.org/2015/05/15/node-leaders-are-building-an-open-foundation/>
+- <https://medium.com/node-js-javascript/growing-up-27d6cc8b7c53>
