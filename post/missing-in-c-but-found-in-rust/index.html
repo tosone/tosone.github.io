@@ -70,7 +70,7 @@
 <meta itemprop="name" content="[转载] 那些 C 语言缺失的，我在 Rust 里找到了">
 <meta itemprop="description" content="我大概在 24 年前就爱上了 C 语言。当时，我通过一本西班牙语版的 &ldquo;The C Programming Language&rdquo;（第二版，作者是 Brian Kernighan 和 Dennis Ritchie，所以有时候也用 K&amp;R 来称呼这本书）来学习 C 语言。在这之前，我用过 Turbo Pascal，它也有指针，也需要手动管理内存，而 C 语言在当时是新生事物，但十分强大。"><meta itemprop="datePublished" content="2018-03-11T20:14:28+00:00" />
 <meta itemprop="dateModified" content="2018-03-11T20:14:28+00:00" />
-<meta itemprop="wordCount" content="3266">
+<meta itemprop="wordCount" content="3128">
 <meta itemprop="keywords" content="Rust,C," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="[转载] 那些 C 语言缺失的，我在 Rust 里找到了"/>
 <meta name="twitter:description" content="我大概在 24 年前就爱上了 C 语言。当时，我通过一本西班牙语版的 &ldquo;The C Programming Language&rdquo;（第二版，作者是 Brian Kernighan 和 Dennis Ritchie，所以有时候也用 K&amp;R 来称呼这本书）来学习 C 语言。在这之前，我用过 Turbo Pascal，它也有指针，也需要手动管理内存，而 C 语言在当时是新生事物，但十分强大。"/>
@@ -301,12 +301,6 @@
     
     <div class="post-content">
       <p>我大概在 24 年前就爱上了 C 语言。当时，我通过一本西班牙语版的 &ldquo;The C Programming Language&rdquo;（第二版，作者是 Brian Kernighan 和 Dennis Ritchie，所以有时候也用 K&amp;R 来称呼这本书）来学习 C 语言。在这之前，我用过 Turbo Pascal，它也有指针，也需要手动管理内存，而 C 语言在当时是新生事物，但十分强大。</p>
-<blockquote>
-<p>原文链接：<a href="http://www.infoq.com/cn/articles/rust-things-i-miss-in-c">http://www.infoq.com/cn/articles/rust-things-i-miss-in-c</a></p>
-</blockquote>
-<blockquote>
-<p>英文原文链接：<a href="https://people.gnome.org/~federico/blog/rust-things-i-miss-in-c.html">https://people.gnome.org/~federico/blog/rust-things-i-miss-in-c.html</a></p>
-</blockquote>
 <h3 id="c-语言挽歌">C 语言挽歌</h3>
 <p>我大概在 24 年前就爱上了 C 语言。当时，我通过一本西班牙语版的 &ldquo;The C Programming Language&rdquo;（第二版，作者是 Brian Kernighan 和 Dennis Ritchie，所以有时候也用 K&amp;R 来称呼这本书）来学习 C 语言。在这之前，我用过 Turbo Pascal，它也有指针，也需要手动管理内存，而 C 语言在当时是新生事物，但十分强大。</p>
 <p>K&amp;R 因其独特的文风和简洁明了的代码风格而闻名。它甚至还教你如何自己实现简单的 <code>malloc()</code> 和 <code>free()</code> 函数，这实在太有意思了。而且，这门语言本身的一些特性也可以通过自身来实现。</p>
@@ -334,7 +328,7 @@
 如果在写代码时老是忘记调用这些方法（free/close/destroy），或者发现以前写的代码已经忘记调用，甚至错误地调用，那么以后我再也不想使用这些方法了。</li>
 </ul>
 <h3 id="泛型">泛型</h3>
-<p>Vec<!-- raw HTML omitted --> 真的就是元素 T 的 vector，而不只是对象指针的数组。在经过编译之后，它只能用来存放类型 T 的对象。</p>
+<p><code>Vec&lt;T&gt;</code> 真的就是元素 T 的 vector，而不只是对象指针的数组。在经过编译之后，它只能用来存放类型 T 的对象。</p>
 <p>在 C 语言里需要些很多代码才能实现类似的功能，所以我不想再这么干了。</p>
 <h3 id="trait-不只是-interface">trait 不只是 interface</h3>
 <p>Rust 并不是一门类似 Java 那样的面向对象编程语言，它有 trait，看起来就像是 Java 里的 interface 可以用来实现动态绑定。如果一个对象实现了 Drawable，那么就可以肯定该对象带有 <code>draw()</code> 方法。</p>
