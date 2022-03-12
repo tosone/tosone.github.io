@@ -52,7 +52,7 @@ services:
       traefik.enable: true
       traefik.frontend.rule: "Host:traefik.tosone.cn"
       # get md5 from htpasswd or http://www.htaccesstools.com/htpasswd-generator/
-      # and then double all $ to $$ to avoid docker-compose 
+      # and then double all $ to $$ to avoid docker-compose
       traefik.frontend.auth.basic: "tosone:$$apr1$$2DvxBXHm$$7iRM18fGqs30h2r0gDZK0/"
       traefik.port: 8080
 networks:
@@ -117,7 +117,7 @@ OK，这时候再启动你的 gitea，然后把相应的域名解析到你的服
 
 还不满足，Git 的 ssh 功能还不能用，因为服务器的 22 端口和这个 service 需要监听的端口是冲突的，那么需要一边让路。这个端口做不到复用，这里的方案是服务器的 ssh 端口为 git ssh 端口让步。OK，上边的那个 docker-compose.yml 文件不需要任何修改，修改本机的 `/etc/ssh/sshd_config` 里边有个关于 `Port` 的配置修改为其他端口，暂且认为你修改成了 10，然后重启 `sshd` 的服务 `systemctl restart sshd`，OK，现在 gitea 的 SSH 22 端口的服务是可以使用了，但是有个后遗症，导致我们以后登录服务器需要用这样的命令登陆 `ssh -p 10 user@10.10.10.10`，每次需要我们手动指定这个端口号，有些人会受不了，可以这么做，修改你本地的 `$HOME/.ssh/config` 这个文件，添加如下内容：
 
-```
+``` ini
 Host my_saoqi_host
     Hostname 10.10.10.10
     User user
@@ -144,7 +144,7 @@ ossutil64 的文档在[这里](https://www.alibabacloud.com/help/zh/doc-detail/5
 
 OK，到这里配置做完了，每次你启动服务只需要运行如下两个命令：
 
-```
+``` bash
 make traefik
 make gitea
 ```

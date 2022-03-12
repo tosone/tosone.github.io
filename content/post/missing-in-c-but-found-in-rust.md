@@ -11,10 +11,6 @@ contentCopyright: false
 
 <!--more-->
 
-> 原文链接：[http://www.infoq.com/cn/articles/rust-things-i-miss-in-c](http://www.infoq.com/cn/articles/rust-things-i-miss-in-c)
-
-> 英文原文链接：[https://people.gnome.org/~federico/blog/rust-things-i-miss-in-c.html](https://people.gnome.org/~federico/blog/rust-things-i-miss-in-c.html)
-
 ### C 语言挽歌
 
 我大概在 24 年前就爱上了 C 语言。当时，我通过一本西班牙语版的 "The C Programming Language"（第二版，作者是 Brian Kernighan 和 Dennis Ritchie，所以有时候也用 K&R 来称呼这本书）来学习 C 语言。在这之前，我用过 Turbo Pascal，它也有指针，也需要手动管理内存，而 C 语言在当时是新生事物，但十分强大。
@@ -63,7 +59,7 @@ GIMP 和 GTK+ 让我学会了如何使用 C 语言来实现面向对象编程，
 
 ### 泛型
 
-Vec<T> 真的就是元素 T 的 vector，而不只是对象指针的数组。在经过编译之后，它只能用来存放类型 T 的对象。
+`Vec<T>` 真的就是元素 T 的 vector，而不只是对象指针的数组。在经过编译之后，它只能用来存放类型 T 的对象。
 
 在 C 语言里需要些很多代码才能实现类似的功能，所以我不想再这么干了。
 

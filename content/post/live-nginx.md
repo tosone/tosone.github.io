@@ -15,21 +15,21 @@ contentCopyright: false
 
 ### Nginx 的编译安装
 
-  - 在服务器上下载以下源码，截至目前这些包都是最新的：
-    - 下载 Nginx 的源码 [链接](https://nginx.org/download/nginx-1.10.1.zip)
-    - 下载 pcre 的源码 [链接](ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.39.tar.gz)
-    - 下载 zlib 的源码 [链接](https://nginx.org/download/nginx-1.10.1.zip)
-    - 下载 openssl 的源码 [链接](https://nginx.org/download/nginx-1.10.1.zip)
-    - 下载 nginx-rtmp-module 的源码 [链接](https://github.com/arut/nginx-rtmp-module)
-  - 下载完了之后你的目录结构应该是这样的，顺序的罗列在某个文件夹下：
-    - nginx
-    - pcre
-    - openssl
-    - zlib
-    - nginx-rtmp-module
-  - 编译
-    - 进入 pcre 的目录执行命令 `./configure && make && make install`。
-    - 进入 nginx 的目录执行命令
+- 在服务器上下载以下源码，截至目前这些包都是最新的：
+  - 下载 Nginx 的源码 [链接](https://nginx.org/download/nginx-1.10.1.zip)
+  - 下载 pcre 的源码 [链接](ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.39.tar.gz)
+  - 下载 zlib 的源码 [链接](https://nginx.org/download/nginx-1.10.1.zip)
+  - 下载 openssl 的源码 [链接](https://nginx.org/download/nginx-1.10.1.zip)
+  - 下载 nginx-rtmp-module 的源码 [链接](https://github.com/arut/nginx-rtmp-module)
+- 下载完了之后你的目录结构应该是这样的，顺序的罗列在某个文件夹下：
+  - nginx
+  - pcre
+  - openssl
+  - zlib
+  - nginx-rtmp-module
+- 编译
+  - 进入 pcre 的目录执行命令 `./configure && make && make install`。
+  - 进入 nginx 的目录执行命令
 
 ``` bash
 ./configure --add-module=../nginx-rtmp-module --with-http_ssl_module  --with-openssl=../openssl --with-zlib=../zlib
@@ -37,9 +37,9 @@ make
 make install
 ```
 
-  - 运行
-    - 安装好的nginx都在 `/usr/local/nginx` 中。
-    - 修改 `/usr/local/nginx/conf/nginx.conf` 文件内容:
+- 运行
+  - 安装好的nginx都在 `/usr/local/nginx` 中。
+  - 修改 `/usr/local/nginx/conf/nginx.conf` 文件内容:
 
 ``` apacheConf
 worker_processes  1;
@@ -84,12 +84,13 @@ http {
 ```
 
 ### 推流与观看
-  - 推流
-    - 向服务端推送直播的内容，可以用比较流行的 [OBS](https://obsproject.com/)，当然在网上搜一下一些ffmpeg的命令也是可以的。
-    - 设置广播设定为 `rtmp://ServerIP:1935/live`。
-    - 设置播放路径串流码为 `test`。
-    - 选择一个场景开始串流。
-  - 观看
-    - 就用大名鼎鼎的 [VLC](http://www.videolan.org/vlc/)
-    - 设置 打开媒体 -> 打开网络 `rtmp://ServerIP/live/test`
-    - VLC 也是有手机版的，是同样。
+
+- 推流
+  - 向服务端推送直播的内容，可以用比较流行的 [OBS](https://obsproject.com/)，当然在网上搜一下一些ffmpeg的命令也是可以的。
+  - 设置广播设定为 `rtmp://ServerIP:1935/live`。
+  - 设置播放路径串流码为 `test`。
+  - 选择一个场景开始串流。
+- 观看
+  - 就用大名鼎鼎的 [VLC](http://www.videolan.org/vlc/)
+  - 设置 打开媒体 -> 打开网络 `rtmp://ServerIP/live/test`
+  - VLC 也是有手机版的，是同样。

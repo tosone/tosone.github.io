@@ -8,14 +8,13 @@ contentCopyright: false
 ---
 
 > Kubernetes[^k8s] is an open-source system for automating deployment, scaling, and management of containerized applications.
-
 > It groups containers that make up an application into logical units for easy management and discovery. Kubernetes builds upon 15 years of experience of running production workloads at Google, combined with best-of-breed ideas and practices from the community.
 
 <!--more-->
 
 __Kubernetes__ 典型的结构图：
 
-![](https://tc.tosone.cn/20190703175351.png)
+![img](https://tc.tosone.cn/20190703175351.png)
 
 按照角色划分，Kubernetes 和绝大多数分布式系统一样，分为 Master 和 Slave 两类。其中 Master 是整个系统的控制中心，是大脑；而 Slave 是分布在各个节点的工作单元。
 
@@ -144,8 +143,8 @@ spec:
 - 警告管理。
 - 自动伸缩。
 
-[^k8s]: Kubernetes Production-Grade Container Orchestration https://kubernetes.io/
-[^kube-scheduler]: Kubernetes 调度器 kube-scheduler https://zhuanlan.zhihu.com/p/56088355
-[^kube-proxy]: kubernetes 简介：service 和 kube-proxy 原理 https://cizixs.com/2017/03/30/kubernetes-introduction-service-and-kube-proxy/
-[^Deployment]: Kubernetes核心概念总结 https://www.cnblogs.com/zhenyuyaodidiao/p/6500720.html
-[^sample]: Getting Started with Kubernetes Ingress-Nginx on Minikube https://medium.com/@awkwardferny/getting-started-with-kubernetes-ingress-nginx-on-minikube-d75e58f52b6c
+[^k8s]: Kubernetes Production-Grade Container Orchestration <https://kubernetes.io/>
+[^kube-scheduler]: Kubernetes 调度器 kube-scheduler <https://zhuanlan.zhihu.com/p/56088355>
+[^kube-proxy]: kubernetes 简介：service 和 kube-proxy 原理 <https://cizixs.com/2017/03/30/kubernetes-introduction-service-and-kube-proxy/>
+[^Deployment]: Kubernetes核心概念总结 <https://www.cnblogs.com/zhenyuyaodidiao/p/6500720.html>
+[^sample]: Getting Started with Kubernetes Ingress-Nginx on Minikube <https://medium.com/@awkwardferny/getting-started-with-kubernetes-ingress-nginx-on-minikube-d75e58f52b6c>
