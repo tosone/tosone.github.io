@@ -1,10 +1,16 @@
 <!DOCTYPE html>
-<html lang="en" itemscope itemtype="http://schema.org/WebPage">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Tosone&#39;s Blog</title>
-  
+<html
+  lang="en"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          Tosone&#39;s Blog
+        </title>
+    
 
 <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
@@ -31,7 +37,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.93.2" />
+<meta name="generator" content="Hugo 0.113.0" />
 
 
 <link rel="canonical" href="https://www.tosone.cn/" />
@@ -52,7 +58,9 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.fa4b2b9f31b5c6d0b683db81157a9226e17b06e61911791ab547242a4a0556f2.css" integrity="sha256-&#43;ksrnzG1xtC2g9uBFXqSJuF7BuYZEXkatUckKkoFVvI=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
 
 
 
@@ -62,7 +70,6 @@
 <meta property="og:description" content="Tosone&#39;s blog" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://www.tosone.cn/" />
-
 <meta itemprop="name" content="Tosone&#39;s Blog">
 <meta itemprop="description" content="Tosone&#39;s blog"><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Tosone&#39;s Blog"/>
@@ -80,9 +87,11 @@
 
 
 
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
   <div class="mobile-header-logo">
     <a href="/" class="logo">Tosone</a>
   </div>
@@ -130,8 +139,8 @@
 </nav>
 
 
-  
     
+      
 
 
 
@@ -188,14 +197,15 @@
     </div>
 </div>
 
-  
+    
 
-  
+    
 
-  
+    
 
-  <header id="header" class="header container">
-    <div class="logo-wrapper">
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
   <a href="/" class="logo">
     
       Tosone
@@ -259,13 +269,11 @@
   </ul>
 </nav>
 
-  </header>
+    </header>
 
-  <div id="mobile-panel">
-    <main id="main" class="main bg-llight">
-      <div class="content-wrapper">
-        <div id="content" class="content container">
-          
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        
 <section id="posts" class="posts">
   
   
@@ -273,350 +281,600 @@
   
   
   
-    <article class="post bg-white">
+    <article class="post">
   <header class="post-header">
     <h1 class="post-title">
       
       <a class="post-link" href="/post/golang-mem-align/">Golang Memory Align</a>
     </h1>
     
+
     <div class="post-meta">
-      <time datetime="2020-10-24" class="post-time">
-        2020-10-24
-      </time>
-      <div class="post-category">
-          <a href="https://www.tosone.cn/categories/develop/"> Develop </a>
+  <div class="post-meta-author">
+    by
+      Tosone
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2020-10-24">
+      2020-10-24
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    
+
+    <div class="post-meta-category">
+        <a href="https://www.tosone.cn/categories/develop/"> Develop </a>
           
-        </div>
-      
-      
-      
-    </div>
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
   </header>
   
   <div class="post-content">
     
-    <div class="post-summary">
-      <p>操作系统并非一个字节一个字节访问内存，而是按 2, 4, 8 这样的字长来访问。因此，当 CPU 从存储器读数据到寄存器，或者从寄存器写数据到存储器，IO 的数据长度通常是字长。如 32 位系统访问粒度是 4 字节，64 位系统的是 8 字节。</p>
+      <div class="post-summary">
+        <p>操作系统并非一个字节一个字节访问内存，而是按 2, 4, 8 这样的字长来访问。因此，当 CPU 从存储器读数据到寄存器，或者从寄存器写数据到存储器，IO 的数据长度通常是字长。如 32 位系统访问粒度是 4 字节，64 位系统的是 8 字节。</p>
 <p>当被访问的数据长度为 n 字节且该数据地址为n字节对齐，那么操作系统就可以高效地一次定位到数据，无需多次读取、处理对齐运算等额外操作。</p>
 <p>数据结构应该尽可能地在自然边界上对齐。如果访问未对齐的内存，CPU需要做两次内存访问。</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/golang-mem-align/" class="read-more-link">Read more</a>
-    </div>
+      </div>
+      <div class="read-more">
+        <a href="/post/golang-mem-align/" class="read-more-link"
+          >Read more</a
+        >
+      </div>
     
   </div>
 </article>
 
   
-    <article class="post bg-white">
+    <article class="post">
   <header class="post-header">
     <h1 class="post-title">
       
       <a class="post-link" href="/post/node-iojs/">NodeJs 的那点历史</a>
     </h1>
     
+
     <div class="post-meta">
-      <time datetime="2019-11-12" class="post-time">
-        2019-11-12
-      </time>
-      <div class="post-category">
-          <a href="https://www.tosone.cn/categories/coding/"> Coding </a>
+  <div class="post-meta-author">
+    by
+      Tosone
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2019-11-12">
+      2019-11-12
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    
+
+    <div class="post-meta-category">
+        <a href="https://www.tosone.cn/categories/coding/"> Coding </a>
           
-        </div>
-      
-      
-      
-    </div>
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
   </header>
   
   <div class="post-content">
     
-    <div class="post-summary">
-      <p>2014 年 12 月，多位重量级 Node.js 开发者不满 Joyent 对 Node.js 的管理，自立门户创建了 io.js。io.js 的发展速度非常快，先是于 2015 年 1 月份发布了 1.0 版本，并且很快就达到了 2.0 版本，社区非常活跃。而最近 io.js 社区又宣布，这两个项目将合并到 Node 基金会下，并暂时由 Node.js 和 io.js 核心技术团队联合监督”运营。本文将聊一聊Node.js 项目的一些历史情况，与 io.js 项目之间的恩怨纠葛，他们将来的发展去向。希望能从历史的层面去了解这个开源项目在运营模式上是如何演变和发展的。</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/node-iojs/" class="read-more-link">Read more</a>
-    </div>
+      <div class="post-summary">
+        <p>2014 年 12 月，多位重量级 Node.js 开发者不满 Joyent 对 Node.js 的管理，自立门户创建了 io.js。io.js 的发展速度非常快，先是于 2015 年 1 月份发布了 1.0 版本，并且很快就达到了 2.0 版本，社区非常活跃。而最近 io.js 社区又宣布，这两个项目将合并到 Node 基金会下，并暂时由 Node.js 和 io.js 核心技术团队联合监督”运营。本文将聊一聊Node.js 项目的一些历史情况，与 io.js 项目之间的恩怨纠葛，他们将来的发展去向。希望能从历史的层面去了解这个开源项目在运营模式上是如何演变和发展的。</p>
+      </div>
+      <div class="read-more">
+        <a href="/post/node-iojs/" class="read-more-link"
+          >Read more</a
+        >
+      </div>
     
   </div>
 </article>
 
   
-    <article class="post bg-white">
+    <article class="post">
   <header class="post-header">
     <h1 class="post-title">
       
       <a class="post-link" href="/post/gitea/">Gitea</a>
     </h1>
     
+
     <div class="post-meta">
-      <time datetime="2019-10-23" class="post-time">
-        2019-10-23
-      </time>
-      <div class="post-category">
-          <a href="https://www.tosone.cn/categories/config/"> Config </a>
+  <div class="post-meta-author">
+    by
+      Tosone
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2019-10-23">
+      2019-10-23
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    
+
+    <div class="post-meta-category">
+        <a href="https://www.tosone.cn/categories/config/"> Config </a>
           
-        </div>
-      
-      
-      
-    </div>
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
   </header>
   
   <div class="post-content">
     
-    <div class="post-summary">
-      <p>A painless self-hosted Git service. Gitea is a community managed lightweight code hosting solution written in Go.</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/gitea/" class="read-more-link">Read more</a>
-    </div>
+      <div class="post-summary">
+        <p>A painless self-hosted Git service. Gitea is a community managed lightweight code hosting solution written in Go.</p>
+      </div>
+      <div class="read-more">
+        <a href="/post/gitea/" class="read-more-link"
+          >Read more</a
+        >
+      </div>
     
   </div>
 </article>
 
   
-    <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/post/ss-nginx/">High available shadowsocks</a>
-    </h1>
-    
-    <div class="post-meta">
-      <time datetime="2019-10-23" class="post-time">
-        2019-10-23
-      </time>
-      <div class="post-category">
-          <a href="https://www.tosone.cn/categories/config/"> Config </a>
-          
-        </div>
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      <p>我们都知道国内总有一些 404 的网站，但是某些有技术的人总能访问到一些不存在的网站，这个在之前的文章中有说，有这<a href="https://tosone.cn/post/shadowsocks-ppt/">一篇</a>，也有这<a href="https://tosone.cn/post/shadowsocks/">一篇</a>，但是每到一些关键节日，某些技术比较不是特别强的人只能等比较严格的网络封锁过去之后才能再去访问那些网站，但是有没有一种永远可用特别高级的方式呢？答案是有的。快看！</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/ss-nginx/" class="read-more-link">Read more</a>
-    </div>
-    
-  </div>
-</article>
-
-  
-    <article class="post bg-white">
+    <article class="post">
   <header class="post-header">
     <h1 class="post-title">
       
       <a class="post-link" href="/post/leetcode-c-c&#43;&#43;/">LeetCode C/C&#43;&#43;</a>
     </h1>
     
+
     <div class="post-meta">
-      <time datetime="2019-07-20" class="post-time">
-        2019-07-20
-      </time>
-      <div class="post-category">
-          <a href="https://www.tosone.cn/categories/develop/"> Develop </a>
+  <div class="post-meta-author">
+    by
+      Tosone
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2019-07-20">
+      2019-07-20
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    
+
+    <div class="post-meta-category">
+        <a href="https://www.tosone.cn/categories/develop/"> Develop </a>
           
-        </div>
-      
-      
-      
-    </div>
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
   </header>
   
   <div class="post-content">
     
-    <div class="post-summary">
-      <p>LeetCode 上做一些 C/C++ 的算法的时候总会出现一些奇奇怪怪的问题。如何在本地的时候把问题解决解决或者 Debug 出来呢？</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/leetcode-c-c&#43;&#43;/" class="read-more-link">Read more</a>
-    </div>
+      <div class="post-summary">
+        <p>LeetCode 上做一些 C/C++ 的算法的时候总会出现一些奇奇怪怪的问题。如何在本地的时候把问题解决解决或者 Debug 出来呢？</p>
+      </div>
+      <div class="read-more">
+        <a href="/post/leetcode-c-c&#43;&#43;/" class="read-more-link"
+          >Read more</a
+        >
+      </div>
     
   </div>
 </article>
 
   
-    <article class="post bg-white">
+    <article class="post">
   <header class="post-header">
     <h1 class="post-title">
       
       <a class="post-link" href="/post/homebrew/">Mac 下更换 Homebrew 镜像源</a>
     </h1>
     
+
     <div class="post-meta">
-      <time datetime="2019-07-20" class="post-time">
-        2019-07-20
-      </time>
-      <div class="post-category">
-          <a href="https://www.tosone.cn/categories/macos/"> Macos </a>
+  <div class="post-meta-author">
+    by
+      Tosone
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2019-07-20">
+      2019-07-20
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    
+
+    <div class="post-meta-category">
+        <a href="https://www.tosone.cn/categories/macos/"> Macos </a>
           
-        </div>
-      
-      
-      
-    </div>
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
   </header>
   
   <div class="post-content">
     
-    <div class="post-summary">
-      <p>Mac 下更换 Homebrew 镜像源，加速软件的更新以及下载。</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/homebrew/" class="read-more-link">Read more</a>
-    </div>
+      <div class="post-summary">
+        <p>Mac 下更换 Homebrew 镜像源，加速软件的更新以及下载。</p>
+      </div>
+      <div class="read-more">
+        <a href="/post/homebrew/" class="read-more-link"
+          >Read more</a
+        >
+      </div>
     
   </div>
 </article>
 
   
-    <article class="post bg-white">
+    <article class="post">
   <header class="post-header">
     <h1 class="post-title">
       
       <a class="post-link" href="/post/cloudify/">Cloudify Tutorial</a>
     </h1>
     
+
     <div class="post-meta">
-      <time datetime="2019-07-20" class="post-time">
-        2019-07-20
-      </time>
-      <div class="post-category">
-          <a href="https://www.tosone.cn/categories/tutorial/"> Tutorial </a>
+  <div class="post-meta-author">
+    by
+      Tosone
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2019-07-20">
+      2019-07-20
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    
+
+    <div class="post-meta-category">
+        <a href="https://www.tosone.cn/categories/tutorial/"> Tutorial </a>
           
-        </div>
-      
-      
-      
-    </div>
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
   </header>
   
   <div class="post-content">
     
-    <div class="post-summary">
-      <blockquote>
+      <div class="post-summary">
+        <blockquote>
 <p>A single open source, end-to-end platform designed to transform network services and applications, connect branches, deploy and manage multi-access edge and IoT devices, break down silos and deliver all services on-demand – automatically, at scale.</p>
 </blockquote>
-    </div>
-    <div class="read-more">
-      <a href="/post/cloudify/" class="read-more-link">Read more</a>
-    </div>
+      </div>
+      <div class="read-more">
+        <a href="/post/cloudify/" class="read-more-link"
+          >Read more</a
+        >
+      </div>
     
   </div>
 </article>
 
   
-    <article class="post bg-white">
+    <article class="post">
   <header class="post-header">
     <h1 class="post-title">
       
       <a class="post-link" href="/post/kubernetes-tutorial/">Kubernetes Tutorial</a>
     </h1>
     
+
     <div class="post-meta">
-      <time datetime="2019-06-27" class="post-time">
-        2019-06-27
-      </time>
-      <div class="post-category">
-          <a href="https://www.tosone.cn/categories/tutorial/"> Tutorial </a>
+  <div class="post-meta-author">
+    by
+      Tosone
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2019-06-27">
+      2019-06-27
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    
+
+    <div class="post-meta-category">
+        <a href="https://www.tosone.cn/categories/tutorial/"> Tutorial </a>
           
-        </div>
-      
-      
-      
-    </div>
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
   </header>
   
   <div class="post-content">
     
-    <div class="post-summary">
-      <blockquote>
+      <div class="post-summary">
+        <blockquote>
 <p>Kubernetes<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> is an open-source system for automating deployment, scaling, and management of containerized applications.
 It groups containers that make up an application into logical units for easy management and discovery. Kubernetes builds upon 15 years of experience of running production workloads at Google, combined with best-of-breed ideas and practices from the community.</p>
 </blockquote>
-    </div>
-    <div class="read-more">
-      <a href="/post/kubernetes-tutorial/" class="read-more-link">Read more</a>
-    </div>
+      </div>
+      <div class="read-more">
+        <a href="/post/kubernetes-tutorial/" class="read-more-link"
+          >Read more</a
+        >
+      </div>
     
   </div>
 </article>
 
   
-    <article class="post bg-white">
+    <article class="post">
   <header class="post-header">
     <h1 class="post-title">
       
       <a class="post-link" href="/post/coreos-init/">CoreOS 初始化配置</a>
     </h1>
     
+
     <div class="post-meta">
-      <time datetime="2019-04-26" class="post-time">
-        2019-04-26
-      </time>
-      <div class="post-category">
-          <a href="https://www.tosone.cn/categories/config/"> Config </a>
+  <div class="post-meta-author">
+    by
+      Tosone
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2019-04-26">
+      2019-04-26
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    
+
+    <div class="post-meta-category">
+        <a href="https://www.tosone.cn/categories/config/"> Config </a>
           
-        </div>
-      
-      
-      
-    </div>
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
   </header>
   
   <div class="post-content">
     
-    <div class="post-summary">
-      <blockquote>
+      <div class="post-summary">
+        <blockquote>
 <p>Container Linux (formerly CoreOS Linux) is an open-source lightweight operating system based on the Linux kernel and designed for providing infrastructure to clustered deployments, while focusing on automation, ease of application deployment, security, reliability and scalability. As an operating system, Container Linux provides only the minimal functionality required for deploying applications inside software containers, together with built-in mechanisms for service discovery and configuration sharing.</p>
 </blockquote>
-    </div>
-    <div class="read-more">
-      <a href="/post/coreos-init/" class="read-more-link">Read more</a>
-    </div>
+      </div>
+      <div class="read-more">
+        <a href="/post/coreos-init/" class="read-more-link"
+          >Read more</a
+        >
+      </div>
     
   </div>
 </article>
 
   
-    <article class="post bg-white">
+    <article class="post">
   <header class="post-header">
     <h1 class="post-title">
       
       <a class="post-link" href="/post/golang-cgo-buffer/">Golang 中如何用 CGO 与 C 之间做一个缓存 Buffer</a>
     </h1>
     
+
     <div class="post-meta">
-      <time datetime="2018-11-05" class="post-time">
-        2018-11-05
-      </time>
-      <div class="post-category">
-          <a href="https://www.tosone.cn/categories/develop/"> Develop </a>
+  <div class="post-meta-author">
+    by
+      Tosone
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2018-11-05">
+      2018-11-05
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    
+
+    <div class="post-meta-category">
+        <a href="https://www.tosone.cn/categories/develop/"> Develop </a>
           
-        </div>
-      
-      
-      
-    </div>
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
   </header>
   
   <div class="post-content">
     
-    <div class="post-summary">
-      <p>Golang 和 C 之间如何传递二进制数据呢？</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/golang-cgo-buffer/" class="read-more-link">Read more</a>
-    </div>
+      <div class="post-summary">
+        <p>Golang 和 C 之间如何传递二进制数据呢？</p>
+      </div>
+      <div class="read-more">
+        <a href="/post/golang-cgo-buffer/" class="read-more-link"
+          >Read more</a
+        >
+      </div>
+    
+  </div>
+</article>
+
+  
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/post/cgo-attation/">CGO 注意事项</a>
+    </h1>
+    
+
+    <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      Tosone
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2018-09-12">
+      2018-09-12
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    
+
+    <div class="post-meta-category">
+        <a href="https://www.tosone.cn/categories/develop/"> Develop </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+  </header>
+  
+  <div class="post-content">
+    
+      <div class="post-summary">
+        <p>Golang 和 C 之间相互调用存在一些局限性。</p>
+      </div>
+      <div class="read-more">
+        <a href="/post/cgo-attation/" class="read-more-link"
+          >Read more</a
+        >
+      </div>
     
   </div>
 </article>
@@ -659,10 +917,6 @@ It groups containers that make up an application into logical units for easy man
         <a href="/page/3/">3</a>
       </li>
       
-      <li >
-        <a href="/page/4/">4</a>
-      </li>
-      
     </ul>
   </nav>
 
@@ -673,12 +927,11 @@ It groups containers that make up an application into logical units for easy man
 
 
 
-        </div>
-      </div>
-    </main>
 
-    <footer id="footer" class="footer">
-      <div class="icon-links">
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
   
   
     <a href="mailto:i@tosone.cn" rel="me noopener" class="iconfont"
@@ -723,7 +976,7 @@ It groups containers that make up an application into logical units for easy man
 </svg>
 
   </a>
-   
+  
 </div>
 
 <div class="copyright">
@@ -739,7 +992,7 @@ It groups containers that make up an application into logical units for easy man
     &copy;
     
       2016 -
-    2022
+    2023
     <span class="heart">
       
       <i class="iconfont">
@@ -766,28 +1019,30 @@ It groups containers that make up an application into logical units for easy man
   
 </div>
 
-    </footer>
+      </footer>
 
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont">
-        
-        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
   width="35" height="35">
   <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
 </svg>
 
-      </i>
+          </i>
+        </a>
+      </div>
     </div>
-  </div>
-  
+    
 <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
   <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
 
 
 
 
-<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/js/main.7ff59b24025d489ceb666162d032f75d8fd97bae075fb93dff40fe6e2a1f2aac.js" integrity="sha256-f/WbJAJdSJzrZmFi0DL3XY/Ze64HX7k9/0D&#43;biofKqw=" crossorigin="anonymous"></script>
 
 
 
@@ -801,7 +1056,6 @@ It groups containers that make up an application into logical units for easy man
 
 
   
-    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
     <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
     <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
   
@@ -820,5 +1074,7 @@ It groups containers that make up an application into logical units for easy man
 
 
 
-</body>
+
+
+  </body>
 </html>

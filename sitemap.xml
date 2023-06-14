@@ -93,20 +93,6 @@
   </url>
   
   <url>
-    <loc>https://www.tosone.cn/post/ss-nginx/</loc>
-    <lastmod>2019-10-23T19:38:03+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.tosone.cn/tags/shadowsocks/</loc>
-    <lastmod>2019-10-23T19:38:03+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://www.tosone.cn/tags/leetcode/</loc>
     <lastmod>2019-07-20T12:47:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -310,20 +296,6 @@
   </url>
   
   <url>
-    <loc>https://www.tosone.cn/categories/artical/</loc>
-    <lastmod>2017-05-05T12:48:41+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.tosone.cn/post/shadowsocks-ppt/</loc>
-    <lastmod>2017-05-05T12:48:41+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://www.tosone.cn/post/feature-branch/</loc>
     <lastmod>2017-04-22T14:23:31+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -424,13 +396,6 @@
   <url>
     <loc>https://www.tosone.cn/post/live-nginx/</loc>
     <lastmod>2017-02-24T21:45:11+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.tosone.cn/post/shadowsocks/</loc>
-    <lastmod>2017-02-24T15:14:28+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

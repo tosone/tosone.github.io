@@ -37,15 +37,6 @@
     </item>
     
     <item>
-      <title>High available shadowsocks</title>
-      <link>https://www.tosone.cn/post/ss-nginx/</link>
-      <pubDate>Wed, 23 Oct 2019 19:38:03 +0800</pubDate>
-      
-      <guid>https://www.tosone.cn/post/ss-nginx/</guid>
-      <description>&lt;p&gt;我们都知道国内总有一些 404 的网站，但是某些有技术的人总能访问到一些不存在的网站，这个在之前的文章中有说，有这&lt;a href=&#34;https://tosone.cn/post/shadowsocks-ppt/&#34;&gt;一篇&lt;/a&gt;，也有这&lt;a href=&#34;https://tosone.cn/post/shadowsocks/&#34;&gt;一篇&lt;/a&gt;，但是每到一些关键节日，某些技术比较不是特别强的人只能等比较严格的网络封锁过去之后才能再去访问那些网站，但是有没有一种永远可用特别高级的方式呢？答案是有的。快看！&lt;/p&gt;</description>
-    </item>
-    
-    <item>
       <title>LeetCode C/C&#43;&#43;</title>
       <link>https://www.tosone.cn/post/leetcode-c-c&#43;&#43;/</link>
       <pubDate>Sat, 20 Jul 2019 12:47:23 +0800</pubDate>
@@ -190,12 +181,21 @@ It groups containers that make up an application into logical units for easy man
     </item>
     
     <item>
-      <title>如何才能看到不该看到的东西</title>
-      <link>https://www.tosone.cn/post/shadowsocks-ppt/</link>
-      <pubDate>Fri, 05 May 2017 12:48:41 +0000</pubDate>
+      <title>Feature Branch Workflow 实践</title>
+      <link>https://www.tosone.cn/post/feature-branch/</link>
+      <pubDate>Sat, 22 Apr 2017 14:23:31 +0000</pubDate>
       
-      <guid>https://www.tosone.cn/post/shadowsocks-ppt/</guid>
-      <description>&lt;p&gt;有人不想让我们看见一些东西。&lt;/p&gt;</description>
+      <guid>https://www.tosone.cn/post/feature-branch/</guid>
+      <description>&lt;p&gt;这只是一份关于 Feature Branch Workflow 实践的建议。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Generate SSH key and GPG key</title>
+      <link>https://www.tosone.cn/post/ssh-gpg-keys/</link>
+      <pubDate>Sat, 22 Apr 2017 13:16:42 +0000</pubDate>
+      
+      <guid>https://www.tosone.cn/post/ssh-gpg-keys/</guid>
+      <description>&lt;p&gt;2012年3月4号，GitHub 的&lt;a href=&#34;https://github.com/blog/1068-public-key-security-vulnerability-and-mitigationhttp://&#34;&gt;公钥安全漏洞&lt;/a&gt;被一个叫 Egor Homakov 的俄国人利用了。这个漏洞允许他向 GitHub 上的 Ruby on Rails 框架的主分支上提交代码。&lt;a href=&#34;http://www.oschina.net/translate/git-horror-story&#34;&gt;Git 使用中的教训：签名提交确保代码完整可信&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>

@@ -17,15 +17,6 @@
     </item>
     
     <item>
-      <title>High available shadowsocks</title>
-      <link>https://www.tosone.cn/post/ss-nginx/</link>
-      <pubDate>Wed, 23 Oct 2019 19:38:03 +0800</pubDate>
-      
-      <guid>https://www.tosone.cn/post/ss-nginx/</guid>
-      <description>&lt;p&gt;我们都知道国内总有一些 404 的网站，但是某些有技术的人总能访问到一些不存在的网站，这个在之前的文章中有说，有这&lt;a href=&#34;https://tosone.cn/post/shadowsocks-ppt/&#34;&gt;一篇&lt;/a&gt;，也有这&lt;a href=&#34;https://tosone.cn/post/shadowsocks/&#34;&gt;一篇&lt;/a&gt;，但是每到一些关键节日，某些技术比较不是特别强的人只能等比较严格的网络封锁过去之后才能再去访问那些网站，但是有没有一种永远可用特别高级的方式呢？答案是有的。快看！&lt;/p&gt;</description>
-    </item>
-    
-    <item>
       <title>CoreOS 初始化配置</title>
       <link>https://www.tosone.cn/post/coreos-init/</link>
       <pubDate>Fri, 26 Apr 2019 10:38:24 +0000</pubDate>
@@ -70,15 +61,6 @@
       
       <guid>https://www.tosone.cn/post/golang-auto-build-versioning/</guid>
       <description>&lt;p&gt;We needed a version number to find whether the binary was from yesterday or today’s source. Then we decided that for all our golang applications we should have a way to find out the version number, so that we can always query and find out which version it is, there by which source is running.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>优雅的翻墙</title>
-      <link>https://www.tosone.cn/post/shadowsocks/</link>
-      <pubDate>Fri, 24 Feb 2017 15:14:28 +0000</pubDate>
-      
-      <guid>https://www.tosone.cn/post/shadowsocks/</guid>
-      <description>&lt;p&gt;Long long ago, 在一个叫 v2ex 的地方，有一位叫做 clowwindy 的用户。他为了避免网络流量分类技术和 ssh tunnel 的低效，自己写了一个用于加密流量的协议，并自用了一年多. 后来，由于这个协议非常高效，而且使用json 作为配置文件，配置起来非常方便，所以迅速赢得了很多用户，并在 v2ex 上有了一个专属的节点。shadowsocks 迅速被移植到各种平台、各种语言，用户也急剧上升，并且有了专门经营 shadowsocks 服务的商家。&lt;/p&gt;</description>
     </item>
     
   </channel>
