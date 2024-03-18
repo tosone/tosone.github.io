@@ -3,7 +3,7 @@ html {
 }
 
 body {
-  font: 16px 'Microsoft YaHei', 'Verdana Helvetica', arial, sans-serif;
+  font: 16px "Microsoft YaHei", "Verdana Helvetica", arial, sans-serif;
   color: #333;
   background-color: #fff;
   margin: 0;
@@ -13,12 +13,12 @@ body {
 
 a {
   text-decoration: none;
-  color: #3C6BB3;
+  color: #3c6bb3;
 }
 
 a:hover {
   text-decoration: underline;
-  color: #4B75B7;
+  color: #4b75b7;
 }
 
 .download {
@@ -67,13 +67,14 @@ projectname a {
 
 description,
 intro {
-  margin-top: .8em;
+  margin-top: 0.8em;
   display: block;
   margin-left: 0em;
 }
 
 intro {
   margin-left: 0em;
+  line-height: 1.8;
 }
 
 section {

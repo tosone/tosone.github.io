@@ -44,10 +44,10 @@
         <p>平台: Windows, Linux, Darwin.</p>
       </li>
       <li>
-        <p>开发工具: Git, Linux Bash, Julia.</p>
+        <p>开发工具: Git, Linux Bash.</p>
       </li>
       <li>
-        <p>数据库: MongoDB, SQLite, MySQL, Postgresql, Redis.</p>
+        <p>数据库: MongoDB, SQLite, MySQL, PostgreSQL, Redis.</p>
       </li>
       <li>
         <p class="skill">技能: React 的开发非常熟悉。对 NodeJs 和 NodeJs binding C++ 的混合编程非常熟悉。对 Golang 有深入的研究，对 Golang 和 C
@@ -61,7 +61,22 @@
     <ul>
       <li>
         <p>
-          <coopname><a href="http://www.smartconn.cc" title="恒胜东阳科技" target="_blank">恒胜东阳科技</a> ( 2016.3 - 今 )
+          <coopname><a href="https://www.bytedance.com/zh/" title="字节跳动" target="_blank">字节跳动</a> ( 2019.6 - 今 )
+          </coopname>
+          <description>
+            2019.6 - 2021.3 xx 项目，基于 kubernetes 和 systemd 管理虚拟机应用，实现文件系统和资源的管理，并且基于 buildpack 对虚拟机应用进行打包，并且将打包结果推送到镜像仓库，虚拟机启动器将打包结果的指定层拉取到虚拟机，并将应用所需的运行时环境部署好，从而将应用启动起来，实现完整的应用监控，健康检查，调试等功能。
+          </description>
+          <description>
+            2021.3 - 今 xx 项目，基于 harbor 实现镜像的管理，在 harbor 的基础之上实现镜像的不同环境之间的分发，镜像构建等功能，并且实现其中基于租户，标签的权限规则等特性。除此之外，还有虚拟机应用的应用包管理完全对标 harbor 整体的管理方式，并且参考 docker registry 管理 blob 的方式实现了“断点续传”的服务，可以实现没有引用的 blob 自动 gc，并且在多个项目中复用。
+          </description>
+          <description>
+            2023.11 - 今 LLM 项目，从 0 开始做知识库相关所有特性的开发，包括文本切分，PDF 文字提取，PDF 分块提取文字并且可以通过返回坐标在 PDF 中标识大模型的引用位置。实现 PDF 中图片和纯图片的 OCR 并且上传至知识库，知识库对接大模型做 embedding，并将 embedding 结果存入 milvus，对外提供 query 接口，实现语义搜索，除此之外还结合 ES 实现了混合搜索，并对搜索结果做 reranker。另外还部署了 <a href="https://github.com/tosone/sentence_transformers_server">bge-large-zh-1.5</a> 和 <a href="https://github.com/tosone/bge-m3-server">bge-m3</a> 作为内置的 embedding 模型。
+          </description>
+        </p>
+      </li>
+      <li>
+        <p>
+          <coopname><a href="http://www.smartconn.cc" title="恒胜东阳科技" target="_blank">恒胜东阳科技</a> ( 2016.3 - 2019.3 )
           </coopname>
           <description>
             2016.3 - 2016.10 主要工作是基于 NodeJs 和 AngularJs 做的一个类似于 APP
@@ -97,16 +112,23 @@
     <ul>
       <li>
         <p>
+          <projectname><a href="https://github.com/go-sigma/sigma.git" title="sigma" target="_blank">sigma</a>
+          </projectname>
+          <intro>
+            完整自主实现了 <a href="https://github.com/opencontainers/distribution-spec/tree/v1.1.0">distribution-spec 1.1</a> 的所有 API，目标是和 harbor 一样好用，和 distribution 一样容易维护和部署。支持多架构镜像的管理，支持多种 OCI 的客户端，支持各种层级的资源容量管理，支持对接第三方 OAuth2 的登录，更加方便的拉取 GitHub 的代码仓库从而更容易构建代码仓库中的代码，支持 webhook，支持多种资源的和多种策略的 GC，支持仓库代理模式。
+          </intro>
+        </p>
+        <p>
           <projectname><a href="https://github.com/tosone/minimp3.git" title="minimp3" target="_blank">minimp3</a>
           </projectname>
-          <intro>利用 Golang 的 CGO 和 C 的混合编程实现的 MP3 的数据流式解码，并且可以让网络音频的实时下载解码播放变的非常容易。并且已经被收录到 <a
+          <intro>
+            利用 Golang 的 CGO 和 C 的混合编程实现的 MP3 的数据流式解码，并且可以让网络音频的实时下载解码播放变的非常容易。并且已经被收录到 <a
               href="https://awesome-go.com/#audio-and-music" title="Awesome go">Awesome go</a> 的 Audio and Music
             中。并且解码器是多线程安全的，已经有 99% 的测试覆盖。
           </intro>
         </p>
       </li>
-
-      <li>
+      <!-- <li>
         <p>
           <projectname><a href="https://github.com/EffDataAly/GithubTraveler" title="GithubTraveler"
               target="_blank">GithubTraveler</a>
@@ -114,8 +136,8 @@
           <intro>利用 Golang 实现的 Github 的 user, followers, followings, repo, repo stars, repo watchers
             等等的实时监控，并且包括实时的数据展示等。</intro>
         </p>
-      </li>
-      <li>
+      </li> -->
+      <!-- <li>
         <p>
           <projectname><a href="https://github.com/tosone/panx" title="panx" target="_blank">panx</a>
           </projectname>
@@ -151,9 +173,7 @@
             等实现的
             Github API 的访问和仓库信息的获取。</intro>
         </p>
-      </li>
-
-
+      </li> -->
       <!-- <li>
         <p>
           <projectname><a href="https://github.com/tosone/socket-cluster-c" title="socket-cluster-c"
