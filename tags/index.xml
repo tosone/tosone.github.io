@@ -6,24 +6,21 @@
     <description>Recent content in Tags on Tosone&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 31 Dec 2016 15:14:28 +0000</lastBuildDate><atom:link href="https://www.tosone.cn/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 31 Dec 2016 15:14:28 +0000</lastBuildDate>
+    <atom:link href="https://www.tosone.cn/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Lua</title>
       <link>https://www.tosone.cn/tags/lua/</link>
       <pubDate>Sat, 31 Dec 2016 15:14:28 +0000</pubDate>
-      
       <guid>https://www.tosone.cn/tags/lua/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Luajit</title>
       <link>https://www.tosone.cn/tags/luajit/</link>
       <pubDate>Sat, 31 Dec 2016 15:14:28 +0000</pubDate>
-      
       <guid>https://www.tosone.cn/tags/luajit/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>
